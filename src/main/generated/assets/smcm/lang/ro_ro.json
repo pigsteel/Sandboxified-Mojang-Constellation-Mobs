@@ -1,0 +1,19 @@
+{
+  "entity.smcm.bruiser": "Vânător",
+  "entity.smcm.enchanter": "Vrăjitor",
+  "entity.smcm.frostbitten": "Degerat",
+  "entity.smcm.reclaimed": "Revendicat",
+  "item.smcm.bruiser_spawn_egg": "Ou generator de vânător",
+  "item.smcm.enchanter_spawn_egg": "Ou generator de vrăjitor",
+  "item.smcm.frostbitten_spawn_egg": "Ou generator de degerat",
+  "item.smcm.reclaimed_spawn_egg": "Ou generator de revendicat",
+  "subtitles.smcm.entity.enchanter.ambient": "Vrăjitorul gâlgâie",
+  "subtitles.smcm.entity.enchanter.death": "Vrăjitorul este rănit",
+  "subtitles.smcm.entity.enchanter.hurt": "Vrăjitorul moare",
+  "subtitles.smcm.entity.frostbitten.ambient": "Degeratul geme",
+  "subtitles.smcm.entity.frostbitten.death": "Degeratul este rănit",
+  "subtitles.smcm.entity.frostbitten.hurt": "Degeratul moare",
+  "subtitles.smcm.entity.reclaimed.ambient": "Revendicatul geme",
+  "subtitles.smcm.entity.reclaimed.death": "Revendicatul este rănit",
+  "subtitles.smcm.entity.reclaimed.hurt": "Revendicatul moare"
+}

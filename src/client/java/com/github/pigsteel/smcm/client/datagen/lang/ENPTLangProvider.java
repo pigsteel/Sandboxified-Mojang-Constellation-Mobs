@@ -8,16 +8,16 @@ import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ENUSLangProvider extends FabricLanguageProvider {
-    private final String TankIllagerName = "Bruiser";
-    private final String EnchanterName = "Enchanter";
-    private final String FrozenZombieName = "Frostbitten";
-    private final String JungleZombieName = "Reclaimed";
-    private final String DiesVerb = " dies";
+public class ENPTLangProvider extends FabricLanguageProvider {
+    private final String TankIllagerName = "Squire";
+    private final String EnchanterName = "Hexcaster";
+    private final String FrozenZombieName = "Frozen sailor";
+    private final String JungleZombieName = "Landlocked sailor";
+    private final String DiesVerb = " perishes";
     private final String HurtsVerb = " hurts";
 
-    public ENUSLangProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(packOutput, "en_us", registryLookup);
+    public ENPTLangProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(packOutput, "en_pt", registryLookup);
     }
 
     @Override
@@ -46,6 +46,6 @@ public class ENUSLangProvider extends FabricLanguageProvider {
     }
 
     private String eggName(String name) { // GENITIVE!
-        return name + " Spawn Egg";
+        return name + " cackle fruit";
     }
 }

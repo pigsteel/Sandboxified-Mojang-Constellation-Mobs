@@ -8,16 +8,18 @@ import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ENUSLangProvider extends FabricLanguageProvider {
-    private final String TankIllagerName = "Bruiser";
-    private final String EnchanterName = "Enchanter";
-    private final String FrozenZombieName = "Frostbitten";
-    private final String JungleZombieName = "Reclaimed";
-    private final String DiesVerb = " dies";
-    private final String HurtsVerb = " hurts";
+import static com.github.pigsteel.smcm.client.datagen.lang.LangUtils.s;
 
-    public ENUSLangProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(packOutput, "en_us", registryLookup);
+public class DEDELangProvider extends FabricLanguageProvider {
+    private final String TankIllagerName = "Hart-Schläger";
+    private final String EnchanterName = "Zauberer";
+    private final String FrozenZombieName = "Erfroren";
+    private final String JungleZombieName = "Begrünten";
+    private final String DiesVerb = " stirbt";
+    private final String HurtsVerb = " nimmt Schaden";
+
+    public DEDELangProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(packOutput, "de_de", registryLookup);
     }
 
     @Override
@@ -27,25 +29,25 @@ public class ENUSLangProvider extends FabricLanguageProvider {
         translationBuilder.add(EntityTypeRegistry.FROSTBITTEN, FrozenZombieName);
         translationBuilder.add(EntityTypeRegistry.RECLAIMED, JungleZombieName);
 
-        translationBuilder.add(ItemRegistry.BRUISER_SPAWN_EGG, eggName(TankIllagerName));
-        translationBuilder.add(ItemRegistry.ENCHANTER_SPAWN_EGG, eggName(EnchanterName));
-        translationBuilder.add(ItemRegistry.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName));
-        translationBuilder.add(ItemRegistry.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName));
+        translationBuilder.add(ItemRegistry.BRUISER_SPAWN_EGG, eggName("Hart-Schläger")); // Special genitive!
+        translationBuilder.add(ItemRegistry.ENCHANTER_SPAWN_EGG, eggName("Zauberer"));
+        translationBuilder.add(ItemRegistry.FROSTBITTEN_SPAWN_EGG, eggName("Erfrorenen"));
+        translationBuilder.add(ItemRegistry.RECLAIMED_SPAWN_EGG, eggName("Begrünten"));
 
-        translationBuilder.add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName + " moans");
+        translationBuilder.add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName + " stöhnt");
         translationBuilder.add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName + HurtsVerb);
         translationBuilder.add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName + DiesVerb);
 
-        translationBuilder.add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName + " groans");
+        translationBuilder.add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName + " stöhnt");
         translationBuilder.add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName + HurtsVerb);
         translationBuilder.add("subtitles.smcm.entity.reclaimed.death", JungleZombieName + DiesVerb);
 
-        translationBuilder.add("subtitles.smcm.entity.enchanter.ambient", EnchanterName + " burbles");
+        translationBuilder.add("subtitles.smcm.entity.enchanter.ambient", EnchanterName + " plappert");
         translationBuilder.add("subtitles.smcm.entity.enchanter.hurt", EnchanterName + HurtsVerb);
         translationBuilder.add("subtitles.smcm.entity.enchanter.death", EnchanterName + DiesVerb);
     }
 
     private String eggName(String name) { // GENITIVE!
-        return name + " Spawn Egg";
+        return name + "-Spawn-Ei";
     }
 }

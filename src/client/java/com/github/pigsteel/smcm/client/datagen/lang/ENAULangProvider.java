@@ -8,7 +8,7 @@ import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ENUSLangProvider extends FabricLanguageProvider {
+public class ENAULangProvider extends FabricLanguageProvider {
     private final String TankIllagerName = "Bruiser";
     private final String EnchanterName = "Enchanter";
     private final String FrozenZombieName = "Frostbitten";
@@ -16,8 +16,8 @@ public class ENUSLangProvider extends FabricLanguageProvider {
     private final String DiesVerb = " dies";
     private final String HurtsVerb = " hurts";
 
-    public ENUSLangProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(packOutput, "en_us", registryLookup);
+    public ENAULangProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(packOutput, "en_au", registryLookup);
     }
 
     @Override

@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "smcm:bruiser"
+    "smcm:bruiser",
+    "smcm:enchanter",
+    "smcm:iceologer",
+    "smcm:mountaineer",
+    "smcm:windcaller"
   ]
 }

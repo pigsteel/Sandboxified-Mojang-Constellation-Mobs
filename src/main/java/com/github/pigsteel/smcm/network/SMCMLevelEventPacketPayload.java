@@ -1,0 +1,47 @@
+package com.github.pigsteel.smcm.network;
+
+import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+//? fabric {
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+//?}
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.Identifier;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+
+public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements CustomPacketPayload {
+	public static final Identifier SMCM_EVENT_PAYLOAD_ID = SMCM.id("level_event");
+
+	public static final CustomPacketPayload.Type<SMCMLevelEventPacketPayload> TYPE = new CustomPacketPayload.Type<>(SMCM_EVENT_PAYLOAD_ID);
+
+	public static final StreamCodec<RegistryFriendlyByteBuf, SMCMLevelEventPacketPayload> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT, SMCMLevelEventPacketPayload::event, BlockPos.STREAM_CODEC, SMCMLevelEventPacketPayload::pos, SMCMLevelEventPacketPayload::new);
+
+	@Override
+	public Type<? extends CustomPacketPayload> type() {
+		return TYPE;
+	}
+
+	//? fabric {
+	public static void handle(SMCMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
+		ClientLevel level = context.client().level;
+
+		if (level == null) {
+			return;
+		}
+
+		BlockPos pos = payload.pos();
+		RandomSource random = level.getRandom();
+
+		switch(payload.event()) {
+			case(1001):
+				level.playLocalSound(pos, smcm$SoundEvents.ZOMBIE_CONVERTED_TO_FROSTBITTEN.get(), SoundSource.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F, false);
+		}
+	}
+	//?}
+}

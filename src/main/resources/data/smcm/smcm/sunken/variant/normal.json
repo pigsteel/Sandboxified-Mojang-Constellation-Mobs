@@ -1,0 +1,9 @@
+{
+  "asset_id": "smcm:entity/skeleton/sunken/sunken",
+  "dead_coral_asset_id": "smcm:entity/skeleton/sunken/null",
+  "spawn_conditions": [
+    {
+      "priority": 0
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "smcm:frostbitten"
+    "smcm:frostbitten",
+    "smcm:sunken",
+    "smcm:lost"
   ]
 }

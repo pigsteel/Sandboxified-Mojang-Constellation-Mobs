@@ -1,0 +1,22 @@
+{
+  "values": {
+    "smcm:frostbitten": {
+      "sound": "smcm:entity.parrot.imitate.frostbitten"
+    },
+    "smcm:reclaimed": {
+      "sound": "smcm:entity.parrot.imitate.reclaimed"
+    },
+    "smcm:enchanter": {
+      "sound": "smcm:entity.parrot.imitate.enchanter"
+    },
+    "smcm:necromancer": {
+      "sound": "smcm:entity.parrot.imitate.necromancer"
+    },
+    "smcm:lost": {
+      "sound": "smcm:entity.parrot.imitate.lost"
+    },
+    "smcm:sunken": {
+      "sound": "smcm:entity.parrot.imitate.sunken"
+    }
+  }
+}

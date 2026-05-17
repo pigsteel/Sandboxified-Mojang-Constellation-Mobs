@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "smcm:reclaimed",
-    "smcm:frostbitten"
+    "smcm:frostbitten",
+    "smcm:zombified_piglin_brute"
   ]
 }

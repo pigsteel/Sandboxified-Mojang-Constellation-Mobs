@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "smcm:item/windcaller_spawn_egg"
+  }
+}

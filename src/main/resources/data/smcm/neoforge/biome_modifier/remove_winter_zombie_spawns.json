@@ -1,0 +1,11 @@
+{
+  "type": "neoforge:remove_spawns",
+  "biomes": [
+    "minecraft:ice_spikes",
+    "minecraft:snowy_plains",
+    "minecraft:jagged_peaks",
+    "minecraft:frozen_peaks",
+    "minecraft:snowy_taiga"
+  ],
+  "entity_types": "minecraft:zombie"
+}

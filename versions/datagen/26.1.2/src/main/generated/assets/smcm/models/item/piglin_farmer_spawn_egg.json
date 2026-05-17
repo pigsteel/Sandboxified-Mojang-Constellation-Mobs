@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "smcm:item/piglin_farmer_spawn_egg"
+  }
+}

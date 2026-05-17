@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "smcm:bruiser",
+    "smcm:enchanter",
+    "smcm:iceologer",
+    "smcm:windcaller",
+    "smcm:mountaineer",
+    "smcm:redstone_golem",
+    "smcm:viler_witch"
+  ]
+}

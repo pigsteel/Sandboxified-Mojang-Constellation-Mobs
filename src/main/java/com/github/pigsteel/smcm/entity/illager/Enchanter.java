@@ -20,7 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
 
-public class Enchanter extends AbstractIllager {
+public class Enchanter extends AbstractIllager { // Instead of spellcasting Illager, I'm going to make Enchanter be Abstract and implement my own functionality
     public Enchanter(EntityType<? extends Enchanter> type, Level level) {
         super(type, level);
     }
@@ -68,8 +68,10 @@ public class Enchanter extends AbstractIllager {
         this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 8.0F));
     }
 
+    /*
     @Override
     public AbstractIllager.IllagerArmPose getArmPose() {
-        return IllagerArmPose.CROSSED;
+        return IllagerArmPose.SPELLCASTING;
     }
+    */
 }

@@ -18,6 +18,7 @@ import net.minecraft.client.model.geom.builders.MeshTransformer;
 import net.minecraft.client.model.monster.illager.IllagerModel;
 import net.minecraft.client.model.monster.piglin.AbstractPiglinModel;
 import net.minecraft.client.model.monster.piglin.PiglinModel;
+import net.minecraft.client.model.monster.skeleton.SkeletonModel;
 import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 
@@ -63,6 +64,8 @@ public class LayerDefinitions {
         ModelLayerRegistry.registerModelLayer(ModelLayers.FROSTBITTEN_BABY_OUTER_LAYER, () -> BabyFrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
         ModelLayerRegistry.registerModelLayer(ModelLayers.BRUISER, () -> IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(1.0625F)));
         ModelLayerRegistry.registerModelLayer(ModelLayers.ENCHANTER, () -> EnchanterModel.createBodyLayer().apply(MeshTransformer.scaling(0.9375F)));
+        ModelLayerRegistry.registerModelLayer(ModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
+        registerArmorLayers(ModelLayers.SUNKEN_ARMOR, humanoidArmor);
     }
 
     public static void registerArmorLayers(final ArmorModelSet<ModelLayerLocation> location, ArmorModelSet<LayerDefinition> modelSet) {

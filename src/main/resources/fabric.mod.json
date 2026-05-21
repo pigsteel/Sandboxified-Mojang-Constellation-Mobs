@@ -27,6 +27,7 @@
       "environment": "client"
     }
   ],
+  "accessWidener": "smcm.classtweaker",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",

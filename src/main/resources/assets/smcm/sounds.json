@@ -59,6 +59,22 @@
       "smcm:entity/reclaimed/step5"
     ]
   },
+  "entity.reclaimed.shear": {
+    "subtitle": "subtitles.item.shears.shear",
+    "sounds": [
+      "minecraft:mob/sheep/shear"
+    ]
+  },
+  "entity.reclaimed.bone_meal": {
+    "subtitle": "subtitles.item.bone_meal.use",
+    "sounds": [
+      "minecraft:item/bonemeal/bonemeal1",
+      "minecraft:item/bonemeal/bonemeal2",
+      "minecraft:item/bonemeal/bonemeal3",
+      "minecraft:item/bonemeal/bonemeal4",
+      "minecraft:item/bonemeal/bonemeal5"
+    ]
+  },
   "entity.enchanter.ambient": {
     "subtitle": "subtitles.smcm.entity.enchanter.ambient",
     "sounds": [
@@ -81,6 +97,28 @@
       "smcm:entity/enchanter/death1",
       "smcm:entity/enchanter/death2",
       "smcm:entity/enchanter/death3"
+    ]
+  },
+  "entity.parrot.imitate.frostbitten": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.frostbitten",
+    "sounds": [
+      {
+        "name": "smcm:entity.frostbitten.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.parrot.imitate.reclaimed": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.reclaimed",
+    "sounds": [
+      {
+        "name": "smcm:entity.reclaimed.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
     ]
   }
 }

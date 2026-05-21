@@ -1,5 +1,6 @@
 package com.github.pigsteel.smcm.client.model.monster.zombie;
 
+import com.github.pigsteel.smcm.client.renderer.entity.state.ReclaimedRenderState;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -8,7 +9,7 @@ import net.minecraft.client.model.monster.zombie.DrownedModel;
 import net.minecraft.client.model.monster.zombie.ZombieModel;
 import net.minecraft.client.renderer.entity.state.ZombieRenderState;
 
-public class ReclaimedModel extends ZombieModel<ZombieRenderState> {
+public class ReclaimedModel extends ZombieModel<ReclaimedRenderState> {
 
     public ReclaimedModel(ModelPart root) {
         super(root);

@@ -120,7 +120,8 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
             Projectile.spawnProjectile(
                     new Snowball(serverLevel, this, itemStack), serverLevel, itemStack, projectile -> projectile.shoot(xd, yd + yo - projectile.getY(), zd, 1.6F, 2.0F)
             );
-            this.snowballCooldownTime = SNOWBALL_COOLDOWN;
+            float difficulty = ((ServerLevel)this.level()).getCurrentDifficultyAt(this.blockPosition()).getEffectiveDifficulty();
+            this.snowballCooldownTime = (int)(SNOWBALL_COOLDOWN - 5.0F * difficulty);
         }
 
         this.playSound(SoundEvents.SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -140,6 +141,7 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
     public void onEquipItem(final EquipmentSlot slot, final ItemStack oldStack, final ItemStack stack) {
         super.onEquipItem(slot, oldStack, stack);
         if (!this.level().isClientSide()) {
+            if (this.getMainHandItem().is(Items.SNOWBALL)) return;
             this.reassessWeaponGoal();
         }
     }
@@ -163,14 +165,16 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         boolean result = super.doHurtTarget(level, target);
         if (result && this.getMainHandItem().isEmpty() && target instanceof LivingEntity) {
             float difficulty = level.getCurrentDifficultyAt(this.blockPosition()).getEffectiveDifficulty();
-            ((LivingEntity)target).addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 140 * (int)difficulty), this);
+            //((LivingEntity)target).addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 140 * (int)difficulty), this);
+            var living = (LivingEntity)target;
+            living.setTicksFrozen(living.getTicksFrozen() + 140 * (int)difficulty);
         }
 
         return result;
     }
 
-    public static boolean IsTargetSlowed(LivingEntity target) { // credit to OfficePigeon for this and the next function
-        return target != null && (target.hasEffect(MobEffects.SLOWNESS) || target.isInPowderSnow || target.wasInPowderSnow);
+    public static boolean IsTargetSlowed(LivingEntity target) {
+        return target != null && (target.hasEffect(MobEffects.SLOWNESS) || target.isFreezing() || target.isInPowderSnow || target.wasInPowderSnow);
     }
 
     @Override
@@ -196,6 +200,26 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         public FrostbittenThrowSnowballGoal(Frostbitten frostbitten, double mobSpeed, int intervalTicks, float maxShootRange) {
             super(frostbitten, mobSpeed, intervalTicks, maxShootRange);
             this.frostbitten = frostbitten;
+        }
+
+        @Override
+        public void start() {
+            super.start();
+
+            this.frostbitten.setItemSlot(
+                    EquipmentSlot.MAINHAND,
+                    new ItemStack(Items.SNOWBALL)
+            );
+        }
+
+        @Override
+        public void stop() {
+            super.stop();
+
+            this.frostbitten.setItemSlot(
+                    EquipmentSlot.MAINHAND,
+                    ItemStack.EMPTY
+            );
         }
 
         @Override public boolean canUse() { return super.canUse() && this.frostbitten.getTarget() != null && !IsTargetSlowed(this.frostbitten.getTarget()) && this.frostbitten.distanceTo(this.frostbitten.getTarget()) > 3.0F && this.frostbitten.snowballCooldownTime == 0; }

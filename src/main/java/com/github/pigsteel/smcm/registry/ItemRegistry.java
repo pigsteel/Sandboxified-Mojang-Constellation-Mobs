@@ -1,16 +1,17 @@
 package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.entity.zombie.Reclaimed;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Function;
 
@@ -54,10 +55,9 @@ public class ItemRegistry {
     }
 
     public static void initialize() {
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(creativeTab -> {
-            creativeTab.accept(RECLAIMED_SPAWN_EGG);
-            creativeTab.accept(FROSTBITTEN_SPAWN_EGG);
-            creativeTab.accept(ENCHANTER_SPAWN_EGG);
-        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(output -> {
+            output.insertAfter(Items.CAMEL_HUSK_SPAWN_EGG, new ItemStack(FROSTBITTEN_SPAWN_EGG));
+            output.insertAfter(Items.HUSK_SPAWN_EGG, new ItemStack(RECLAIMED_SPAWN_EGG));
+        }); // enchanter egg will be removed for now as entity is functionless
     }
 }

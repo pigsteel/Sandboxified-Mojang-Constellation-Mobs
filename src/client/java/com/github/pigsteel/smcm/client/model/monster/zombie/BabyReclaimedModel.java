@@ -11,6 +11,6 @@ public class BabyReclaimedModel extends ReclaimedModel {
     }
 
     public static LayerDefinition createBodyLayer(final CubeDeformation g) {
-        return BabyZombieModel.createBodyLayer(g);
+        return BabyZombieModel.createBodyLayer(g); // remember to add little flower on baby reclaimed head
     }
 }

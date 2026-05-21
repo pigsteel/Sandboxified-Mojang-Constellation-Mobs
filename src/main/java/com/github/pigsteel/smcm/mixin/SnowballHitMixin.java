@@ -29,7 +29,7 @@ public abstract class SnowballHitMixin extends Projectile {
     }
 
     @Inject(method = "onHitEntity", at = @At("TAIL"))
-    private void applySlowness(EntityHitResult hitResult, CallbackInfo ci) {
+    private void smcm$applyFrostbittenSnowballEffect(EntityHitResult hitResult, CallbackInfo ci) {
         Entity entity = hitResult.getEntity();
 
         if (!(entity instanceof LivingEntity living)) return;
@@ -38,7 +38,8 @@ public abstract class SnowballHitMixin extends Projectile {
 
         if (owner instanceof Frostbitten && entity.level() instanceof ServerLevel serverLevel) {
             float difficulty = serverLevel.getCurrentDifficultyAt(this.getOwner().blockPosition()).getEffectiveDifficulty();
-            living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 140 * (int)difficulty), (Entity)this);
+            //living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 140 * (int)difficulty), (Entity)this);
+            living.setTicksFrozen(living.getTicksFrozen() + 270 + (int)(20 * difficulty));
             entity.hurt(this.damageSources().thrown(this, this.getOwner()), 1);
         }
     }

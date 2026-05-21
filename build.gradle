@@ -13,6 +13,8 @@ base {
 loom {
     splitEnvironmentSourceSets()
 
+    accessWidenerPath = file("src/main/resources/smcm.classtweaker")
+
     mods {
         "smcm" {
             sourceSet sourceSets.main

@@ -23,6 +23,8 @@ public class ModelLayers {
     public static final ArmorModelSet<ModelLayerLocation> FROSTBITTEN_BABY_ARMOR = registerArmorSet("frostbitten_baby");
     public static final ModelLayerLocation BRUISER = register("bruiser");
     public static final ModelLayerLocation ENCHANTER = register("enchanter");
+    public static final ModelLayerLocation SUNKEN = register("sunken");
+    public static final ArmorModelSet<ModelLayerLocation> SUNKEN_ARMOR = registerArmorSet("sunken");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

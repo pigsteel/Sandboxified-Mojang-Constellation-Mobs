@@ -1,0 +1,196 @@
+{
+  "type": "minecraft:shearing",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "cornflower"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/cornflower"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "dandelion"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/dandelion"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "poppy"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/poppy"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "blue_orchid"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/blue_orchid"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "allium"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/allium"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "azure_bluet"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/azure_bluet"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "oxeye_daisy"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/oxeye_daisy"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "lily_of_the_valley"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/lily_of_the_valley"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "red_tulip"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/red_tulip"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "orange_tulip"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/orange_tulip"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "white_tulip"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/white_tulip"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "components": {
+                      "smcm:reclaimed/head_flower": "pink_tulip"
+                    }
+                  }
+                }
+              ],
+              "value": "smcm:shearing/reclaimed/pink_tulip"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

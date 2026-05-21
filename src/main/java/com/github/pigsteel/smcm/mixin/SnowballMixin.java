@@ -38,7 +38,7 @@ public abstract class SnowballMixin extends Projectile {
             at = @At("STORE"),
             ordinal = 0
     )
-    private int modifyDamage(int original, EntityHitResult hitResult) {
+    private int smcm$modifyDamage(int original, EntityHitResult hitResult) {
         Entity entity = hitResult.getEntity();
 
         // original = 3 or 0 depending on Blaze check

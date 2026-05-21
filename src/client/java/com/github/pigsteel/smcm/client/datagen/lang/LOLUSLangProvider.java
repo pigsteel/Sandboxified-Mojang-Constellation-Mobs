@@ -9,10 +9,10 @@ import net.minecraft.core.HolderLookup;
 import java.util.concurrent.CompletableFuture;
 
 public class LOLUSLangProvider extends FabricLanguageProvider {
-    private final String TankIllagerName = "Broosor";
-    private final String EnchanterName = "Enkantr";
-    private final String FrozenZombieName = "Frosbidn";
-    private final String JungleZombieName = "Riclamed";
+    private final String TankIllagerName = "Brewsur";
+    private final String EnchanterName = "Enchentor";
+    private final String FrozenZombieName = "Frosbidin";
+    private final String JungleZombieName = "Recleimd";
     private final String DiesVerb = " ded";
     private final String HurtsVerb = " hurz";
 
@@ -40,9 +40,9 @@ public class LOLUSLangProvider extends FabricLanguageProvider {
         translationBuilder.add("subtitles.smcm.entity.reclaimed.hurt", "plant thang" + HurtsVerb);
         translationBuilder.add("subtitles.smcm.entity.reclaimed.death", "plant thang" + DiesVerb);
 
-        translationBuilder.add("subtitles.smcm.entity.enchanter.ambient",  "majik guy mumblz");
-        translationBuilder.add("subtitles.smcm.entity.enchanter.hurt", "majik guy" + HurtsVerb);
-        translationBuilder.add("subtitles.smcm.entity.enchanter.death", "majik guy gets rekt");
+        translationBuilder.add("subtitles.smcm.entity.enchanter.ambient",  "megic dood mumblz");
+        translationBuilder.add("subtitles.smcm.entity.enchanter.hurt", "megic dood" + HurtsVerb);
+        translationBuilder.add("subtitles.smcm.entity.enchanter.death", "megic dood gets rekt");
     }
 
     private String eggName(String name) { // GENITIVE!

@@ -7,11 +7,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Shearable;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -19,15 +22,18 @@ import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.animal.turtle.Turtle;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.illager.Pillager;
 import net.minecraft.world.entity.monster.skeleton.AbstractSkeleton;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shearable {
     private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW;
+    private final RangedCrossbowAttackGoal crossbowGoal = new RangedCrossbowAttackGoal(this, 1.0, 20);
 
     public Sunken(EntityType<? extends Sunken> type, final Level level) {
         super(type, level);
@@ -53,6 +59,35 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     }
 
     @Override
+    public void reassessWeaponGoal() {
+        if (this.level() != null && !this.level().isClientSide()) {
+            this.goalSelector.removeGoal(this.meleeGoal);
+            this.goalSelector.removeGoal(this.bowGoal);
+            this.goalSelector.removeGoal(this.crossbowGoal);
+            ItemStack usedWeapon = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new net.minecraft.world.item.Item[]{Items.BOW, Items.CROSSBOW}));
+            if (usedWeapon.is(Items.CROSSBOW)) {
+                this.goalSelector.addGoal(4, this.crossbowGoal);
+            } else if (usedWeapon.is(Items.BOW)) {
+                int minAttackInterval = this.getHardAttackInterval();
+                if (this.level().getDifficulty() != Difficulty.HARD) {
+                    minAttackInterval = this.getAttackInterval();
+                }
+
+                this.bowGoal.setMinAttackInterval(minAttackInterval);
+                this.goalSelector.addGoal(4, this.bowGoal);
+            } else {
+                this.goalSelector.addGoal(4, this.meleeGoal);
+            }
+        }
+    }
+
+    @Override
+    protected void populateDefaultEquipmentSlots(final RandomSource random, final DifficultyInstance difficulty) {
+        super.populateDefaultEquipmentSlots(random, difficulty);
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW));
+    }
+
+    @Override
     public SoundEvent getAmbientSound() {
         return SoundEvents.BOGGED_AMBIENT;
     }
@@ -75,6 +110,25 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     public void shear(ServerLevel level, SoundSource soundSource, ItemStack tool) {
 
     }
+
+    @Override
+    public void performRangedAttack(final LivingEntity target, final float power) {
+        ItemStack weaponItem = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new net.minecraft.world.item.Item[] { Items.BOW, Items.CROSSBOW } ));
+        ItemStack projectile = this.getProjectile(weaponItem);
+        AbstractArrow arrow = this.getArrow(projectile, power, weaponItem);
+        double xd = target.getX() - this.getX();
+        double yd = target.getY(0.3333333333333333) - arrow.getY();
+        double zd = target.getZ() - this.getZ();
+        double distanceToTarget = Math.sqrt(xd * xd + zd * zd);
+        if (this.level() instanceof ServerLevel serverLevel) {
+            Projectile.spawnProjectileUsingShoot(
+                    arrow, serverLevel, projectile, xd, yd + distanceToTarget * 0.2F, zd, 1.6F, 14 - serverLevel.getDifficulty().getId() * 4
+            );
+        }
+
+        this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+    }
+
 
     @Override
     public boolean readyForShearing() {

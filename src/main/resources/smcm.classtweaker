@@ -1,3 +1,5 @@
 classTweaker  v1  official
 
 extendable method net/minecraft/world/entity/monster/skeleton/AbstractSkeleton getStepSound ()Lnet/minecraft/sounds/SoundEvent;
+accessible field net/minecraft/world/entity/monster/skeleton/AbstractSkeleton bowGoal Lnet/minecraft/world/entity/ai/goal/RangedBowAttackGoal;
+accessible field net/minecraft/world/entity/monster/skeleton/AbstractSkeleton meleeGoal Lnet/minecraft/world/entity/ai/goal/MeleeAttackGoal;

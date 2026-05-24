@@ -1,0 +1,20 @@
+package com.github.pigsteel.smcm.registry;
+
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+
+import static com.github.pigsteel.smcm.registry.smcm$Items.FROSTBITTEN_SPAWN_EGG;
+import static com.github.pigsteel.smcm.registry.smcm$Items.RECLAIMED_SPAWN_EGG;
+
+public class FabricItemGroups {
+
+    // TODO: migrate this to fabric / forge specific logic
+    public static void initialize() {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(output -> {
+            output.insertAfter(Items.CAMEL_HUSK_SPAWN_EGG, new ItemStack(FROSTBITTEN_SPAWN_EGG));
+            output.insertAfter(Items.HUSK_SPAWN_EGG, new ItemStack(RECLAIMED_SPAWN_EGG));
+        }); // enchanter egg will be removed for now as entity is functionless
+    }
+}

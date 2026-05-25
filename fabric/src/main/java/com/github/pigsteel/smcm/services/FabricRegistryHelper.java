@@ -1,5 +1,6 @@
 package com.github.pigsteel.smcm.services;
 
+import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.services.util.RegistryHandle;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
@@ -8,6 +9,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -39,7 +41,20 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T extends Item> RegistryHandle<T> registerItem(String name, Function<Item.Properties, T> item) {
-        return null;
+        ResourceKey<Item> key = IRegistryHelper.itemKey(name);
+        Identifier id = key.identifier();
+        T registered = Registry.register(BuiltInRegistries.ITEM, id, item.apply(new Item.Properties().setId(key)));
+        return new RegistryHandle<T>() {
+            @Override
+            public Identifier id() {
+                return id;
+            }
+
+            @Override
+            public T get() {
+                return registered;
+            }
+        };
     }
 
     @Override
@@ -56,6 +71,25 @@ public class FabricRegistryHelper implements IRegistryHelper {
             @Override
             public EntityType<T> get() {
                 return registered;
+            }
+        };
+    }
+
+    @Override
+    public RegistryHandle<SoundEvent> registerSoundEvent(String name) {
+        ResourceKey<EntityType<?>> key = IRegistryHelper.entityTypeKey(name);
+        SoundEvent event = SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name));
+        Identifier id = key.identifier();
+        Registry.register(BuiltInRegistries.SOUND_EVENT, event.location(), event);
+        return new RegistryHandle<SoundEvent>() {
+            @Override
+            public Identifier id() {
+                return id;
+            }
+
+            @Override
+            public SoundEvent get() {
+                return event;
             }
         };
     }

@@ -6,6 +6,7 @@ import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
+import com.github.pigsteel.smcm.services.client.IClientRegistryHelper;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.PartPose;
@@ -30,7 +31,7 @@ public class LayerDefinitions {
     private static final CubeDeformation BABY_PIGLIN_OUTER_ARMOR_DEFORMATION = new CubeDeformation(0.7F);
     private static final PartPose BABY_PIGLIN_ARMOR_ARM_OFFSET = new PartPose(0.5F, -0.5F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
 
-    public static void registerModelLayers(final LayerRegistrar registrar) {
+    public static void registerModelLayers(IClientRegistryHelper registrar) {
         LayerDefinition illagerBodyLayer = IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(0.9375F));
         //1.0625F
         ArmorModelSet<LayerDefinition> humanoidArmor = HumanoidModel.createArmorMeshSet(INNER_ARMOR_DEFORMATION, OUTER_ARMOR_DEFORMATION)
@@ -67,15 +68,11 @@ public class LayerDefinitions {
         registerArmorLayers(ModelLayers.SUNKEN_ARMOR, humanoidArmor, registrar);
     }
 
-    public static void registerArmorLayers(final ArmorModelSet<ModelLayerLocation> location, ArmorModelSet<LayerDefinition> modelSet, final LayerRegistrar registrar) {
+    public static void registerArmorLayers(final ArmorModelSet<ModelLayerLocation> location, ArmorModelSet<LayerDefinition> modelSet, final IClientRegistryHelper registrar) {
         registrar.registerModelLayer(location.head(), modelSet::head);
         registrar.registerModelLayer(location.chest(), modelSet::chest);
         registrar.registerModelLayer(location.legs(), modelSet::legs);
         registrar.registerModelLayer(location.feet(), modelSet::feet);
     }
-
-    @FunctionalInterface
-    public interface LayerRegistrar {
-        void registerModelLayer(ModelLayerLocation location, Supplier<LayerDefinition> definition);
-    }
 }
+

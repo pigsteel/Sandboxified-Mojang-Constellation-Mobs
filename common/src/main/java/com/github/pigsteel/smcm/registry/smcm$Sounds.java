@@ -6,7 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
-public class Sounds {
+public class smcm$Sounds {
     public static final SoundEvent FROSTBITTEN_AMBIENT = register("entity.frostbitten.ambient");
     public static final SoundEvent FROSTBITTEN_HURT = register("entity.frostbitten.hurt");
     public static final SoundEvent FROSTBITTEN_DEATH = register("entity.frostbitten.death");

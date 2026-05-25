@@ -37,7 +37,7 @@ public class FabricEntitySpawns {
 
                             spawnSettings.addSpawn(
                                     MobCategory.MONSTER,
-                                    new MobSpawnSettings.SpawnerData(FROSTBITTEN, 4, 4),
+                                    new MobSpawnSettings.SpawnerData(FROSTBITTEN.get(), 4, 4),
                                     80
                             );
                         }
@@ -60,7 +60,7 @@ public class FabricEntitySpawns {
 
                             spawnSettings.addSpawn(
                                     MobCategory.MONSTER,
-                                    new MobSpawnSettings.SpawnerData(RECLAIMED, 4, 4),
+                                    new MobSpawnSettings.SpawnerData(RECLAIMED.get(), 4, 4),
                                     85
                             );
                         }
@@ -69,13 +69,13 @@ public class FabricEntitySpawns {
 
     public static void registerSpawnRules() {
         SpawnPlacements.register(
-                FROSTBITTEN,
+                FROSTBITTEN.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Frostbitten::checkFrostbittenSpawnRules
         );
         SpawnPlacements.register(
-                RECLAIMED,
+                RECLAIMED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkSurfaceMonstersSpawnRules

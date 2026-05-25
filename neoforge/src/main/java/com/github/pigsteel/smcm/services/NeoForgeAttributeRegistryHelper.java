@@ -12,8 +12,8 @@ public class NeoForgeAttributeRegistryHelper implements IAttributeRegistryHelper
     private final List<AttributeEntry<?>> attributes = new ArrayList<>();
 
     @Override
-    public <T extends LivingEntity> void registerEntityAttributes(EntityType<T> entityType, Supplier<AttributeSupplier.Builder> builderSupplier) {
-        this.attributes.add(new AttributeEntry<> (entityType, builderSupplier));
+    public <T extends LivingEntity> void registerEntityAttributes(Supplier<EntityType<T>> entityTypeSupplier, Supplier<AttributeSupplier.Builder> builderSupplier) {
+        this.attributes.add(new AttributeEntry<>(entityTypeSupplier, builderSupplier));
     }
 
     @Override
@@ -23,9 +23,9 @@ public class NeoForgeAttributeRegistryHelper implements IAttributeRegistryHelper
         }
     }
 
-    private record AttributeEntry<T extends LivingEntity>(EntityType<T> entityType, Supplier<AttributeSupplier.Builder> builderSupplier) {
+    private record AttributeEntry<T extends LivingEntity>(Supplier<EntityType<T>> entityTypeSupplier, Supplier<AttributeSupplier.Builder> builderSupplier) {
         private void register(EntityAttributeRegistrar registrar) {
-            registrar.register(this.entityType, this.builderSupplier.get());
+            registrar.register(this.entityTypeSupplier.get(), this.builderSupplier.get());
         }
     }
 }

@@ -3,9 +3,11 @@
   "minVersion": "0.8",
   "package": "com.github.pigsteel.smcm.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": [],
+  "mixins": [
+    "ParrotImitateMixin",
+    "SnowballHitMixin"
+  ],
   "client": [
-    "MixinMinecraft"
   ],
   "server": [],
   "injectors": {

@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.entity.zombie;
 
 import com.github.pigsteel.smcm.entity.Bonemealable;
 import com.github.pigsteel.smcm.registry.LootTables;
-import com.github.pigsteel.smcm.registry.Sounds;
+import com.github.pigsteel.smcm.registry.smcm$Sounds;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -124,22 +124,22 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.RECLAIMED_AMBIENT;
+        return smcm$Sounds.RECLAIMED_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return Sounds.RECLAIMED_HURT;
+        return smcm$Sounds.RECLAIMED_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.RECLAIMED_DEATH;
+        return smcm$Sounds.RECLAIMED_DEATH;
     }
 
     @Override
     protected SoundEvent getStepSound() {
-        return Sounds.RECLAIMED_STEP;
+        return smcm$Sounds.RECLAIMED_STEP;
     }
 
     private static final BlockState[] HEAD_FLOWERS = new BlockState[] {
@@ -158,7 +158,7 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     public void bonemeal(ServerLevel level, SoundSource soundSource, ItemStack bonemealItem) {
-        level.playSound(null, this, Sounds.RECLAIMED_BONEMEAL, soundSource, 1.0F, 1.0F);
+        level.playSound(null, this, smcm$Sounds.RECLAIMED_BONEMEAL, soundSource, 1.0F, 1.0F);
         this.setHeadFlower(
                 HEAD_FLOWERS[this.random.nextInt(HEAD_FLOWERS.length)]
         );
@@ -172,7 +172,7 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     public void shear(ServerLevel level, SoundSource soundSource, ItemStack tool) {
-        level.playSound(null, this, Sounds.RECLAIMED_SHEAR, soundSource, 1.0F, 1.0F);
+        level.playSound(null, this, smcm$Sounds.RECLAIMED_SHEAR, soundSource, 1.0F, 1.0F);
         // check the flower and then take it off ()
         this.dropFromShearingLootTable(
                 level,

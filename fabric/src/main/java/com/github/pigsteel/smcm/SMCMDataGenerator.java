@@ -1,7 +1,6 @@
 package com.github.pigsteel.smcm;
 
 import com.github.pigsteel.smcm.datagen.model.SMCMModelProvider;
-import com.github.pigsteel.smcm.datagen.lang.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 

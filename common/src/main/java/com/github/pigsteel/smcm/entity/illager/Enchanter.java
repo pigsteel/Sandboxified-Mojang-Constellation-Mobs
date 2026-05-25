@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.entity.illager;
 
-import com.github.pigsteel.smcm.registry.Sounds;
+import com.github.pigsteel.smcm.registry.smcm$Sounds;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -10,12 +10,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.creaking.Creaking;
 import net.minecraft.world.entity.monster.illager.AbstractIllager;
-import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
@@ -41,17 +38,17 @@ public class Enchanter extends AbstractIllager { // Instead of spellcasting Illa
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.ENCHANTER_AMBIENT;
+        return smcm$Sounds.ENCHANTER_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return Sounds.ENCHANTER_HURT;
+        return smcm$Sounds.ENCHANTER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.ENCHANTER_DEATH;
+        return smcm$Sounds.ENCHANTER_DEATH;
     }
 
     @Override

@@ -1,17 +1,14 @@
 package com.github.pigsteel.smcm.entity.zombie;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.registry.Sounds;
+import com.github.pigsteel.smcm.registry.smcm$Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.SpecialDates;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -22,13 +19,11 @@ import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.animal.turtle.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.monster.skeleton.Stray;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.Snowball;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -65,17 +60,17 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.FROSTBITTEN_AMBIENT;
+        return smcm$Sounds.FROSTBITTEN_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return Sounds.FROSTBITTEN_HURT;
+        return smcm$Sounds.FROSTBITTEN_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.FROSTBITTEN_DEATH;
+        return smcm$Sounds.FROSTBITTEN_DEATH;
     }
 
     @Override
@@ -194,7 +189,7 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         }
     }
 
-    private class FrostbittenThrowSnowballGoal extends RangedAttackGoal {
+    private static class FrostbittenThrowSnowballGoal extends RangedAttackGoal {
         protected final Frostbitten frostbitten;
 
         public FrostbittenThrowSnowballGoal(Frostbitten frostbitten, double mobSpeed, int intervalTicks, float maxShootRange) {

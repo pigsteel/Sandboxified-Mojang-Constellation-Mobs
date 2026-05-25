@@ -1,17 +1,14 @@
 package com.github.pigsteel.smcm;
 
-import com.github.pigsteel.smcm.registry.NeoForgeEntityType;
 import com.github.pigsteel.smcm.services.IAttributeRegistryHelper;
 import com.github.pigsteel.smcm.services.NeoForgeRegistryHelper;
 import com.github.pigsteel.smcm.services.Services;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(SMCM.MOD_ID)
 public class SMCMNeoForge {
@@ -28,6 +25,8 @@ public class SMCMNeoForge {
 
         eventBus.addListener(SMCMNeoForge::onEntityAttributeCreation);
         NeoForgeRegistryHelper.register(eventBus);
+
+        eventBus.addListener(SMCMNeoForgeDatagen::onGatherClientData);
     }
 
     private static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

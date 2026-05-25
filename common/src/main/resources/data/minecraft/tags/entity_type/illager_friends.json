@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "smcm:bruiser"
+    "smcm:bruiser",
+    "smcm:enchanter"
   ]
 }

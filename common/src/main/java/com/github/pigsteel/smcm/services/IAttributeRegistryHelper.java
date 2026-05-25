@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import java.util.function.Supplier;
 
 public interface IAttributeRegistryHelper {
-    <T extends LivingEntity> void registerEntityAttributes(EntityType<T> entityType, Supplier<AttributeSupplier.Builder> builder);
+    <T extends LivingEntity> void registerEntityAttributes(Supplier<EntityType<T>> entityTypeSupplier, Supplier<AttributeSupplier.Builder> builder);
 
     void applyEntityAttributeRegistrations(EntityAttributeRegistrar registrar);
 

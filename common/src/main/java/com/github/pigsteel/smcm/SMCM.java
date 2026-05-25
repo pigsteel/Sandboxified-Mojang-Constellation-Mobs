@@ -35,10 +35,10 @@ public class SMCM {
         }
         
         
-        Sounds.init();
-        DataComponents.init();
-        smcm$Items.init();
-        LootTables.init();
+        //smcm$Sounds.init();
+        //DataComponents.init();
+        //LootTables.init();
+        Attributes.load();
     }
 
     public static Identifier id(String path) {

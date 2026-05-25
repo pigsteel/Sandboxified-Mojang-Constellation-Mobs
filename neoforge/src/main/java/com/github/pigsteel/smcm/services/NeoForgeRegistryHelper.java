@@ -3,10 +3,13 @@ package com.github.pigsteel.smcm.services;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.services.util.RegistryHandle;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -21,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.BiFunction;
@@ -30,10 +34,11 @@ import java.util.function.Supplier;
 
 public class NeoForgeRegistryHelper implements IRegistryHelper {
     private static final DeferredRegister.Entities ENTITIES = DeferredRegister.createEntities(SMCM.MOD_ID);
-
+    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SMCM.MOD_ID);
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
+        ITEMS.register(eventBus);
     }
 
     @Override
@@ -48,15 +53,28 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T extends Item> RegistryHandle<T> registerItem(String name, Function<Item.Properties, T> item) {
-        return null;
+        Identifier id = SMCM.id(name);
+        DeferredItem<T> deferredItem = ITEMS.registerItem(name, item);
+        return new RegistryHandle<>() {
+            @Override
+            public Identifier id() {
+                return id;
+            }
+
+            @Override
+            public T get() {
+                return deferredItem.get();
+            }
+        };
     }
+
 
     @Override
     public <T extends Entity> RegistryHandle<EntityType<T>> registerEntityType(String name, EntityType.Builder<T> builder) {
         ResourceKey<EntityType<?>> key = IRegistryHelper.entityTypeKey(name);
         Identifier id = key.identifier();
         DeferredHolder<EntityType<?>, EntityType<T>> deferredEntityType = ENTITIES.register(name, () -> builder.build(key));
-        return new RegistryHandle<EntityType<T>>() {
+        return new RegistryHandle<>() {
             @Override
             public Identifier id() {
                 return id;
@@ -65,6 +83,25 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
             @Override
             public EntityType<T> get() {
                 return deferredEntityType.get();
+            }
+        };
+    }
+
+    @Override
+    public RegistryHandle<SoundEvent> registerSoundEvent(String name) {
+        ResourceKey<EntityType<?>> key = IRegistryHelper.entityTypeKey(name);
+        SoundEvent event = SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name));
+        Identifier id = key.identifier();
+        Registry.register(BuiltInRegistries.SOUND_EVENT, event.location(), event);
+        return new RegistryHandle<SoundEvent>() {
+            @Override
+            public Identifier id() {
+                return id;
+            }
+
+            @Override
+            public SoundEvent get() {
+                return event;
             }
         };
     }

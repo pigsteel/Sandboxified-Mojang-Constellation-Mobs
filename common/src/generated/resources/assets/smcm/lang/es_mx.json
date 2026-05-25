@@ -1,0 +1,19 @@
+{
+  "entity.smcm.bruiser": "Brutalizador",
+  "entity.smcm.enchanter": "Heichicero",
+  "entity.smcm.frostbitten": "Escarchado",
+  "entity.smcm.reclaimed": "Devorado",
+  "item.smcm.bruiser_spawn_egg": "Generar brutalizador",
+  "item.smcm.enchanter_spawn_egg": "Generar heichicero",
+  "item.smcm.frostbitten_spawn_egg": "Generar escarchado",
+  "item.smcm.reclaimed_spawn_egg": "Generar devorado",
+  "subtitles.smcm.entity.enchanter.ambient": "Murmuro de heichicero",
+  "subtitles.smcm.entity.enchanter.death": "Heichicero muerto",
+  "subtitles.smcm.entity.enchanter.hurt": "Heichicero herido",
+  "subtitles.smcm.entity.frostbitten.ambient": "Gruñido de escarchado",
+  "subtitles.smcm.entity.frostbitten.death": "Escarchado muerto",
+  "subtitles.smcm.entity.frostbitten.hurt": "Escarchado herido",
+  "subtitles.smcm.entity.reclaimed.ambient": "Gruñido de devorado",
+  "subtitles.smcm.entity.reclaimed.death": "Devorado muerto",
+  "subtitles.smcm.entity.reclaimed.hurt": "Devorado herido"
+}

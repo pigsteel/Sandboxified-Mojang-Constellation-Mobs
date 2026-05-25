@@ -1,0 +1,19 @@
+{
+  "entity.smcm.bruiser": "ɹǝsᴉnɹᗺ",
+  "entity.smcm.enchanter": "ɹǝʇuɐɥɔuƎ",
+  "entity.smcm.frostbitten": "uǝʇʇᴉqʇsoɹℲ",
+  "entity.smcm.reclaimed": "pǝɯᴉɐlɔǝᴚ",
+  "item.smcm.bruiser_spawn_egg": "ɓɓƎ uʍɐdS ɹǝsᴉnɹᗺ",
+  "item.smcm.enchanter_spawn_egg": "ɓɓƎ uʍɐdS ɹǝʇuɐɥɔuƎ",
+  "item.smcm.frostbitten_spawn_egg": "ɓɓƎ uʍɐdS uǝʇʇᴉqʇsoɹℲ",
+  "item.smcm.reclaimed_spawn_egg": "ɓɓƎ uʍɐdS pǝɯᴉɐlɔǝᴚ",
+  "subtitles.smcm.entity.enchanter.ambient": "sǝlqɹnq ɹǝʇuɐɥɔuƎ",
+  "subtitles.smcm.entity.enchanter.death": "sǝᴉp ɹǝʇuɐɥɔuƎ",
+  "subtitles.smcm.entity.enchanter.hurt": "sʇɹnɥ ɹǝʇuɐɥɔuƎ",
+  "subtitles.smcm.entity.frostbitten.ambient": "suɐoɯ uǝʇʇᴉqʇsoɹℲ",
+  "subtitles.smcm.entity.frostbitten.death": "sǝᴉp uǝʇʇᴉqʇsoɹℲ",
+  "subtitles.smcm.entity.frostbitten.hurt": "sʇɹnɥ uǝʇʇᴉqʇsoɹℲ",
+  "subtitles.smcm.entity.reclaimed.ambient": "suɐoɹɓ pǝɯᴉɐlɔǝᴚ",
+  "subtitles.smcm.entity.reclaimed.death": "sǝᴉp pǝɯᴉɐlɔǝᴚ",
+  "subtitles.smcm.entity.reclaimed.hurt": "sʇɹnɥ pǝɯᴉɐlɔǝᴚ"
+}

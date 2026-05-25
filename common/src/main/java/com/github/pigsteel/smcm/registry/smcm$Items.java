@@ -49,7 +49,7 @@ public class smcm$Items {
         return item;
     }
 
-    public static void load(IRegistryHelper registryHelper) {
+    public static void load() {
 
     }
 }

@@ -23,10 +23,9 @@ public class SMCMNeoForge {
         SMCM.LOGGER.info("Hello NeoForge world!");
         SMCM.init();
 
+        eventBus.addListener(SMCMNeoForgeDatagen::onGatherClientData);
         eventBus.addListener(SMCMNeoForge::onEntityAttributeCreation);
         NeoForgeRegistryHelper.register(eventBus);
-
-        eventBus.addListener(SMCMNeoForgeDatagen::onGatherClientData);
     }
 
     private static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

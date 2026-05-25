@@ -1,0 +1,22 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:jungle",
+    "minecraft:sparse_jungle",
+    "minecraft:bamboo_jungle"
+  ],
+  "spawners": [
+    {
+      "type": "minecraft:zombie",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 4
+    },
+    {
+      "type": "smcm:reclaimed",
+      "weight": 85,
+      "minCount": 4,
+      "maxCount": 4
+    }
+  ]
+}

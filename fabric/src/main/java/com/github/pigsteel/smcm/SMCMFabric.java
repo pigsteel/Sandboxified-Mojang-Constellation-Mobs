@@ -19,8 +19,10 @@ public class SMCMFabric implements ModInitializer {
         SMCM.LOGGER.info("Hello Fabric world!");
         SMCM.init();
         FabricItemGroups.initialize();
-        FabricEntitySpawns.AddSpawns();
+
         FabricEntitySpawns.registerSpawnRules();
+        FabricEntitySpawns.AddSpawns();
+
         Services.ATTRIBUTES.applyEntityAttributeRegistrations(FabricDefaultAttributeRegistry::register);
     }
 }

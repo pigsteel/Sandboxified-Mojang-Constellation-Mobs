@@ -8,48 +8,136 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 import static com.github.pigsteel.smcm.datagen.lang.LangUtils.s;
 
-public class ITITLangProvider extends LanguageProvider {
-    private final String TankIllagerName = "Picchiatore";
-    private final String EnchanterName = "Incantatore";
-    private final String FrozenZombieName = "Congelato";
-    private final String JungleZombieName = "Infestato";
-    private final String TankIllagerNameS = s(TankIllagerName);
-    private final String EnchanterNameS = s(EnchanterName);
-    private final String FrozenZombieNameS = s(FrozenZombieName);
-    private final String JungleZombieNameS = s(JungleZombieName);
-    private final String DiesVerb = " muore";
-    private final String HurtsVerb = " ferito";
-
+public class ITITLangProvider extends LanguageProvider implements SMCMLangProviderVariables, SMCMOptionalUncapitalizedLangProviderVariables {
     public ITITLangProvider(PackOutput output) {
         super(output, SMCM.MOD_ID, "it_it");
     }
 
     @Override
     protected void addTranslations() {
-        addEntityType(smcm$EntityType.BRUISER, TankIllagerName);
-        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName);
-        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName);
-        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName);
+        addEntityType(smcm$EntityType.BRUISER, TankIllagerName());
+        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
+        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
+        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
 
-        addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerNameS));
-        addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterNameS));
-        addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieNameS));
-        addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieNameS));
+        addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerNameS()));
+        addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterNameS()));
+        addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieNameS()));
+        addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieNameS()));
 
-        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName + " geme");
-        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName + HurtsVerb);
-        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName + DiesVerb);
+        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
+        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName + " geme");
-        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName + HurtsVerb);
-        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName + DiesVerb);
+        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + JungleZombieAmbientVerb());
+        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName + " gorgoglia");
-        add("subtitles.smcm.entity.enchanter.hurt", EnchanterName + HurtsVerb);
-        add("subtitles.smcm.entity.enchanter.death", EnchanterName + DiesVerb);
+        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName() + EnchanterAmbientVerb());
+        add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
+        add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
+
+        add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotName() + FrozenZombieNameS());
+        add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotName() + JungleZombieNameS());
+        add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotName() + EnchanterNameS());
     }
 
     private String eggName(String name) {
         return "Uovo generatore di " + name;
+    }
+
+    @Override
+    public String TankIllagerName() {
+        return "Picchiatore";
+    }
+
+    @Override
+    public String EnchanterName() {
+        return "Incantatore";
+    }
+
+    @Override
+    public String FrozenZombieName() {
+        return "Congelato";
+    }
+
+    @Override
+    public String JungleZombieName() {
+        return "Infestato";
+    }
+
+    @Override
+    public String SunkenSkeletonName() {
+        return "";
+    }
+
+    @Override
+    public String MossySkeletonName() {
+        return "";
+    }
+
+    @Override
+    public String ParrotName() {
+        return "Pappagallo imita ";
+    }
+
+    @Override
+    public String FrozenZombieAmbientVerb() {
+        return " geme";
+    }
+
+    @Override
+    public String EnchanterAmbientVerb() {
+        return " gorgoglia";
+    }
+
+    @Override
+    public String JungleZombieAmbientVerb() {
+        return " geme";
+    }
+
+    @Override
+    public String BruiserAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String SunkenSkeletonAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String MossySkeletonAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String DiesVerb() {
+        return " muore";
+    }
+
+    @Override
+    public String HurtsVerb() {
+        return " ferito";
+    }
+
+    @Override
+    public String TankIllagerNameS() {
+        return s(TankIllagerName());
+    }
+
+    @Override
+    public String EnchanterNameS() {
+        return s(EnchanterName());
+    }
+
+    @Override
+    public String FrozenZombieNameS() {
+        return s(FrozenZombieName());
+    }
+
+    @Override
+    public String JungleZombieNameS() {
+        return s(JungleZombieName());
     }
 }

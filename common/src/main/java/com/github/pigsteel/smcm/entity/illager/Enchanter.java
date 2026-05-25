@@ -38,17 +38,17 @@ public class Enchanter extends AbstractIllager { // Instead of spellcasting Illa
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$Sounds.ENCHANTER_AMBIENT;
+        return smcm$Sounds.ENCHANTER_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$Sounds.ENCHANTER_HURT;
+        return smcm$Sounds.ENCHANTER_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$Sounds.ENCHANTER_DEATH;
+        return smcm$Sounds.ENCHANTER_DEATH.get();
     }
 
     @Override

@@ -6,44 +6,116 @@ import com.github.pigsteel.smcm.registry.smcm$Items;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class ENPTLangProvider extends LanguageProvider {
-    private final String TankIllagerName = "Squire";
-    private final String EnchanterName = "Hexcaster";
-    private final String FrozenZombieName = "Frozen sailor";
-    private final String JungleZombieName = "Landlocked sailor";
-    private final String DiesVerb = " perishes";
-    private final String HurtsVerb = " hurts";
-
+public class ENPTLangProvider extends LanguageProvider implements SMCMLangProviderVariables {
     public ENPTLangProvider(PackOutput output) {
         super(output, SMCM.MOD_ID, "en_pt");
     }
 
     @Override
     protected void addTranslations() {
-        addEntityType(smcm$EntityType.BRUISER, TankIllagerName);
-        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName);
-        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName);
-        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName);
+        addEntityType(smcm$EntityType.BRUISER, TankIllagerName());
+        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
+        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
+        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
 
-        addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerName));
-        addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName));
-        addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName));
-        addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName));
+        addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerName()));
+        addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName()));
+        addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName()));
+        addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName()));
 
-        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName + " moans");
-        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName + HurtsVerb);
-        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName + DiesVerb);
+        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
+        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName + " groans");
-        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName + HurtsVerb);
-        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName + DiesVerb);
+        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + JungleZombieAmbientVerb());
+        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName + " burbles");
-        add("subtitles.smcm.entity.enchanter.hurt", EnchanterName + HurtsVerb);
-        add("subtitles.smcm.entity.enchanter.death", EnchanterName + DiesVerb);
+        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName() + EnchanterAmbientVerb());
+        add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
+        add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
+
+        add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotName() + " moanin'");
+        add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotName() + " groanin'");
+        add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotName() + " burblin'");
     }
 
     private String eggName(String name) {
         return name + " cackle fruit";
+    }
+
+    @Override
+    public String TankIllagerName() {
+        return "Squire";
+    }
+
+    @Override
+    public String EnchanterName() {
+        return "Hexcaster";
+    }
+
+    @Override
+    public String FrozenZombieName() {
+        return "Frozen sailor";
+    }
+
+    @Override
+    public String JungleZombieName() {
+        return "Landlocked sailor";
+    }
+
+    @Override
+    public String SunkenSkeletonName() {
+        return "";
+    }
+
+    @Override
+    public String MossySkeletonName() {
+        return "";
+    }
+
+    @Override
+    public String ParrotName() {
+        return "Yer best matey be";
+    }
+
+    @Override
+    public String FrozenZombieAmbientVerb() {
+        return " moans";
+    }
+
+    @Override
+    public String EnchanterAmbientVerb() {
+        return " burbles";
+    }
+
+    @Override
+    public String JungleZombieAmbientVerb() {
+        return " groans";
+    }
+
+    @Override
+    public String BruiserAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String SunkenSkeletonAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String MossySkeletonAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String DiesVerb() {
+        return " perishes";
+    }
+
+    @Override
+    public String HurtsVerb() {
+        return " hurts";
     }
 }

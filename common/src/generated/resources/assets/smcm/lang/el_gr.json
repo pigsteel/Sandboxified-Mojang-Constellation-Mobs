@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Παγωμένος βογκάει",
   "subtitles.smcm.entity.frostbitten.death": "Παγωμένος πεθαίνει",
   "subtitles.smcm.entity.frostbitten.hurt": "Παγωμένος τραυματίζεται",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Παπαγάλος μουρμουρίζει",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Παπαγάλος βογκάει",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Παπαγάλος βογκάει",
   "subtitles.smcm.entity.reclaimed.ambient": "Ανακτημένος βογκάει",
   "subtitles.smcm.entity.reclaimed.death": "Ανακτημένος πεθαίνει",
   "subtitles.smcm.entity.reclaimed.hurt": "Ανακτημένος τραυματίζεται"

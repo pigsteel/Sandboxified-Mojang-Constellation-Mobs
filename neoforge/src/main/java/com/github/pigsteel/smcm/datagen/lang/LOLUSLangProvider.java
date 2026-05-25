@@ -41,6 +41,10 @@ public class LOLUSLangProvider extends LanguageProvider {
         add("subtitles.smcm.entity.enchanter.ambient", "megic dood mumblz");
         add("subtitles.smcm.entity.enchanter.hurt", "megic dood" + HurtsVerb);
         add("subtitles.smcm.entity.enchanter.death", "megic dood gets rekt");
+
+        add("subtitles.smcm.entity.parrot.imitate.frostbitten", "Rainbow Bird moonz");
+        add("subtitles.smcm.entity.parrot.imitate.reclaimed", "Rainbow Bird groonz");
+        add("subtitles.smcm.entity.parrot.imitate.enchanter", "Purrot boorblez");
     }
 
     private String eggName(String name) {

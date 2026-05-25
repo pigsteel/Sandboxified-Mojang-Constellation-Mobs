@@ -79,4 +79,6 @@ public class smcm$EntityType {
                 Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name)
         );
     }
+
+    public static void load() {} // does nothing, initializes the static block
 }

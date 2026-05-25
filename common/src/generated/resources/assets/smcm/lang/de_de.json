@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Erfroren stöhnt",
   "subtitles.smcm.entity.frostbitten.death": "Erfroren stirbt",
   "subtitles.smcm.entity.frostbitten.hurt": "Erfroren nimmt Schaden",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Papagei plappert",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Papagei stöhnt",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Papagei stöhnt",
   "subtitles.smcm.entity.reclaimed.ambient": "Begrünten stöhnt",
   "subtitles.smcm.entity.reclaimed.death": "Begrünten stirbt",
   "subtitles.smcm.entity.reclaimed.hurt": "Begrünten nimmt Schaden"

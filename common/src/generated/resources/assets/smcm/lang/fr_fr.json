@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Gémissement de gelé",
   "subtitles.smcm.entity.frostbitten.death": "Gelé qui meurt",
   "subtitles.smcm.entity.frostbitten.hurt": "Gelé blessé",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Perroquet qui imite l'enchanteur",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Perroquet qui imite le gelé",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Perroquet qui imite le réclamé",
   "subtitles.smcm.entity.reclaimed.ambient": "Grognement de réclamé",
   "subtitles.smcm.entity.reclaimed.death": "Réclamé qui meurt",
   "subtitles.smcm.entity.reclaimed.hurt": "Réclamé blessé"

@@ -99,6 +99,17 @@
       "smcm:entity/enchanter/death3"
     ]
   },
+  "entity.parrot.imitate.enchanter": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.enchanter",
+    "sounds": [
+      {
+        "name": "smcm:entity.enchanter.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ]
+  },
   "entity.parrot.imitate.frostbitten": {
     "subtitle": "subtitles.smcm.entity.parrot.imitate.frostbitten",
     "sounds": [

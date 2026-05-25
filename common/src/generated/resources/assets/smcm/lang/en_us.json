@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Frostbitten moans",
   "subtitles.smcm.entity.frostbitten.death": "Frostbitten dies",
   "subtitles.smcm.entity.frostbitten.hurt": "Frostbitten hurts",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Parrot burbles",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Parrot moans",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Parrot groans",
   "subtitles.smcm.entity.reclaimed.ambient": "Reclaimed groans",
   "subtitles.smcm.entity.reclaimed.death": "Reclaimed dies",
   "subtitles.smcm.entity.reclaimed.hurt": "Reclaimed hurts"

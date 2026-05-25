@@ -35,10 +35,12 @@ import java.util.function.Supplier;
 public class NeoForgeRegistryHelper implements IRegistryHelper {
     private static final DeferredRegister.Entities ENTITIES = DeferredRegister.createEntities(SMCM.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SMCM.MOD_ID);
+    private static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, SMCM.MOD_ID);
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
         ITEMS.register(eventBus);
+        SOUND_EVENTS.register(eventBus);
     }
 
     @Override
@@ -89,11 +91,11 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
 
     @Override
     public RegistryHandle<SoundEvent> registerSoundEvent(String name) {
-        ResourceKey<EntityType<?>> key = IRegistryHelper.entityTypeKey(name);
-        SoundEvent event = SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name));
+        ResourceKey<SoundEvent> key = IRegistryHelper.soundEventKey(name);
         Identifier id = key.identifier();
-        Registry.register(BuiltInRegistries.SOUND_EVENT, event.location(), event);
-        return new RegistryHandle<SoundEvent>() {
+        DeferredHolder<SoundEvent, SoundEvent> deferredSoundEvent = SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name)));
+
+        return new RegistryHandle<>() {
             @Override
             public Identifier id() {
                 return id;
@@ -101,7 +103,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
 
             @Override
             public SoundEvent get() {
-                return event;
+                return deferredSoundEvent.get();
             }
         };
     }

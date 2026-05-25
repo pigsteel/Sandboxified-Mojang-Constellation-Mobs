@@ -1,0 +1,13 @@
+{
+  "values": {
+    "smcm:frostbitten": {
+      "sound": "smcm:entity.parrot.imitate.frostbitten"
+    },
+    "smcm:reclaimed": {
+      "sound": "smcm:entity.parrot.imitate.reclaimed"
+    },
+    "smcm:enchanter": {
+      "sound": "smcm:entity.parrot.imitate.enchanter"
+    }
+  }
+}

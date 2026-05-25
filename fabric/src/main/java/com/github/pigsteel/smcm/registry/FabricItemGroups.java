@@ -13,8 +13,8 @@ public class FabricItemGroups {
     // TODO: migrate this to fabric / forge specific logic
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(output -> {
-            output.insertAfter(Items.CAMEL_HUSK_SPAWN_EGG, new ItemStack(FROSTBITTEN_SPAWN_EGG));
-            output.insertAfter(Items.HUSK_SPAWN_EGG, new ItemStack(RECLAIMED_SPAWN_EGG));
+            output.insertAfter(Items.CAMEL_HUSK_SPAWN_EGG, new ItemStack(FROSTBITTEN_SPAWN_EGG.get()));
+            output.insertAfter(Items.HUSK_SPAWN_EGG, new ItemStack(RECLAIMED_SPAWN_EGG.get()));
         }); // enchanter egg will be removed for now as entity is functionless
     }
 }

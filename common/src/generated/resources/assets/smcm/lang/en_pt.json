@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Frozen sailor moans",
   "subtitles.smcm.entity.frostbitten.death": "Frozen sailor perishes",
   "subtitles.smcm.entity.frostbitten.hurt": "Frozen sailor hurts",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Yer best matey be burblin'",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Yer best matey be moanin'",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Yer best matey be groanin'",
   "subtitles.smcm.entity.reclaimed.ambient": "Landlocked sailor groans",
   "subtitles.smcm.entity.reclaimed.death": "Landlocked sailor perishes",
   "subtitles.smcm.entity.reclaimed.hurt": "Landlocked sailor hurts"

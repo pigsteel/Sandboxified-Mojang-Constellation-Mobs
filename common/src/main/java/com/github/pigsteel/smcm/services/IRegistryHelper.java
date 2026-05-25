@@ -55,6 +55,10 @@ public interface IRegistryHelper {
         return ResourceKey.create(Registries.ENTITY_TYPE, SMCM.id(name));
     }
 
+    static ResourceKey<SoundEvent> soundEventKey(String name) {
+        return ResourceKey.create(Registries.SOUND_EVENT, SMCM.id(name));
+    }
+
     @FunctionalInterface
     interface CreativeTabOutput {
         void accept(ItemLike itemLike);

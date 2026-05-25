@@ -60,17 +60,17 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$Sounds.FROSTBITTEN_AMBIENT;
+        return smcm$Sounds.FROSTBITTEN_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$Sounds.FROSTBITTEN_HURT;
+        return smcm$Sounds.FROSTBITTEN_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$Sounds.FROSTBITTEN_DEATH;
+        return smcm$Sounds.FROSTBITTEN_DEATH.get();
     }
 
     @Override

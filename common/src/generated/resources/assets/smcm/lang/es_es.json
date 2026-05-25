@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Escarchado gime",
   "subtitles.smcm.entity.frostbitten.death": "Escarchado muere",
   "subtitles.smcm.entity.frostbitten.hurt": "Escarchado herido",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Loro imita a un heichicero",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Loro imita a un escarchado",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Loro imita a un devorado",
   "subtitles.smcm.entity.reclaimed.ambient": "Devorado gime",
   "subtitles.smcm.entity.reclaimed.death": "Devorado muere",
   "subtitles.smcm.entity.reclaimed.hurt": "Devorado herido"

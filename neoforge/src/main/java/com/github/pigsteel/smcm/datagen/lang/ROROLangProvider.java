@@ -8,48 +8,162 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 import static com.github.pigsteel.smcm.datagen.lang.LangUtils.s;
 
-public class ROROLangProvider extends LanguageProvider {
-    private final String TankIllagerName = "Vânător";
-    private final String EnchanterName = "Vrăjitor";
-    private final String FrozenZombieName = "Degerat";
-    private final String JungleZombieName = "Revendicat";
-    private final String TankIllagerNameS = s(TankIllagerName);
-    private final String EnchanterNameS = s(EnchanterName);
-    private final String FrozenZombieNameS = s(FrozenZombieName);
-    private final String JungleZombieNameS = s(JungleZombieName);
-    private final String DiesVerb = "ul este rănit";
-    private final String HurtsVerb = "ul moare";
-
+public class ROROLangProvider extends LanguageProvider implements SMCMLangProviderVariables, SMCMOptionalUncapitalizedLangProviderVariables, SMCMRomanianHelper {
     public ROROLangProvider(PackOutput output) {
         super(output, SMCM.MOD_ID, "ro_ro");
     }
 
     @Override
     protected void addTranslations() {
-        addEntityType(smcm$EntityType.BRUISER, TankIllagerName);
-        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName);
-        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName);
-        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName);
+        addEntityType(smcm$EntityType.BRUISER, TankIllagerName());
+        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
+        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
+        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
 
-        addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerNameS));
-        addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterNameS));
-        addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieNameS));
-        addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieNameS));
+        addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerNameS()));
+        addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterNameS()));
+        addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieNameS()));
+        addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieNameS()));
 
-        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName + "ul geme");
-        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName + HurtsVerb);
-        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName + DiesVerb);
+        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
+        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName + "ul geme");
-        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName + HurtsVerb);
-        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName + DiesVerb);
+        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + JungleZombieAmbientVerb());
+        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName + "ul gâlgâie");
-        add("subtitles.smcm.entity.enchanter.hurt", EnchanterName + HurtsVerb);
-        add("subtitles.smcm.entity.enchanter.death", EnchanterName + DiesVerb);
+        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName() + EnchanterAmbientVerb());
+        add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
+        add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
     }
 
     private String eggName(String name) {
         return "Ou generator de " + name;
+    }
+
+    @Override
+    public String TankIllagerName() {
+        return "Vânător";
+    }
+
+    @Override
+    public String EnchanterName() {
+        return "Vrăjitor";
+    }
+
+    @Override
+    public String FrozenZombieName() {
+        return "Degerat";
+    }
+
+    @Override
+    public String JungleZombieName() {
+        return "Revendicat";
+    }
+
+    @Override
+    public String SunkenSkeletonName() {
+        return "";
+    }
+
+    @Override
+    public String MossySkeletonName() {
+        return "";
+    }
+
+    @Override
+    public String ParrotName() {
+        return "Papagalul imitâ";
+    }
+
+    @Override
+    public String FrozenZombieAmbientVerb() {
+        return "ul geme";
+    }
+
+    @Override
+    public String EnchanterAmbientVerb() {
+        return "ul gâlgâie";
+    }
+
+    @Override
+    public String JungleZombieAmbientVerb() {
+        return "ul geme";
+    }
+
+    @Override
+    public String BruiserAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String SunkenSkeletonAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String MossySkeletonAmbientVerb() {
+        return "";
+    }
+
+    @Override
+    public String DiesVerb() {
+        return "ul este rănit";
+    }
+
+    @Override
+    public String HurtsVerb() {
+        return "ul moare";
+    }
+
+    @Override
+    public String TankIllagerNameS() {
+        return s(TankIllagerName());
+    }
+
+    @Override
+    public String EnchanterNameS() {
+        return s(EnchanterName());
+    }
+
+    @Override
+    public String FrozenZombieNameS() {
+        return s(FrozenZombieName());
+    }
+
+    @Override
+    public String JungleZombieNameS() {
+        return s(JungleZombieName());
+    }
+
+    @Override
+    public String TankIllagerIndefinite() {
+        return MasculineArticle + TankIllagerNameS();
+    }
+
+    @Override
+    public String EnchanterIndefinite() {
+        return MasculineArticle + TankIllagerNameS();
+    }
+
+    @Override
+    public String FrozenZombieIndefinite() {
+        return MasculineArticle + TankIllagerNameS();
+    }
+
+    @Override
+    public String JungleZombieIndefinite() {
+        return MasculineArticle + TankIllagerNameS();
+    }
+
+    @Override
+    public String SunkenSkeletonIndefinite() {
+        return MasculineArticle + TankIllagerNameS();
+    }
+
+    @Override
+    public String MossySkeletonIndefinite() {
+        return MasculineArticle + TankIllagerNameS();
     }
 }

@@ -30,8 +30,9 @@ public class ParrotImitateMixin {
         if (!MOB_SOUND_MAP.containsKey(smcm$EntityType.FROSTBITTEN)) {
             Map<EntityType<?>, SoundEvent> map = new HashMap<>(MOB_SOUND_MAP);
 
-            map.put(smcm$EntityType.FROSTBITTEN.get(), smcm$Sounds.PARROT_IMITATE_FROSTBITTEN);
-            map.put(smcm$EntityType.RECLAIMED.get(), smcm$Sounds.PARROT_IMITATE_RECLAIMED);
+            map.put(smcm$EntityType.FROSTBITTEN.get(), smcm$Sounds.PARROT_IMITATE_FROSTBITTEN.get());
+            map.put(smcm$EntityType.RECLAIMED.get(), smcm$Sounds.PARROT_IMITATE_RECLAIMED.get());
+            map.put(smcm$EntityType.ENCHANTER.get(), smcm$Sounds.PARROT_IMITATE_ENCHANTER.get());
 
             MOB_SOUND_MAP = map;
 

@@ -13,6 +13,9 @@
   "subtitles.smcm.entity.frostbitten.ambient": "Congelato geme",
   "subtitles.smcm.entity.frostbitten.death": "Congelato muore",
   "subtitles.smcm.entity.frostbitten.hurt": "Congelato ferito",
+  "subtitles.smcm.entity.parrot.imitate.enchanter": "Pappagallo imita incantatore",
+  "subtitles.smcm.entity.parrot.imitate.frostbitten": "Pappagallo imita congelato",
+  "subtitles.smcm.entity.parrot.imitate.reclaimed": "Pappagallo imita infestato",
   "subtitles.smcm.entity.reclaimed.ambient": "Infestato geme",
   "subtitles.smcm.entity.reclaimed.death": "Infestato muore",
   "subtitles.smcm.entity.reclaimed.hurt": "Infestato ferito"

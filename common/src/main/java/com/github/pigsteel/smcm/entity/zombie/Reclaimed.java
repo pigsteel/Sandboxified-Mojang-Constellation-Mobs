@@ -124,22 +124,22 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$Sounds.RECLAIMED_AMBIENT;
+        return smcm$Sounds.RECLAIMED_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$Sounds.RECLAIMED_HURT;
+        return smcm$Sounds.RECLAIMED_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$Sounds.RECLAIMED_DEATH;
+        return smcm$Sounds.RECLAIMED_DEATH.get();
     }
 
     @Override
     protected SoundEvent getStepSound() {
-        return smcm$Sounds.RECLAIMED_STEP;
+        return smcm$Sounds.RECLAIMED_STEP.get();
     }
 
     private static final BlockState[] HEAD_FLOWERS = new BlockState[] {
@@ -158,7 +158,7 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     public void bonemeal(ServerLevel level, SoundSource soundSource, ItemStack bonemealItem) {
-        level.playSound(null, this, smcm$Sounds.RECLAIMED_BONEMEAL, soundSource, 1.0F, 1.0F);
+        level.playSound(null, this, smcm$Sounds.RECLAIMED_BONEMEAL.get(), soundSource, 1.0F, 1.0F);
         this.setHeadFlower(
                 HEAD_FLOWERS[this.random.nextInt(HEAD_FLOWERS.length)]
         );
@@ -172,7 +172,7 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     public void shear(ServerLevel level, SoundSource soundSource, ItemStack tool) {
-        level.playSound(null, this, smcm$Sounds.RECLAIMED_SHEAR, soundSource, 1.0F, 1.0F);
+        level.playSound(null, this, smcm$Sounds.RECLAIMED_SHEAR.get(), soundSource, 1.0F, 1.0F);
         // check the flower and then take it off ()
         this.dropFromShearingLootTable(
                 level,

@@ -17,25 +17,23 @@ public class smcm$Items {
     public static final Item BRUISER_SPAWN_EGG = register(
             "bruiser_spawn_egg",
             SpawnEggItem::new,
-            new Item.Properties().spawnEgg(smcm$EntityType.BRUISER)
+            new Item.Properties().spawnEgg(smcm$EntityType.BRUISER.get())
     );
     public static final Item FROSTBITTEN_SPAWN_EGG = register(
             "frostbitten_spawn_egg",
             SpawnEggItem::new,
-            new Item.Properties().spawnEgg(smcm$EntityType.FROSTBITTEN)
+            new Item.Properties().spawnEgg(smcm$EntityType.FROSTBITTEN.get())
     );
     public static final Item RECLAIMED_SPAWN_EGG = register(
             "reclaimed_spawn_egg",
             SpawnEggItem::new,
-            new Item.Properties().spawnEgg(smcm$EntityType.RECLAIMED)
+            new Item.Properties().spawnEgg(smcm$EntityType.RECLAIMED.get())
     );
     public static final Item ENCHANTER_SPAWN_EGG = register(
             "enchanter_spawn_egg",
             SpawnEggItem::new,
-            new Item.Properties().spawnEgg(smcm$EntityType.ENCHANTER)
+            new Item.Properties().spawnEgg(smcm$EntityType.ENCHANTER.get())
     );
-
-    public static final TagKey<Item> REPAIRS_FLAIL = TagKey.create(BuiltInRegistries.ITEM.key(), Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "repairs_flail"));
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         // Create the item key.

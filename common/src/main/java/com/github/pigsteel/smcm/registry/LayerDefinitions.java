@@ -1,11 +1,11 @@
 package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.model.monster.illager.EnchanterModel;
-import com.github.pigsteel.smcm.model.monster.zombie.BabyFrostbittenModel;
-import com.github.pigsteel.smcm.model.monster.zombie.BabyReclaimedModel;
-import com.github.pigsteel.smcm.model.monster.zombie.FrostbittenModel;
-import com.github.pigsteel.smcm.model.monster.zombie.ReclaimedModel;
+import com.github.pigsteel.smcm.client.model.monster.illager.EnchanterModel;
+import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
+import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
+import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
+import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.PartPose;

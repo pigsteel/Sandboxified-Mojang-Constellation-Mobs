@@ -1,6 +1,8 @@
 package com.github.pigsteel.smcm;
 
+import com.github.pigsteel.smcm.services.Services;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 
 public class SMCMFabric implements ModInitializer {
     
@@ -14,5 +16,6 @@ public class SMCMFabric implements ModInitializer {
         // Use Fabric to bootstrap the Common mod.
         SMCM.LOGGER.info("Hello Fabric world!");
         SMCM.init();
+        Services.ATTRIBUTES.applyEntityAttributeRegistrations(FabricDefaultAttributeRegistry::register);
     }
 }

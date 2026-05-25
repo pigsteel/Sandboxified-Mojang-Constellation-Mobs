@@ -22,10 +22,10 @@ public class ENUSLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(HolderLookup.Provider provider, TranslationBuilder translationBuilder) {
-        translationBuilder.add(smcm$EntityType.BRUISER, TankIllagerName);
-        translationBuilder.add(smcm$EntityType.ENCHANTER, EnchanterName);
-        translationBuilder.add(smcm$EntityType.FROSTBITTEN, FrozenZombieName);
-        translationBuilder.add(smcm$EntityType.RECLAIMED, JungleZombieName);
+        translationBuilder.add(smcm$EntityType.BRUISER.get(), TankIllagerName);
+        translationBuilder.add(smcm$EntityType.ENCHANTER.get(), EnchanterName);
+        translationBuilder.add(smcm$EntityType.FROSTBITTEN.get(), FrozenZombieName);
+        translationBuilder.add(smcm$EntityType.RECLAIMED.get(), JungleZombieName);
 
         translationBuilder.add(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerName));
         translationBuilder.add(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName));

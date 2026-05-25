@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.registry;
 
-import com.github.pigsteel.smcm.renderer.entity.*;
+import com.github.pigsteel.smcm.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 
 public class FabricEntityRenderers {

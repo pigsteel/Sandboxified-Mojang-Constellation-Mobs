@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm;
 
-import com.github.pigsteel.smcm.platform.Services;
+import com.github.pigsteel.smcm.services.Services;
 import com.github.pigsteel.smcm.registry.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;

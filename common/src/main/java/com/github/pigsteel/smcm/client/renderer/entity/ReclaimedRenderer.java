@@ -3,7 +3,7 @@ package com.github.pigsteel.smcm.client.renderer.entity;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
-import com.github.pigsteel.smcm.registry.ModelLayers;
+import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.ReclaimedFlowerLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.ReclaimedOuterLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.ReclaimedRenderState;
@@ -25,10 +25,10 @@ public class ReclaimedRenderer extends AbstractZombieRenderer<Reclaimed, Reclaim
     public ReclaimedRenderer(EntityRendererProvider.Context context) {
         super(
                 context,
-                new ReclaimedModel(context.bakeLayer(ModelLayers.RECLAIMED)),
-                new BabyReclaimedModel(context.bakeLayer(ModelLayers.RECLAIMED_BABY)),
-                ArmorModelSet.bake(ModelLayers.RECLAIMED_ARMOR, context.getModelSet(), ReclaimedModel::new),
-                ArmorModelSet.bake(ModelLayers.RECLAIMED_BABY_ARMOR, context.getModelSet(), BabyReclaimedModel::new)
+                new ReclaimedModel(context.bakeLayer(smcm$ModelLayers.RECLAIMED)),
+                new BabyReclaimedModel(context.bakeLayer(smcm$ModelLayers.RECLAIMED_BABY)),
+                ArmorModelSet.bake(smcm$ModelLayers.RECLAIMED_ARMOR, context.getModelSet(), ReclaimedModel::new),
+                ArmorModelSet.bake(smcm$ModelLayers.RECLAIMED_BABY_ARMOR, context.getModelSet(), BabyReclaimedModel::new)
         );
         this.blockModelResolver = context.getBlockModelResolver();
         this.addLayer(new ReclaimedOuterLayer(this, context.getModelSet()));

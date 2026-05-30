@@ -2,10 +2,11 @@ package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.resources.Identifier;
 
-public class ModelLayers {
+public class smcm$ModelLayers {
     public static final ModelLayerLocation RECLAIMED = register("reclaimed");
     public static final ModelLayerLocation RECLAIMED_BABY = register("reclaimed_baby");
     public static final ModelLayerLocation RECLAIMED_OUTER_LAYER = register("reclaimed", "outer");
@@ -22,6 +23,8 @@ public class ModelLayers {
     public static final ModelLayerLocation ENCHANTER = register("enchanter");
     public static final ModelLayerLocation SUNKEN = register("sunken");
     public static final ArmorModelSet<ModelLayerLocation> SUNKEN_ARMOR = registerArmorSet("sunken");
+    public static final ModelLayerLocation LOST = register("lost");
+    public static final ArmorModelSet<ModelLayerLocation> LOST_ARMOR = registerArmorSet("lost");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

@@ -2,6 +2,7 @@ package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.entity.illager.Bruiser;
 import com.github.pigsteel.smcm.entity.illager.Enchanter;
+import com.github.pigsteel.smcm.entity.skeleton.Lost;
 import com.github.pigsteel.smcm.entity.skeleton.Sunken;
 import com.github.pigsteel.smcm.entity.zombie.Frostbitten;
 import com.github.pigsteel.smcm.entity.zombie.Reclaimed;
@@ -16,5 +17,6 @@ public final class Attributes {
         Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.FROSTBITTEN, Frostbitten::createAttributes);
         Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.RECLAIMED, Reclaimed::createAttributes);
         Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.SUNKEN, Sunken::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.LOST, Lost::createAttributes);
     }
 }

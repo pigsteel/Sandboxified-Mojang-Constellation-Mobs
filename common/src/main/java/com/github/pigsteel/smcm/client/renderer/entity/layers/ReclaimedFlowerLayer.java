@@ -48,7 +48,7 @@ public class ReclaimedFlowerLayer extends RenderLayer<ReclaimedRenderState, Recl
                     poseStack.pushPose();
                     this.getParentModel().getHead().translateAndRotate(poseStack);
                     poseStack.translate(0.0F, -0.7F, -0.0F);
-                    poseStack.mulPose(Axis.YP.rotationDegrees(-65.0F));
+                    poseStack.mulPose(Axis.YP.rotationDegrees(-50.0F));
                     poseStack.scale(-0.8F, -0.8F, 0.8F);
                     poseStack.translate(-0.5F, -0.5F, -0.5F);
                     this.submitFlowerBlock(

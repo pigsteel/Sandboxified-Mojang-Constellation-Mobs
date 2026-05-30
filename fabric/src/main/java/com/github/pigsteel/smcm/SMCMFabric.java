@@ -18,7 +18,7 @@ public class SMCMFabric implements ModInitializer {
         // Use Fabric to bootstrap the Common mod.
         SMCM.LOGGER.info("Hello Fabric world!");
         SMCM.init();
-        FabricItemGroups.initialize();
+        FabricItemGroups.init();
 
         FabricEntitySpawns.registerSpawnRules();
         FabricEntitySpawns.AddSpawns();

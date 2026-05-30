@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.registry.smcm$EntityType;
-import com.github.pigsteel.smcm.registry.smcm$Sounds;
+import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.parrot.Parrot;
@@ -30,9 +30,9 @@ public class ParrotImitateMixin {
         if (!MOB_SOUND_MAP.containsKey(smcm$EntityType.FROSTBITTEN)) {
             Map<EntityType<?>, SoundEvent> map = new HashMap<>(MOB_SOUND_MAP);
 
-            map.put(smcm$EntityType.FROSTBITTEN.get(), smcm$Sounds.PARROT_IMITATE_FROSTBITTEN.get());
-            map.put(smcm$EntityType.RECLAIMED.get(), smcm$Sounds.PARROT_IMITATE_RECLAIMED.get());
-            map.put(smcm$EntityType.ENCHANTER.get(), smcm$Sounds.PARROT_IMITATE_ENCHANTER.get());
+            map.put(smcm$EntityType.FROSTBITTEN.get(), smcm$SoundEvents.PARROT_IMITATE_FROSTBITTEN.get());
+            map.put(smcm$EntityType.RECLAIMED.get(), smcm$SoundEvents.PARROT_IMITATE_RECLAIMED.get());
+            map.put(smcm$EntityType.ENCHANTER.get(), smcm$SoundEvents.PARROT_IMITATE_ENCHANTER.get());
 
             MOB_SOUND_MAP = map;
 

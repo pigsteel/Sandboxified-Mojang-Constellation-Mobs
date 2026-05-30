@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.entity.illager;
 
-import com.github.pigsteel.smcm.registry.smcm$Sounds;
+import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -38,17 +38,17 @@ public class Enchanter extends AbstractIllager { // Instead of spellcasting Illa
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$Sounds.ENCHANTER_AMBIENT.get();
+        return smcm$SoundEvents.ENCHANTER_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$Sounds.ENCHANTER_HURT.get();
+        return smcm$SoundEvents.ENCHANTER_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$Sounds.ENCHANTER_DEATH.get();
+        return smcm$SoundEvents.ENCHANTER_DEATH.get();
     }
 
     @Override

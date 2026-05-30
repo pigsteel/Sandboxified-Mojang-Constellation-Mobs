@@ -6,6 +6,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -22,10 +23,8 @@ import net.minecraft.world.item.consume_effects.ConsumeEffect;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.attachment.AttachmentType;
+import net.neoforged.neoforge.registries.*;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -36,11 +35,20 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     private static final DeferredRegister.Entities ENTITIES = DeferredRegister.createEntities(SMCM.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SMCM.MOD_ID);
     private static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, SMCM.MOD_ID);
+    private static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, SMCM.MOD_ID);
+
+    public static final Supplier<AttachmentType<Integer>> FREEZE_CONVERSION_TIME =
+            ATTACHMENT_TYPES.register("freeze_conversion_time", () ->
+                    AttachmentType.builder(() -> 0)
+                            .sync(ByteBufCodecs.INT)
+                            .build()
+            );
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
         ITEMS.register(eventBus);
         SOUND_EVENTS.register(eventBus);
+        ATTACHMENT_TYPES.register(eventBus);
     }
 
     @Override

@@ -20,8 +20,6 @@ import net.minecraft.client.model.monster.skeleton.SkeletonModel;
 import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 
-import java.util.function.Supplier;
-
 public class LayerDefinitions {
     private static final CubeDeformation OUTER_ARMOR_DEFORMATION = new CubeDeformation(1.0F);
     private static final CubeDeformation INNER_ARMOR_DEFORMATION = new CubeDeformation(0.5F);
@@ -50,22 +48,24 @@ public class LayerDefinitions {
                 .map(mesh -> LayerDefinition.create(mesh, 64, 64));
 
         SMCM.LOGGER.debug("Registering model layers for SMCM");
-        registrar.registerModelLayer(ModelLayers.RECLAIMED, () -> ReclaimedModel.createBodyLayer(CubeDeformation.NONE));
-        registrar.registerModelLayer(ModelLayers.RECLAIMED_BABY, () -> BabyReclaimedModel.createBodyLayer(CubeDeformation.NONE));
-        registerArmorLayers(ModelLayers.RECLAIMED_ARMOR, humanoidArmor, registrar);
-        registerArmorLayers(ModelLayers.RECLAIMED_BABY_ARMOR, humanoidBabyArmor, registrar);
-        registrar.registerModelLayer(ModelLayers.RECLAIMED_OUTER_LAYER, () -> ReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registrar.registerModelLayer(ModelLayers.RECLAIMED_BABY_OUTER_LAYER, () -> BabyReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registrar.registerModelLayer(ModelLayers.FROSTBITTEN, () -> FrostbittenModel.createBodyLayer(CubeDeformation.NONE));
-        registrar.registerModelLayer(ModelLayers.FROSTBITTEN_BABY, () -> BabyFrostbittenModel.createBodyLayer(CubeDeformation.NONE));
-        registerArmorLayers(ModelLayers.FROSTBITTEN_ARMOR, humanoidArmor, registrar);
-        registerArmorLayers(ModelLayers.FROSTBITTEN_BABY_ARMOR, humanoidBabyArmor, registrar);
-        registrar.registerModelLayer(ModelLayers.FROSTBITTEN_OUTER_LAYER, () -> FrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registrar.registerModelLayer(ModelLayers.FROSTBITTEN_BABY_OUTER_LAYER, () -> BabyFrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registrar.registerModelLayer(ModelLayers.BRUISER, () -> IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(1.0625F)));
-        registrar.registerModelLayer(ModelLayers.ENCHANTER, () -> EnchanterModel.createBodyLayer().apply(MeshTransformer.scaling(0.9375F)));
-        registrar.registerModelLayer(ModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
-        registerArmorLayers(ModelLayers.SUNKEN_ARMOR, humanoidArmor, registrar);
+        registrar.registerModelLayer(smcm$ModelLayers.RECLAIMED, () -> ReclaimedModel.createBodyLayer(CubeDeformation.NONE));
+        registrar.registerModelLayer(smcm$ModelLayers.RECLAIMED_BABY, () -> BabyReclaimedModel.createBodyLayer(CubeDeformation.NONE));
+        registerArmorLayers(smcm$ModelLayers.RECLAIMED_ARMOR, humanoidArmor, registrar);
+        registerArmorLayers(smcm$ModelLayers.RECLAIMED_BABY_ARMOR, humanoidBabyArmor, registrar);
+        registrar.registerModelLayer(smcm$ModelLayers.RECLAIMED_OUTER_LAYER, () -> ReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registrar.registerModelLayer(smcm$ModelLayers.RECLAIMED_BABY_OUTER_LAYER, () -> BabyReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registrar.registerModelLayer(smcm$ModelLayers.FROSTBITTEN, () -> FrostbittenModel.createBodyLayer(CubeDeformation.NONE));
+        registrar.registerModelLayer(smcm$ModelLayers.FROSTBITTEN_BABY, () -> BabyFrostbittenModel.createBodyLayer(CubeDeformation.NONE));
+        registerArmorLayers(smcm$ModelLayers.FROSTBITTEN_ARMOR, humanoidArmor, registrar);
+        registerArmorLayers(smcm$ModelLayers.FROSTBITTEN_BABY_ARMOR, humanoidBabyArmor, registrar);
+        registrar.registerModelLayer(smcm$ModelLayers.FROSTBITTEN_OUTER_LAYER, () -> FrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registrar.registerModelLayer(smcm$ModelLayers.FROSTBITTEN_BABY_OUTER_LAYER, () -> BabyFrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registrar.registerModelLayer(smcm$ModelLayers.BRUISER, () -> IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(1.0625F)));
+        registrar.registerModelLayer(smcm$ModelLayers.ENCHANTER, () -> EnchanterModel.createBodyLayer().apply(MeshTransformer.scaling(0.9375F)));
+        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
+        registerArmorLayers(smcm$ModelLayers.SUNKEN_ARMOR, humanoidArmor, registrar);
+        registrar.registerModelLayer(smcm$ModelLayers.LOST, SkeletonModel::createBodyLayer);
+        registerArmorLayers(smcm$ModelLayers.LOST_ARMOR, humanoidArmor, registrar);
     }
 
     public static void registerArmorLayers(final ArmorModelSet<ModelLayerLocation> location, ArmorModelSet<LayerDefinition> modelSet, final IClientRegistryHelper registrar) {

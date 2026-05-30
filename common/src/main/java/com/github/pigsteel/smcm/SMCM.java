@@ -38,7 +38,7 @@ public class SMCM {
 
         //DataComponents.init();
         //LootTables.init();
-        smcm$Sounds.load();
+        smcm$SoundEvents.load();
         smcm$EntityType.load();
         smcm$Items.load();
         Attributes.load();

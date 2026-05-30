@@ -1,4 +1,4 @@
-package com.github.pigsteel.smcm.entity.skeleton;
+package com.github.pigsteel.smcm.entity;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;

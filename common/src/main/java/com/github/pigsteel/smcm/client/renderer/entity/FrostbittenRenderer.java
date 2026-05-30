@@ -3,7 +3,7 @@ package com.github.pigsteel.smcm.client.renderer.entity;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
-import com.github.pigsteel.smcm.registry.ModelLayers;
+import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.FrostbittenOuterLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.FrostbittenRenderState;
 import com.github.pigsteel.smcm.entity.zombie.Frostbitten;
@@ -19,10 +19,10 @@ public class FrostbittenRenderer extends AbstractZombieRenderer<Frostbitten, Fro
     public FrostbittenRenderer(final EntityRendererProvider.Context context) {
         super(
                 context,
-                new FrostbittenModel(context.bakeLayer(ModelLayers.FROSTBITTEN)),
-                new BabyFrostbittenModel(context.bakeLayer(ModelLayers.FROSTBITTEN_BABY)),
-                ArmorModelSet.bake(ModelLayers.FROSTBITTEN_ARMOR, context.getModelSet(), FrostbittenModel::new),
-                ArmorModelSet.bake(ModelLayers.FROSTBITTEN_BABY_ARMOR, context.getModelSet(), BabyFrostbittenModel::new)
+                new FrostbittenModel(context.bakeLayer(smcm$ModelLayers.FROSTBITTEN)),
+                new BabyFrostbittenModel(context.bakeLayer(smcm$ModelLayers.FROSTBITTEN_BABY)),
+                ArmorModelSet.bake(smcm$ModelLayers.FROSTBITTEN_ARMOR, context.getModelSet(), FrostbittenModel::new),
+                ArmorModelSet.bake(smcm$ModelLayers.FROSTBITTEN_BABY_ARMOR, context.getModelSet(), BabyFrostbittenModel::new)
         );
         this.addLayer(new FrostbittenOuterLayer(this, context.getModelSet()));
     }
@@ -36,6 +36,7 @@ public class FrostbittenRenderer extends AbstractZombieRenderer<Frostbitten, Fro
     public void extractRenderState(final Frostbitten entity, final FrostbittenRenderState state, final float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
         state.isShaking = entity.isShaking();
+        state.isThrowingSnowball = entity.isAimingSnowball();
     }
 
     @Override

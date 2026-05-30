@@ -3,7 +3,7 @@ package com.github.pigsteel.smcm.client.renderer.entity.layers;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
-import com.github.pigsteel.smcm.registry.ModelLayers;
+import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
 import com.github.pigsteel.smcm.client.renderer.entity.state.ReclaimedRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -20,8 +20,8 @@ public class ReclaimedOuterLayer extends RenderLayer<ReclaimedRenderState, Recla
 
     public ReclaimedOuterLayer(final RenderLayerParent<ReclaimedRenderState, ReclaimedModel> renderer, final EntityModelSet modelSet) {
         super(renderer);
-        this.model = new ReclaimedModel(modelSet.bakeLayer(ModelLayers.RECLAIMED_OUTER_LAYER));
-        this.babyModel = new BabyReclaimedModel(modelSet.bakeLayer(ModelLayers.RECLAIMED_BABY_OUTER_LAYER));
+        this.model = new ReclaimedModel(modelSet.bakeLayer(smcm$ModelLayers.RECLAIMED_OUTER_LAYER));
+        this.babyModel = new BabyReclaimedModel(modelSet.bakeLayer(smcm$ModelLayers.RECLAIMED_BABY_OUTER_LAYER));
     }
 
     public void submit(final PoseStack poseStack, final SubmitNodeCollector submitNodeCollector, final int lightCoords, final ReclaimedRenderState state, final float yRot, final float xRot) {

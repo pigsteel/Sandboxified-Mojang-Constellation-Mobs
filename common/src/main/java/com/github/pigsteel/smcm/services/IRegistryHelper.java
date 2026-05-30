@@ -1,8 +1,11 @@
 package com.github.pigsteel.smcm.services;
 
 import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.entity.skeleton.SunkenVariant;
 import com.github.pigsteel.smcm.services.util.RegistryHandle;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -20,6 +23,7 @@ import net.minecraft.world.item.consume_effects.ConsumeEffect;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;

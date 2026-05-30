@@ -23,15 +23,15 @@ public class ELGRLangProvider extends LanguageProvider implements SMCMLangProvid
         add(smcm$Items.FROSTBITTEN_SPAWN_EGG.get(), eggName(FrozenZombieName()));
         add(smcm$Items.RECLAIMED_SPAWN_EGG.get(), eggName(JungleZombieName()));
 
-        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + " βογκάει");
+        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
         add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
         add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + " βογκάει");
+        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + JungleZombieAmbientVerb());
         add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName() + HurtsVerb());
         add("subtitles.smcm.entity.reclaimed.death", JungleZombieName() + DiesVerb());
 
-        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName() + " μουρμουρίζει");
+        add("subtitles.smcm.entity.enchanter.ambient", EnchanterName() + EnchanterAmbientVerb());
         add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
         add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
 

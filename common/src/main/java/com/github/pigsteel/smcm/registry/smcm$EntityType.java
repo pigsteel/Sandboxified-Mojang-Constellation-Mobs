@@ -3,6 +3,7 @@ package com.github.pigsteel.smcm.registry;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.entity.illager.Bruiser;
 import com.github.pigsteel.smcm.entity.illager.Enchanter;
+import com.github.pigsteel.smcm.entity.skeleton.Lost;
 import com.github.pigsteel.smcm.entity.skeleton.Sunken;
 import com.github.pigsteel.smcm.entity.zombie.Frostbitten;
 import com.github.pigsteel.smcm.entity.zombie.Reclaimed;
@@ -24,6 +25,7 @@ public class smcm$EntityType {
     public static RegistryHandle<EntityType<Frostbitten>> FROSTBITTEN;
     public static RegistryHandle<EntityType<Reclaimed>> RECLAIMED;
     public static RegistryHandle<EntityType<Sunken>> SUNKEN;
+    public static RegistryHandle<EntityType<Lost>> LOST;
 
     static {
         BRUISER = Services.REGISTRY.registerEntityType(
@@ -59,15 +61,22 @@ public class smcm$EntityType {
                 .clientTrackingRange(8)
                 .notInPeaceful());
 
-
         SUNKEN = Services.REGISTRY.registerEntityType("sunken", EntityType.Builder.of(Sunken::new, MobCategory.MONSTER)
                 .sized(0.6F, 1.99F)
                 .eyeHeight(1.74F)
                 .ridingOffset(-0.7F)
                 .clientTrackingRange(8)
                 .notInPeaceful());
+
+        LOST = Services.REGISTRY.registerEntityType("lost", EntityType.Builder.of(Lost::new, MobCategory.MONSTER)
+                .sized(0.6F, 1.95F)
+                .eyeHeight(1.74F)
+                .ridingOffset(-0.7F)
+                .clientTrackingRange(8)
+                .notInPeaceful());
     }
 
+    /*
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name));
         return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
@@ -79,6 +88,7 @@ public class smcm$EntityType {
                 Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name)
         );
     }
+    */
 
     public static void load() {} // does nothing, initializes the static block
 }

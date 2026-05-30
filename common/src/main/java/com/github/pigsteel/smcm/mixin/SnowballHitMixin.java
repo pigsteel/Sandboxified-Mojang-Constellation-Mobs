@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.Snowball;
 import net.minecraft.world.level.Level;
@@ -34,11 +35,15 @@ public abstract class SnowballHitMixin extends Projectile {
 
         if (!(entity instanceof LivingEntity living)) return;
 
+        if (living instanceof Player player && (player.isCreative() || player.isSpectator())) {
+            return;
+        }
+
         Entity owner = this.getOwner();
 
         if (owner instanceof Frostbitten && entity.level() instanceof ServerLevel serverLevel) {
             float difficulty = serverLevel.getCurrentDifficultyAt(this.getOwner().blockPosition()).getEffectiveDifficulty();
-            //living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 140 * (int)difficulty), (Entity)this);
+
             living.setTicksFrozen(living.getTicksFrozen() + 270 + (int)(20 * difficulty));
             entity.hurt(this.damageSources().thrown(this, this.getOwner()), 1);
         }

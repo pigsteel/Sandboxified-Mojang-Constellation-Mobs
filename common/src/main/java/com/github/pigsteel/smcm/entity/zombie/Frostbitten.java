@@ -1,17 +1,20 @@
 package com.github.pigsteel.smcm.entity.zombie;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.registry.smcm$Sounds;
+import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -35,6 +38,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
 public class Frostbitten extends Zombie implements RangedAttackMob {
+    private static final EntityDataAccessor<Boolean> AIMING_SNOWBALL = SynchedEntityData.defineId(Frostbitten.class, EntityDataSerializers.BOOLEAN);
     private static final int SNOWBALL_COOLDOWN = 40;
     private final FrostbittenThrowSnowballGoal snowballGoal = new FrostbittenThrowSnowballGoal(this, 0.1, 20, 10.0f);
     private int snowballCooldownTime;
@@ -60,17 +64,17 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$Sounds.FROSTBITTEN_AMBIENT.get();
+        return smcm$SoundEvents.FROSTBITTEN_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$Sounds.FROSTBITTEN_HURT.get();
+        return smcm$SoundEvents.FROSTBITTEN_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$Sounds.FROSTBITTEN_DEATH.get();
+        return smcm$SoundEvents.FROSTBITTEN_DEATH.get();
     }
 
     @Override
@@ -88,7 +92,17 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
     }
 
     public boolean isShaking() {
-        return shiveringTicksLeft != 0 && !this.isOnFire();
+        return this.isInPowderSnow || shiveringTicksLeft != 0 && !this.isOnFire();
+    }
+
+    public boolean isAimingSnowball() {
+        return this.entityData.get(AIMING_SNOWBALL);
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(AIMING_SNOWBALL, false);
     }
 
     @Override
@@ -102,6 +116,10 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         super.readAdditionalSaveData(valueInput);
         snowballCooldownTime = valueInput.getInt("snowball_cooldown").orElse(0);
         this.reassessWeaponGoal();
+    }
+
+    public void setAimingSnowball(boolean aimingSnowball) {
+        this.entityData.set(AIMING_SNOWBALL, aimingSnowball);
     }
 
     @Override
@@ -119,7 +137,7 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
             this.snowballCooldownTime = (int)(SNOWBALL_COOLDOWN - 5.0F * difficulty);
         }
 
-        this.playSound(SoundEvents.SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        this.playSound(smcm$SoundEvents.FROSTBITTEN_SHOOT.get(), 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
     }
 
     public void reassessWeaponGoal() {
@@ -147,12 +165,21 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
             final ServerLevelAccessor level, final DifficultyInstance difficulty, final EntitySpawnReason spawnReason, @Nullable SpawnGroupData groupData
     ) {
         groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
+        float difficultyModifier = difficulty.getSpecialMultiplier();
+        if (spawnReason != EntitySpawnReason.CONVERSION) {
+            this.setCanPickUpLoot(random.nextFloat() < 0.55F * difficultyModifier);
+        }
+
+        if (groupData != null) {
+            groupData = new FrostbittenGroupData((Zombie.ZombieGroupData)groupData);
+        }
+
         this.reassessWeaponGoal();
         return groupData;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Zombie.createAttributes();
+        return Zombie.createAttributes().add(Attributes.MAX_HEALTH, 16.0);
     }
 
     @Override
@@ -160,7 +187,6 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         boolean result = super.doHurtTarget(level, target);
         if (result && this.getMainHandItem().isEmpty() && target instanceof LivingEntity) {
             float difficulty = level.getCurrentDifficultyAt(this.blockPosition()).getEffectiveDifficulty();
-            //((LivingEntity)target).addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 140 * (int)difficulty), this);
             var living = (LivingEntity)target;
             living.setTicksFrozen(living.getTicksFrozen() + 140 * (int)difficulty);
         }
@@ -201,6 +227,8 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         public void start() {
             super.start();
 
+            this.frostbitten.setAimingSnowball(true);
+
             this.frostbitten.setItemSlot(
                     EquipmentSlot.MAINHAND,
                     new ItemStack(Items.SNOWBALL)
@@ -211,14 +239,27 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
         public void stop() {
             super.stop();
 
+            this.frostbitten.setAimingSnowball(false);
+
             this.frostbitten.setItemSlot(
                     EquipmentSlot.MAINHAND,
                     ItemStack.EMPTY
             );
         }
 
-        @Override public boolean canUse() { return super.canUse() && this.frostbitten.getTarget() != null && !IsTargetSlowed(this.frostbitten.getTarget()) && this.frostbitten.distanceTo(this.frostbitten.getTarget()) > 3.0F && this.frostbitten.snowballCooldownTime == 0; }
+        @Override public boolean canUse() {
+            var target = this.frostbitten.getTarget();
+            if(target == null) return false;
+            var distance = this.frostbitten.distanceTo(target);
+
+            return super.canUse() && !IsTargetSlowed(target) && distance > 3.0F && distance < 16.0F && this.frostbitten.snowballCooldownTime == 0; }
         @Override public boolean canContinueToUse() { return super.canContinueToUse() && this.canUse(); }
 
+    }
+
+    public static class FrostbittenGroupData extends Zombie.ZombieGroupData {
+        public FrostbittenGroupData(Zombie.ZombieGroupData groupData) {
+            super(groupData.isBaby, groupData.canSpawnJockey);
+        }
     }
 }

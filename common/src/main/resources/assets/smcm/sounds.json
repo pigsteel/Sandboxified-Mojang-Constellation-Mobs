@@ -24,6 +24,12 @@
       "smcm:entity/frostbitten/death4"
     ]
   },
+  "entity.frostbitten.shoot": {
+    "subtitle": "subtitles.entity.snowball.throw",
+    "sounds": [
+      "random/bow"
+    ]
+  },
   "entity.reclaimed.ambient": {
     "subtitle": "subtitles.smcm.entity.reclaimed.ambient",
     "sounds": [

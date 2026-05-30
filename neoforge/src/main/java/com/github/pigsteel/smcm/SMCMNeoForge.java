@@ -1,5 +1,6 @@
 package com.github.pigsteel.smcm;
 
+import com.github.pigsteel.smcm.registry.SMCMNeoForgeItemGroups;
 import com.github.pigsteel.smcm.registry.SMCMNeoForgeSpawnPlacements;
 import com.github.pigsteel.smcm.services.IAttributeRegistryHelper;
 import com.github.pigsteel.smcm.services.NeoForgeRegistryHelper;
@@ -27,6 +28,8 @@ public class SMCMNeoForge {
         eventBus.addListener(SMCMNeoForgeDatagen::onGatherClientData);
         eventBus.addListener(SMCMNeoForge::onEntityAttributeCreation);
         eventBus.addListener(SMCMNeoForgeSpawnPlacements::registerSpawnPlacements);
+        eventBus.addListener(SMCMNeoForgeItemGroups::modifyCreativeTabs);
+
         NeoForgeRegistryHelper.register(eventBus);
     }
 

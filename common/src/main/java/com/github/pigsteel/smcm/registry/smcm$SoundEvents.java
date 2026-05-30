@@ -8,10 +8,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
-public class smcm$Sounds {
+public class smcm$SoundEvents {
     public static final RegistryHandle<SoundEvent> FROSTBITTEN_AMBIENT = Services.REGISTRY.registerSoundEvent("entity.frostbitten.ambient");
     public static final RegistryHandle<SoundEvent> FROSTBITTEN_HURT = Services.REGISTRY.registerSoundEvent("entity.frostbitten.hurt");
     public static final RegistryHandle<SoundEvent> FROSTBITTEN_DEATH = Services.REGISTRY.registerSoundEvent("entity.frostbitten.death");
+    public static final RegistryHandle<SoundEvent> FROSTBITTEN_SHOOT = Services.REGISTRY.registerSoundEvent("entity.frostbitten.shoot");
+    public static final RegistryHandle<SoundEvent> ZOMBIE_CONVERTED_TO_FROSTBITTEN = Services.REGISTRY.registerSoundEvent("entity.zombie.converted_to_frostbitten");
     public static final RegistryHandle<SoundEvent> RECLAIMED_AMBIENT = Services.REGISTRY.registerSoundEvent("entity.reclaimed.ambient");
     public static final RegistryHandle<SoundEvent> RECLAIMED_DEATH = Services.REGISTRY.registerSoundEvent("entity.reclaimed.death");
     public static final RegistryHandle<SoundEvent> RECLAIMED_HURT = Services.REGISTRY.registerSoundEvent("entity.reclaimed.hurt");

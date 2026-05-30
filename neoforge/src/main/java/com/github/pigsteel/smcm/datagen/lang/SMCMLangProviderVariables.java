@@ -1,7 +1,5 @@
 package com.github.pigsteel.smcm.datagen.lang;
 
-import static com.github.pigsteel.smcm.datagen.lang.LangUtils.s;
-
 public interface SMCMLangProviderVariables {
     String TankIllagerName();
     String EnchanterName();
@@ -9,7 +7,7 @@ public interface SMCMLangProviderVariables {
     String JungleZombieName();
     String SunkenSkeletonName();
     String MossySkeletonName();
-    String ParrotName();
+    String ParrotImitates();
 
     String FrozenZombieAmbientVerb();
     String EnchanterAmbientVerb();

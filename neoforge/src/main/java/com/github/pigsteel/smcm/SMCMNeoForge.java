@@ -3,6 +3,7 @@ package com.github.pigsteel.smcm;
 import com.github.pigsteel.smcm.registry.SMCMNeoForgeItemGroups;
 import com.github.pigsteel.smcm.registry.SMCMNeoForgeSpawnPlacements;
 import com.github.pigsteel.smcm.services.IAttributeRegistryHelper;
+import com.github.pigsteel.smcm.services.NeoForgeAttachmentRegistryHelper;
 import com.github.pigsteel.smcm.services.NeoForgeRegistryHelper;
 import com.github.pigsteel.smcm.services.Services;
 import net.minecraft.world.entity.EntityType;
@@ -30,6 +31,7 @@ public class SMCMNeoForge {
         eventBus.addListener(SMCMNeoForgeSpawnPlacements::registerSpawnPlacements);
         eventBus.addListener(SMCMNeoForgeItemGroups::modifyCreativeTabs);
 
+        NeoForgeAttachmentRegistryHelper.ATTACHMENT_TYPES.register(eventBus);
         NeoForgeRegistryHelper.register(eventBus);
     }
 

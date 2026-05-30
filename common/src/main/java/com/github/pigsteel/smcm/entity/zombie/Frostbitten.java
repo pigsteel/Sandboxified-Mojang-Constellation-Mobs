@@ -141,10 +141,9 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
     }
 
     public void reassessWeaponGoal() {
-        if (this.level() != null && !this.level().isClientSide()) {
+        if (this.level() != null && !this.level().isClientSide() && !this.getMainHandItem().is(Items.SNOWBALL)) {
             this.goalSelector.removeGoal(this.snowballGoal);
             if (this.getMainHandItem().isEmpty()) {
-                SMCM.LOGGER.debug("Main hand is empty");
                 this.goalSelector.addGoal(2, this.snowballGoal);
             }
         }
@@ -154,7 +153,6 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
     public void onEquipItem(final EquipmentSlot slot, final ItemStack oldStack, final ItemStack stack) {
         super.onEquipItem(slot, oldStack, stack);
         if (!this.level().isClientSide()) {
-            if (this.getMainHandItem().is(Items.SNOWBALL)) return;
             this.reassessWeaponGoal();
         }
     }

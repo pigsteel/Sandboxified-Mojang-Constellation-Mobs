@@ -42,6 +42,7 @@ public class SMCM {
         smcm$EntityType.load();
         smcm$Items.load();
         Attributes.load();
+        DataAttachments.load();
     }
 
     public static Identifier id(String path) {

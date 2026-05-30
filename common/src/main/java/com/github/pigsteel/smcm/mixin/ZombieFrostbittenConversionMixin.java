@@ -1,7 +1,9 @@
 package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.entity.ZombieFrostbittenConversion;
+import com.github.pigsteel.smcm.registry.DataAttachments;
 import com.github.pigsteel.smcm.registry.smcm$EntityType;
+import com.github.pigsteel.smcm.services.Services;
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -18,13 +20,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static com.github.pigsteel.smcm.registry.DataAttachments.DATA_FROSTBITTEN_CONVERSION_ID;
+
 @Mixin(Zombie.class)
 public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbittenConversion {
     @Unique
     private static final int smcm$FROSTBITTEN_TOTAL_CONVERSION_TIME = 300;
-
-    @Unique
-    private static final EntityDataAccessor<Boolean> DATA_FROSTBITTEN_CONVERSION_ID;
 
     @Unique
     private int smcm$inPowderSnowTime;
@@ -32,14 +33,18 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     @Unique
     private int smcm$freezingConversionTime;
 
-    @Inject(method = "defineSynchedData", at = @At("HEAD"))
-    protected void smcm$defineSynchedData(SynchedEntityData.Builder entityData, CallbackInfo ci) {
-        entityData.define(DATA_FROSTBITTEN_CONVERSION_ID, false);
+    @Unique
+    public boolean smcm$canFreezeConvert(Zombie zombie) {
+        return zombie.getType() == EntityType.ZOMBIE;
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void smcm$tick(CallbackInfo ci) {
         Zombie zombie = (Zombie) (Object) this;
+
+        if (!this.smcm$canFreezeConvert(zombie)) {
+            return;
+        }
 
         if (!zombie.level().isClientSide() && zombie.isAlive() && !zombie.isNoAi()) {
             if (zombie.isInPowderSnow) {
@@ -64,7 +69,12 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     @Unique
     public void smcm$setFreezeConverting(boolean isConverting) {
         Zombie zombie = (Zombie) (Object) this;
-        zombie.getEntityData().set(DATA_FROSTBITTEN_CONVERSION_ID, isConverting);
+
+        Services.ATTACHMENTS.set(
+                zombie,
+                DATA_FROSTBITTEN_CONVERSION_ID,
+                isConverting
+        );
     }
 
     @VisibleForTesting
@@ -82,7 +92,6 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
             if (!zombie.isSilent()) {
                 zombie.level().levelEvent((Entity)null, 1048, zombie.blockPosition(), 0);
             }
-
         });
     }
 
@@ -90,7 +99,10 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     public boolean smcm$isFreezeConverting() {
         Zombie zombie = (Zombie) (Object) this;
 
-        return (Boolean)zombie.getEntityData().get(DATA_FROSTBITTEN_CONVERSION_ID);
+        return Services.ATTACHMENTS.get(
+                zombie,
+                DATA_FROSTBITTEN_CONVERSION_ID
+        );
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
@@ -106,10 +118,5 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
         } else {
             this.smcm$setFreezeConverting(false);
         }
-    }
-
-
-    static {
-        DATA_FROSTBITTEN_CONVERSION_ID = SynchedEntityData.defineId(Zombie.class, EntityDataSerializers.BOOLEAN);
     }
 }

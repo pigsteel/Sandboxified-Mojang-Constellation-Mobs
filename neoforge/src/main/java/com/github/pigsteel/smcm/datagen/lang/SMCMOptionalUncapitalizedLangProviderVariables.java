@@ -7,4 +7,5 @@ public interface SMCMOptionalUncapitalizedLangProviderVariables {
     String EnchanterNameS();
     String FrozenZombieNameS();
     String JungleZombieNameS();
+    String SunkenSkeletonNameS();
 }

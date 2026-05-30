@@ -35,6 +35,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.PathType;
 
 public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shearable {
     private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW;
@@ -42,6 +43,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
     public Sunken(EntityType<? extends Sunken> type, final Level level) {
         super(type, level);
+        this.setPathfindingMalus(PathType.WATER, 0.0F);
     }
 
     protected void defineSynchedData(final SynchedEntityData.Builder entityData) {
@@ -59,7 +61,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         this.goalSelector.addGoal(2, new RestrictSunGoal(this));
         this.goalSelector.addGoal(3, new FleeSunGoal(this, 1.0));
         this.goalSelector.addGoal(3, new AvoidEntityGoal(this, Wolf.class, 6.0F, 1.0, 1.2));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -94,7 +96,8 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     @Override
     protected void populateDefaultEquipmentSlots(final RandomSource random, final DifficultyInstance difficulty) {
         super.populateDefaultEquipmentSlots(random, difficulty);
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW));
+        ItemStack spawnWeapon = (double) this.random.nextFloat() < (double) 0.5F ? new ItemStack(Items.CROSSBOW) : new ItemStack(Items.BOW);
+        this.setItemSlot(EquipmentSlot.MAINHAND, spawnWeapon);
     }
 
     @Override
@@ -126,7 +129,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         ItemStack weaponItem = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new Item[] { Items.BOW, Items.CROSSBOW } ));
 
         if(weaponItem.is(Items.CROSSBOW)) {
-            this.performCrossbowAttack(target, 1.6F);
+            this.performCrossbowAttack(this, 1.6F);
         } else if (weaponItem.is(Items.BOW)) {
             super.performRangedAttack(target, power);
         }
@@ -141,12 +144,10 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         return false;
     }
 
-    @Override
     public void setChargingCrossbow(boolean isCharging) {
         this.entityData.set(IS_CHARGING_CROSSBOW, isCharging);
     }
 
-    @Override
     public void onCrossbowAttackPerformed() {
         this.noActionTime = 0;
     }

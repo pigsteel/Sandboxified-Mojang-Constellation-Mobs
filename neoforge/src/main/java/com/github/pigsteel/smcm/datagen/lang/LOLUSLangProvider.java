@@ -11,6 +11,7 @@ public class LOLUSLangProvider extends LanguageProvider {
     private final String EnchanterName = "Enchentor";
     private final String FrozenZombieName = "Frosbidin";
     private final String JungleZombieName = "Recleimd";
+    private final String SunkenSkeletonName = "Sucken";
     private final String DiesVerb = " ded";
     private final String HurtsVerb = " hurz";
 
@@ -24,11 +25,13 @@ public class LOLUSLangProvider extends LanguageProvider {
         addEntityType(smcm$EntityType.ENCHANTER, EnchanterName);
         addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName);
         addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName);
+        addEntityType(smcm$EntityType.SUNKEN, SunkenSkeletonName);
 
         addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerName));
         addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName));
         addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName));
         addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName));
+        addItem(smcm$Items.SUNKEN_SPAWN_EGG, eggName(SunkenSkeletonName));
 
         add("subtitles.smcm.entity.frostbitten.ambient", "Cold Hooman moonz");
         add("subtitles.smcm.entity.frostbitten.hurt", "Cold Hooman" + HurtsVerb);

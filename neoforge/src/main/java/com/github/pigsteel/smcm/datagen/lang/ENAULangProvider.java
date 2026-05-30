@@ -18,11 +18,13 @@ public class ENAULangProvider extends LanguageProvider implements SMCMLangProvid
         addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
         addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
         addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
+        addEntityType(smcm$EntityType.SUNKEN, SunkenSkeletonName());
 
         addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerName()));
         addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName()));
         addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName()));
         addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName()));
+        add(smcm$Items.SUNKEN_SPAWN_EGG.get(), eggName(SunkenSkeletonName()));
 
         add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
         add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
@@ -36,9 +38,9 @@ public class ENAULangProvider extends LanguageProvider implements SMCMLangProvid
         add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
         add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
 
-        add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotName() + FrozenZombieAmbientVerb());
-        add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotName() + JungleZombieAmbientVerb());
-        add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotName() + EnchanterAmbientVerb());
+        add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotImitates() + FrozenZombieAmbientVerb());
+        add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotImitates() + JungleZombieAmbientVerb());
+        add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotImitates() + EnchanterAmbientVerb());
     }
 
     private String eggName(String name) {
@@ -76,7 +78,7 @@ public class ENAULangProvider extends LanguageProvider implements SMCMLangProvid
     }
 
     @Override
-    public String ParrotName() {
+    public String ParrotImitates() {
         return "Parrot";
     }
 

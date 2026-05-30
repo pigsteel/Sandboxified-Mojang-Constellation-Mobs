@@ -20,11 +20,13 @@ public class FRCALangProvider extends LanguageProvider implements SMCMLangProvid
         addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
         addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
         addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
+        addEntityType(smcm$EntityType.SUNKEN, SunkenSkeletonName());
 
         addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName("de " + TankIllagerNameS()));
         addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName("d'" + EnchanterNameS()));
         addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName("de " + FrozenZombieNameS()));
         addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName("de " + JungleZombieNameS()));
+        addItem(smcm$Items.SUNKEN_SPAWN_EGG, eggName("d'" + SunkenSkeletonNameS()));
 
         add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieAmbientVerb() + FrozenZombieNameS());
         add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
@@ -38,9 +40,9 @@ public class FRCALangProvider extends LanguageProvider implements SMCMLangProvid
         add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
         add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
 
-        add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotName() + FrozenZombieDefinite());
-        add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotName() + JungleZombieDefinite());
-        add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotName() + EnchanterDefinite());
+        add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotImitates() + FrozenZombieDefinite());
+        add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotImitates() + JungleZombieDefinite());
+        add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotImitates() + EnchanterDefinite());
     }
 
     private String eggName(String name) {
@@ -78,7 +80,7 @@ public class FRCALangProvider extends LanguageProvider implements SMCMLangProvid
     }
 
     @Override
-    public String ParrotName() {
+    public String ParrotImitates() {
         return "Perroquet imitant ";
     }
 
@@ -140,6 +142,11 @@ public class FRCALangProvider extends LanguageProvider implements SMCMLangProvid
     @Override
     public String JungleZombieNameS() {
         return s(JungleZombieName());
+    }
+
+    @Override
+    public String SunkenSkeletonNameS() {
+        return s(SunkenSkeletonName());
     }
 
     @Override

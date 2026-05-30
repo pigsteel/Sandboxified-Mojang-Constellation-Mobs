@@ -35,6 +35,11 @@ public class smcm$Items {
             properties ->
                     new SpawnEggItem(properties.spawnEgg(smcm$EntityType.ENCHANTER.get()))
     );
+    public static final RegistryHandle<Item> SUNKEN_SPAWN_EGG = Services.REGISTRY.registerItem(
+            "sunken_spawn_egg",
+            properties ->
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.SUNKEN.get()))
+    );
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         // Create the item key.

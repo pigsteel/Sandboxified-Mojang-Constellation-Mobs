@@ -1,6 +1,8 @@
 package com.github.pigsteel.smcm.entity.skeleton;
 
+import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.entity.smcm$ProjectileUtil;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -23,10 +25,13 @@ import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.animal.turtle.Turtle;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
+import net.minecraft.world.entity.monster.piglin.PiglinArmPose;
 import net.minecraft.world.entity.monster.skeleton.AbstractSkeleton;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -42,6 +47,11 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     protected void defineSynchedData(final SynchedEntityData.Builder entityData) {
         super.defineSynchedData(entityData);
         entityData.define(IS_CHARGING_CROSSBOW, false);
+    }
+
+    @Override
+    public boolean canUseNonMeleeWeapon(ItemStack item) {
+        return item.is(Items.CROSSBOW) || item.is(Items.BOW);
     }
 
     @Override
@@ -64,7 +74,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
             this.goalSelector.removeGoal(this.meleeGoal);
             this.goalSelector.removeGoal(this.bowGoal);
             this.goalSelector.removeGoal(this.crossbowGoal);
-            ItemStack usedWeapon = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new net.minecraft.world.item.Item[]{Items.BOW, Items.CROSSBOW}));
+            ItemStack usedWeapon = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new Item[] {Items.BOW, Items.CROSSBOW}));
             if (usedWeapon.is(Items.CROSSBOW)) {
                 this.goalSelector.addGoal(4, this.crossbowGoal);
             } else if (usedWeapon.is(Items.BOW)) {
@@ -113,22 +123,18 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
     @Override
     public void performRangedAttack(final LivingEntity target, final float power) {
-        ItemStack weaponItem = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new net.minecraft.world.item.Item[] { Items.BOW, Items.CROSSBOW } ));
-        ItemStack projectile = this.getProjectile(weaponItem);
-        AbstractArrow arrow = this.getArrow(projectile, power, weaponItem);
-        double xd = target.getX() - this.getX();
-        double yd = target.getY(0.3333333333333333) - arrow.getY();
-        double zd = target.getZ() - this.getZ();
-        double distanceToTarget = Math.sqrt(xd * xd + zd * zd);
-        if (this.level() instanceof ServerLevel serverLevel) {
-            Projectile.spawnProjectileUsingShoot(
-                    arrow, serverLevel, projectile, xd, yd + distanceToTarget * 0.2F, zd, 1.6F, 14 - serverLevel.getDifficulty().getId() * 4
-            );
-        }
+        ItemStack weaponItem = this.getItemInHand(smcm$ProjectileUtil.getWeaponHoldingHand(this, new Item[] { Items.BOW, Items.CROSSBOW } ));
 
-        this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        if(weaponItem.is(Items.CROSSBOW)) {
+            this.performCrossbowAttack(target, 1.6F);
+        } else if (weaponItem.is(Items.BOW)) {
+            super.performRangedAttack(target, power);
+        }
     }
 
+    public boolean isChargingCrossbow() {
+        return this.entityData.get(IS_CHARGING_CROSSBOW);
+    }
 
     @Override
     public boolean readyForShearing() {

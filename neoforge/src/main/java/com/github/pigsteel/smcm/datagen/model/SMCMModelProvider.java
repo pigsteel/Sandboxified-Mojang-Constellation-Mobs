@@ -26,5 +26,6 @@ public class SMCMModelProvider extends ModelProvider {
         itemModelGenerator.generateFlatItem(smcm$Items.FROSTBITTEN_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(smcm$Items.RECLAIMED_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(smcm$Items.ENCHANTER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(smcm$Items.SUNKEN_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
     }
 }

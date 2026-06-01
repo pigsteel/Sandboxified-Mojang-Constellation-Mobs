@@ -2,6 +2,7 @@ package com.github.pigsteel.smcm;
 
 import com.github.pigsteel.smcm.registry.FabricEntitySpawns;
 import com.github.pigsteel.smcm.registry.FabricItemGroups;
+import com.github.pigsteel.smcm.registry.FabricRegistries;
 import com.github.pigsteel.smcm.services.Services;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -19,7 +20,7 @@ public class SMCMFabric implements ModInitializer {
         SMCM.LOGGER.info("Hello Fabric world!");
         SMCM.init();
         FabricItemGroups.init();
-
+        FabricRegistries.init();
         FabricEntitySpawns.registerSpawnRules();
         FabricEntitySpawns.AddSpawns();
 

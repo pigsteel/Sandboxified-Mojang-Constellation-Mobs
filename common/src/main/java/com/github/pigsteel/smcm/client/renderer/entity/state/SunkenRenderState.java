@@ -9,6 +9,4 @@ import net.minecraft.world.entity.monster.illager.AbstractIllager;
 
 public class SunkenRenderState extends SkeletonRenderState {
     public SunkenVariant variant;
-
-    public HumanoidModel.ArmPose armPose;
 }

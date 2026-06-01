@@ -107,4 +107,29 @@ public final class NeoForgeAttachmentRegistryHelper implements IAttachmentRegist
         handle.setPlatformTypeSupplier(type);
         return handle;
     }
+
+    @Override
+    public <T> DataAttachmentHandle<T> registerPersistentSyncedEntityAttachment(
+            String name,
+            Supplier<T> defaultValueSupplier,
+            MapCodec<T> mapCodec,
+            StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec
+    ) {
+        DataAttachmentHandle<T> handle = new DataAttachmentHandle<>(
+                name,
+                defaultValueSupplier,
+                true
+        );
+
+        Supplier<AttachmentType<T>> type = ATTACHMENT_TYPES.register(
+                name,
+                () -> AttachmentType.builder(defaultValueSupplier)
+                        .serialize(mapCodec)
+                        .sync((holder, player) -> true, streamCodec)
+                        .build()
+        );
+
+        handle.setPlatformTypeSupplier(type);
+        return handle;
+    }
 }

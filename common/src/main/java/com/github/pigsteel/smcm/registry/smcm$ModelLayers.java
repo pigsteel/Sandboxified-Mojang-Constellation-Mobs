@@ -22,6 +22,8 @@ public class smcm$ModelLayers {
     public static final ModelLayerLocation BRUISER = register("bruiser");
     public static final ModelLayerLocation ENCHANTER = register("enchanter");
     public static final ModelLayerLocation SUNKEN = register("sunken");
+    public static final ModelLayerLocation SUNKEN_WARM = register("sunken_warm");
+    public static final ModelLayerLocation SUNKEN_COLD = register("sunken_cold");
     public static final ArmorModelSet<ModelLayerLocation> SUNKEN_ARMOR = registerArmorSet("sunken");
     public static final ModelLayerLocation LOST = register("lost");
     public static final ArmorModelSet<ModelLayerLocation> LOST_ARMOR = registerArmorSet("lost");

@@ -3,6 +3,7 @@ package com.github.pigsteel.smcm.registry;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.entity.illager.Bruiser;
 import com.github.pigsteel.smcm.entity.illager.Enchanter;
+import com.github.pigsteel.smcm.entity.projectile.ReclaimedPuke;
 import com.github.pigsteel.smcm.entity.skeleton.Lost;
 import com.github.pigsteel.smcm.entity.skeleton.Sunken;
 import com.github.pigsteel.smcm.entity.zombie.Frostbitten;
@@ -24,6 +25,7 @@ public class smcm$EntityType {
     public static RegistryHandle<EntityType<Enchanter>> ENCHANTER;
     public static RegistryHandle<EntityType<Frostbitten>> FROSTBITTEN;
     public static RegistryHandle<EntityType<Reclaimed>> RECLAIMED;
+    public static RegistryHandle<EntityType<ReclaimedPuke>> RECLAIMED_PUKE;
     public static RegistryHandle<EntityType<Sunken>> SUNKEN;
     public static RegistryHandle<EntityType<Lost>> LOST;
 
@@ -61,6 +63,16 @@ public class smcm$EntityType {
                 .clientTrackingRange(8)
                 .notInPeaceful());
 
+        /*
+        RECLAIMED_PUKE = Services.REGISTRY.registerEntityType("reclaimed_puke", EntityType.Builder.of(ReclaimedPuke::new, MobCategory.MISC))
+                .sized(0.25F, 0.25F)
+                .clientTrackingRange(4)
+                .updateInterval(10)
+                .suppressSuffocationChecks()
+                .suppressVehicleSaving();
+
+         */
+
         SUNKEN = Services.REGISTRY.registerEntityType("sunken", EntityType.Builder.of(Sunken::new, MobCategory.MONSTER)
                 .sized(0.6F, 1.99F)
                 .eyeHeight(1.74F)
@@ -75,20 +87,6 @@ public class smcm$EntityType {
                 .clientTrackingRange(8)
                 .notInPeaceful());
     }
-
-    /*
-    private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
-        ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name));
-        return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
-    }
-
-    public static ResourceKey<EntityType<?>> key(final String name) {
-        return ResourceKey.create(
-                Registries.ENTITY_TYPE,
-                Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name)
-        );
-    }
-    */
 
     public static void load() {} // does nothing, initializes the static block
 }

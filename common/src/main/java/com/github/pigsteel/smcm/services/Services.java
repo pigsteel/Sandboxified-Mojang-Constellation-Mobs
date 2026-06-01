@@ -16,6 +16,7 @@ public final class Services {
     public static final IRegistryHelper REGISTRY = load(IRegistryHelper.class);
     public static final IAttributeRegistryHelper ATTRIBUTES = load(IAttributeRegistryHelper.class);
     public static final IAttachmentRegistryHelper ATTACHMENTS = load(IAttachmentRegistryHelper.class);
+    //public static final IDatapackRegistryHelper DATAPACK_REGISTRIES = load(IDatapackRegistryHelper.class);
 
     // This code is used to load a service for the current environment. Your implementation of the service must be defined
     // manually by including a text file in META-INF/services named with the fully qualified class name of the service.

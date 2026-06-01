@@ -1,0 +1,8 @@
+{
+  "asset_id": "smcm:textures/entity/skeleton/sunken/sunken",
+  "spawn_conditions": [
+    {
+      "priority": 0
+    }
+  ]
+}

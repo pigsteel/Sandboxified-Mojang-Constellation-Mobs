@@ -113,4 +113,29 @@ public final class FabricAttachmentRegistryHelper implements IAttachmentRegistry
         handle.setPlatformTypeSupplier(() -> type);
         return handle;
     }
+
+    @Override
+    public <T> DataAttachmentHandle<T> registerPersistentSyncedEntityAttachment(
+            String name,
+            Supplier<T> defaultValueSupplier,
+            MapCodec<T> mapCodec,
+            StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec
+    ) {
+        DataAttachmentHandle<T> handle = new DataAttachmentHandle<>(
+                name,
+                defaultValueSupplier,
+                true
+        );
+
+        AttachmentType<T> type = AttachmentRegistry.create(
+                Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name),
+                builder -> builder
+                        .initializer(defaultValueSupplier)
+                        .persistent(mapCodec.codec())
+                        .syncWith(streamCodec, AttachmentSyncPredicate.all())
+        );
+
+        handle.setPlatformTypeSupplier(() -> type);
+        return handle;
+    }
 }

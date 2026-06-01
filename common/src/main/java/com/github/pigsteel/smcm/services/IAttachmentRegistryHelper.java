@@ -34,4 +34,11 @@ public interface IAttachmentRegistryHelper {
             Supplier<T> defaultValueSupplier,
             StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec
     );
+
+    <T> DataAttachmentHandle<T> registerPersistentSyncedEntityAttachment(
+            String name,
+            Supplier<T> defaultValueSupplier,
+            MapCodec<T> codec,
+            StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec
+    );
 }

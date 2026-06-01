@@ -5,6 +5,7 @@ import com.github.pigsteel.smcm.entity.skeleton.SunkenVariant;
 import com.github.pigsteel.smcm.services.util.RegistryHandle;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -38,6 +39,8 @@ public interface IRegistryHelper {
     <T extends Item> RegistryHandle<T> registerItem(String name, Function<Item.Properties, T> item);
 
     <T extends Entity> RegistryHandle<EntityType<T>> registerEntityType(String name, EntityType.Builder<T> builder);
+
+    //<T extends Particle> RegistryHandle<T> registerParticle(String name)
 
     RegistryHandle<SoundEvent> registerSoundEvent(String name);
 

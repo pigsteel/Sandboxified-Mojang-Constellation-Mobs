@@ -1,0 +1,13 @@
+{
+  "asset_id": "smcm:textures/entity/skeleton/sunken/sunken_fire_coral",
+  "model": "fire_coral",
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#minecraft:produces_corals_from_bonemeal"
+      },
+      "priority": 1
+    }
+  ]
+}

@@ -177,7 +177,7 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Zombie.createAttributes().add(Attributes.MAX_HEALTH, 16.0);
+        return Zombie.createAttributes().add(Attributes.MAX_HEALTH, 16.0).add(Attributes.MOVEMENT_SPEED, (double)0.20F);
     }
 
     @Override

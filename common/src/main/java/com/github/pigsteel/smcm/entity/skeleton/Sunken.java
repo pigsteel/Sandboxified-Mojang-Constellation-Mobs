@@ -53,7 +53,7 @@ import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
 public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shearable {
-    private static final int TIME_BEFORE_CORAL_DEATH = 100;
+    private static final int TIME_BEFORE_CORAL_DEATH = 500;
 
     private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW;
     private static final EntityDataAccessor<Boolean> IS_SHEARED;

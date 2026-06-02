@@ -20,6 +20,8 @@ public class AbstractSunkenModel extends SkeletonModel<SunkenRenderState> {
         createDefaultSkeletonMesh(root);
 
         PartDefinition head = root.getChild("head");
+        PartDefinition rightLeg = root.getChild("right_leg");
+        PartDefinition leftLeg = root.getChild("left_leg");
 
         head.addOrReplaceChild(
                 "hat",
@@ -41,6 +43,32 @@ public class AbstractSunkenModel extends SkeletonModel<SunkenRenderState> {
                         .texOffs(32, 0)
                         .addBox(-4.0F, -16.0F, 0.0F, 8.0F, 8.0F, 0.0F),
                 PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -0.7854F, 0.0F)
+        );
+
+        rightLeg.addOrReplaceChild(
+                "right_leg_thing",
+                CubeListBuilder.create()
+                        .texOffs(20, 4)
+                        .addBox(-2.0F, 6.0F, -2.0F, 4.0F, 0.0F, 4.0F),
+
+                PartPose.ZERO
+        );
+
+        leftLeg.addOrReplaceChild(
+                "right_leg_thing",
+                CubeListBuilder.create()
+                        .texOffs(23, 1)
+                        .addBox(-1.0F, 4.0F, -1.0F, 3.0F, 0.0F, 3.0F),
+
+                PartPose.ZERO
+        );
+
+        head.addOrReplaceChild(
+                "shelf_thing",
+                CubeListBuilder.create()
+                        .texOffs(48, 0)
+                        .addBox(-5.0F, -4.0F, 3.0F, 4.0F, 1.0F, 2.0F),
+                PartPose.ZERO
         );
 
         return LayerDefinition.create(mesh, 64, 32);

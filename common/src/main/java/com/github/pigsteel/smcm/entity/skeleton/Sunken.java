@@ -5,6 +5,7 @@ import com.github.pigsteel.smcm.registry.DataAttachments;
 import com.github.pigsteel.smcm.registry.smcm$Registries;
 import com.github.pigsteel.smcm.services.Services;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -16,6 +17,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -24,6 +27,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.cow.CowSoundVariant;
 import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.animal.turtle.Turtle;
 import net.minecraft.world.entity.animal.wolf.Wolf;
@@ -38,13 +42,24 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
+import java.util.Optional;
+
 public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shearable {
+    private static final int TIME_BEFORE_CORAL_DEATH = 100;
+
     private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW;
+    private static final EntityDataAccessor<Boolean> IS_SHEARED;
+    private static final EntityDataAccessor<Boolean> IS_CORAL_DEAD;
     private final RangedCrossbowAttackGoal crossbowGoal = new RangedCrossbowAttackGoal(this, 1.0, 16);
+    private int coralDeathTimer;
 
     public Sunken(EntityType<? extends Sunken> type, final Level level) {
         super(type, level);
@@ -54,6 +69,41 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     protected void defineSynchedData(final SynchedEntityData.Builder entityData) {
         super.defineSynchedData(entityData);
         entityData.define(IS_CHARGING_CROSSBOW, false);
+        entityData.define(IS_SHEARED, false);
+        entityData.define(IS_CORAL_DEAD, false);
+    }
+
+    @Override
+    public InteractionResult mobInteract(final Player player, final InteractionHand hand) {
+        ItemStack itemStack = player.getItemInHand(hand);
+        if (itemStack.is(Items.SHEARS) && this.readyForShearing()){
+            if (this.level() instanceof ServerLevel level) {
+                this.shear(level, SoundSource.PLAYERS, itemStack);
+                this.gameEvent(GameEvent.SHEAR, player);
+                itemStack.hurtAndBreak(1, player, hand.asEquipmentSlot());
+            }
+
+            return InteractionResult.SUCCESS;
+        } else {
+            return super.mobInteract(player, hand);
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if(!this.level().isClientSide() && this.isAlive() && !this.isNoAi() && !this.isCoralDead()) {
+            if(this.isInWater()) {
+                this.coralDeathTimer = 0;
+            } else {
+                if (this.coralDeathTimer < TIME_BEFORE_CORAL_DEATH) {
+                    this.coralDeathTimer++;
+                } else {
+                    this.setIsCoralDead(true);
+                }
+            }
+        }
     }
 
     @Override
@@ -99,6 +149,24 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     }
 
     @Override
+    protected void addAdditionalSaveData(final ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        VariantUtils.writeVariant(output, this.getVariantHolder());
+        output.putBoolean("Sheared", this.isSheared());
+        output.putBoolean("CoralDead", this.isCoralDead());
+        output.putInt("CoralDeathTimer", this.coralDeathTimer);
+    }
+
+    @Override
+    protected void readAdditionalSaveData(ValueInput input) {
+        super.readAdditionalSaveData(input);
+        VariantUtils.readVariant(input, smcm$Registries.SUNKEN_VARIANT).ifPresent(this::setVariant);
+        this.coralDeathTimer = input.getIntOr("CoralDeathTimer", 0);
+        this.setIsCoralDead(input.getBooleanOr("CoralDead", false));
+        this.setSheared(input.getBooleanOr("Sheared", false));
+    }
+
+    @Override
     public SpawnGroupData finalizeSpawn(
             ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason spawnReason, @Nullable SpawnGroupData groupData
     ) {
@@ -107,7 +175,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, (double)32.0F).add(Attributes.STEP_HEIGHT, (double)1.0F);
+        return AbstractSkeleton.createAttributes().add(Attributes.FOLLOW_RANGE, (double)32.0F).add(Attributes.STEP_HEIGHT, (double)1.0F);
     }
 
     @Override
@@ -138,7 +206,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
     @Override
     public void shear(ServerLevel level, SoundSource soundSource, ItemStack tool) {
-
+        setSheared(true);
     }
 
     @Override
@@ -152,13 +220,30 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         }
     }
 
+    public boolean isSheared() {
+        return this.getEntityData().get(IS_SHEARED);
+    }
+
+    public boolean isCoralDead() {
+        return (Boolean) this.getEntityData().get(IS_CORAL_DEAD);
+    }
+
+    public void setIsCoralDead(boolean isCoralDead) {
+        this.entityData.set(IS_CORAL_DEAD, isCoralDead);
+    }
+
+    public void setSheared(boolean isSheared) {
+        this.entityData.set(IS_SHEARED, isSheared);
+    }
+
     public boolean isChargingCrossbow() {
         return this.entityData.get(IS_CHARGING_CROSSBOW);
+        // I AM GAY
     }
 
     @Override
     public boolean readyForShearing() {
-        return false;
+        return this.getVariant().modelAndTexture().model().isCoral() && !this.isSheared();
     }
 
     public void setChargingCrossbow(boolean isCharging) {
@@ -171,7 +256,10 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
     static {
         IS_CHARGING_CROSSBOW = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
+        IS_SHEARED = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
+        IS_CORAL_DEAD = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
     }
+
 
     public ResourceKey<SunkenVariant> getVariantKey() {
         return Services.ATTACHMENTS.get(
@@ -205,6 +293,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         );
     }
 
+    /*
     protected void travelInWater(final Vec3 input, final double baseGravity, final boolean isFalling, final double oldY) {
         float slowDown = this.isSprinting() ? 0.9F : this.getWaterSlowDown();
         float sunkenSpeedFactor = 1.8F;
@@ -234,7 +323,9 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         this.setDeltaMovement(this.getFluidFallingAdjustedMovement(baseGravity, isFalling, ladderMovement));
         this.jumpOutOfFluid(oldY);
     }
+     */
 
+    /*
     public Vec3 getFluidFallingAdjustedMovement(final double baseGravity, final boolean isFalling, final Vec3 movement) {
         if (baseGravity != 0.0 && !this.isSprinting()) {
             double yd;
@@ -250,4 +341,5 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
             return movement;
         }
     }
+     */
 }

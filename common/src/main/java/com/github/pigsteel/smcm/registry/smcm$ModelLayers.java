@@ -2,7 +2,6 @@ package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.resources.Identifier;
 
@@ -22,8 +21,8 @@ public class smcm$ModelLayers {
     public static final ModelLayerLocation BRUISER = register("bruiser");
     public static final ModelLayerLocation ENCHANTER = register("enchanter");
     public static final ModelLayerLocation SUNKEN = register("sunken");
-    public static final ModelLayerLocation SUNKEN_WARM = register("sunken_warm");
-    public static final ModelLayerLocation SUNKEN_COLD = register("sunken_cold");
+    public static final ModelLayerLocation SUNKEN_CORAL = register("sunken_warm");
+    public static final ModelLayerLocation SUNKEN_FROZEN = register("sunken_cold");
     public static final ArmorModelSet<ModelLayerLocation> SUNKEN_ARMOR = registerArmorSet("sunken");
     public static final ModelLayerLocation LOST = register("lost");
     public static final ArmorModelSet<ModelLayerLocation> LOST_ARMOR = registerArmorSet("lost");

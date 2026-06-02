@@ -2,6 +2,7 @@ package com.github.pigsteel.smcm.entity.skeleton;
 
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.registry.smcm$Registries;
+import net.minecraft.core.ClientAsset;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -18,9 +19,9 @@ import net.minecraft.world.level.biome.Biomes;
 
 public class SunkenVariants {
     public static final ResourceKey<SunkenVariant> NORMAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "normal"));
-    public static final ResourceKey<SunkenVariant> WARM_FIRE_CORAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "warm_fire_coral"));
-    public static final ResourceKey<SunkenVariant> WARM_BUBBLE_CORAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "warm_bubble_coral"));
-    public static final ResourceKey<SunkenVariant> WARM_HORN_CORAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "warm_horn_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_FIRE_CORAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "fire_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_BUBBLE_CORAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "bubble_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_HORN_CORAL = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "horn_coral"));
     public static final ResourceKey<SunkenVariant> FROZEN = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "frozen"));
 
     private static ResourceKey<SunkenVariant> createKey(Identifier id) {
@@ -33,6 +34,7 @@ public class SunkenVariants {
                 NORMAL,
                 SunkenVariant.ModelType.NORMAL,
                 "sunken",
+                null,
                 SpawnPrioritySelectors.fallback(0)
         );
 
@@ -41,6 +43,7 @@ public class SunkenVariants {
                 WARM_FIRE_CORAL,
                 SunkenVariant.ModelType.FIRE_CORAL,
                 "sunken_fire_coral",
+                "sunken_fire_coral_dead",
                 BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL
         );
 
@@ -49,6 +52,7 @@ public class SunkenVariants {
                 WARM_BUBBLE_CORAL,
                 SunkenVariant.ModelType.BUBBLE_CORAL,
                 "sunken_bubble_coral",
+                "sunken_bubble_coral_dead",
                 BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL
         );
 
@@ -57,6 +61,7 @@ public class SunkenVariants {
                 WARM_HORN_CORAL,
                 SunkenVariant.ModelType.HORN_CORAL,
                 "sunken_horn_coral",
+                "sunken_horn_coral_dead",
                 BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL
         );
 
@@ -64,7 +69,8 @@ public class SunkenVariants {
                 context,
                 FROZEN,
                 SunkenVariant.ModelType.FROZEN,
-                "sunken_cold",
+                "sunken_frozen",
+                null,
                 SpawnPrioritySelectors.EMPTY
         );
     }
@@ -74,10 +80,11 @@ public class SunkenVariants {
             ResourceKey<SunkenVariant> name,
             SunkenVariant.ModelType modelType,
             String textureName,
+            String deadCoralTextureName,
             TagKey<Biome> spawnBiome
     ) {
         HolderSet<Biome> biomes = context.lookup(Registries.BIOME).getOrThrow(spawnBiome);
-        register(context, name, modelType, textureName, SpawnPrioritySelectors.single(new BiomeCheck(biomes), 1));
+        register(context, name, modelType, textureName, deadCoralTextureName, SpawnPrioritySelectors.single(new BiomeCheck(biomes), 1));
     }
 
     private static void register( // stage 2
@@ -85,9 +92,11 @@ public class SunkenVariants {
             ResourceKey<SunkenVariant> name,
             SunkenVariant.ModelType modelType,
             String textureName,
+            String deadCoralTextureName,
             SpawnPrioritySelectors selectors
     ) {
-        Identifier textureId = Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "textures/entity/skeleton/sunken/" + textureName);
-        context.register(name, new SunkenVariant(new ModelAndTexture<>(modelType, textureId), selectors));
+        Identifier textureId = Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "entity/skeleton/sunken/" + textureName);
+        Identifier deadCoralTextureId = Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "entity/skeleton/sunken/" + deadCoralTextureName);
+        context.register(name, new SunkenVariant(new ModelAndTexture<>(modelType, textureId), new ClientAsset.ResourceTexture(deadCoralTextureId), selectors));
     }
 }

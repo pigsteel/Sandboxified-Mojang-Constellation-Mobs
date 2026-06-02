@@ -3,6 +3,8 @@ package com.github.pigsteel.smcm.entity.zombie;
 import com.github.pigsteel.smcm.entity.Bonemealable;
 import com.github.pigsteel.smcm.registry.LootTables;
 import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -34,10 +36,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.IntFunction;
 
 // Just a poison zombie lol
@@ -238,4 +244,41 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
             return this.name;
         }
     }
+
+    /*
+    public record ReclaimedHeadFlowerLootCondition(
+            HeadFlower flower
+    ) implements LootItemCondition {
+        public static final MapCodec<ReclaimedHeadFlowerLootCondition> CODEC =
+                RecordCodecBuilder.mapCodec(instance ->
+                        instance.group(
+                                HeadFlower.CODEC
+                                        .fieldOf("flower")
+                                        .forGetter(ReclaimedHeadFlowerLootCondition::flower)
+                        ).apply(instance, ReclaimedHeadFlowerLootCondition::new)
+                );
+
+        @Override
+        public boolean test(LootContext context) {
+            Entity entity = context.getOptionalParameter(LootContextParams.THIS_ENTITY);
+
+            if (!(entity instanceof Reclaimed reclaimed)) {
+                return false;
+            }
+
+            return reclaimed.getHeadFlowerEnum() == this.flower;
+        }
+
+        @Override
+        public Set getReferencedContextParams() {
+            return Set.of(LootContextParams.THIS_ENTITY);
+        }
+
+        @Override
+        public MapCodec<ReclaimedHeadFlowerLootCondition> codec() {
+            return CODEC;
+        }
+    }
+
+     */
 }

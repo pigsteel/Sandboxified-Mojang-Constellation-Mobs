@@ -27,7 +27,6 @@ public class ITITLangProvider extends LanguageProvider implements SMCMLangProvid
         addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieNameS()));
         addItem(smcm$Items.SUNKEN_SPAWN_EGG, eggName(SunkenSkeletonNameS()));
 
-
         add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
         add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
         add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
@@ -40,9 +39,14 @@ public class ITITLangProvider extends LanguageProvider implements SMCMLangProvid
         add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
         add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
 
+        add("subtitles.smcm.entity.sunken.ambient", SunkenSkeletonName() + SunkenSkeletonAmbientVerb());
+        add("subtitles.smcm.entity.sunken.hurt", SunkenSkeletonName() + HurtsVerb());
+        add("subtitles.smcm.entity.sunken.death", SunkenSkeletonName() + DiesVerb());
+
         add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotImitates() + FrozenZombieNameS());
         add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotImitates() + JungleZombieNameS());
         add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotImitates() + EnchanterNameS());
+        add("subtitles.smcm.entity.parrot.imitate.sunken", ParrotImitates() + SunkenSkeletonNameS());
     }
 
     private String eggName(String name) {
@@ -71,12 +75,13 @@ public class ITITLangProvider extends LanguageProvider implements SMCMLangProvid
 
     @Override
     public String SunkenSkeletonName() {
-        return "";
+        return "Affondato";
     }
 
+    // Lost
     @Override
     public String MossySkeletonName() {
-        return "";
+        return "Perduto";
     }
 
     @Override
@@ -106,12 +111,12 @@ public class ITITLangProvider extends LanguageProvider implements SMCMLangProvid
 
     @Override
     public String SunkenSkeletonAmbientVerb() {
-        return "";
+        return " scricchiola";
     }
 
     @Override
     public String MossySkeletonAmbientVerb() {
-        return "";
+        return " scricchiola";
     }
 
     @Override

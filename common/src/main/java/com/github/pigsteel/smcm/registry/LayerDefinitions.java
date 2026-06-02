@@ -2,7 +2,8 @@ package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.illager.EnchanterModel;
-import com.github.pigsteel.smcm.client.model.monster.skeleton.SunkenModel;
+import com.github.pigsteel.smcm.client.model.monster.skeleton.AbstractSunkenModel;
+import com.github.pigsteel.smcm.client.model.monster.skeleton.CoralSunkenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
@@ -63,9 +64,9 @@ public class LayerDefinitions {
         registrar.registerModelLayer(smcm$ModelLayers.FROSTBITTEN_BABY_OUTER_LAYER, () -> BabyFrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
         registrar.registerModelLayer(smcm$ModelLayers.BRUISER, () -> IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(1.0625F)));
         registrar.registerModelLayer(smcm$ModelLayers.ENCHANTER, () -> EnchanterModel.createBodyLayer().apply(MeshTransformer.scaling(0.9375F)));
-        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN, SunkenModel::createBodyLayer);
-        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN_COLD, SunkenModel::createBodyLayer);
-        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN_WARM, SunkenModel::createBodyLayer);
+        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN, AbstractSunkenModel::createBodyLayer);
+        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN_FROZEN, AbstractSunkenModel::createBodyLayer);
+        registrar.registerModelLayer(smcm$ModelLayers.SUNKEN_CORAL, CoralSunkenModel::createBodyLayer);
         registerArmorLayers(smcm$ModelLayers.SUNKEN_ARMOR, humanoidArmor, registrar);
         registrar.registerModelLayer(smcm$ModelLayers.LOST, SkeletonModel::createBodyLayer);
         registerArmorLayers(smcm$ModelLayers.LOST_ARMOR, humanoidArmor, registrar);

@@ -1,5 +1,6 @@
 {
-  "asset_id": "smcm:textures/entity/skeleton/sunken/sunken_fire_coral",
+  "asset_id": "smcm:entity/skeleton/sunken/sunken_fire_coral",
+  "dead_coral_asset_id": "smcm:entity/skeleton/sunken/sunken_fire_coral_dead",
   "model": "fire_coral",
   "spawn_conditions": [
     {

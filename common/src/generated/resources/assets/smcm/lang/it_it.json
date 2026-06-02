@@ -3,12 +3,12 @@
   "entity.smcm.enchanter": "Incantatore",
   "entity.smcm.frostbitten": "Congelato",
   "entity.smcm.reclaimed": "Infestato",
-  "entity.smcm.sunken": "",
+  "entity.smcm.sunken": "Affondato",
   "item.smcm.bruiser_spawn_egg": "Uovo generatore di picchiatore",
   "item.smcm.enchanter_spawn_egg": "Uovo generatore di incantatore",
   "item.smcm.frostbitten_spawn_egg": "Uovo generatore di congelato",
   "item.smcm.reclaimed_spawn_egg": "Uovo generatore di infestato",
-  "item.smcm.sunken_spawn_egg": "Uovo generatore di ",
+  "item.smcm.sunken_spawn_egg": "Uovo generatore di affondato",
   "subtitles.smcm.entity.enchanter.ambient": "Incantatore gorgoglia",
   "subtitles.smcm.entity.enchanter.death": "Incantatore muore",
   "subtitles.smcm.entity.enchanter.hurt": "Incantatore ferito",
@@ -18,7 +18,11 @@
   "subtitles.smcm.entity.parrot.imitate.enchanter": "Pappagallo imita incantatore",
   "subtitles.smcm.entity.parrot.imitate.frostbitten": "Pappagallo imita congelato",
   "subtitles.smcm.entity.parrot.imitate.reclaimed": "Pappagallo imita infestato",
+  "subtitles.smcm.entity.parrot.imitate.sunken": "Pappagallo imita affondato",
   "subtitles.smcm.entity.reclaimed.ambient": "Infestato geme",
   "subtitles.smcm.entity.reclaimed.death": "Infestato muore",
-  "subtitles.smcm.entity.reclaimed.hurt": "Infestato ferito"
+  "subtitles.smcm.entity.reclaimed.hurt": "Infestato ferito",
+  "subtitles.smcm.entity.sunken.ambient": "Affondato scricchiola",
+  "subtitles.smcm.entity.sunken.death": "Affondato muore",
+  "subtitles.smcm.entity.sunken.hurt": "Affondato ferito"
 }

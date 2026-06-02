@@ -14,5 +14,5 @@ public class LootTables {
     public static ResourceKey<LootTable> BRUISER = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "entities/bruiser"));
     public static ResourceKey<LootTable> SHEAR_RECLAIMED = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "shearing/reclaimed"));
 
-    public static void init() {}
+    public static void load() {}
 }

@@ -1,5 +1,6 @@
 {
-  "asset_id": "smcm:textures/entity/skeleton/sunken/sunken_cold",
-  "model": "cold",
+  "asset_id": "smcm:entity/skeleton/sunken/sunken_frozen",
+  "dead_coral_asset_id": "smcm:entity/skeleton/sunken/null",
+  "model": "frozen",
   "spawn_conditions": []
 }

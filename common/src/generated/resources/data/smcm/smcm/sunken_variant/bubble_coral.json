@@ -1,5 +1,6 @@
 {
-  "asset_id": "smcm:textures/entity/skeleton/sunken/sunken_bubble_coral",
+  "asset_id": "smcm:entity/skeleton/sunken/sunken_bubble_coral",
+  "dead_coral_asset_id": "smcm:entity/skeleton/sunken/sunken_bubble_coral_dead",
   "model": "bubble_coral",
   "spawn_conditions": [
     {

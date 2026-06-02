@@ -9,7 +9,8 @@
     "ZombieFrostbittenConversionMixin"
   ],
   "client": [
-    "ZombieFrostbittenConversionRendererMixin"
+    "ZombieFrostbittenConversionRendererMixin",
+    "AgeableMobRendererIgnoreSunkenMixin"
   ],
   "server": [],
   "injectors": {

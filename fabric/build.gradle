@@ -1,4 +1,4 @@
-plugins {
+ plugins {
     id 'multiloader-loader'
     id 'net.fabricmc.fabric-loom'
 }

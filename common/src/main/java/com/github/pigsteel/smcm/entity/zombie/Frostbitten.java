@@ -39,7 +39,7 @@ import org.jspecify.annotations.Nullable;
 
 public class Frostbitten extends Zombie implements RangedAttackMob {
     private static final EntityDataAccessor<Boolean> AIMING_SNOWBALL = SynchedEntityData.defineId(Frostbitten.class, EntityDataSerializers.BOOLEAN);
-    private static final int SNOWBALL_COOLDOWN = 40;
+    private static final int SNOWBALL_COOLDOWN = 200;
     private final FrostbittenThrowSnowballGoal snowballGoal = new FrostbittenThrowSnowballGoal(this, 0.1, 20, 10.0f);
     private int snowballCooldownTime;
     private int shiveringTicksLeft;

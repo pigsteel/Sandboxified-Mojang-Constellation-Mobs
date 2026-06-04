@@ -2,26 +2,26 @@
   "entity.frostbitten.ambient": {
     "subtitle": "subtitles.smcm.entity.frostbitten.ambient",
     "sounds": [
-      "smcm:entity/frostbitten/ambient1",
-      "smcm:entity/frostbitten/ambient2",
-      "smcm:entity/frostbitten/ambient3"
+      "smcm:mob/frostbitten/ambient1",
+      "smcm:mob/frostbitten/ambient2",
+      "smcm:mob/frostbitten/ambient3"
     ]
   },
   "entity.frostbitten.hurt": {
     "subtitle": "subtitles.smcm.entity.frostbitten.hurt",
     "sounds": [
-      "smcm:entity/frostbitten/hurt1",
-      "smcm:entity/frostbitten/hurt2",
-      "smcm:entity/frostbitten/hurt3"
+      "smcm:mob/frostbitten/hurt1",
+      "smcm:mob/frostbitten/hurt2",
+      "smcm:mob/frostbitten/hurt3"
     ]
   },
   "entity.frostbitten.death": {
     "subtitle": "subtitles.smcm.entity.frostbitten.death",
     "sounds": [
-      "smcm:entity/frostbitten/death1",
-      "smcm:entity/frostbitten/death2",
-      "smcm:entity/frostbitten/death3",
-      "smcm:entity/frostbitten/death4"
+      "smcm:mob/frostbitten/death1",
+      "smcm:mob/frostbitten/death2",
+      "smcm:mob/frostbitten/death3",
+      "smcm:mob/frostbitten/death4"
     ]
   },
   "entity.frostbitten.shoot": {
@@ -30,39 +30,46 @@
       "random/bow"
     ]
   },
+  "entity.zombie.converted_to_frostbitten": {
+    "subtitle": "subtitles.smcm.entity.zombie.converted_to_frostbitten",
+    "sounds": [
+      "smcm:mob/frostbitten/convert1"
+    ]
+  },
+
   "entity.reclaimed.ambient": {
     "subtitle": "subtitles.smcm.entity.reclaimed.ambient",
     "sounds": [
-      "smcm:entity/reclaimed/ambient1",
-      "smcm:entity/reclaimed/ambient2",
-      "smcm:entity/reclaimed/ambient3"
+      "smcm:mob/reclaimed/ambient1",
+      "smcm:mob/reclaimed/ambient2",
+      "smcm:mob/reclaimed/ambient3"
     ]
   },
   "entity.reclaimed.hurt": {
     "subtitle": "subtitles.smcm.entity.reclaimed.hurt",
     "sounds": [
-      "smcm:entity/reclaimed/hurt1",
-      "smcm:entity/reclaimed/hurt2",
-      "smcm:entity/reclaimed/hurt3",
-      "smcm:entity/reclaimed/hurt4"
+      "smcm:mob/reclaimed/hurt1",
+      "smcm:mob/reclaimed/hurt2",
+      "smcm:mob/reclaimed/hurt3",
+      "smcm:mob/reclaimed/hurt4"
     ]
   },
   "entity.reclaimed.death": {
     "subtitle": "subtitles.smcm.entity.reclaimed.death",
     "sounds": [
-      "smcm:entity/reclaimed/death1",
-      "smcm:entity/reclaimed/death2",
-      "smcm:entity/reclaimed/death3"
+      "smcm:mob/reclaimed/death1",
+      "smcm:mob/reclaimed/death2",
+      "smcm:mob/reclaimed/death3"
     ]
   },
   "entity.reclaimed.step": {
     "subtitle": "subtitles.block.generic.footsteps",
     "sounds": [
-      "smcm:entity/reclaimed/step1",
-      "smcm:entity/reclaimed/step2",
-      "smcm:entity/reclaimed/step3",
-      "smcm:entity/reclaimed/step4",
-      "smcm:entity/reclaimed/step5"
+      "smcm:mob/reclaimed/step1",
+      "smcm:mob/reclaimed/step2",
+      "smcm:mob/reclaimed/step3",
+      "smcm:mob/reclaimed/step4",
+      "smcm:mob/reclaimed/step5"
     ]
   },
   "entity.reclaimed.shear": {
@@ -81,30 +88,159 @@
       "minecraft:item/bonemeal/bonemeal5"
     ]
   },
+  "entity.reclaimed.spit": {
+    "subtitle": "subtitles.smcm.entity.reclaimed.spit",
+    "sounds": [
+      "minecraft:mob/llama/spit1",
+      "minecraft:mob/llama/spit2",
+      "minecraft:mob/llama/spit3"
+    ]
+  },
+
   "entity.enchanter.ambient": {
     "subtitle": "subtitles.smcm.entity.enchanter.ambient",
     "sounds": [
-      "smcm:entity/enchanter/ambient1",
-      "smcm:entity/enchanter/ambient2",
-      "smcm:entity/enchanter/ambient3"
+      "smcm:mob/enchanter/ambient1",
+      "smcm:mob/enchanter/ambient2",
+      "smcm:mob/enchanter/ambient3"
     ]
   },
   "entity.enchanter.hurt": {
     "subtitle": "subtitles.smcm.entity.enchanter.hurt",
     "sounds": [
-      "smcm:entity/enchanter/hurt1",
-      "smcm:entity/enchanter/hurt2",
-      "smcm:entity/enchanter/hurt3"
+      "smcm:mob/enchanter/hurt1",
+      "smcm:mob/enchanter/hurt2",
+      "smcm:mob/enchanter/hurt3"
     ]
   },
   "entity.enchanter.death": {
     "subtitle": "subtitles.smcm.entity.enchanter.death",
     "sounds": [
-      "smcm:entity/enchanter/death1",
-      "smcm:entity/enchanter/death2",
-      "smcm:entity/enchanter/death3"
+      "smcm:mob/enchanter/death1",
+      "smcm:mob/enchanter/death2",
+      "smcm:mob/enchanter/death3"
     ]
   },
+
+  "entity.necromancer.ambient": {
+    "subtitle": "subtitles.smcm.entity.necromancer.ambient",
+    "sounds": [
+      "smcm:mob/necromancer/idle1",
+      "smcm:mob/necromancer/idle2",
+      "smcm:mob/necromancer/idle3"
+    ]
+  },
+  "entity.necromancer.hurt": {
+    "subtitle": "subtitles.smcm.entity.necromancer.hurt",
+    "sounds": [
+      "smcm:mob/necromancer/hurt1",
+      "smcm:mob/necromancer/hurt2",
+      "smcm:mob/necromancer/hurt3",
+      "smcm:mob/necromancer/hurt4"
+    ]
+  },
+  "entity.necromancer.death": {
+    "subtitle": "subtitles.smcm.entity.necromancer.death",
+    "sounds": [
+      "smcm:mob/necromancer/death1",
+      "smcm:mob/necromancer/death2"
+    ]
+  },
+  "entity.necromancer.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "smcm:mob/necromancer/step1",
+      "smcm:mob/necromancer/step2",
+      "smcm:mob/necromancer/step3",
+      "smcm:mob/necromancer/step4"
+    ]
+  },
+  "entity.necromancer.laugh": {
+    "subtitle": "subtitles.smcm.entity.necromancer.laugh",
+    "sounds": [
+      "smcm:mob/necromancer/laugh1",
+      "smcm:mob/necromancer/laugh2"
+    ]
+  },
+
+  "entity.lost.ambient": {
+    "subtitle": "subtitles.smcm.entity.lost.ambient",
+    "sounds": [
+      "smcm:mob/lost/ambient1",
+      "smcm:mob/lost/ambient2",
+      "smcm:mob/lost/ambient3"
+    ]
+  },
+  "entity.lost.hurt": {
+    "subtitle": "subtitles.smcm.entity.lost.hurt",
+    "sounds": [
+      "smcm:mob/lost/hurt1",
+      "smcm:mob/lost/hurt2",
+      "smcm:mob/lost/hurt3",
+      "smcm:mob/lost/hurt4"
+    ]
+  },
+  "entity.lost.death": {
+    "subtitle": "subtitles.smcm.entity.lost.death",
+    "sounds": [
+      "smcm:mob/lost/death1",
+      "smcm:mob/lost/death2",
+      "smcm:mob/lost/death3",
+      "smcm:mob/lost/death4",
+      "smcm:mob/lost/death5",
+      "smcm:mob/lost/death6",
+      "smcm:mob/lost/death7"
+    ]
+  },
+  "entity.lost.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "smcm:mob/lost/step1",
+      "smcm:mob/lost/step2",
+      "smcm:mob/lost/step3",
+      "smcm:mob/lost/step4"
+    ]
+  },
+  "entity.sunken.ambient": {
+    "subtitle": "subtitles.smcm.entity.sunken.ambient",
+    "sounds": [
+      "smcm:mob/sunken/ambient1",
+      "smcm:mob/sunken/ambient2",
+      "smcm:mob/sunken/ambient3"
+    ]
+  },
+  "entity.sunken.hurt": {
+    "subtitle": "subtitles.smcm.entity.sunken.hurt",
+    "sounds": [
+      "smcm:mob/sunken/hurt1",
+      "smcm:mob/sunken/hurt2",
+      "smcm:mob/sunken/hurt3"
+    ]
+  },
+  "entity.sunken.death": {
+    "subtitle": "subtitles.smcm.entity.sunken.death",
+    "sounds": [
+      "smcm:mob/sunken/death1",
+      "smcm:mob/sunken/death2",
+      "smcm:mob/sunken/death3"
+    ]
+  },
+  "entity.sunken.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "smcm:mob/sunken/step1",
+      "smcm:mob/sunken/step2",
+      "smcm:mob/sunken/step3",
+      "smcm:mob/sunken/step4"
+    ]
+  },
+  "entity.skeleton.converted_to_sunken": {
+    "subtitle": "subtitles.smcm.entity.skeleton.converted_to_sunken",
+    "sounds": [
+      "smcm:mob/sunken/convert1"
+    ]
+  },
+
   "entity.parrot.imitate.enchanter": {
     "subtitle": "subtitles.smcm.entity.parrot.imitate.enchanter",
     "sounds": [
@@ -132,6 +268,39 @@
     "sounds": [
       {
         "name": "smcm:entity.reclaimed.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.parrot.imitate.necromancer": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.necromancer",
+    "sounds": [
+      {
+        "name": "smcm:entity.necromancer.laugh",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.parrot.imitate.lost": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.lost",
+    "sounds": [
+      {
+        "name": "smcm:entity.lost.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.parrot.imitate.sunken": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.sunken",
+    "sounds": [
+      {
+        "name": "smcm:entity.sunken.ambient",
         "pitch": 1.8,
         "type": "event",
         "volume": 0.6

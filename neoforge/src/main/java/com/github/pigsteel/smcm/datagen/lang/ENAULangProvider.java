@@ -13,7 +13,7 @@ public class ENAULangProvider extends LanguageProvider implements SMCMLangProvid
     }
 
     @Override
-    protected void addTranslations() {
+    public void addTranslations() {
         addEntityType(smcm$EntityType.BRUISER, TankIllagerName());
         addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
         addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
@@ -24,7 +24,7 @@ public class ENAULangProvider extends LanguageProvider implements SMCMLangProvid
         addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName()));
         addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName()));
         addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName()));
-        add(smcm$Items.SUNKEN_SPAWN_EGG.get(), eggName(SunkenSkeletonName()));
+        addItem(smcm$Items.SUNKEN_SPAWN_EGG, eggName(SunkenSkeletonName()));
 
         add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
         add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());

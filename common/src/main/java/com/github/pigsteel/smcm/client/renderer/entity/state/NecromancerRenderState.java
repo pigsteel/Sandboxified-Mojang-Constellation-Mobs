@@ -1,6 +1,12 @@
 package com.github.pigsteel.smcm.client.renderer.entity.state;
 
-import net.minecraft.client.renderer.entity.state.SkeletonRenderState;
+import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
+import net.minecraft.util.Mth;
+import net.minecraft.world.phys.Vec3;
 
-public class NecromancerRenderState extends SkeletonRenderState {
+public class NecromancerRenderState extends HumanoidRenderState {
+    public float capeLean;
+    public float capeLean2;
+    public float capeFlap;
+    public float stripLean;
 }

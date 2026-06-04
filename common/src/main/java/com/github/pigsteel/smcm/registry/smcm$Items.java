@@ -40,6 +40,17 @@ public class smcm$Items {
             properties ->
                     new SpawnEggItem(properties.spawnEgg(smcm$EntityType.SUNKEN.get()))
     );
+    public static final RegistryHandle<Item> LOST_SPAWN_EGG = Services.REGISTRY.registerItem(
+            "lost_spawn_egg",
+            properties ->
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.LOST.get()))
+    );
+
+    public static final RegistryHandle<Item> NECROMANCER_SPAWN_EGG = Services.REGISTRY.registerItem(
+            "necromancer_spawn_egg",
+            properties ->
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.NECROMANCER.get()))
+    );
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         // Create the item key.

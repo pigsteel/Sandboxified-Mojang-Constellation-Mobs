@@ -26,6 +26,8 @@ public class smcm$ModelLayers {
     public static final ArmorModelSet<ModelLayerLocation> SUNKEN_ARMOR = registerArmorSet("sunken");
     public static final ModelLayerLocation LOST = register("lost");
     public static final ArmorModelSet<ModelLayerLocation> LOST_ARMOR = registerArmorSet("lost");
+    public static final ModelLayerLocation NECROMANCER = register("necromancer");
+    public static final ModelLayerLocation NECROMANCER_CLOAK = register("necromancer_cloak");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

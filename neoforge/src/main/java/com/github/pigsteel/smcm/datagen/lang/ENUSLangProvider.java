@@ -19,28 +19,55 @@ public class ENUSLangProvider extends LanguageProvider implements SMCMLangProvid
         addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
         addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
         addEntityType(smcm$EntityType.SUNKEN, SunkenSkeletonName());
+        addEntityType(smcm$EntityType.LOST, MossySkeletonName());
+        addEntityType(smcm$EntityType.NECROMANCER, NecromancerName());
 
         addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerName()));
         addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterName()));
         addItem(smcm$Items.FROSTBITTEN_SPAWN_EGG, eggName(FrozenZombieName()));
         addItem(smcm$Items.RECLAIMED_SPAWN_EGG, eggName(JungleZombieName()));
-        add(smcm$Items.SUNKEN_SPAWN_EGG.get(), eggName(SunkenSkeletonName()));
+        addItem(smcm$Items.SUNKEN_SPAWN_EGG, eggName(SunkenSkeletonName()));
+        addItem(smcm$Items.LOST_SPAWN_EGG, eggName(MossySkeletonName()));
+        addItem(smcm$Items.NECROMANCER_SPAWN_EGG, eggName(NecromancerName()));
 
-        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
-        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
-        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
-
-        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + JungleZombieAmbientVerb());
-        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName() + HurtsVerb());
-        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName() + DiesVerb());
+        add("subtitles.smcm.entity.bruiser.ambient", BruiserAmbientVerb());
+        add("subtitles.smcm.entity.bruiser.hurt", HurtsVerb());
+        add("subtitles.smcm.entity.bruiser.death", DiesVerb());
 
         add("subtitles.smcm.entity.enchanter.ambient", EnchanterName() + EnchanterAmbientVerb());
         add("subtitles.smcm.entity.enchanter.hurt", EnchanterName() + HurtsVerb());
         add("subtitles.smcm.entity.enchanter.death", EnchanterName() + DiesVerb());
 
+        add("subtitles.smcm.entity.frostbitten.ambient", FrozenZombieName() + FrozenZombieAmbientVerb());
+        add("subtitles.smcm.entity.frostbitten.hurt", FrozenZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.frostbitten.death", FrozenZombieName() + DiesVerb());
+        add("subtitles.smcm.entity.zombie.converted_to_frostbitten", FrozenZombieName() + " forms");
+
+        add("subtitles.smcm.entity.reclaimed.ambient", JungleZombieName() + JungleZombieAmbientVerb());
+        add("subtitles.smcm.entity.reclaimed.hurt", JungleZombieName() + HurtsVerb());
+        add("subtitles.smcm.entity.reclaimed.death", JungleZombieName() + DiesVerb());
+        add("subtitles.smcm.entity.reclaimed.spit", JungleZombieName() + " spits");
+
+        add("subtitles.smcm.entity.sunken.ambient", SunkenSkeletonName() + SunkenSkeletonAmbientVerb());
+        add("subtitles.smcm.entity.sunken.hurt", SunkenSkeletonName() + HurtsVerb());
+        add("subtitles.smcm.entity.sunken.death", SunkenSkeletonName() + DiesVerb());
+        add("subtitles.smcm.entity.skeleton.converted_to_sunken", SunkenSkeletonName() + " forms");
+
+        add("subtitles.smcm.entity.lost.ambient", MossySkeletonName() + MossySkeletonAmbientVerb());
+        add("subtitles.smcm.entity.lost.hurt", MossySkeletonName() + HurtsVerb());
+        add("subtitles.smcm.entity.lost.death", MossySkeletonName() + DiesVerb());
+
+        add("subtitles.smcm.entity.necromancer.ambient", NecromancerName() + NecromancerAmbientVerb());
+        add("subtitles.smcm.entity.necromancer.hurt", NecromancerName() + HurtsVerb());
+        add("subtitles.smcm.entity.necromancer.death", NecromancerName() + DiesVerb());
+        add("subtitles.smcm.entity.necromancer.laugh", NecromancerName() + NecromancerLaughsVerb());
+
         add("subtitles.smcm.entity.parrot.imitate.frostbitten", ParrotImitates() + FrozenZombieAmbientVerb());
         add("subtitles.smcm.entity.parrot.imitate.reclaimed", ParrotImitates() + JungleZombieAmbientVerb());
         add("subtitles.smcm.entity.parrot.imitate.enchanter", ParrotImitates() + EnchanterAmbientVerb());
+        add("subtitles.smcm.entity.parrot.imitate.necromancer", ParrotImitates() + NecromancerLaughsVerb());
+        add("subtitles.smcm.entity.parrot.imitate.lost", ParrotImitates() + MossySkeletonAmbientVerb());
+        add("subtitles.smcm.entity.parrot.imitate.sunken", ParrotImitates() + SunkenSkeletonAmbientVerb());
     }
 
     private String eggName(String name) {
@@ -77,6 +104,10 @@ public class ENUSLangProvider extends LanguageProvider implements SMCMLangProvid
         return "Lost";
     }
 
+    public String NecromancerName() {
+        return "Necromancer";
+    }
+
     @Override
     public String ParrotImitates() {
         return "Parrot";
@@ -109,8 +140,12 @@ public class ENUSLangProvider extends LanguageProvider implements SMCMLangProvid
 
     @Override
     public String MossySkeletonAmbientVerb() {
-        return " rattles";
+        return " shifts";
     }
+
+    public String NecromancerLaughsVerb() { return " cackles"; }
+
+    public String NecromancerAmbientVerb() { return " clatters"; }
 
     @Override
     public String DiesVerb() {

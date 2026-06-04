@@ -12,5 +12,6 @@ public class smcm$Renderers {
         registrar.registerEntityRenderer(smcm$EntityType.RECLAIMED.get(), ReclaimedRenderer::new);
         registrar.registerEntityRenderer(smcm$EntityType.SUNKEN.get(), SunkenRenderer::new);
         registrar.registerEntityRenderer(smcm$EntityType.LOST.get(), LostRenderer::new);
+        registrar.registerEntityRenderer(smcm$EntityType.NECROMANCER.get(), NecromancerRenderer::new);
     }
 }

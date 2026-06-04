@@ -1,6 +1,7 @@
 package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.entity.Necromancer;
 import com.github.pigsteel.smcm.entity.illager.Bruiser;
 import com.github.pigsteel.smcm.entity.illager.Enchanter;
 import com.github.pigsteel.smcm.entity.projectile.ReclaimedPuke;
@@ -28,8 +29,10 @@ public class smcm$EntityType {
     public static RegistryHandle<EntityType<ReclaimedPuke>> RECLAIMED_PUKE;
     public static RegistryHandle<EntityType<Sunken>> SUNKEN;
     public static RegistryHandle<EntityType<Lost>> LOST;
+    public static RegistryHandle<EntityType<Necromancer>> NECROMANCER;
 
     static {
+
         BRUISER = Services.REGISTRY.registerEntityType(
                 "bruiser",
                 EntityType.Builder.of(Bruiser::new, MobCategory.MONSTER)
@@ -49,7 +52,7 @@ public class smcm$EntityType {
         FROSTBITTEN = Services.REGISTRY.registerEntityType("frostbitten", EntityType.Builder.of(Frostbitten::new, MobCategory.MONSTER)
                 .sized(0.6F, 1.95F)
                 .eyeHeight(1.74F)
-                .passengerAttachments(2.0125F)
+                .passengerAttachments(2.075F)
                 .ridingOffset(-0.7F)
                 .immuneTo(Blocks.POWDER_SNOW)
                 .clientTrackingRange(8)
@@ -85,6 +88,13 @@ public class smcm$EntityType {
                 .eyeHeight(1.74F)
                 .ridingOffset(-0.7F)
                 .clientTrackingRange(8)
+                .notInPeaceful());
+
+        NECROMANCER = Services.REGISTRY.registerEntityType("necromancer", EntityType.Builder.of(Necromancer::new, MobCategory.MONSTER)
+                .sized(0.7F, 2.4F)
+                .eyeHeight(2.1F)
+                .ridingOffset(-0.875F)
+                .clientTrackingRange(16)
                 .notInPeaceful());
     }
 

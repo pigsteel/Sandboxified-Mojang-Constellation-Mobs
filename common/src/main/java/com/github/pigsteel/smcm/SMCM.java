@@ -21,21 +21,6 @@ public class SMCM {
     // write the majority of your code here and load it from your loader specific projects. This example has some
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
-        LOGGER.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
-        LOGGER.info("The ID for diamonds is {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
-
-        // It is common for all supported loaders to provide a similar feature that can not be used directly in the
-        // common code. A popular way to get around this is using Java's built-in service loader feature to create
-        // your own abstraction layer. You can learn more about this in our provided services class. In this example
-        // we have an interface in the common code and use a loader specific implementation to delegate our call to
-        // the platform specific approach.
-        if (Services.PLATFORM.isModLoaded("smcm")) {
-
-            LOGGER.info("Hello to SMCM");
-        }
-        
-        
-
         //DataComponents.init();
         //LootTables.init();
         smcm$Registries.load();

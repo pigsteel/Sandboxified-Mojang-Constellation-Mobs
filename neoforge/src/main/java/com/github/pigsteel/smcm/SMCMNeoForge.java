@@ -25,7 +25,6 @@ public class SMCMNeoForge {
         // project.
 
         // Use NeoForge to bootstrap the Common mod.
-        SMCM.LOGGER.info("Hello NeoForge world!");
         SMCM.init();
 
         eventBus.addListener(SMCMNeoForgeRegistries::registerDatapackRegistries);

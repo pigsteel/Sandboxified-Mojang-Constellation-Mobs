@@ -6,28 +6,98 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.HumanoidArm;
 
 public class NecromancerModel<T extends NecromancerRenderState> extends HumanoidModel<NecromancerRenderState> {
     private final ModelPart redStrip;
+    private final ModelPart staffPivot;
+    private final ModelPart staff;
+    private final ModelPart leftPauldron;
+    private final ModelPart rightPauldron;
 
     public NecromancerModel(ModelPart root) {
         super(root);
 
-        this.redStrip = this.body.hasChild("robes_strip")
-                ? this.body.getChild("robes_strip")
-                : null;
+        if (this.body.hasChild("robes_strip")) {
+            this.redStrip = this.body.getChild("robes_strip");
+            this.staffPivot = root.getChild("staff_pivot");
+            this.staff = this.staffPivot.getChild("staff");
+            this.leftPauldron = this.body.getChild("left_pauldron");
+            this.rightPauldron = this.body.getChild("right_pauldron");
+        } else { // because of Cloak :/
+            this.redStrip = null;
+            this.staffPivot = null;
+            this.staff = null;
+            this.leftPauldron = null;
+            this.rightPauldron = null;
+        }
     }
 
     @Override
     public void setupAnim(NecromancerRenderState state) {
         super.setupAnim(state);
 
-        if (this.redStrip != null) {
+        if (this.redStrip != null) { // again because of cloak, have to null check
             float forwardBackSway = state.capeLean + state.capeFlap;
 
             this.redStrip.xRot = Mth.clamp(forwardBackSway, -45.0F, 45.0F) * Mth.DEG_TO_RAD;
             this.redStrip.zRot = Mth.clamp(state.capeLean2 * 1.25F, -18.0F, 18.0F) * Mth.DEG_TO_RAD;
+
+            this.setupStaffPose(state);
+            this.setupPauldrons();
         }
+    }
+
+    private void setupPauldrons() {
+        float inherit = 0.35F;
+
+        this.leftPauldron.xRot = this.leftArm.xRot * inherit;
+        this.leftPauldron.yRot = this.leftArm.yRot * inherit;
+        this.leftPauldron.zRot = this.leftArm.zRot * inherit;
+
+        this.rightPauldron.xRot = this.rightArm.xRot * inherit;
+        this.rightPauldron.yRot = this.rightArm.yRot * inherit;
+        this.rightPauldron.zRot = this.rightArm.zRot * inherit;
+    }
+
+    private void setupStaffPose(NecromancerRenderState state) {
+        this.poseStaff(state.mainArm == HumanoidArm.LEFT);
+    }
+
+
+    private void poseStaff(boolean leftHanded) {
+        float armDampener = 0.15F;
+
+        ModelPart mainArm = leftHanded ? this.leftArm : this.rightArm;
+        ModelPart offArm = leftHanded ? this.rightArm : this.leftArm;
+        float xOffset = leftHanded ? 4.5F : -5F;
+        float reverse = leftHanded ? -1.0F : 1.0F;
+
+        // Arm bent/raised forward around 90 degrees.
+        mainArm.xRot = -Mth.HALF_PI + mainArm.xRot * armDampener;
+        mainArm.yRot = reverse * 8.0F * Mth.DEG_TO_RAD + mainArm.yRot * armDampener;
+        mainArm.zRot = reverse * 4.0F * Mth.DEG_TO_RAD + mainArm.zRot * armDampener;
+
+        // Optional: keep offhand calmer.
+        offArm.xRot *= 0.25F;
+        offArm.zRot -= 0.135F * reverse;
+
+        copyStaffToHand(mainArm);
+
+        this.staff.setPos(xOffset, 0.0F, -10.0F);
+
+        this.staff.setRotation(0.0F, 0.0F, 0.0F);
+    }
+
+    private static void copyRotation(ModelPart target, ModelPart source) {
+        target.xRot = source.xRot + Mth.HALF_PI;
+        target.yRot = source.yRot;
+        target.zRot = source.zRot;
+    }
+
+    private void copyStaffToHand(ModelPart arm) {
+        copyRotation(this.staffPivot, arm);
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -92,21 +162,65 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
          * Pauldrons. These are attached to arms so they animate with the arm swing.
          * You may want to tweak these offsets after seeing them in-game.
          */
-        leftArm.addOrReplaceChild(
+        body.addOrReplaceChild(
                 "left_pauldron",
                 CubeListBuilder.create()
                         .texOffs(32, 32)
                         .mirror()
                         .addBox(-0.5F, -3.0F, -3.0F, 5.0F, 6.0F, 6.0F, new CubeDeformation(0.25F)),
-                PartPose.offset(0F, 0F, 0.0F)
+                PartPose.offset(5.0F, 2.0F, 0.0F)
         );
 
-        rightArm.addOrReplaceChild(
+        body.addOrReplaceChild(
                 "right_pauldron",
                 CubeListBuilder.create()
                         .texOffs(32, 32)
                         .addBox(-4.5F, -3.0F, -3.0F, 5.0F, 6.0F, 6.0F, new CubeDeformation(0.25F)),
-                PartPose.offset(0F, 0F, 0.0F)
+                PartPose.offset(-5.0F, 2.0F, 0.0F)
+        );
+
+        PartDefinition staffPivot = root.addOrReplaceChild(
+                "staff_pivot",
+                CubeListBuilder.create(),
+                PartPose.ZERO
+        );
+
+        PartDefinition staff = staffPivot.addOrReplaceChild(
+                "staff",
+                CubeListBuilder.create()
+                        // shaft
+                        // BB: [-1, 0, -13] -> [0, 24, -12]
+                        .texOffs(0, 30)
+                        .addBox(0.0F, 0.0F, 0.0F, 1.0F, 24.0F, 1.0F)
+
+                        // small top blocks / ring pieces
+                        // BB y 23..24 -> MC local y: -1..0 relative to pivot y=1
+                        .texOffs(0, 2)
+                        .addBox(0.0F, 0.0F, -1.0F, 1.0F, 1.0F, 1.0F)
+                        .texOffs(0, 2)
+                        .addBox(0.0F, 0.0F, 1.0F, 1.0F, 1.0F, 1.0F)
+                        .texOffs(0, 2)
+                        .addBox(1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F)
+                        .texOffs(0, 2)
+                        .addBox(-1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F)
+
+                        // orb
+                        // BB: [-2, 24, -14] -> [1, 27, -11]
+                        // MC local y = (24 - 27) - 1 = -4
+                        .texOffs(24, 2)
+                        .addBox(-1.0F, -3.0F, -1.0F, 3.0F, 3.0F, 3.0F)
+
+                        // four raised prongs
+                        // if BB y 24..27, same local y -4
+                        .texOffs(0, 4)
+                        .addBox(-2.0F, -2.0F, -0.0F, 1.0F, 3.0F, 1.0F)
+                        .texOffs(0, 4)
+                        .addBox(2.0F, -2.0F, -0.0F, 1.0F, 3.0F, 1.0F)
+                        .texOffs(0, 4)
+                        .addBox(-0.0F, -2.0F, -2.0F, 1.0F, 3.0F, 1.0F)
+                        .texOffs(0, 4)
+                        .addBox(-0.0F, -2.0F, 2.0F, 1.0F, 3.0F, 1.0F),
+                PartPose.offset(0.5F, -3.0F, 0.5F)
         );
 
         return LayerDefinition.create(mesh, 64, 64);

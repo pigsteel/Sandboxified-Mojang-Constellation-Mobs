@@ -22,6 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.Objects;
 
 public class Necromancer extends Monster {
+    private boolean smcm$cloakInitialized;
+
     public double smcm$cloakX;
     public double smcm$cloakY;
     public double smcm$cloakZ;
@@ -52,7 +54,7 @@ public class Necromancer extends Monster {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, Turtle.class, 10, true, false, Turtle.BABY_ON_LAND_SELECTOR));
-        this.targetSelector.addGoal(4, new MeleeAttackGoal(this, 1.2F, false) {
+        this.targetSelector.addGoal(4, new MeleeAttackGoal(this, 1.0F, false) {
             {
                 Objects.requireNonNull(Necromancer.this);
                 Objects.requireNonNull(Necromancer.this);
@@ -78,6 +80,11 @@ public class Necromancer extends Monster {
     }
 
     private void smcm$tickCloak() {
+        if (!this.smcm$cloakInitialized) {
+            this.smcm$resetCloakPosition();
+            return;
+        }
+
         this.smcm$cloakXOld = this.smcm$cloakX;
         this.smcm$cloakYOld = this.smcm$cloakY;
         this.smcm$cloakZOld = this.smcm$cloakZ;
@@ -88,39 +95,26 @@ public class Necromancer extends Monster {
 
         double maxDistance = 10.0D;
 
-        if (dx > maxDistance) {
-            this.smcm$cloakX = this.getX();
-            this.smcm$cloakXOld = this.smcm$cloakX;
-        }
-
-        if (dz > maxDistance) {
-            this.smcm$cloakZ = this.getZ();
-            this.smcm$cloakZOld = this.smcm$cloakZ;
-        }
-
-        if (dy > maxDistance) {
-            this.smcm$cloakY = this.getY();
-            this.smcm$cloakYOld = this.smcm$cloakY;
-        }
-
-        if (dx < -maxDistance) {
-            this.smcm$cloakX = this.getX();
-            this.smcm$cloakXOld = this.smcm$cloakX;
-        }
-
-        if (dz < -maxDistance) {
-            this.smcm$cloakZ = this.getZ();
-            this.smcm$cloakZOld = this.smcm$cloakZ;
-        }
-
-        if (dy < -maxDistance) {
-            this.smcm$cloakY = this.getY();
-            this.smcm$cloakYOld = this.smcm$cloakY;
+        if (dx * dx + dy * dy + dz * dz > maxDistance * maxDistance) {
+            this.smcm$resetCloakPosition();
+            return;
         }
 
         this.smcm$cloakX += dx * 0.25D;
         this.smcm$cloakY += dy * 0.25D;
         this.smcm$cloakZ += dz * 0.25D;
+    }
+
+    public void smcm$resetCloakPosition() {
+        this.smcm$cloakX = this.getX();
+        this.smcm$cloakY = this.getY();
+        this.smcm$cloakZ = this.getZ();
+
+        this.smcm$cloakXOld = this.smcm$cloakX;
+        this.smcm$cloakYOld = this.smcm$cloakY;
+        this.smcm$cloakZOld = this.smcm$cloakZ;
+
+        this.smcm$cloakInitialized = true;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -137,7 +131,9 @@ public class Necromancer extends Monster {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$SoundEvents.NECROMANCER_AMBIENT.get();
+        return this.random.nextFloat() < 0.05F
+                ? smcm$SoundEvents.NECROMANCER_LAUGH.get()
+                : smcm$SoundEvents.NECROMANCER_AMBIENT.get();
     }
 
     @Override

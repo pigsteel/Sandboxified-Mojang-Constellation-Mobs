@@ -162,7 +162,27 @@
       "smcm:mob/necromancer/laugh2"
     ]
   },
-
+  "entity.necromancer.summon": {
+    "subtitle": "subtitles.smcm.entity.necromancer.summon",
+    "sounds": [
+      "smcm:mob/necromancer/summon1",
+      "smcm:mob/necromancer/summon2",
+      "smcm:mob/necromancer/summon3"
+    ]
+  },
+  "entity.necromancer.prepare_summon": {
+    "subtitle": "subtitles.smcm.entity.necromancer.prepare_summon",
+    "sounds": [
+      "smcm:mob/necromancer/prepare_summon"
+    ]
+  },
+  "entity.necromancer.spell": {
+    "subtitle": "subtitles.smcm.entity.necromancer.spell",
+    "sounds": [
+      "smcm:mob/necromancer/spell1",
+      "smcm:mob/necromancer/spell2"
+    ]
+  },
   "entity.lost.ambient": {
     "subtitle": "subtitles.smcm.entity.lost.ambient",
     "sounds": [

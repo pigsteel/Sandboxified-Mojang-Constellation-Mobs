@@ -1,5 +1,7 @@
 package com.github.pigsteel.smcm.services.util;
 
+import net.minecraft.world.entity.Entity;
+
 import java.util.function.Supplier;
 
 public final class DataAttachmentHandle<T> {

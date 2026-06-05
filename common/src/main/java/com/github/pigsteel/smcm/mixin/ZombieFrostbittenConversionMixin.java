@@ -1,14 +1,9 @@
 package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.entity.ZombieFrostbittenConversion;
-import com.github.pigsteel.smcm.registry.DataAttachments;
 import com.github.pigsteel.smcm.registry.smcm$EntityType;
 import com.github.pigsteel.smcm.services.Services;
 import com.google.common.annotations.VisibleForTesting;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.level.storage.ValueInput;
@@ -18,9 +13,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static com.github.pigsteel.smcm.registry.DataAttachments.DATA_FROSTBITTEN_CONVERSION_ID;
+import static com.github.pigsteel.smcm.registry.smcm$DataAttachments.DATA_FROSTBITTEN_CONVERSION_ID;
 
 @Mixin(Zombie.class)
 public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbittenConversion {

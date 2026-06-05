@@ -44,13 +44,13 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
             this.redStrip.xRot = Mth.clamp(forwardBackSway, -45.0F, 45.0F) * Mth.DEG_TO_RAD;
             this.redStrip.zRot = Mth.clamp(state.capeLean2 * 1.25F, -18.0F, 18.0F) * Mth.DEG_TO_RAD;
 
-            this.setupStaffPose(state);
+            setupStaffPose(state);
             this.setupPauldrons();
         }
     }
 
     private void setupPauldrons() {
-        float inherit = 0.35F;
+        float inherit = 0.2F;
 
         this.leftPauldron.xRot = this.leftArm.xRot * inherit;
         this.leftPauldron.yRot = this.leftArm.yRot * inherit;
@@ -62,16 +62,27 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
     }
 
     private void setupStaffPose(NecromancerRenderState state) {
-        this.poseStaff(state.mainArm == HumanoidArm.LEFT);
-    }
+        boolean leftHanded = state.mainArm == HumanoidArm.LEFT;
 
+        this.poseStaff(leftHanded);
+
+        if (state.beamProgress > 0.0F) {
+            this.poseBeam(leftHanded, state.beamProgress);
+        }
+
+        float summonProgress = state.summonProgress;
+
+        if (summonProgress > 0.0F) {
+            this.poseSummoning(leftHanded, summonProgress, state);
+        }
+    }
 
     private void poseStaff(boolean leftHanded) {
         float armDampener = 0.15F;
 
         ModelPart mainArm = leftHanded ? this.leftArm : this.rightArm;
         ModelPart offArm = leftHanded ? this.rightArm : this.leftArm;
-        float xOffset = leftHanded ? 4.5F : -5F;
+        float xOffset = leftHanded ? 4.5F : -5.5F;
         float reverse = leftHanded ? -1.0F : 1.0F;
 
         // Arm bent/raised forward around 90 degrees.
@@ -85,9 +96,228 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
 
         copyStaffToHand(mainArm);
 
-        this.staff.setPos(xOffset, 0.0F, -10.0F);
+        this.staff.setPos(xOffset, -1.75F, -10.0F);
 
         this.staff.setRotation(0.0F, 0.0F, 0.0F);
+    }
+
+    private void poseSummoning(boolean leftHanded, float progress, NecromancerRenderState state) {
+        ModelPart mainArm = leftHanded ? this.leftArm : this.rightArm;
+        ModelPart offArm = leftHanded ? this.rightArm : this.leftArm;
+
+        float side = leftHanded ? 1.0F : -1.0F;
+        float reverse = leftHanded ? -1.0F : 1.0F;
+
+        progress = Mth.clamp(progress, 0.0F, 1.0F);
+
+        /*
+         * Optional easing. This makes the motion less linear and less robotic.
+         */
+        float eased = progress * progress * (3.0F - 2.0F * progress);
+
+        /*
+         * Main arm raises upward with the staff.
+         */
+        mainArm.xRot = Mth.lerp(eased, mainArm.xRot, -155.0F * Mth.DEG_TO_RAD);
+        mainArm.yRot = Mth.lerp(eased, mainArm.yRot, reverse * 12.0F * Mth.DEG_TO_RAD);
+        mainArm.zRot = Mth.lerp(eased, mainArm.zRot, reverse * -18.0F * Mth.DEG_TO_RAD);
+
+        /*
+         * Offhand extends outward/forward.
+         */
+        offArm.xRot = Mth.lerp(eased, offArm.xRot, -65.0F * Mth.DEG_TO_RAD);
+        offArm.yRot = Mth.lerp(eased, offArm.yRot, -reverse * 35.0F * Mth.DEG_TO_RAD);
+        offArm.zRot = Mth.lerp(eased, offArm.zRot, -reverse * 42.0F * Mth.DEG_TO_RAD);
+
+        /*
+         * Re-copy staff after modifying main arm, because the main arm pose changed.
+         */
+        copyStaffToHand(mainArm);
+
+        float normalX = leftHanded ? 4.5F : -5.5F;
+        float normalY = -2.0F;
+        float normalZ = -10.0F;
+
+        /*
+         * Raised ritual position.
+         * Tune Y/Z if it clips into the arm/head.
+         */
+        float summonX = leftHanded ? 5.0F : -6.0F;
+        float summonY = -17.0F;
+        float summonZ = -7.0F;
+
+        this.staff.setPos(
+                Mth.lerp(eased, normalX, summonX),
+                Mth.lerp(eased, normalY, summonY),
+                Mth.lerp(eased, normalZ, summonZ)
+        );
+
+        /*
+         * During normal holding, staffPivot follows the arm.
+         * During summoning, pull the pivot rotation toward vertical.
+         *
+         * If your staff model points along +Y when unrotated, this is vertical.
+         */
+        this.staffPivot.xRot = Mth.lerp(eased, this.staffPivot.xRot, 0.0F);
+        this.staffPivot.yRot = Mth.lerp(eased, this.staffPivot.yRot, 0.0F);
+        this.staffPivot.zRot = Mth.lerp(eased, this.staffPivot.zRot, 0.0F);
+
+        /*
+         * Keep the staff child itself unrotated so the vertical pivot pose actually wins.
+         */
+        this.staff.setRotation(0.0F, 0.0F, 0.0F);
+
+        /*
+         * Front strip flies back during summoning.
+         */
+        if (this.redStrip != null) {
+            this.redStrip.xRot = Mth.lerp(
+                    eased,
+                    this.redStrip.xRot,
+                    -5.0F * Mth.DEG_TO_RAD
+            );
+
+            float inverse = 1.0F - progress;
+            float cloakProgress = 1.0F - inverse * inverse * inverse;
+            float flutterStrength = cloakProgress;
+            float flutterZ = Mth.sin(state.ageInTicks * 0.75F + 1.2F) * 5.0F * flutterStrength * Mth.DEG_TO_RAD;
+
+            this.redStrip.zRot = Mth.lerp(
+                    eased,
+                    this.redStrip.zRot,
+                    side * 10.0F * Mth.DEG_TO_RAD
+            ) + flutterZ;
+        }
+    }
+
+    private void poseBeam(boolean leftHanded, float progress) {
+        ModelPart mainArm = leftHanded ? this.leftArm : this.rightArm;
+        ModelPart offArm = leftHanded ? this.rightArm : this.leftArm;
+
+        float side = leftHanded ? 1.0F : -1.0F;
+        float reverse = leftHanded ? -1.0F : 1.0F;
+
+        progress = Mth.clamp(progress, 0.0F, 1.0F);
+
+        /*
+         * Basic attack shape:
+         * 0.00 - 0.38: draw staff back
+         * 0.38 - 0.68: thrust / point forward
+         * 0.68 - 1.00: hold forward beam pose
+         */
+        float windup = smoothstep(inverseLerp(0.0F, 0.38F, progress));
+        float thrust = smoothstep(inverseLerp(0.38F, 0.68F, progress));
+
+        /*
+         * This keeps the whole beam pose blending in during windup,
+         * then fully owning the arms after thrust.
+         */
+        float beamBlend = Math.max(windup, thrust);
+
+        /*
+         * Main arm pose.
+         *
+         * Windup:
+         *   arm comes back/out to the side, staff still held low.
+         *
+         * Forward:
+         *   arm points out at the target.
+         */
+        float windupMainX = -38.0F * Mth.DEG_TO_RAD;
+        float windupMainY = reverse * 58.0F * Mth.DEG_TO_RAD;
+        float windupMainZ = reverse * 30.0F * Mth.DEG_TO_RAD;
+
+        float forwardMainX = -96.0F * Mth.DEG_TO_RAD;
+        float forwardMainY = reverse * 2.0F * Mth.DEG_TO_RAD;
+        float forwardMainZ = reverse * 4.0F * Mth.DEG_TO_RAD;
+
+        float targetMainX = Mth.lerp(thrust, windupMainX, forwardMainX);
+        float targetMainY = Mth.lerp(thrust, windupMainY, forwardMainY);
+        float targetMainZ = Mth.lerp(thrust, windupMainZ, forwardMainZ);
+
+        mainArm.xRot = Mth.lerp(beamBlend, mainArm.xRot, targetMainX);
+        mainArm.yRot = Mth.lerp(beamBlend, mainArm.yRot, targetMainY);
+        mainArm.zRot = Mth.lerp(beamBlend, mainArm.zRot, targetMainZ);
+
+        /*
+         * Offhand:
+         * opens out as the staff winds back, then braces during the forward cast.
+         */
+        float windupOffX = -28.0F * Mth.DEG_TO_RAD;
+        float windupOffY = -reverse * 42.0F * Mth.DEG_TO_RAD;
+        float windupOffZ = -reverse * 30.0F * Mth.DEG_TO_RAD;
+
+        float forwardOffX = -58.0F * Mth.DEG_TO_RAD;
+        float forwardOffY = -reverse * 24.0F * Mth.DEG_TO_RAD;
+        float forwardOffZ = -reverse * 46.0F * Mth.DEG_TO_RAD;
+
+        float targetOffX = Mth.lerp(thrust, windupOffX, forwardOffX);
+        float targetOffY = Mth.lerp(thrust, windupOffY, forwardOffY);
+        float targetOffZ = Mth.lerp(thrust, windupOffZ, forwardOffZ);
+
+        offArm.xRot = Mth.lerp(beamBlend, offArm.xRot, targetOffX);
+        offArm.yRot = Mth.lerp(beamBlend, offArm.yRot, targetOffY);
+        offArm.zRot = Mth.lerp(beamBlend, offArm.zRot, targetOffZ);
+
+        /*
+         * Re-copy the staff pivot after modifying the main arm.
+         * This keeps the staff visually attached to the hand.
+         */
+        copyStaffToHand(mainArm);
+
+        /*
+         * Low grip on handle.
+         *
+         * More negative Y pushes the staff geometry upward relative to the hand,
+         * making the hand appear lower on the shaft.
+         */
+        float gripX = leftHanded ? 4.5F : -5.5F;
+
+        float windupStaffY = -8.5F;
+        float windupStaffZ = -7.5F;
+
+        float forwardStaffY = -8.5F;
+        float forwardStaffZ = -15.5F;
+
+        this.staff.setPos(
+                gripX,
+                Mth.lerp(thrust, windupStaffY, forwardStaffY),
+                Mth.lerp(thrust, windupStaffZ, forwardStaffZ)
+        );
+
+        /*
+         * Staff local rotation.
+         *
+         * Windup:
+         *   staff angles back with the hand.
+         *
+         * Forward:
+         *   staff straightens toward the target.
+         */
+        float windupStaffXRot = 24.0F * Mth.DEG_TO_RAD;
+        float windupStaffYRot = reverse * 22.0F * Mth.DEG_TO_RAD;
+        float windupStaffZRot = -reverse * 14.0F * Mth.DEG_TO_RAD;
+
+        float forwardStaffXRot = -10.0F * Mth.DEG_TO_RAD;
+        float forwardStaffYRot = 0.0F;
+        float forwardStaffZRot = 0.0F;
+
+        this.staff.xRot = Mth.lerp(thrust, windupStaffXRot, forwardStaffXRot);
+        this.staff.yRot = Mth.lerp(thrust, windupStaffYRot, forwardStaffYRot);
+        this.staff.zRot = Mth.lerp(thrust, windupStaffZRot, forwardStaffZRot);
+
+        /*
+         * Small recoil/energy hold once the staff is forward.
+         * Optional, but it helps avoid the pose looking frozen.
+         */
+        if (progress > 0.68F) {
+            float hold = smoothstep(inverseLerp(0.68F, 1.0F, progress));
+            float tremor = Mth.sin(progress * 80.0F) * 1.5F * hold * Mth.DEG_TO_RAD;
+
+            mainArm.xRot += tremor;
+            this.staff.xRot += tremor * 0.5F;
+            this.staff.zRot += side * tremor * 0.35F;
+        }
     }
 
     private static void copyRotation(ModelPart target, ModelPart source) {
@@ -98,6 +328,15 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
 
     private void copyStaffToHand(ModelPart arm) {
         copyRotation(this.staffPivot, arm);
+    }
+
+    private static float smoothstep(float progress) {
+        progress = Mth.clamp(progress, 0.0F, 1.0F);
+        return progress * progress * (3.0F - 2.0F * progress);
+    }
+
+    private static float inverseLerp(float min, float max, float value) {
+        return Mth.clamp((value - min) / (max - min), 0.0F, 1.0F);
     }
 
     public static LayerDefinition createBodyLayer() {

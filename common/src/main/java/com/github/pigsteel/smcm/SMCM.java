@@ -1,10 +1,7 @@
 package com.github.pigsteel.smcm;
 
-import com.github.pigsteel.smcm.services.Services;
 import com.github.pigsteel.smcm.registry.*;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +27,7 @@ public class SMCM {
         Attributes.load();
         //DataComponents.load();
         //LootTables.load();
-        DataAttachments.load();
+        smcm$DataAttachments.load();
     }
 
     public static Identifier id(String path) {

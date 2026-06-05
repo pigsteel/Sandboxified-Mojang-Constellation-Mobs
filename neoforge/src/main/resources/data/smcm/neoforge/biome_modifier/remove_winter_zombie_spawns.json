@@ -5,7 +5,8 @@
     "minecraft:snowy_plains",
     "minecraft:jagged_peaks",
     "minecraft:frozen_peaks",
-    "minecraft:snowy_taiga"
+    "minecraft:snowy_taiga",
+    ""
   ],
   "entity_types": "minecraft:zombie"
 }

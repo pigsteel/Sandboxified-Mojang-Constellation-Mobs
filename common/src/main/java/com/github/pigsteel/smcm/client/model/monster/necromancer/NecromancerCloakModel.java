@@ -19,9 +19,29 @@ public class NecromancerCloakModel extends NecromancerModel<NecromancerRenderSta
         float backSway = state.capeLean + state.capeFlap;
         float sideSway = state.capeLean2;
 
-        this.cloak.xRot = Mth.clamp(backSway, -4.0F, 90.0F) * Mth.DEG_TO_RAD;
+        float normalXRot = Mth.clamp(backSway, -4.0F, 90.0F) * Mth.DEG_TO_RAD;
+        float normalZRot = Mth.clamp(sideSway, -16.0F, 16.0F) * Mth.DEG_TO_RAD;
+
+        float progress = Mth.clamp(state.summonProgress, 0.0F, 1.0F);
+
+        // Fast early, then settles.
+        float inverse = 1.0F - progress;
+        float cloakProgress = 1.0F - inverse * inverse * inverse;
+
+        float summonXRot = 55.0F * Mth.DEG_TO_RAD;
+        float summonZRot = (Mth.clamp(sideSway * 1.35F - 50.0F * inverse, -80.0F, 80.0F)) * Mth.DEG_TO_RAD;
+
+        /*
+         * Flutter only appears during summoning.
+         * Multiplying by cloakProgress makes it fade in with the cloak.
+         */
+        float flutterStrength = cloakProgress;
+        float flutterX = Mth.sin(state.ageInTicks * 0.45F) * 3.0F * flutterStrength * Mth.DEG_TO_RAD;
+        float flutterZ = Mth.sin(state.ageInTicks * 0.75F + 1.2F) * 5.0F * flutterStrength * Mth.DEG_TO_RAD;
+
+        this.cloak.xRot = Mth.lerp(cloakProgress, normalXRot, summonXRot) + flutterX;
         this.cloak.yRot = 0.0F;
-        this.cloak.zRot = Mth.clamp(sideSway, -16.0F, 16.0F) * Mth.DEG_TO_RAD;
+        this.cloak.zRot = Mth.lerp(cloakProgress, normalZRot, summonZRot) + flutterZ;
     }
 
     public static LayerDefinition createCloakLayer() {

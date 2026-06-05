@@ -25,11 +25,22 @@ public class smcm$SoundEvents {
     public static final RegistryHandle<SoundEvent> ENCHANTER_AMBIENT = Services.REGISTRY.registerSoundEvent("entity.enchanter.ambient");
     public static final RegistryHandle<SoundEvent> ENCHANTER_DEATH = Services.REGISTRY.registerSoundEvent("entity.enchanter.death");
     public static final RegistryHandle<SoundEvent> ENCHANTER_HURT = Services.REGISTRY.registerSoundEvent("entity.enchanter.hurt");
-    public static final RegistryHandle<SoundEvent> NECROMANCER_AMBIENT = Services.REGISTRY.registerSoundEvent("entity.necromancer.ambient");
-    public static final RegistryHandle<SoundEvent> NECROMANCER_DEATH = Services.REGISTRY.registerSoundEvent("entity.necromancer.death");
-    public static final RegistryHandle<SoundEvent> NECROMANCER_HURT = Services.REGISTRY.registerSoundEvent("entity.necromancer.hurt");
-    public static final RegistryHandle<SoundEvent> NECROMANCER_STEP = Services.REGISTRY.registerSoundEvent("entity.necromancer.step");
-    public static final RegistryHandle<SoundEvent> NECROMANCER_LAUGH = Services.REGISTRY.registerSoundEvent("entity.necromancer.laugh");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_AMBIENT =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.ambient");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_DEATH =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.death");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_HURT =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.hurt");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_STEP =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.step");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_LAUGH =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.laugh");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_SUMMON =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.summon");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_PREPARE_SUMMON =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.prepare_summon");
+    public static final RegistryHandle<SoundEvent> NECROMANCER_SPELL =
+            Services.REGISTRY.registerSoundEvent("entity.necromancer.spell");
     public static final RegistryHandle<SoundEvent> PARROT_IMITATE_FROSTBITTEN = Services.REGISTRY.registerSoundEvent("entity.parrot.imitate.frostbitten");
     public static final RegistryHandle<SoundEvent> PARROT_IMITATE_RECLAIMED = Services.REGISTRY.registerSoundEvent("entity.parrot.imitate.reclaimed");
     public static final RegistryHandle<SoundEvent> PARROT_IMITATE_ENCHANTER = Services.REGISTRY.registerSoundEvent("entity.parrot.imitate.enchanter");

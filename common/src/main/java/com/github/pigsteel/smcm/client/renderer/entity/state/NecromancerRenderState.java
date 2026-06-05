@@ -9,4 +9,9 @@ public class NecromancerRenderState extends HumanoidRenderState {
     public float capeLean2;
     public float capeFlap;
     public float stripLean;
+
+    public boolean isSummoning;
+    public float summonProgress;
+    public boolean isBeaming;
+    public float beamProgress;
 }

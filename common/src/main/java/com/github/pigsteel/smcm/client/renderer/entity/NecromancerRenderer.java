@@ -7,10 +7,8 @@ import com.github.pigsteel.smcm.client.renderer.entity.layers.NecromancerEyesLay
 import com.github.pigsteel.smcm.client.renderer.entity.state.NecromancerRenderState;
 import com.github.pigsteel.smcm.entity.Necromancer;
 import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
-import net.minecraft.client.entity.ClientAvatarState;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
-import net.minecraft.client.renderer.entity.state.AvatarRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
@@ -31,12 +29,16 @@ public class NecromancerRenderer extends HumanoidMobRenderer<Necromancer, Necrom
     public void extractRenderState(final Necromancer entity, final NecromancerRenderState state, float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
         extractCapeState(entity, state, partialTicks);
+        state.isSummoning = entity.isSummoning();
+        state.summonProgress = entity.getSummonAnimationProgress(partialTicks);
+        state.isBeaming = entity.isBeaming();
+        state.beamProgress = entity.getBeamAnimationProgress(partialTicks);
     }
 
     private void extractCapeState(Necromancer entity, NecromancerRenderState state, float partialTicks) {
-        double cloakX = Mth.lerp(partialTicks, entity.smcm$cloakXOld, entity.smcm$cloakX);
-        double cloakY = Mth.lerp(partialTicks, entity.smcm$cloakYOld, entity.smcm$cloakY);
-        double cloakZ = Mth.lerp(partialTicks, entity.smcm$cloakZOld, entity.smcm$cloakZ);
+        double cloakX = Mth.lerp(partialTicks, entity.cloakXOld, entity.cloakX);
+        double cloakY = Mth.lerp(partialTicks, entity.cloakYOld, entity.cloakY);
+        double cloakZ = Mth.lerp(partialTicks, entity.cloakZOld, entity.cloakZ);
 
         double entityX = Mth.lerp(partialTicks, entity.xo, entity.getX());
         double entityY = Mth.lerp(partialTicks, entity.yo, entity.getY());

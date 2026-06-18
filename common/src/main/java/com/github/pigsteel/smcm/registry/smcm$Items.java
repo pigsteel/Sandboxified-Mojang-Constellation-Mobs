@@ -1,7 +1,6 @@
 package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.services.IRegistryHelper;
 import com.github.pigsteel.smcm.services.Services;
 import com.github.pigsteel.smcm.services.util.RegistryHandle;
 import net.minecraft.core.Registry;
@@ -9,7 +8,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 
 import java.util.function.Function;
@@ -18,38 +16,38 @@ public class smcm$Items {
     public static final RegistryHandle<Item> BRUISER_SPAWN_EGG = Services.REGISTRY.registerItem(
             "bruiser_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.BRUISER.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.BRUISER.get()))
     );
     public static final RegistryHandle<Item> FROSTBITTEN_SPAWN_EGG = Services.REGISTRY.registerItem(
             "frostbitten_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.FROSTBITTEN.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.FROSTBITTEN.get()))
     );
     public static final RegistryHandle<Item> RECLAIMED_SPAWN_EGG = Services.REGISTRY.registerItem(
             "reclaimed_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.RECLAIMED.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.RECLAIMED.get()))
     );
     public static final RegistryHandle<Item> ENCHANTER_SPAWN_EGG = Services.REGISTRY.registerItem(
             "enchanter_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.ENCHANTER.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.ENCHANTER.get()))
     );
     public static final RegistryHandle<Item> SUNKEN_SPAWN_EGG = Services.REGISTRY.registerItem(
             "sunken_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.SUNKEN.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.SUNKEN.get()))
     );
     public static final RegistryHandle<Item> LOST_SPAWN_EGG = Services.REGISTRY.registerItem(
             "lost_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.LOST.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.LOST.get()))
     );
 
     public static final RegistryHandle<Item> NECROMANCER_SPAWN_EGG = Services.REGISTRY.registerItem(
             "necromancer_spawn_egg",
             properties ->
-                    new SpawnEggItem(properties.spawnEgg(smcm$EntityType.NECROMANCER.get()))
+                    new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.NECROMANCER.get()))
     );
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {

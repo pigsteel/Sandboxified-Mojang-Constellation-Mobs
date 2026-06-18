@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.entity.ZombieFrostbittenConversion;
-import com.github.pigsteel.smcm.registry.smcm$EntityType;
+import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
 import com.github.pigsteel.smcm.services.Services;
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.world.entity.*;
@@ -29,7 +29,7 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
 
     @Unique
     public boolean smcm$canFreezeConvert(Zombie zombie) {
-        return zombie.getType() == EntityType.ZOMBIE;
+        return zombie.getType() == EntityTypes.ZOMBIE;
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
@@ -82,7 +82,7 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     public void smcm$doFreezeConversion() {
         Zombie zombie = (Zombie) (Object) this;
 
-        zombie.convertTo(smcm$EntityType.FROSTBITTEN.get(), ConversionParams.single(zombie, true, true), (stray) -> {
+        zombie.convertTo(smcm$EntityTypes.FROSTBITTEN.get(), ConversionParams.single(zombie, true, true), (stray) -> {
             if (!zombie.isSilent()) {
                 zombie.level().levelEvent((Entity)null, 1048, zombie.blockPosition(), 0);
             }

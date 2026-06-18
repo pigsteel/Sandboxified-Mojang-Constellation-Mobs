@@ -6,17 +6,14 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-import static com.github.pigsteel.smcm.registry.smcm$EntityType.FROSTBITTEN;
-import static com.github.pigsteel.smcm.registry.smcm$EntityType.RECLAIMED;
+import static com.github.pigsteel.smcm.registry.smcm$EntityTypes.FROSTBITTEN;
+import static com.github.pigsteel.smcm.registry.smcm$EntityTypes.RECLAIMED;
 
 public class FabricEntitySpawns {
     public static void AddSpawns() {
@@ -27,11 +24,11 @@ public class FabricEntitySpawns {
                         context -> {
                             var spawnSettings = context.getMobSpawnSettings();
 
-                            spawnSettings.removeSpawnsOfEntityType(EntityType.ZOMBIE);
+                            spawnSettings.removeSpawnsOfEntityType(EntityTypes.ZOMBIE);
 
                             spawnSettings.addSpawn(
                                     MobCategory.MONSTER,
-                                    new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 4, 4),
+                                    new MobSpawnSettings.SpawnerData(EntityTypes.ZOMBIE, 4, 4),
                                     15
                             );
 
@@ -50,11 +47,11 @@ public class FabricEntitySpawns {
                         context -> {
                             var spawnSettings = context.getMobSpawnSettings();
 
-                            spawnSettings.removeSpawnsOfEntityType(EntityType.ZOMBIE);
+                            spawnSettings.removeSpawnsOfEntityType(EntityTypes.ZOMBIE);
 
                             spawnSettings.addSpawn(
                                     MobCategory.MONSTER,
-                                    new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 4, 4),
+                                    new MobSpawnSettings.SpawnerData(EntityTypes.ZOMBIE, 4, 4),
                                     10
                             );
 

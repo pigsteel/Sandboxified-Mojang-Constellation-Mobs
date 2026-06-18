@@ -29,10 +29,8 @@ public class NecromancerRenderer extends HumanoidMobRenderer<Necromancer, Necrom
     public void extractRenderState(final Necromancer entity, final NecromancerRenderState state, float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
         extractCapeState(entity, state, partialTicks);
-        state.isSummoning = entity.isSummoning();
-        state.summonProgress = entity.getSummonAnimationProgress(partialTicks);
-        state.isBeaming = entity.isBeaming();
-        state.beamProgress = entity.getBeamAnimationProgress(partialTicks);
+        state.summonAnimationState.copyFrom(entity.summonAnimationState);
+        state.shootingAnimationState.copyFrom(entity.shootingAnimationState);
     }
 
     private void extractCapeState(Necromancer entity, NecromancerRenderState state, float partialTicks) {

@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.datagen.lang;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.registry.smcm$EntityType;
+import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
 import com.github.pigsteel.smcm.registry.smcm$Items;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -15,11 +15,11 @@ public class ITITLangProvider extends LanguageProvider implements SMCMLangProvid
 
     @Override
     protected void addTranslations() {
-        addEntityType(smcm$EntityType.BRUISER, TankIllagerName());
-        addEntityType(smcm$EntityType.ENCHANTER, EnchanterName());
-        addEntityType(smcm$EntityType.FROSTBITTEN, FrozenZombieName());
-        addEntityType(smcm$EntityType.RECLAIMED, JungleZombieName());
-        addEntityType(smcm$EntityType.SUNKEN, SunkenSkeletonName());
+        addEntityType(smcm$EntityTypes.BRUISER, TankIllagerName());
+        addEntityType(smcm$EntityTypes.ENCHANTER, EnchanterName());
+        addEntityType(smcm$EntityTypes.FROSTBITTEN, FrozenZombieName());
+        addEntityType(smcm$EntityTypes.RECLAIMED, JungleZombieName());
+        addEntityType(smcm$EntityTypes.SUNKEN, SunkenSkeletonName());
 
         addItem(smcm$Items.BRUISER_SPAWN_EGG, eggName(TankIllagerNameS()));
         addItem(smcm$Items.ENCHANTER_SPAWN_EGG, eggName(EnchanterNameS()));

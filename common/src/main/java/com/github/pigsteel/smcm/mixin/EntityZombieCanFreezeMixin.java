@@ -1,7 +1,6 @@
 package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.entity.ZombieFrostbittenConversion;
-import com.github.pigsteel.smcm.registry.smcm$EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import org.spongepowered.asm.mixin.Mixin;

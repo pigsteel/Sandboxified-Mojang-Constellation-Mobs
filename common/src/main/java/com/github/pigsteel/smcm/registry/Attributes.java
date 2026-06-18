@@ -13,12 +13,12 @@ public final class Attributes {
     private Attributes() {}
 
     public static void load() {
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.BRUISER, Bruiser::createAttributes);
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.ENCHANTER, Enchanter::createAttributes);
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.FROSTBITTEN, Frostbitten::createAttributes);
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.RECLAIMED, Reclaimed::createAttributes);
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.SUNKEN, Sunken::createAttributes);
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.LOST, Lost::createAttributes);
-        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityType.NECROMANCER, Necromancer::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.BRUISER, Bruiser::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.ENCHANTER, Enchanter::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.FROSTBITTEN, Frostbitten::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.RECLAIMED, Reclaimed::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.SUNKEN, Sunken::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.LOST, Lost::createAttributes);
+        Services.ATTRIBUTES.registerEntityAttributes(smcm$EntityTypes.NECROMANCER, Necromancer::createAttributes);
     }
 }

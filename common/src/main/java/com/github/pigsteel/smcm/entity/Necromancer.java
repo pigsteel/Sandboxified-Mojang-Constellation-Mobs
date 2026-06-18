@@ -11,9 +11,12 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -39,9 +42,6 @@ import java.util.Set;
 import java.util.UUID;
 
 public class Necromancer extends Monster {
-    private static final EntityDataAccessor<Boolean> IS_SUMMONING;
-    private static final EntityDataAccessor<Boolean> IS_BEAMING;
-
     private static final String SUMMONED_MOBS_TAG = "SummonedMobs";
 
     private final Set<UUID> summonedMobs = new HashSet<>();
@@ -56,7 +56,8 @@ public class Necromancer extends Monster {
     public double cloakYOld;
     public double cloakZOld;
 
-
+    public final AnimationState summonAnimationState = new AnimationState();
+    public final AnimationState shootingAnimationState = new AnimationState();
 
     public Necromancer(EntityType<? extends Monster> type, Level level) {
         super(type, level);
@@ -76,7 +77,7 @@ public class Necromancer extends Monster {
         this.goalSelector.addGoal(3, new FleeSunGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Wolf.class, 6.0F, 1.0D, 1.2D));
 
-        //this.goalSelector.addGoal(4, new NecromancerSummonGoal(this));
+        this.goalSelector.addGoal(4, new NecromancerSummonGoal(this));
         this.goalSelector.addGoal(5, new NecromancerBeamAttackGoal(this));
 
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -92,9 +93,11 @@ public class Necromancer extends Monster {
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
+    }
 
-        builder.define(IS_SUMMONING, false);
-        builder.define(IS_BEAMING, false);
+    @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> accessor) {
+        super.onSyncedDataUpdated(accessor);
     }
 
     @Override
@@ -125,8 +128,6 @@ public class Necromancer extends Monster {
         super.tick();
 
         this.tickCloak();
-        this.tickSummonAnimation();
-        this.tickBeamAnimation();
     }
 
 
@@ -134,12 +135,12 @@ public class Necromancer extends Monster {
     public void aiStep() {
         super.aiStep();
 
-        if (this.level().isClientSide() && this.isSummoning()) {
-            this.spawnSummoningOrbParticles();
+        if (this.level().isClientSide() && this.getNecromancerPose() == NecromancerPose.SUMMONING) {
+            this.spawnSummoningOrbParticles(this.summonAnimationState);
         }
     }
 
-    private void spawnSummoningOrbParticles() {
+    private void spawnSummoningOrbParticles(AnimationState state) {
         float bodyYaw = this.yBodyRot * Mth.DEG_TO_RAD;
 
         double scale = this.getScale();
@@ -261,8 +262,27 @@ public class Necromancer extends Monster {
         return smcm$SoundEvents.NECROMANCER_STEP.get();
     }
 
-    static {
-        IS_SUMMONING = SynchedEntityData.defineId(Necromancer.class, EntityDataSerializers.BOOLEAN);
-        IS_BEAMING = SynchedEntityData.defineId(Necromancer.class, EntityDataSerializers.BOOLEAN);
+    public NecromancerPose getNecromancerPose() {
+        return NecromancerPose.STANDING;
+    }
+
+    public enum NecromancerPose implements StringRepresentable {
+        STANDING(0, "standing"),
+        DYING(1, "dying"),
+        SUMMONING(2, "summoning"),
+        SHOOTING(3, "shooting");
+
+        private final int id;
+        private final String name;
+
+        NecromancerPose(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        @Override
+        public String getSerializedName() {
+            return this.name;
+        }
     }
 }

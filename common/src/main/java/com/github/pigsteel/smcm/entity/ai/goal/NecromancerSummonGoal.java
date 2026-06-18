@@ -84,7 +84,7 @@ public class NecromancerSummonGoal extends Goal {
         this.hasPlayedPrepareSound = false;
 
         this.necromancer.getNavigation().stop();
-        this.necromancer.setSummoning(false);
+        //this.necromancer.setSummoning(false);
     }
 
     @Override
@@ -128,9 +128,8 @@ public class NecromancerSummonGoal extends Goal {
 
         if (!this.casting) {
             this.beginCasting();
-        }
 
-        this.necromancer.setSummoning(true);
+        }
 
         --this.castTicks;
 
@@ -146,6 +145,8 @@ public class NecromancerSummonGoal extends Goal {
         this.castTicks = CAST_TIME;
 
         if (!this.hasPlayedPrepareSound) {
+            this.necromancer.summonAnimationState.start(this.necromancer.tickCount);
+
             this.necromancer.playSound(
                     smcm$SoundEvents.NECROMANCER_PREPARE_SUMMON.get(),
                     1.0F,
@@ -160,7 +161,7 @@ public class NecromancerSummonGoal extends Goal {
         this.casting = false;
         this.castTicks = 0;
         this.hasPlayedPrepareSound = false;
-        this.necromancer.setSummoning(false);
+        //this.necromancer.setSummoning(false);
     }
 
     private void performSummon(ServerLevel level) {
@@ -230,8 +231,8 @@ public class NecromancerSummonGoal extends Goal {
 
         BlockPos pos = BlockPos.containing(x, this.necromancer.getY(), z);
         BlockPos spawnPos = this.findSpawnPos(level, pos, type == SummonType.ZOMBIE_HORSEMAN
-                ? EntityType.ZOMBIE_HORSE
-                : EntityType.ZOMBIE
+                ? EntityTypes.ZOMBIE_HORSE
+                : EntityTypes.ZOMBIE
         );
 
         if (spawnPos == null) {
@@ -274,8 +275,8 @@ public class NecromancerSummonGoal extends Goal {
     }
 
     private boolean trySpawnZombieHorseman(ServerLevel level, BlockPos spawnPos) {
-        ZombieHorse horse = EntityType.ZOMBIE_HORSE.create(level, EntitySpawnReason.MOB_SUMMONED);
-        Zombie rider = EntityType.ZOMBIE.create(level, EntitySpawnReason.MOB_SUMMONED);
+        ZombieHorse horse = EntityTypes.ZOMBIE_HORSE.create(level, EntitySpawnReason.MOB_SUMMONED);
+        Zombie rider = EntityTypes.ZOMBIE.create(level, EntitySpawnReason.MOB_SUMMONED);
 
         if (horse == null || rider == null) {
             return false;
@@ -433,8 +434,8 @@ public class NecromancerSummonGoal extends Goal {
     @Nullable
     private Entity createSummon(ServerLevel level, SummonType type) {
         return switch (type) {
-            case ZOMBIE -> EntityType.ZOMBIE.create(level, EntitySpawnReason.MOB_SUMMONED);
-            case BOWLESS_SKELETON -> EntityType.SKELETON.create(level, EntitySpawnReason.MOB_SUMMONED);
+            case ZOMBIE -> EntityTypes.ZOMBIE.create(level, EntitySpawnReason.MOB_SUMMONED);
+            case BOWLESS_SKELETON -> EntityTypes.SKELETON.create(level, EntitySpawnReason.MOB_SUMMONED);
             case ZOMBIE_HORSEMAN -> null;
         };
     }

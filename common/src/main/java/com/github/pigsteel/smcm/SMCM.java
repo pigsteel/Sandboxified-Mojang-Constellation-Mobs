@@ -22,7 +22,7 @@ public class SMCM {
         //LootTables.init();
         smcm$Registries.load();
         smcm$SoundEvents.load();
-        smcm$EntityType.load();
+        smcm$EntityTypes.load();
         smcm$Items.load();
         Attributes.load();
         //DataComponents.load();

@@ -12,6 +12,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -39,8 +40,6 @@ public interface IRegistryHelper {
     <T extends Item> RegistryHandle<T> registerItem(String name, Function<Item.Properties, T> item);
 
     <T extends Entity> RegistryHandle<EntityType<T>> registerEntityType(String name, EntityType.Builder<T> builder);
-
-    //<T extends Particle> RegistryHandle<T> registerParticle(String name)
 
     RegistryHandle<SoundEvent> registerSoundEvent(String name);
 

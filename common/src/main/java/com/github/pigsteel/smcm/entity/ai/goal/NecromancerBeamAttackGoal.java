@@ -32,8 +32,8 @@ public class NecromancerBeamAttackGoal extends Goal {
         LivingEntity target = this.necromancer.getTarget();
 
         return target != null
-                && target.isAlive()
-                && !this.necromancer.isSummoning();
+                && target.isAlive();
+                //&& !this.necromancer.isSummoning();
     }
 
     @Override
@@ -41,8 +41,8 @@ public class NecromancerBeamAttackGoal extends Goal {
         LivingEntity target = this.necromancer.getTarget();
 
         return target != null
-                && target.isAlive()
-                && !this.necromancer.isSummoning();
+                && target.isAlive();
+                //&& !this.necromancer.isSummoning();
     }
 
     @Override
@@ -113,7 +113,7 @@ public class NecromancerBeamAttackGoal extends Goal {
          * Start the full visual timeline once.
          * Do not repeatedly call setBeaming(true) every tick.
          */
-        this.necromancer.startBeamAnimation();
+        //this.necromancer.startBeamAnimation();
 
         this.necromancer.playSound(
                 smcm$SoundEvents.NECROMANCER_SPELL.get(),
@@ -139,7 +139,7 @@ public class NecromancerBeamAttackGoal extends Goal {
          * If you add stopBeamAnimation(), call it here.
          * Otherwise, this at least tells the visual state to recover.
          */
-        this.necromancer.setBeaming(false);
+        //this.necromancer.setBeaming(false);
     }
 
     private void fireBeam(ServerLevel level, LivingEntity target) {

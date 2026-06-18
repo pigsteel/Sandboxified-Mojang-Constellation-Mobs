@@ -41,11 +41,16 @@ public abstract class SnowballHitMixin extends Projectile {
 
         Entity owner = this.getOwner();
 
-        if (owner instanceof Frostbitten && entity.level() instanceof ServerLevel serverLevel) {
-            float difficulty = serverLevel.getCurrentDifficultyAt(this.getOwner().blockPosition()).getEffectiveDifficulty();
+        if (!(owner instanceof Frostbitten)) return;
+        if (!(entity.level() instanceof ServerLevel serverLevel)) return;
 
-            living.setTicksFrozen(living.getTicksFrozen() + 270 + (int)(20 * difficulty));
-            entity.hurt(this.damageSources().thrown(this, this.getOwner()), 1);
-        }
+        var damageSource = this.damageSources().thrown(this, owner);
+
+        float difficulty = serverLevel
+                .getCurrentDifficultyAt(owner.blockPosition())
+                .getEffectiveDifficulty();
+
+        living.setTicksFrozen(living.getTicksFrozen() + 270 + (int)(20 * difficulty));
+        entity.hurt(damageSource, 1.0F);
     }
 }

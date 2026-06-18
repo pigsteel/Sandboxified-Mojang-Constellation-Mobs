@@ -22,7 +22,7 @@ public class NecromancerCloakModel extends NecromancerModel<NecromancerRenderSta
         float normalXRot = Mth.clamp(backSway, -4.0F, 90.0F) * Mth.DEG_TO_RAD;
         float normalZRot = Mth.clamp(sideSway, -16.0F, 16.0F) * Mth.DEG_TO_RAD;
 
-        float progress = Mth.clamp(state.summonProgress, 0.0F, 1.0F);
+        float progress = Mth.clamp(0.0F, 0.0F, 1.0F);
 
         // Fast early, then settles.
         float inverse = 1.0F - progress;

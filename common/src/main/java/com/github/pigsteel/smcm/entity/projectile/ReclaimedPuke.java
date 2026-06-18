@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.entity.projectile;
 
 import com.github.pigsteel.smcm.entity.zombie.Reclaimed;
-import com.github.pigsteel.smcm.registry.smcm$EntityType;
+import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -15,7 +15,7 @@ public class ReclaimedPuke extends Projectile {
     }
 
     public ReclaimedPuke (Level level, Reclaimed owner) {
-        this(smcm$EntityType.RECLAIMED_PUKE.get(), level);
+        this(smcm$EntityTypes.RECLAIMED_PUKE.get(), level);
         this.setOwner(owner);
     }
 

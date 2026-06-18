@@ -16,7 +16,9 @@ import net.minecraft.world.entity.variant.*;
 
 import java.util.List;
 
-public record SunkenVariant(
+public record
+
+SunkenVariant(
         ModelAndTexture<ModelType> modelAndTexture,
         ClientAsset.ResourceTexture deadCoralTexture,
         SpawnPrioritySelectors spawnConditions

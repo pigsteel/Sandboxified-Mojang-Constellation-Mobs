@@ -13,7 +13,7 @@ public final class SMCMNeoForgeSpawnPlacements {
     @SubscribeEvent
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(
-                smcm$EntityType.FROSTBITTEN.get(),
+                smcm$EntityTypes.FROSTBITTEN.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Frostbitten::checkFrostbittenSpawnRules,
@@ -21,7 +21,7 @@ public final class SMCMNeoForgeSpawnPlacements {
         );
 
         event.register(
-                smcm$EntityType.RECLAIMED.get(),
+                smcm$EntityTypes.RECLAIMED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING,
                 Reclaimed::checkSurfaceMonstersSpawnRules,

@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.registry.smcm$EntityType;
+import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
 import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -27,15 +27,15 @@ public class ParrotImitateMixin {
 
     @Inject(method = "getImitatedSound", at = @At("HEAD"))
     private static void smcm$injectMimics(EntityType<?> id, CallbackInfoReturnable<SoundEvent> cir) {
-        if (!MOB_SOUND_MAP.containsKey(smcm$EntityType.FROSTBITTEN)) {
+        if (!MOB_SOUND_MAP.containsKey(smcm$EntityTypes.FROSTBITTEN)) {
             Map<EntityType<?>, SoundEvent> map = new HashMap<>(MOB_SOUND_MAP);
 
-            map.put(smcm$EntityType.FROSTBITTEN.get(), smcm$SoundEvents.PARROT_IMITATE_FROSTBITTEN.get());
-            map.put(smcm$EntityType.RECLAIMED.get(), smcm$SoundEvents.PARROT_IMITATE_RECLAIMED.get());
-            map.put(smcm$EntityType.ENCHANTER.get(), smcm$SoundEvents.PARROT_IMITATE_ENCHANTER.get());
-            map.put(smcm$EntityType.SUNKEN.get(), smcm$SoundEvents.PARROT_IMITATE_SUNKEN.get());
-            map.put(smcm$EntityType.LOST.get(), smcm$SoundEvents.PARROT_IMITATE_LOST.get());
-            map.put(smcm$EntityType.NECROMANCER.get(), smcm$SoundEvents.PARROT_IMITATE_NECROMANCER.get());
+            map.put(smcm$EntityTypes.FROSTBITTEN.get(), smcm$SoundEvents.PARROT_IMITATE_FROSTBITTEN.get());
+            map.put(smcm$EntityTypes.RECLAIMED.get(), smcm$SoundEvents.PARROT_IMITATE_RECLAIMED.get());
+            map.put(smcm$EntityTypes.ENCHANTER.get(), smcm$SoundEvents.PARROT_IMITATE_ENCHANTER.get());
+            map.put(smcm$EntityTypes.SUNKEN.get(), smcm$SoundEvents.PARROT_IMITATE_SUNKEN.get());
+            map.put(smcm$EntityTypes.LOST.get(), smcm$SoundEvents.PARROT_IMITATE_LOST.get());
+            map.put(smcm$EntityTypes.NECROMANCER.get(), smcm$SoundEvents.PARROT_IMITATE_NECROMANCER.get());
 
             MOB_SOUND_MAP = map;
 

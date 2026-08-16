@@ -33,7 +33,7 @@ import com.github.pigsteel.smcm.platform.fabric.FabricPlatform;
 public class SMCM {
 
 	public static final String MOD_ID = /*$ mod_id*/ "smcm";
-	public static final String MOD_VERSION = /*$ mod_version*/ "1.3.2";
+	public static final String MOD_VERSION = /*$ mod_version*/ "1.3.3-alpha";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Sandboxified Mojang Constellation Mobs";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

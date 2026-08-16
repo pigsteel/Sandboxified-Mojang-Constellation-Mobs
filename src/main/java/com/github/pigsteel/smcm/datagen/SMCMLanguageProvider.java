@@ -1,4 +1,4 @@
-package com.github.pigsteel.smcm.datagen.model;
+package com.github.pigsteel.smcm.datagen;
 
 //? fabric {
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;

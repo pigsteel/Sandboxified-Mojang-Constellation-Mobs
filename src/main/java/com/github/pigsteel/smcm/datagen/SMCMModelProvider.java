@@ -1,4 +1,4 @@
-package com.github.pigsteel.smcm.datagen.model;
+package com.github.pigsteel.smcm.datagen;
 
 //? fabric {
 import com.github.pigsteel.smcm.core.smcm$Items;

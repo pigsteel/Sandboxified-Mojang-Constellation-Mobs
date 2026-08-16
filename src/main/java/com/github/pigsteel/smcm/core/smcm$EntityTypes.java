@@ -75,8 +75,8 @@ public class smcm$EntityTypes {
 				.passengerAttachments(2.075F)
 				.ridingOffset(-0.7F)
 				//? >= 26.2 {
-				.immuneTo(smcm$BlockTags.FROSTBITTEN_IMMUNE_TO)
-				//?}
+				/*.immuneTo(smcm$BlockTags.FROSTBITTEN_IMMUNE_TO)
+				*///?}
 				.clientTrackingRange(8)
 				.notInPeaceful());
 

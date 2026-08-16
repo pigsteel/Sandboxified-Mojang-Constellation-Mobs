@@ -5,7 +5,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class Wildfire extends Monster {
-    protected Wildfire(EntityType<? extends Wraith> type, Level level) {
+    public Wildfire(EntityType<? extends Wildfire> type, Level level) {
         super(type, level);
     }
 }

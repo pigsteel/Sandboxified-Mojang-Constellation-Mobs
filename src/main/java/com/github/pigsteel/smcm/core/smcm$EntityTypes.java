@@ -2,6 +2,7 @@ package com.github.pigsteel.smcm.core;
 
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.world.entity.monster.VilerWitch;
+import com.github.pigsteel.smcm.world.entity.monster.Wildfire;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Bruiser;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Enchanter;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Geomancer;
@@ -51,6 +52,7 @@ public class smcm$EntityTypes {
 	public static final Supplier<EntityType<VilerWitch>> VILER_WITCH;
 	public static final Supplier<EntityType<RedstoneGolem>> REDSTONE_GOLEM;
 	public static final Supplier<EntityType<FrostbittenSnowball>> FROSTBITTEN_SNOWBALL;
+	public static final Supplier<EntityType<Wildfire>> WILDFIRE;
 
 	static {
 		BRUISER = registerEntity(
@@ -179,6 +181,9 @@ public class smcm$EntityTypes {
 				.sized(0.25F, 0.25F)
 				.clientTrackingRange(4)
 				.updateInterval(10));
+
+		WILDFIRE = registerEntity("wildfire", Builder.of(Wildfire::new, MobCategory.MONSTER)
+				.sized(2.0F, 3.0F));
 	}
 
 	public static <T extends Entity> Supplier<EntityType<T>> registerEntity(String id, Builder<T> builder) {

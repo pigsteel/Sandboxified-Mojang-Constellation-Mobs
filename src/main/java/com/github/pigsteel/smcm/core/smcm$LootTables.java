@@ -11,6 +11,7 @@ public class smcm$LootTables {
     public static ResourceKey<LootTable> ENCHANTER = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/enchanter"));
     public static ResourceKey<LootTable> SUNKEN = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/sunken"));
     public static ResourceKey<LootTable> BRUISER = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/bruiser"));
+	public static ResourceKey<LootTable> VILER_WITCH = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/viler_witch"));
     public static ResourceKey<LootTable> SHEAR_RECLAIMED = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("shearing/reclaimed"));
     public static ResourceKey<LootTable> SHEAR_SUNKEN = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("shearing/sunken"));
 

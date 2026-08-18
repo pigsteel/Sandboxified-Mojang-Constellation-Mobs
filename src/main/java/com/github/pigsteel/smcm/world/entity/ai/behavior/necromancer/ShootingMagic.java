@@ -27,6 +27,6 @@ public class ShootingMagic<E extends Necromancer> extends Behavior<E> {
 
 	@Override
 	public void tick(final ServerLevel level, final E body, final long timestamp) {
-		SMCM.LOGGER.info("Shoot is running");
+
 	}
 }

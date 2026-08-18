@@ -46,10 +46,15 @@ platform {
 			fabricLikeVersionRange = ">=${prop("deps.fabric-loader")}"
 		}
 		required("mixson") {
+			slug("mixson")
 			fabricLikeVersionRange = ">=${prop("deps.mixson")}"
 		}
-		optional("modmenu") {}
-		optional("lithostitched") {}
+		optional("modmenu") {
+			slug("modmenu")
+		}
+		optional("lithostitched") {
+			slug("lithostitched")
+		}
 	}
 }
 

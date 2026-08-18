@@ -13,12 +13,14 @@ import com.github.pigsteel.smcm.world.entity.monster.illager.Windcaller;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
 import com.github.pigsteel.smcm.world.entity.monster.piglin.PiglinFarmer;
 import com.github.pigsteel.smcm.world.entity.monster.redstonegolem.RedstoneGolem;
+import com.github.pigsteel.smcm.world.entity.monster.redstonemonstrosity.RedstoneMonstrosity;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.Lost;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.Sunken;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Frostbitten;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Reclaimed;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.ZombifiedPiglinBrute;
 import com.github.pigsteel.smcm.world.entity.projectile.FrostbittenSnowball;
+import com.github.pigsteel.smcm.world.entity.projectile.GeomancerWall;
 import com.github.pigsteel.smcm.world.entity.projectile.ReclaimedPuke;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -52,9 +54,11 @@ public class smcm$EntityTypes {
 	public static final Supplier<EntityType<PiglinFarmer>> PIGLIN_FARMER;
 	public static final Supplier<EntityType<VilerWitch>> VILER_WITCH;
 	public static final Supplier<EntityType<RedstoneGolem>> REDSTONE_GOLEM;
+	public static final Supplier<EntityType<RedstoneMonstrosity>> REDSTONE_MONSTROSITY;
 	public static final Supplier<EntityType<FrostbittenSnowball>> FROSTBITTEN_SNOWBALL;
 	public static final Supplier<EntityType<Wildfire>> WILDFIRE;
 	public static final Supplier<EntityType<Wraith>> WRAITH;
+	public static final Supplier<EntityType<GeomancerWall>> GEOMANCER_WALL;
 
 	static {
 		BRUISER = registerEntity(
@@ -79,8 +83,8 @@ public class smcm$EntityTypes {
 				.passengerAttachments(2.075F)
 				.ridingOffset(-0.7F)
 				//? >= 26.2 {
-				/*.immuneTo(smcm$BlockTags.FROSTBITTEN_IMMUNE_TO)
-				*///?}
+				.immuneTo(smcm$BlockTags.FROSTBITTEN_IMMUNE_TO)
+				//?}
 				.clientTrackingRange(8)
 				.notInPeaceful());
 
@@ -185,10 +189,17 @@ public class smcm$EntityTypes {
 				.updateInterval(10));
 
 		WILDFIRE = registerEntity("wildfire", Builder.of(Wildfire::new, MobCategory.MONSTER)
-				.sized(2.0F, 3.0F));
+				.sized(2.0F, 2.0F)
+				.notInPeaceful());
 
 		WRAITH = registerEntity("wraith", Builder.of(Wraith::new, MobCategory.MONSTER)
-				.sized(0.6F, 1.95F));
+				.sized(0.6F, 1.95F)
+				.notInPeaceful());
+
+		GEOMANCER_WALL = registerEntity("geomancer_wall", Builder.of(GeomancerWall::new, MobCategory.MONSTER)
+				.sized(0.5F, 0.0F));
+
+		REDSTONE_MONSTROSITY = registerEntity("redstone_monstrosity", Builder.of(RedstoneMonstrosity::new, MobCategory.MONSTER));
 	}
 
 	public static <T extends Entity> Supplier<EntityType<T>> registerEntity(String id, Builder<T> builder) {

@@ -6,7 +6,7 @@ import com.github.pigsteel.smcm.core.smcm$DataAttachments;
 import com.github.pigsteel.smcm.core.smcm$DataComponents;
 import com.github.pigsteel.smcm.core.smcm$DefaultAttributes;
 import com.github.pigsteel.smcm.core.smcm$EntityDataSerializers;
-import com.github.pigsteel.smcm.core.smcm$EntityRenderers;
+import com.github.pigsteel.smcm.client.renderer.entity.smcm$EntityRenderers;
 import com.github.pigsteel.smcm.core.smcm$EntityTypes;
 import com.github.pigsteel.smcm.core.smcm$Items;
 import com.github.pigsteel.smcm.core.smcm$LootTables;
@@ -33,16 +33,11 @@ import com.github.pigsteel.smcm.platform.fabric.FabricPlatform;
 public class SMCM {
 
 	public static final String MOD_ID = /*$ mod_id*/ "smcm";
-	public static final String MOD_VERSION = /*$ mod_version*/ "1.3.3-alpha";
-	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Sandboxified Mojang Constellation Mobs";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	private static final Platform PLATFORM = createPlatformInstance();
 
 	public static void onInitialize() {
-		LOGGER.info("Initializing {} on {}", MOD_ID, SMCM.xplat().loader());
-		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
-
 		smcm$Registries.load();
 		smcm$Packets.init();
 		smcm$MemoryModuleTypes.init();
@@ -60,9 +55,6 @@ public class SMCM {
 	}
 
 	public static void onInitializeClient() {
-		LOGGER.info("Initializing {} Client on {}", MOD_ID, SMCM.xplat().loader());
-		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
-
 		smcm$ModelLayers.init();
 		smcm$LayerDefinitions.registerModelLayers();
 		smcm$EntityRenderers.register();

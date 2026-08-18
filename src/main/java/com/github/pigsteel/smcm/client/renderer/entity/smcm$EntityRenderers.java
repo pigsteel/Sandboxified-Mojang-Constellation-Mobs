@@ -1,24 +1,10 @@
-package com.github.pigsteel.smcm.core;
+package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
-import com.github.pigsteel.smcm.client.renderer.entity.BruiserRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.EnchanterRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.FrostbittenRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.GeomancerRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.IceologerRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.LostRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.MountaineerRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.NecromancerRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.ReclaimedPukeRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.ReclaimedRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.RedstoneGolemRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.SunkenRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.VilerWitchRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.WindcallerRenderer;
-import com.github.pigsteel.smcm.client.renderer.entity.ZombifiedPiglinBruteRenderer;
 //? neoforge {
 /*import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
 *///?}
+import com.github.pigsteel.smcm.core.smcm$EntityTypes;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.PiglinRenderer;
@@ -52,6 +38,9 @@ public class smcm$EntityRenderers {
 		registerEntityRenderer(smcm$EntityTypes.VILER_WITCH, VilerWitchRenderer::new);
 		registerEntityRenderer(smcm$EntityTypes.REDSTONE_GOLEM, RedstoneGolemRenderer::new);
 		registerEntityRenderer(smcm$EntityTypes.FROSTBITTEN_SNOWBALL, ThrownItemRenderer::new);
+		registerEntityRenderer(smcm$EntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosityRenderer::new);
+		registerEntityRenderer(smcm$EntityTypes.WILDFIRE, WildfireRenderer::new);
+		registerEntityRenderer(smcm$EntityTypes.WRAITH, WraithRenderer::new);
 	}
 
     public static <T extends Entity> void registerEntityRenderer(Supplier<? extends EntityType<? extends T>> type, EntityRendererProvider<T> provider) {

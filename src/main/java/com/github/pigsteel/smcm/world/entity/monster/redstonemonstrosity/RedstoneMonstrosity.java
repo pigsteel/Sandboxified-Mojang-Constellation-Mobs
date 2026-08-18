@@ -7,7 +7,7 @@ import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.Level;
 
 public class RedstoneMonstrosity extends Raider {
-	protected RedstoneMonstrosity(EntityType<? extends Raider> type, Level level) {
+	public RedstoneMonstrosity(EntityType<? extends Raider> type, Level level) {
 		super(type, level);
 	}
 

@@ -10,8 +10,6 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 
 public class RedstoneMonstrosityModel extends EntityModel<RedstoneMonstrosityRenderState> {
-
-
     public RedstoneMonstrosityModel(ModelPart root) {
         super(root);
     }

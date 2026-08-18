@@ -62,7 +62,7 @@ import org.jspecify.annotations.Nullable;
 public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shearable {
     private static final int TIME_BEFORE_CORAL_DEATH = 500;
 
-    private static final EntityDataAccessor<Holder<SunkenVariant>> DATA_VARIANT_ID = SynchedEntityData.defineId(Sunken.class, smcm$EntityDataSerializers.SUNKEN_VARIANT);
+    private static final EntityDataAccessor<Holder<SunkenVariant>> DATA_VARIANT_ID;
     private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW;
     private static final EntityDataAccessor<Boolean> IS_SHEARED;
     private static final EntityDataAccessor<Boolean> IS_CORAL_DEAD;
@@ -131,7 +131,6 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, Turtle.class, 10, true, false, Turtle.BABY_ON_LAND_SELECTOR));
     }
 
     @Override
@@ -272,6 +271,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     }
 
     static {
+		DATA_VARIANT_ID = SynchedEntityData.defineId(Sunken.class, smcm$EntityDataSerializers.SUNKEN_VARIANT);
         IS_CHARGING_CROSSBOW = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
         IS_SHEARED = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
         IS_CORAL_DEAD = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);

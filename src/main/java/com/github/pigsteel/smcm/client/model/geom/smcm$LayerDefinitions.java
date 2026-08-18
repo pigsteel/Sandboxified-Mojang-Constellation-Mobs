@@ -5,10 +5,13 @@ import com.github.pigsteel.smcm.client.model.monster.enchanter.EnchanterModel;
 import com.github.pigsteel.smcm.client.model.monster.iceologer.IceologerModel;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerModel;
 import com.github.pigsteel.smcm.client.model.monster.redstonegolem.RedstoneGolemModel;
+import com.github.pigsteel.smcm.client.model.monster.redstonemonstrosity.RedstoneMonstrosityModel;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.AbstractSunkenModel;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.CoralSunkenModel;
+import com.github.pigsteel.smcm.client.model.monster.wildfire.WildfireModel;
 import com.github.pigsteel.smcm.client.model.monster.windcaller.WindcallerModel;
 import com.github.pigsteel.smcm.client.model.monster.witch.VilerWitchModel;
+import com.github.pigsteel.smcm.client.model.monster.wraith.WraithModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
@@ -54,7 +57,6 @@ public class smcm$LayerDefinitions {
                 .map(mesh -> LayerDefinition.create(mesh, 64, 32));
         MeshTransformer reclaimedScale = MeshTransformer.scaling(1.025F);
 
-        SMCM.LOGGER.debug("Registering model layers for SMCM");
         registerModelLayer(smcm$ModelLayers.RECLAIMED, () -> ReclaimedModel.createBodyLayer(CubeDeformation.NONE).apply(reclaimedScale));
         registerModelLayer(smcm$ModelLayers.RECLAIMED_BABY, () -> BabyReclaimedModel.createBodyLayer(CubeDeformation.NONE));
         registerArmorLayers(smcm$ModelLayers.RECLAIMED_ARMOR, humanoidArmor.map(layer -> layer.apply(reclaimedScale)));
@@ -88,8 +90,11 @@ public class smcm$LayerDefinitions {
         registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM, RedstoneGolemModel::createBodyLayer);
         registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM_GLOW, RedstoneGolemModel::createGlowLayer);
         registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM_EYES, RedstoneGolemModel::createEyesLayer);
+		registerModelLayer(smcm$ModelLayers.REDSTONE_MONSTROSITY, RedstoneMonstrosityModel::createBodyLayer);
         registerModelLayer(smcm$ModelLayers.PIGLIN_FARMER, AdultPiglinModel::createBodyLayer);
         registerArmorLayers(smcm$ModelLayers.PIGLIN_FARMER_ARMOR, piglinArmor);
+		registerModelLayer(smcm$ModelLayers.WILDFIRE, WildfireModel::createBodyLayer);
+		registerModelLayer(smcm$ModelLayers.WRAITH, WraithModel::createBodyLayer);
     }
 
 	public static void registerModelLayer(ModelLayerLocation modelLayerLocation, Supplier<LayerDefinition> consumer) {

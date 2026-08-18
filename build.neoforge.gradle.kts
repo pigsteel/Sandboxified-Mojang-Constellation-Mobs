@@ -40,9 +40,12 @@ platform {
 			forgeLikeVersionRange.set("[1,)")
 		}
 		required("mixson") {
+			slug("mixson")
 			forgeLikeVersionRange = prop("deps.mixson")
 		}
-		optional("lithostitched") {}
+		optional("lithostitched") {
+			slug("lithostitched")
+		}
 	}
 }
 

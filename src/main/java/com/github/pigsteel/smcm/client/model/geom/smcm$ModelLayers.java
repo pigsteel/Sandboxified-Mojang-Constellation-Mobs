@@ -41,6 +41,9 @@ public class smcm$ModelLayers {
     public static final ModelLayerLocation REDSTONE_GOLEM = register("redstone_golem");
     public static final ModelLayerLocation REDSTONE_GOLEM_GLOW = register("redstone_golem_glow");
     public static final ModelLayerLocation REDSTONE_GOLEM_EYES = register("redstone_golem_eyes");
+	public static final ModelLayerLocation REDSTONE_MONSTROSITY = register("redstone_monstrosity");
+	public static final ModelLayerLocation WRAITH = register("wraith");
+	public static final ModelLayerLocation WILDFIRE = register("wildfire");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

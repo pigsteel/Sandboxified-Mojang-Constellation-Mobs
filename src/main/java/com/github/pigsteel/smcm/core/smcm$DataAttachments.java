@@ -14,17 +14,17 @@ import com.mojang.serialization.Codec;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 //? neoforge {
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ATTACHMENT_TYPES;
+import net.minecraft.resources.Identifier;
+import java.util.Optional;
 *///?}
 
 public class smcm$DataAttachments {
@@ -36,7 +36,7 @@ public class smcm$DataAttachments {
                     .initializer(() -> false)
                     .syncWith(
                             ByteBufCodecs.BOOL
-                    )
+                    ).persistent(Codec.BOOL)
     );
 
     private smcm$DataAttachments() {

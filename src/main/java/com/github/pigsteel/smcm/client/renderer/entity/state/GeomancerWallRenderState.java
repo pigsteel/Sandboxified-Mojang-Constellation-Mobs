@@ -7,4 +7,5 @@ import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
 @Environment(EnvType.CLIENT)
 public class GeomancerWallRenderState extends EntityRenderState {
+	public float raiseProgress = 0.0F;
 }

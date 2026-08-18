@@ -41,7 +41,7 @@ public class VilerWitchModel extends EntityModel<VilerWitchRenderState> implemen
         );
         hat.clearChild("hat_rim");
         PartDefinition hat1 = head.addOrReplaceChild(
-                "hat1", CubeListBuilder.create().texOffs(4, 70).addBox(0.0F, 0.0F, 0.0F, 20.0F, 2.0F, 20.0F), PartPose.offset(-10.0F, -10.03125F, -10.0F)
+                "hat1", CubeListBuilder.create().texOffs(0, 70).addBox(0.0F, 0.0F, 0.0F, 20.0F, 2.0F, 20.0F), PartPose.offset(-10.0F, -10.03125F, -10.0F)
         );
         PartDefinition hat2 = hat1.addOrReplaceChild(
                 "hat2",
@@ -92,10 +92,14 @@ public class VilerWitchModel extends EntityModel<VilerWitchRenderState> implemen
         );
         root.addOrReplaceChild(
                 "right_leg", CubeListBuilder.create().texOffs(0, 21).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F), PartPose.offset(-2.0F, 12.0F, 0.0F)
-        );
+        ).addOrReplaceChild(
+				"right_pants", CubeListBuilder.create().texOffs(64, 21).addBox(-2.5F, 0.0F, -2.5F, 5.0F, 12.0F, 5.0F), PartPose.ZERO
+		);
         root.addOrReplaceChild(
                 "left_leg", CubeListBuilder.create().texOffs(0, 21).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F), PartPose.offset(2.0F, 12.0F, 0.0F)
-        );
+        ).addOrReplaceChild(
+				"left_pants", CubeListBuilder.create().texOffs(84, 21).addBox(-2.5F, 0.0F, -2.5F, 5.0F, 12.0F, 5.0F), PartPose.ZERO
+		);
         return LayerDefinition.create(mesh, 128, 128);
     }
 

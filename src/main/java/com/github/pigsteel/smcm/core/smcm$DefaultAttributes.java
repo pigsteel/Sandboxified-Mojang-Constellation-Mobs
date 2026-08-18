@@ -1,6 +1,8 @@
 package com.github.pigsteel.smcm.core;
 
 import com.github.pigsteel.smcm.world.entity.monster.VilerWitch;
+import com.github.pigsteel.smcm.world.entity.monster.Wildfire;
+import com.github.pigsteel.smcm.world.entity.monster.Wraith;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Bruiser;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Enchanter;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Geomancer;
@@ -10,6 +12,7 @@ import com.github.pigsteel.smcm.world.entity.monster.illager.Windcaller;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
 import com.github.pigsteel.smcm.world.entity.monster.piglin.PiglinFarmer;
 import com.github.pigsteel.smcm.world.entity.monster.redstonegolem.RedstoneGolem;
+import com.github.pigsteel.smcm.world.entity.monster.redstonemonstrosity.RedstoneMonstrosity;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.Lost;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.Sunken;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Frostbitten;
@@ -46,6 +49,9 @@ public final class smcm$DefaultAttributes {
         registerAttributes(smcm$EntityTypes.PIGLIN_FARMER, PiglinFarmer::createMonsterAttributes);
         registerAttributes(smcm$EntityTypes.VILER_WITCH, VilerWitch::createAttributes);
         registerAttributes(smcm$EntityTypes.MOUNTAINEER, Mountaineer::createAttributes);
+		registerAttributes(smcm$EntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosity::createMonsterAttributes);
+		registerAttributes(smcm$EntityTypes.WILDFIRE, Wildfire::createMonsterAttributes);
+		registerAttributes(smcm$EntityTypes.WRAITH, Wraith::createMonsterAttributes);
     }
 
     public static <T extends LivingEntity> void registerAttributes(Supplier<EntityType<T>> entityType, Supplier<AttributeSupplier.Builder> supplier) {

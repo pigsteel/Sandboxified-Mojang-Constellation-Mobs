@@ -27,6 +27,5 @@ public class LostRenderer extends AbstractSkeletonRenderer<Lost, SkeletonRenderS
 
     public void extractRenderState(final Lost entity, final SkeletonRenderState state, final float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
-        //state.isCrouching = entity.isCrouching();
     }
 }

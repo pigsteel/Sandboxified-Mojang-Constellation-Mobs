@@ -51,6 +51,8 @@ public class smcm$SoundEvents {
     public static final Supplier<SoundEvent> PARROT_IMITATE_NECROMANCER = registerSoundEvent("entity.parrot.imitate.necromancer");
     public static final Supplier<SoundEvent> PARROT_IMITATE_LOST = registerSoundEvent("entity.parrot.imitate.lost");
     public static final Supplier<SoundEvent> PARROT_IMITATE_SUNKEN = registerSoundEvent("entity.parrot.imitate.sunken");
+	public static final Supplier<SoundEvent> PARROT_IMITATE_VILER_WITCH = registerSoundEvent("entity.parrot.imitate.viler_witch");
+
     public static final Supplier<SoundEvent> LOST_AMBIENT =
             registerSoundEvent("entity.lost.ambient");
     public static final Supplier<SoundEvent> LOST_DEATH =
@@ -89,9 +91,22 @@ public class smcm$SoundEvents {
     public static final Supplier<SoundEvent> GEOMANCER_DEATH =
             registerSoundEvent("entity.geomancer.death");
 
+	public static final Supplier<SoundEvent> VILER_WITCH_AMBIENT =
+			registerSoundEvent("entity.viler_witch.ambient");
+	public static final Supplier<SoundEvent> VILER_WITCH_DEATH =
+			registerSoundEvent("entity.viler_witch.death");
+	public static final Supplier<SoundEvent> VILER_WITCH_DRINK =
+			registerSoundEvent("entity.viler_witch.drink");
+	public static final Supplier<SoundEvent> VILER_WITCH_HURT =
+			registerSoundEvent("entity.viler_witch.hurt");
+	public static final Supplier<SoundEvent> VILER_WITCH_THROW =
+			registerSoundEvent("entity.viler_witch.throw");
+	public static final Supplier<SoundEvent> VILER_WITCH_CELEBRATE =
+			registerSoundEvent("entity.viler_witch.celebrate");
 
 
-    public static final Supplier<SoundEvent> SKELETON_CONVERTED_TO_SUNKEN =
+
+	public static final Supplier<SoundEvent> SKELETON_CONVERTED_TO_SUNKEN =
             registerSoundEvent("entity.skeleton.converted_to_sunken");
 
     public static Supplier<SoundEvent> registerSoundEvent(String name) {

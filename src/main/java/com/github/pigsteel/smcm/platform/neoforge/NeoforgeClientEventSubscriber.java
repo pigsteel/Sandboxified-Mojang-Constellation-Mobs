@@ -3,14 +3,11 @@ package com.github.pigsteel.smcm.platform.neoforge;
 //? neoforge {
 
 /*import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$EntityRenderers;
-import com.github.pigsteel.smcm.platform.neoforge.subscriber.NeoforgeModelLayers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.common.NeoForge;
 
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITY_RENDERERS;
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MODEL_LAYERS;

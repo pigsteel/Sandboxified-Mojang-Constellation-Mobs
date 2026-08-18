@@ -5,7 +5,6 @@ package com.github.pigsteel.smcm.platform.neoforge;
 /*import com.github.pigsteel.smcm.platform.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
-import net.neoforged.fml.loading.VersionInfo;
 
 public class NeoforgePlatform implements Platform {
 

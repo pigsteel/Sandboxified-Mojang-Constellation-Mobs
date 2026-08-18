@@ -1,18 +1,39 @@
 package com.github.pigsteel.smcm.platform.neoforge.subscriber;
 
 //? neoforge {
+
 /*import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$Items;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
-import static net.minecraft.world.item.Items.*;
-import static com.github.pigsteel.smcm.core.smcm$Items.*;
+import static com.github.pigsteel.smcm.core.smcm$Items.BRUISER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.ENCHANTER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.FROSTBITTEN_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.GEOMANCER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.ICEOLOGER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.LOST_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.MOUNTAINEER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.NECROMANCER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.PIGLIN_FARMER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.RECLAIMED_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.REDSTONE_GOLEM_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.SUNKEN_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.VILER_WITCH_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.WINDCALLER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.smcm$Items.ZOMBIFIED_PIGLIN_BRUTE_SPAWN_EGG;
+import static net.minecraft.world.item.Items.CAMEL_HUSK_SPAWN_EGG;
+import static net.minecraft.world.item.Items.EVOKER_SPAWN_EGG;
+import static net.minecraft.world.item.Items.HUSK_SPAWN_EGG;
+import static net.minecraft.world.item.Items.PIGLIN_BRUTE_SPAWN_EGG;
+import static net.minecraft.world.item.Items.RAVAGER_SPAWN_EGG;
+import static net.minecraft.world.item.Items.SLIME_SPAWN_EGG;
+import static net.minecraft.world.item.Items.STRAY_SPAWN_EGG;
+import static net.minecraft.world.item.Items.VINDICATOR_SPAWN_EGG;
+import static net.minecraft.world.item.Items.ZOMBIFIED_PIGLIN_SPAWN_EGG;
 
 @EventBusSubscriber(modid = SMCM.MOD_ID)
 public final class NeoforgeItemGroups {

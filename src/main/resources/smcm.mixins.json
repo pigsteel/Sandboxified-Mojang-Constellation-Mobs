@@ -8,6 +8,8 @@
     "EntityZombieCanFreezeMixin",
     "ParrotImitateMixin",
     "PathTypeMixin",
+    "RaiderTypeMixin",
+    "RaidMixin",
     "SnowballHitMixin",
     "WitchTurnsIntoVilerWitchMixin",
     "ZombieFrostbittenConversionMixin"

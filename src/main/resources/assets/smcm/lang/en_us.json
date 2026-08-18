@@ -83,5 +83,14 @@
   "subtitles.smcm.entity.zombified_piglin_brute.ambient": "Zombified Piglin Brute grunts",
   "subtitles.smcm.entity.zombified_piglin_brute.death": "Zombified Piglin Brute dies",
   "subtitles.smcm.entity.zombified_piglin_brute.hurt": "Zombified Piglin Brute hurts",
-  "subtitles.smcm.entity.reclaimed.projectile_vomit": "Reclaimed hurls"
+  "subtitles.smcm.entity.reclaimed.projectile_vomit": "Reclaimed hurls",
+  "subtitles.smcm.entity.viler_witch.celebrate": "Viler Witch cheers",
+  "subtitles.smcm.entity.viler_witch.drink": "Viler Witch drinks",
+  "subtitles.smcm.entity.viler_witch.throw": "Viler Witch throws",
+  "subtitles.smcm.entity.necromancer.prepare_shoot": "Necromancer prepares attack",
+  "subtitles.smcm.entity.necromancer.explode": "Soul explosion",
+  "subtitles.smcm.entity.necromancer.prepare_summon": "Necromancer prepares summon",
+  "subtitles.smcm.entity.necromancer.summon": "Necromancer summons",
+  "subtitles.smcm.entity.necromancer.cast_spell": "Necromancer fires spell",
+  "subtitles.smcm.entity.parrot.imitate.viler_witch": "Parrot cackles"
 }

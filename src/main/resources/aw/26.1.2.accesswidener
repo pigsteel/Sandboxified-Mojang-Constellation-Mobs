@@ -25,5 +25,7 @@ accessible field net/minecraft/world/entity/monster/skeleton/AbstractSkeleton bo
 accessible field net/minecraft/world/entity/monster/skeleton/AbstractSkeleton meleeGoal Lnet/minecraft/world/entity/ai/goal/MeleeAttackGoal;
 accessible method net/minecraft/world/entity/LivingEntity jumpOutOfFluid (D)V
 accessible method net/minecraft/world/entity/Mob getTargetFromBrain ()Lnet/minecraft/world/entity/LivingEntity;
+accessible class net/minecraft/world/entity/raid/Raid$RaiderType
 
+extend-enum net/minecraft/world/entity/raid/Raid$RaiderType SMCM_VILER_WITCH
 extend-enum net/minecraft/world/level/pathfinder/PathType SMCM_CLIMBABLE

@@ -36,6 +36,7 @@ public abstract class ParrotImitateMixin {
             map.put(smcm$EntityTypes.SUNKEN.get(), smcm$SoundEvents.PARROT_IMITATE_SUNKEN.get());
             map.put(smcm$EntityTypes.LOST.get(), smcm$SoundEvents.PARROT_IMITATE_LOST.get());
             map.put(smcm$EntityTypes.NECROMANCER.get(), smcm$SoundEvents.PARROT_IMITATE_NECROMANCER.get());
+			map.put(smcm$EntityTypes.VILER_WITCH.get(), smcm$SoundEvents.PARROT_IMITATE_VILER_WITCH.get());
 
             MOB_SOUND_MAP = map;
         }

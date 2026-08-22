@@ -28,7 +28,6 @@ public class smcm$ModelLayers {
     public static final ModelLayerLocation LOST = register("lost");
     public static final ArmorModelSet<ModelLayerLocation> LOST_ARMOR = registerArmorSet("lost");
     public static final ModelLayerLocation NECROMANCER = register("necromancer");
-    public static final ModelLayerLocation NECROMANCER_CLOAK = register("necromancer_cloak");
     public static final ModelLayerLocation ZOMBIFIED_PIGLIN_BRUTE = register("zombified_piglin_brute");
     public static final ArmorModelSet<ModelLayerLocation> ZOMBIFIED_PIGLIN_BRUTE_ARMOR = registerArmorSet("zombified_piglin_brute");
     public static final ModelLayerLocation MOUNTAINEER = register("mountaineer");
@@ -44,6 +43,7 @@ public class smcm$ModelLayers {
 	public static final ModelLayerLocation REDSTONE_MONSTROSITY = register("redstone_monstrosity");
 	public static final ModelLayerLocation WRAITH = register("wraith");
 	public static final ModelLayerLocation WILDFIRE = register("wildfire");
+	public static final ModelLayerLocation NECROMANCER_BALL = register("necromancer_ball");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

@@ -148,6 +148,15 @@
       "smcm:mob/necromancer/hurt4"
     ]
   },
+  "entity.necromancer_ball.hit": {
+    "subtitle": "subtitles.smcm.entity.necromancer_ball.hit",
+    "sounds": [
+      "smcm:mob/necromancer/evil_impact1",
+      "smcm:mob/necromancer/evil_impact2",
+      "smcm:mob/necromancer/evil_impact3",
+      "smcm:mob/necromancer/evil_impact4"
+    ]
+  },
   "entity.necromancer.death": {
     "subtitle": "subtitles.smcm.entity.necromancer.death",
     "sounds": [
@@ -185,8 +194,14 @@
       "smcm:mob/necromancer/prepare_summon"
     ]
   },
+  "entity.necromancer.prepare_summon_alt": {
+    "subtitle": "subtitles.smcm.entity.necromancer.prepare_summon",
+    "sounds": [
+      "smcm:mob/necromancer/prepare_summon_alt"
+    ]
+  },
   "entity.necromancer.spell": {
-    "subtitle": "subtitles.smcm.entity.necromancer.spell",
+    "subtitle": "subtitles.smcm.entity.necromancer.cast_spell",
     "sounds": [
       "smcm:mob/necromancer/spell1",
       "smcm:mob/necromancer/spell2"

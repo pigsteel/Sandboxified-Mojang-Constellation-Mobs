@@ -5,11 +5,14 @@ import com.github.pigsteel.smcm.core.smcm$EntityDataSerializers;
 import com.github.pigsteel.smcm.core.smcm$SoundEvents;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.ai.sensing.smcm$SensorTypes;
+import com.github.pigsteel.smcm.world.entity.projectile.FrostbittenSnowball;
+import com.github.pigsteel.smcm.world.entity.projectile.NecromancerBall;
 import com.mojang.serialization.Codec;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -31,10 +34,18 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.hurtingprojectile.WitherSkull;
+import net.minecraft.world.entity.projectile.hurtingprojectile.windcharge.BreezeWindCharge;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
 import org.jspecify.annotations.Nullable;
 
 import java.util.HashSet;
@@ -55,6 +66,8 @@ public class Necromancer extends Monster {
     private final Set<UUID> summonedMobs = new HashSet<>();
 
     private boolean cloakInitialized;
+
+	public Vector3f orbPosition = new Vector3f(0.0F);
 
     public double cloakX;
     public double cloakY;
@@ -125,11 +138,7 @@ public class Necromancer extends Monster {
 	}
 
 	public boolean isCastingSpell() {
-		if (this.level().isClientSide()) {
-			return this.entityData.get(DATA_SPELL) != NecromancerSpell.NONE;
-		} else {
-			return this.spellCastingTickCount > 0;
-		}
+		return this.getCurrentSpell() != NecromancerSpell.NONE;
 	}
 
 	public void setIsCastingSpell(final NecromancerSpell spell) {
@@ -137,7 +146,7 @@ public class Necromancer extends Monster {
 		this.entityData.set(DATA_SPELL, spell);
 	}
 
-	protected NecromancerSpell getCurrentSpell() {
+	public NecromancerSpell getCurrentSpell() {
 		return !this.level().isClientSide() ? this.currentSpell : this.entityData.get(DATA_SPELL);
 	}
 
@@ -186,7 +195,7 @@ public class Necromancer extends Monster {
         if (this.level().isClientSide()) {
 			if(this.summonAnimationState.isStarted()) spellCastingTickCount++;
 
-            if (NecromancerAnimation.canIDisplayParticles(summonAnimationState.getTimeInMillis(tickCount))) this.spawnSummoningOrbParticles();
+            this.spawnSummoningOrbParticles();
         }
     }
 
@@ -200,7 +209,7 @@ public class Necromancer extends Monster {
 	}
 
     private void spawnSummoningOrbParticles() {
-        float bodyYaw = this.yBodyRot * Mth.DEG_TO_RAD;
+        /*float bodyYaw = this.yBodyRot * Mth.DEG_TO_RAD;
 
         double scale = this.getScale();
 
@@ -210,9 +219,6 @@ public class Necromancer extends Monster {
         double rightX = Mth.cos(bodyYaw);
         double rightZ = Mth.sin(bodyYaw);
 
-        /*
-         * Main-hand side. Flip this if particles appear on the wrong side.
-         */
         double inverse = this.getMainArm() == HumanoidArm.LEFT ? 1.0D : -1.0D;
 
         double sideOffset = 0.45D * scale * inverse;
@@ -233,13 +239,13 @@ public class Necromancer extends Monster {
         double jitterRadius = 1.1D * scale;
 
         double jitterX = Math.cos(swirl) * jitterRadius;
-        double jitterZ = Math.sin(swirl) * jitterRadius;
+        double jitterZ = Math.sin(swirl) * jitterRadius;*/
 
         this.level().addParticle(
                 ParticleTypes.SOUL,
-                orbX + jitterX,
-                orbY + this.getRandom().nextGaussian() * 0.03D,
-                orbZ + jitterZ,
+                this.getX() + orbPosition.x,
+				this.getY() + orbPosition.y,
+				this.getZ() + orbPosition.z,
                 0.0D,
                 0.01D,
                 0.0D
@@ -299,7 +305,11 @@ public class Necromancer extends Monster {
                 .add(Attributes.FOLLOW_RANGE, 32.0D);
     }
 
-    @Override
+	public double getFiringYPosition() {
+		return this.getY() + (double)(this.getBbHeight() / 2.0F) + (double)0.1F;
+	}
+
+	@Override
     protected void playStepSound(BlockPos pos, BlockState blockState) {
         this.playSound(this.getStepSound(), 0.15F, 1.0F);
     }
@@ -324,6 +334,15 @@ public class Necromancer extends Monster {
     protected SoundEvent getStepSound() {
         return smcm$SoundEvents.NECROMANCER_STEP.get();
     }
+
+	public SoundEvent getPrepareSummonSound() {
+		Component customName = this.getCustomName();
+		if(customName != null && customName.getString().equals("Sandy")) {
+			return smcm$SoundEvents.NECROMANCER_PREPARE_SUMMON_ALT.get();
+		} else {
+			return smcm$SoundEvents.NECROMANCER_PREPARE_SUMMON.get();
+		}
+	}
 
 	protected void customServerAiStep(final ServerLevel level) {
 		ProfilerFiller profiler = Profiler.get();

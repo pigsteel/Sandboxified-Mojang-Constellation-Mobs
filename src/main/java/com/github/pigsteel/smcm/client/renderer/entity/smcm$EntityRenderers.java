@@ -41,6 +41,7 @@ public class smcm$EntityRenderers {
 		registerEntityRenderer(smcm$EntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosityRenderer::new);
 		registerEntityRenderer(smcm$EntityTypes.WILDFIRE, WildfireRenderer::new);
 		registerEntityRenderer(smcm$EntityTypes.WRAITH, WraithRenderer::new);
+		registerEntityRenderer(smcm$EntityTypes.NECROMANCER_BALL, NecromancerBallRenderer::new);
 	}
 
     public static <T extends Entity> void registerEntityRenderer(Supplier<? extends EntityType<? extends T>> type, EntityRendererProvider<T> provider) {

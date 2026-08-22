@@ -10,6 +10,7 @@ import com.github.pigsteel.smcm.client.renderer.entity.smcm$EntityRenderers;
 import com.github.pigsteel.smcm.core.smcm$EntityTypes;
 import com.github.pigsteel.smcm.core.smcm$Items;
 import com.github.pigsteel.smcm.core.smcm$LootTables;
+import com.github.pigsteel.smcm.core.smcm$MobEffects;
 import com.github.pigsteel.smcm.core.smcm$Packets;
 import com.github.pigsteel.smcm.core.smcm$Registries;
 import com.github.pigsteel.smcm.core.smcm$SoundEvents;
@@ -50,6 +51,7 @@ public class SMCM {
 		smcm$LootTables.load();
 		smcm$DataAttachments.load();
 		smcm$SoundEvents.register();
+		smcm$MobEffects.init();
 
 		AdvancementEvents.init();
 	}

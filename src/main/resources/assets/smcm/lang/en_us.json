@@ -92,5 +92,7 @@
   "subtitles.smcm.entity.necromancer.prepare_summon": "Necromancer prepares summon",
   "subtitles.smcm.entity.necromancer.summon": "Necromancer summons",
   "subtitles.smcm.entity.necromancer.cast_spell": "Necromancer fires spell",
-  "subtitles.smcm.entity.parrot.imitate.viler_witch": "Parrot cackles"
+  "subtitles.smcm.entity.parrot.imitate.viler_witch": "Parrot cackles",
+  "subtitles.smcm.entity.necromancer_ball.hit": "Spell impacts",
+  "effect.smcm.corruption": "Corruption"
 }

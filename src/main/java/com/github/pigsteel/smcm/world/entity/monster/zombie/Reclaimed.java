@@ -231,15 +231,13 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable, Ranged
 	@Override
 	protected void customServerAiStep(final ServerLevel level) {
 		LivingEntity target = this.getTarget();
-		if (target == null)
+		//if (target == null)
 
 		super.customServerAiStep(level);
 	}
 
 	@Override
 	public void performRangedAttack(LivingEntity target, float power) {
-		if(!this.getTarget().is(target)) this.setTarget(target);
-
 		this.setProjectilesToVomit(5);
 	}
 

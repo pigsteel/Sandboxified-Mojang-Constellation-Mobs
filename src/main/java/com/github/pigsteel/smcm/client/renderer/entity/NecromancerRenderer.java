@@ -3,22 +3,27 @@ package com.github.pigsteel.smcm.client.renderer.entity;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerModel;
-import com.github.pigsteel.smcm.client.renderer.entity.layers.NecromancerCloakLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.NecromancerEyesLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.NecromancerRenderState;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
+import org.joml.Vector3f;
 
-public class NecromancerRenderer extends HumanoidMobRenderer<Necromancer, NecromancerRenderState, NecromancerModel<NecromancerRenderState>> {
+public class NecromancerRenderer extends MobRenderer<Necromancer, NecromancerRenderState, NecromancerModel<NecromancerRenderState>> {
     private static final Identifier NECROMANCER_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/necromancer/necromancer.png");
+	private final NecromancerModel<NecromancerRenderState> model;
 
     public NecromancerRenderer(EntityRendererProvider.Context context) {
-        super(context, new NecromancerModel<>(context.bakeLayer(smcm$ModelLayers.NECROMANCER)), 0.85f);
-        this.addLayer(new NecromancerCloakLayer(this, context.getModelSet()));
+        NecromancerModel<NecromancerRenderState> model = new NecromancerModel<>(context.bakeLayer(smcm$ModelLayers.NECROMANCER));
+		super(context, model, 0.85f);
         this.addLayer(new NecromancerEyesLayer(this));
+		this.model = model;
     }
 
     @Override
@@ -30,6 +35,7 @@ public class NecromancerRenderer extends HumanoidMobRenderer<Necromancer, Necrom
         super.extractRenderState(entity, state, partialTicks);
         extractCapeState(entity, state, partialTicks);
 
+		entity.orbPosition = state.staffBallPosition;
 		state.isLeftHanded = entity.isLeftHanded();
         state.summonAnimationState.copyFrom(entity.summonAnimationState);
         state.shootingAnimationState.copyFrom(entity.shootingAnimationState);

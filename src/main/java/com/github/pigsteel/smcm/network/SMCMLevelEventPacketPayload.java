@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 //?}
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -41,6 +42,17 @@ public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements Cu
 		switch(payload.event()) {
 			case(1001):
 				level.playLocalSound(pos, smcm$SoundEvents.ZOMBIE_CONVERTED_TO_FROSTBITTEN.get(), SoundSource.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F, false);
+			break;
+			case(1002):
+				level.playLocalSound(pos, smcm$SoundEvents.NECROMANCER_SUMMON.get(), SoundSource.HOSTILE, 1.0F, 1.0F, false);
+				for(int i = 0; i < 20; ++i) {
+					double xx = (double)pos.getX() + (double)0.5F + (random.nextDouble() - (double)0.5F) * (double)2.0F;
+					double yx = (double)pos.getY() + (double)0.5F + (random.nextDouble() - (double)0.5F) * (double)2.0F;
+					double zx = (double)pos.getZ() + (double)0.5F + (random.nextDouble() - (double)0.5F) * (double)2.0F;
+					level.addParticle(ParticleTypes.SOUL, xx, yx, zx, (double)0.0F, (double)0.0F, (double)0.0F);
+					level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, xx, yx, zx, (double)0.0F, (double)0.0F, (double)0.0F);
+				}
+			break;
 		}
 	}
 	//?}

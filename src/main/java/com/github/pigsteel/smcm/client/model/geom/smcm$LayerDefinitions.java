@@ -3,6 +3,7 @@ package com.github.pigsteel.smcm.client.model.geom;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.enchanter.EnchanterModel;
 import com.github.pigsteel.smcm.client.model.monster.iceologer.IceologerModel;
+import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerBallModel;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerModel;
 import com.github.pigsteel.smcm.client.model.monster.redstonegolem.RedstoneGolemModel;
 import com.github.pigsteel.smcm.client.model.monster.redstonemonstrosity.RedstoneMonstrosityModel;
@@ -19,6 +20,7 @@ import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedPukeModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -29,6 +31,7 @@ import net.minecraft.client.model.monster.piglin.AdultZombifiedPiglinModel;
 import net.minecraft.client.model.monster.piglin.PiglinModel;
 import net.minecraft.client.model.monster.skeleton.SkeletonModel;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
+import net.minecraft.client.renderer.entity.WitherSkullRenderer;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -77,8 +80,7 @@ public class smcm$LayerDefinitions {
         registerArmorLayers(smcm$ModelLayers.SUNKEN_ARMOR, humanoidArmor);
         registerModelLayer(smcm$ModelLayers.LOST, SkeletonModel::createBodyLayer);
         registerArmorLayers(smcm$ModelLayers.LOST_ARMOR, humanoidArmor);
-        registerModelLayer(smcm$ModelLayers.NECROMANCER, () -> NecromancerModel.createMainLayer().apply(MeshTransformer.scaling(1.2F)));
-        registerModelLayer(smcm$ModelLayers.NECROMANCER_CLOAK, () -> NecromancerModel.createCloakLayer().apply(MeshTransformer.scaling(1.2F)));
+        registerModelLayer(smcm$ModelLayers.NECROMANCER, () -> NecromancerModel.createBodyLayer().apply(MeshTransformer.scaling(1.2F)));
         registerModelLayer(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE, AdultZombifiedPiglinModel::createBodyLayer);
         registerArmorLayers(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE_ARMOR, piglinArmor);
         registerModelLayer(smcm$ModelLayers.RECLAIMED_PUKE, ReclaimedPukeModel::createBodyLayer);
@@ -95,6 +97,7 @@ public class smcm$LayerDefinitions {
         registerArmorLayers(smcm$ModelLayers.PIGLIN_FARMER_ARMOR, piglinArmor);
 		registerModelLayer(smcm$ModelLayers.WILDFIRE, WildfireModel::createBodyLayer);
 		registerModelLayer(smcm$ModelLayers.WRAITH, WraithModel::createBodyLayer);
+		registerModelLayer(smcm$ModelLayers.NECROMANCER_BALL, NecromancerBallModel::createBodyLayer);
     }
 
 	public static void registerModelLayer(ModelLayerLocation modelLayerLocation, Supplier<LayerDefinition> consumer) {

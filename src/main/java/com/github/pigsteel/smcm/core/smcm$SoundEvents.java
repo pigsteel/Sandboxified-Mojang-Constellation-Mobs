@@ -43,8 +43,12 @@ public class smcm$SoundEvents {
             registerSoundEvent("entity.necromancer.summon");
     public static final Supplier<SoundEvent> NECROMANCER_PREPARE_SUMMON =
             registerSoundEvent("entity.necromancer.prepare_summon");
+	public static final Supplier<SoundEvent> NECROMANCER_PREPARE_SUMMON_ALT =
+			registerSoundEvent("entity.necromancer.prepare_summon_alt");
     public static final Supplier<SoundEvent> NECROMANCER_SPELL =
             registerSoundEvent("entity.necromancer.spell");
+	public static final Supplier<SoundEvent> NECROMANCER_BALL_HIT =
+			registerSoundEvent("entity.necromancer_ball.hit");
     public static final Supplier<SoundEvent> PARROT_IMITATE_FROSTBITTEN = registerSoundEvent("entity.parrot.imitate.frostbitten");
     public static final Supplier<SoundEvent> PARROT_IMITATE_RECLAIMED = registerSoundEvent("entity.parrot.imitate.reclaimed");
     public static final Supplier<SoundEvent> PARROT_IMITATE_ENCHANTER = registerSoundEvent("entity.parrot.imitate.enchanter");

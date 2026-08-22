@@ -88,12 +88,12 @@ public class NecromancerAi {
 										ImmutableMap.of(),
 										ImmutableSet.of(),
 										GateBehavior.OrderPolicy.ORDERED,
-										GateBehavior.RunningPolicy.TRY_ALL,
+										GateBehavior.RunningPolicy.RUN_ONE,
 										ImmutableList.of(
 												Pair.of(BackUpIfTooClose.create(3, 2.0F), 0),
-												Pair.of(new Summoning<>(), 1), // summon
-												Pair.of(new ShootingMagic<>(), 2), // prioritize staring at enemy if everything is on cooldown
-												Pair.of(ApproachOrGlareIfCannotAttack.create(1.0F), 3)
+												Pair.of(new Summoning<>(), 1),
+												Pair.of(new ShootingMagic<>(), 2),
+												Pair.of(ApproachOrGlareIfCannotAttack.create(1.0F), 3) // prioritize staring at enemy if everything is on cooldown
 										)
 								)
 						)
@@ -137,16 +137,31 @@ public class NecromancerAi {
 		}
 
 		public static BehaviorControl<Mob> create(final Function<LivingEntity, Float> speedModifier) {
-			return BehaviorBuilder.create((i) -> i.group(i.registered(MemoryModuleType.WALK_TARGET), i.registered(MemoryModuleType.LOOK_TARGET), i.present(MemoryModuleType.ATTACK_TARGET), i.registered(MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES), i.registered(smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get())).apply(i, (walkTarget, lookTarget, attackTarget, nearestEntities, summoningCooldown) -> (level, body, timestamp) -> {
+			return BehaviorBuilder.create((i) -> i.group(
+					i.registered(MemoryModuleType.WALK_TARGET),
+					i.registered(MemoryModuleType.LOOK_TARGET),
+					i.present(MemoryModuleType.ATTACK_TARGET),
+					i.present(smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get()),
+					i.present(smcm$MemoryModuleTypes.SHOOTING_COOLDOWN.get()),
+					i.absent(smcm$MemoryModuleTypes.PENDING_SUMMON.get())
+			).apply(i, (
+					walkTarget,
+					lookTarget,
+					attackTarget,
+					_,
+					_,
+					_
+			) -> (
+					_,
+					body,
+					_
+			) -> {
 				LivingEntity toAttack = i.get(attackTarget);
-				Optional<NearestVisibleLivingEntities> entities = i.tryGet(nearestEntities);
-
-				boolean cooldownsEmpty = i.tryGet(summoningCooldown).isEmpty();
 
 				lookTarget.set(new EntityTracker(toAttack, true));
-				if (cooldownsEmpty && entities.isPresent() && entities.get().contains(toAttack) && body.closerThan(toAttack, 15.0D)) {
+				if (body.closerThan(toAttack, 15.0D)) {
 					walkTarget.erase();
-				} else if (!cooldownsEmpty) {
+				} else {
 					walkTarget.set(new WalkTarget(new EntityTracker(toAttack, false), speedModifier.apply(body), 15));
 				}
 

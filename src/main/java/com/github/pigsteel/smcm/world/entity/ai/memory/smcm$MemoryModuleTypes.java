@@ -18,6 +18,9 @@ import java.util.function.Supplier;
 
 public class smcm$MemoryModuleTypes {
 	public static final Supplier<MemoryModuleType<Unit>> SUMMONING_COOLDOWN;
+	public static final Supplier<MemoryModuleType<Unit>> SHOOTING_COOLDOWN;
+	public static final Supplier<MemoryModuleType<Unit>> SOUL_BLAST_COOLDOWN;
+	public static final Supplier<MemoryModuleType<Unit>> PENDING_SUMMON;
 
 	private static <U> Supplier<MemoryModuleType<U>> register(String name, Codec<U> codec) {
 		//? fabric {
@@ -38,7 +41,10 @@ public class smcm$MemoryModuleTypes {
 	}
 
 	static {
-		SUMMONING_COOLDOWN = register("summoning_cooldown");
+		SUMMONING_COOLDOWN = register("necromancer_summoning_cooldown");
+		SHOOTING_COOLDOWN = register("necromancer_shooting_cooldown");
+		SOUL_BLAST_COOLDOWN = register("necromancer_soulblast_cooldown");
+		PENDING_SUMMON = register("necromancer_pending_summon");
 	}
 
 	public static void init() {}

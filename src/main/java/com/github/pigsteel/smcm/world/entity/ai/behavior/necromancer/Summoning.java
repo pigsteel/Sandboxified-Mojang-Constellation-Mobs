@@ -1,12 +1,18 @@
 package com.github.pigsteel.smcm.world.entity.ai.behavior.necromancer;
 
 import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.network.SMCMLevelEventPacketPayload;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.ai.memory.smcm$MemoryModuleTypes;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
 import com.google.common.collect.ImmutableMap;
+//? fabric {
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+//?}
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Unit;
@@ -39,7 +45,7 @@ import static com.github.pigsteel.smcm.client.animation.definitions.NecromancerA
 
 public class Summoning<E extends Necromancer> extends Behavior<E> {
 	public Summoning() {
-		super(ImmutableMap.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT, smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get(), MemoryStatus.VALUE_ABSENT), DURATION);
+		super(ImmutableMap.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get(), MemoryStatus.VALUE_ABSENT, MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED), DURATION);
 	}
 
 	private static final int MAX_SUMMON_POINTS = 12;
@@ -66,7 +72,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 	protected boolean checkExtraStartConditions(ServerLevel level, E body) {
 		LivingEntity attackTarget = body.getTarget();
 		assert attackTarget != null;
-		return BehaviorUtils.canSee(body, attackTarget) && body.closerThan(attackTarget, 16.0D) && this.countOwnedSummonPoints(level, body) < MAX_SUMMON_POINTS;
+		return !body.isCastingSpell() && BehaviorUtils.canSee(body, attackTarget) && body.closerThan(attackTarget, 16.0D) && this.countOwnedSummonPoints(level, body) < MAX_SUMMON_POINTS;
 	}
 
 	private void resetValues() {
@@ -80,12 +86,16 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 	public void start(final ServerLevel level, final E body, final long timestamp) {
 		resetValues();
 		body.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
+		body.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
+		body.getBrain().setMemory(smcm$MemoryModuleTypes.PENDING_SUMMON.get(), Optional.empty());
 		body.getLookControl().setLookAt(body.getTarget(), 30.0F, 30.0F);
 	}
 
 	@Override
 	public void stop(final ServerLevel level, final E body, final long timestamp) {
 		resetValues();
+		body.setIsCastingSpell(Necromancer.NecromancerSpell.NONE);
+		body.getBrain().eraseMemory(smcm$MemoryModuleTypes.PENDING_SUMMON.get());
 	}
 
 	@Override
@@ -96,7 +106,6 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 
 		if(this.casting && this.castTicks <= 0) {
 			setCooldown(body, COOLDOWN_TIME);
-			body.setIsCastingSpell(Necromancer.NecromancerSpell.NONE);
 		}
 
 		var memory = body.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET);
@@ -124,8 +133,9 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 
 		--this.castTicks;
 
-		if (!hasCasted && this.castTicks <= 25) {
-			this.performSummon(serverLevel, body);
+		if (!hasCasted && this.castTicks <= 15) {
+			/*
+			this.performSummon(serverLevel, body);*/
 			this.hasCasted = true;
 		}
 	}
@@ -139,7 +149,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 
 		if (!this.hasPlayedPrepareSound) {
 			body.playSound(
-					smcm$SoundEvents.NECROMANCER_PREPARE_SUMMON.get(),
+					body.getPrepareSummonSound(),
 					1.0F,
 					1.0F
 			);
@@ -193,9 +203,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 			return null;
 		}
 
-		int roll = body.getRandom().nextInt(100);
-
-		if (remainingBudget >= SummonType.ZOMBIE_HORSEMAN.cost() && roll < 15) {
+		if (remainingBudget >= SummonType.ZOMBIE_HORSEMAN.cost() && body.getRandom().nextInt(100) < 2) {
 			return SummonType.ZOMBIE_HORSEMAN;
 		}
 
@@ -244,7 +252,6 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 
 		if (entity instanceof Mob mob) {
 			this.finalizeSummonedMob(level, mob, body.getTarget());
-			this.ensureSunproofHelmet(level, mob);
 			this.postProcessSummon(entity, type);
 		}
 
@@ -284,16 +291,9 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		this.finalizeSummonedMob(level, rider, body.getTarget());
 
 		horse.setTamed(true);
-		horse.setItemSlot(EquipmentSlot.BODY, Items.IRON_HORSE_ARMOR.getDefaultInstance());
-
 		rider.setItemSlot(EquipmentSlot.MAINHAND, Items.IRON_SPEAR.getDefaultInstance());
-		rider.setItemSlot(EquipmentSlot.HEAD, Items.CHAINMAIL_HELMET.getDefaultInstance());
 		rider.setTarget(body.getTarget());
 
-		/*
-		 * Add both entities first, then mount. This tends to sync the passenger
-		 * to the client immediately instead of only after a world reload.
-		 */
 		level.addFreshEntity(horse);
 		level.addFreshEntity(rider);
 
@@ -334,82 +334,6 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		}
 	}
 
-	private void ensureSunproofHelmet(ServerLevel level, Mob mob) {
-		ItemStack currentHelmet = mob.getItemBySlot(EquipmentSlot.HEAD);
-
-		if (!currentHelmet.isEmpty()) {
-			return;
-		}
-
-		float effectiveDifficulty = level.getCurrentDifficultyAt(mob.blockPosition()).getEffectiveDifficulty();
-		ItemStack helmet = this.createDifficultyScaledHelmet(level, effectiveDifficulty);
-
-		mob.setItemSlot(EquipmentSlot.HEAD, helmet);
-
-		// prevents summoned mobs from dropping stuff
-		mob.setDropChance(EquipmentSlot.HEAD, 0.0F);
-	}
-
-	// This is kind of scuffed, ideally we use a vanilla method
-	private ItemStack createDifficultyScaledHelmet(ServerLevel level, float effectiveDifficulty) {
-		int roll = level.getRandom().nextInt(100);
-
-		/*
-		 * effectiveDifficulty is usually roughly:
-		 *   low/easy area: ~0.75 - 1.5
-		 *   normal mature area: ~2.0 - 3.0
-		 *   hard/local max: up to ~6.75
-		 *
-		 * These thresholds intentionally mimic the idea of vanilla scaling
-		 * without needing access to vanilla's protected equipment methods.
-		 */
-		if (effectiveDifficulty >= 5.0F) {
-			if (roll < 10) {
-				return Items.DIAMOND_HELMET.getDefaultInstance();
-			}
-
-			if (roll < 45) {
-				return Items.IRON_HELMET.getDefaultInstance();
-			}
-
-			if (roll < 75) {
-				return Items.CHAINMAIL_HELMET.getDefaultInstance();
-			}
-
-			return Items.GOLDEN_HELMET.getDefaultInstance();
-		}
-
-		if (effectiveDifficulty >= 3.0F) {
-			if (roll < 30) {
-				return Items.IRON_HELMET.getDefaultInstance();
-			}
-
-			if (roll < 65) {
-				return Items.CHAINMAIL_HELMET.getDefaultInstance();
-			}
-
-			if (roll < 85) {
-				return Items.GOLDEN_HELMET.getDefaultInstance();
-			}
-
-			return Items.LEATHER_HELMET.getDefaultInstance();
-		}
-
-		if (effectiveDifficulty >= 1.5F) {
-			if (roll < 20) {
-				return Items.CHAINMAIL_HELMET.getDefaultInstance();
-			}
-
-			if (roll < 45) {
-				return Items.GOLDEN_HELMET.getDefaultInstance();
-			}
-
-			return Items.LEATHER_HELMET.getDefaultInstance();
-		}
-
-		return Items.LEATHER_HELMET.getDefaultInstance();
-	}
-
 	private void postProcessSummon(Entity entity, SummonType type) {
 		if (type == SummonType.BOWLESS_SKELETON && entity instanceof Skeleton skeleton) {
 			skeleton.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
@@ -426,16 +350,15 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 	}
 
 	private void playSummonEffects(ServerLevel level, BlockPos spawnPos) {
-		level.playSound(
-				null,
-				spawnPos,
-				smcm$SoundEvents.NECROMANCER_SUMMON.get(),
-				SoundSource.HOSTILE,
-				1.0F,
-				1.0F
-		);
+		SMCMLevelEventPacketPayload payload = new SMCMLevelEventPacketPayload(1002, spawnPos);
 
-		level.levelEvent(null, 2004, spawnPos, 0);
+		//? fabric {
+		for (ServerPlayer player : PlayerLookup.level(level)) {
+			ServerPlayNetworking.send(player, payload);
+		}
+		//?} neoforge {
+		/*PacketDistributor.sendToAllPlayers(payload);
+		*///?}
 	}
 
 	private BlockPos findSpawnPos(ServerLevel level, BlockPos start, EntityType<?> entityType) {
@@ -478,15 +401,15 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 	}
 
 	private int getSummonCost(Entity entity) {
-		if (entity instanceof ZombieHorse) {
+		if(entity.is(EntityTypesUtil.ZOMBIE)) {
+			return SummonType.ZOMBIE.cost();
+		} else if(entity.is(EntityTypesUtil.SKELETON)) {
+			return SummonType.BOWLESS_SKELETON.cost();
+		} else if(entity.is(EntityTypesUtil.ZOMBIE_HORSE)) {
 			return SummonType.ZOMBIE_HORSEMAN.cost();
+		} else {
+			return 0;
 		}
-
-		if (entity instanceof Zombie || entity instanceof Skeleton) {
-			return 1;
-		}
-
-		return 1;
 	}
 
 	public static void setCooldown(LivingEntity body, int cooldown) {
@@ -499,8 +422,8 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 
 	private enum SummonType {
 		ZOMBIE(1),
-		BOWLESS_SKELETON(1),
-		ZOMBIE_HORSEMAN(5);
+		BOWLESS_SKELETON(2),
+		ZOMBIE_HORSEMAN(6);
 
 		private final int cost;
 

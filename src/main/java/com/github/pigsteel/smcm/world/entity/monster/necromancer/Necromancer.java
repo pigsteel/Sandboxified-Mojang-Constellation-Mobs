@@ -1,51 +1,41 @@
 package com.github.pigsteel.smcm.world.entity.monster.necromancer;
 
-import com.github.pigsteel.smcm.client.animation.definitions.NecromancerAnimation;
 import com.github.pigsteel.smcm.core.smcm$EntityDataSerializers;
+import com.github.pigsteel.smcm.core.smcm$ParticleTypes;
 import com.github.pigsteel.smcm.core.smcm$SoundEvents;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.ai.sensing.smcm$SensorTypes;
-import com.github.pigsteel.smcm.world.entity.projectile.FrostbittenSnowball;
-import com.github.pigsteel.smcm.world.entity.projectile.NecromancerBall;
 import com.mojang.serialization.Codec;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.UUIDUtil;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ByIdMap;
-import net.minecraft.util.Mth;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.profiling.Profiler;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.hurtingprojectile.WitherSkull;
-import net.minecraft.world.entity.projectile.hurtingprojectile.windcharge.BreezeWindCharge;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
+import org.joml.Vector3fc;
 import org.jspecify.annotations.Nullable;
 
 import java.util.HashSet;
@@ -67,7 +57,7 @@ public class Necromancer extends Monster {
 
     private boolean cloakInitialized;
 
-	public Vector3f orbPosition = new Vector3f(0.0F);
+	private Vector3f orbPosition = new Vector3f(0.0F);
 
     public double cloakX;
     public double cloakY;
@@ -100,6 +90,10 @@ public class Necromancer extends Monster {
 	protected Brain<Necromancer> makeBrain(final Brain.Packed packedBrain) {
 		Brain<Necromancer> brain = BRAIN_PROVIDER.makeBrain(this, packedBrain);
 		return brain;
+	}
+
+	public void setOrbPosition(Vector3fc position) {
+		this.orbPosition = (Vector3f) position;
 	}
 
 	@Override
@@ -242,7 +236,7 @@ public class Necromancer extends Monster {
         double jitterZ = Math.sin(swirl) * jitterRadius;*/
 
         this.level().addParticle(
-                ParticleTypes.SOUL,
+				smcm$ParticleTypes.NECROMANCER_MAGIC.get(),
                 this.getX() + orbPosition.x,
 				this.getY() + orbPosition.y,
 				this.getZ() + orbPosition.z,

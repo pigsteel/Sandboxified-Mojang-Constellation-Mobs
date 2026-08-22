@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.renderer.entity.state.GeomancerRenderState;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Geomancer;
 import net.minecraft.client.model.monster.illager.IllagerModel;
@@ -13,7 +13,7 @@ public class GeomancerRenderer extends IllagerRenderer<Geomancer, GeomancerRende
     private static final Identifier GEOMANCER_LOCATION = SMCM.id("textures/entity/illager/geomancer.png");
 
     public GeomancerRenderer(EntityRendererProvider.Context context) {
-        super(context, new IllagerModel<>(context.bakeLayer(smcm$ModelLayers.GEOMANCER)), 0.5F);
+        super(context, new IllagerModel<>(context.bakeLayer(SMCMModelLayers.GEOMANCER)), 0.5F);
     }
 
     @Override

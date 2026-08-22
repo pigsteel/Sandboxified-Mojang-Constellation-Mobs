@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.AbstractSunkenModel;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.CoralSunkenModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.SunkenRenderState;
@@ -34,17 +34,17 @@ public class SunkenRenderer extends AbstractSkeletonRenderer<Sunken, SunkenRende
     public SunkenRenderer(EntityRendererProvider.Context context) {
         super(
                 context,
-                smcm$ModelLayers.SUNKEN,
-                smcm$ModelLayers.SUNKEN_ARMOR
+                SMCMModelLayers.SUNKEN,
+                SMCMModelLayers.SUNKEN_ARMOR
         );
 
         this.models = bakeModels(context);
     }
 
     private static Map<SunkenVariant.ModelType, AbstractSunkenModel> bakeModels(EntityRendererProvider.Context context) {
-        AbstractSunkenModel normal = new AbstractSunkenModel(context.bakeLayer(smcm$ModelLayers.SUNKEN));
-        AbstractSunkenModel frozen = new AbstractSunkenModel(context.bakeLayer(smcm$ModelLayers.SUNKEN_FROZEN));
-        CoralSunkenModel warm = new CoralSunkenModel(context.bakeLayer(smcm$ModelLayers.SUNKEN_CORAL));
+        AbstractSunkenModel normal = new AbstractSunkenModel(context.bakeLayer(SMCMModelLayers.SUNKEN));
+        AbstractSunkenModel frozen = new AbstractSunkenModel(context.bakeLayer(SMCMModelLayers.SUNKEN_FROZEN));
+        CoralSunkenModel warm = new CoralSunkenModel(context.bakeLayer(SMCMModelLayers.SUNKEN_CORAL));
 
         return Maps.newEnumMap(Map.of(
                 SunkenVariant.ModelType.NORMAL, normal,

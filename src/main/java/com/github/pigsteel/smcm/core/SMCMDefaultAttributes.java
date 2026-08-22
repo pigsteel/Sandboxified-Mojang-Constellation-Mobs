@@ -30,28 +30,28 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.DEFAULT_ATTRIBUTES;
 *///?}
 
-public final class smcm$DefaultAttributes {
-    private smcm$DefaultAttributes() {}
+public final class SMCMDefaultAttributes {
+    private SMCMDefaultAttributes() {}
 
     public static void load() {
-        registerAttributes(smcm$EntityTypes.BRUISER, Bruiser::createAttributes);
-        registerAttributes(smcm$EntityTypes.ENCHANTER, Enchanter::createAttributes);
-        registerAttributes(smcm$EntityTypes.FROSTBITTEN, Frostbitten::createAttributes);
-        registerAttributes(smcm$EntityTypes.RECLAIMED, Reclaimed::createAttributes);
-        registerAttributes(smcm$EntityTypes.SUNKEN, Sunken::createAttributes);
-        registerAttributes(smcm$EntityTypes.LOST, Lost::createAttributes);
-        registerAttributes(smcm$EntityTypes.NECROMANCER, Necromancer::createAttributes);
-        registerAttributes(smcm$EntityTypes.ZOMBIFIED_PIGLIN_BRUTE, ZombifiedPiglinBrute::createAttributes);
-        registerAttributes(smcm$EntityTypes.REDSTONE_GOLEM, RedstoneGolem::createAttributes);
-        registerAttributes(smcm$EntityTypes.ICEOLOGER, Iceologer::createMonsterAttributes);
-        registerAttributes(smcm$EntityTypes.WINDCALLER, Windcaller::createMonsterAttributes);
-        registerAttributes(smcm$EntityTypes.GEOMANCER, Geomancer::createMonsterAttributes);
-        registerAttributes(smcm$EntityTypes.PIGLIN_FARMER, PiglinFarmer::createMonsterAttributes);
-        registerAttributes(smcm$EntityTypes.VILER_WITCH, VilerWitch::createAttributes);
-        registerAttributes(smcm$EntityTypes.MOUNTAINEER, Mountaineer::createAttributes);
-		registerAttributes(smcm$EntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosity::createMonsterAttributes);
-		registerAttributes(smcm$EntityTypes.WILDFIRE, Wildfire::createMonsterAttributes);
-		registerAttributes(smcm$EntityTypes.WRAITH, Wraith::createMonsterAttributes);
+        registerAttributes(SMCMEntityTypes.BRUISER, Bruiser::createAttributes);
+        registerAttributes(SMCMEntityTypes.ENCHANTER, Enchanter::createAttributes);
+        registerAttributes(SMCMEntityTypes.FROSTBITTEN, Frostbitten::createAttributes);
+        registerAttributes(SMCMEntityTypes.RECLAIMED, Reclaimed::createAttributes);
+        registerAttributes(SMCMEntityTypes.SUNKEN, Sunken::createAttributes);
+        registerAttributes(SMCMEntityTypes.LOST, Lost::createAttributes);
+        registerAttributes(SMCMEntityTypes.NECROMANCER, Necromancer::createAttributes);
+        registerAttributes(SMCMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE, ZombifiedPiglinBrute::createAttributes);
+        registerAttributes(SMCMEntityTypes.REDSTONE_GOLEM, RedstoneGolem::createAttributes);
+        registerAttributes(SMCMEntityTypes.ICEOLOGER, Iceologer::createMonsterAttributes);
+        registerAttributes(SMCMEntityTypes.WINDCALLER, Windcaller::createMonsterAttributes);
+        registerAttributes(SMCMEntityTypes.GEOMANCER, Geomancer::createMonsterAttributes);
+        registerAttributes(SMCMEntityTypes.PIGLIN_FARMER, PiglinFarmer::createMonsterAttributes);
+        registerAttributes(SMCMEntityTypes.VILER_WITCH, VilerWitch::createAttributes);
+        registerAttributes(SMCMEntityTypes.MOUNTAINEER, Mountaineer::createAttributes);
+		registerAttributes(SMCMEntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosity::createMonsterAttributes);
+		registerAttributes(SMCMEntityTypes.WILDFIRE, Wildfire::createMonsterAttributes);
+		registerAttributes(SMCMEntityTypes.WRAITH, Wraith::createMonsterAttributes);
     }
 
     public static <T extends LivingEntity> void registerAttributes(Supplier<EntityType<T>> entityType, Supplier<AttributeSupplier.Builder> supplier) {

@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerBallModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.NecromancerBallRenderState;
 import com.github.pigsteel.smcm.world.entity.projectile.NecromancerBall;
@@ -11,23 +11,14 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.feature.FeatureRendererType;
-import net.minecraft.client.renderer.feature.FlameFeatureRenderer;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.minecraft.client.renderer.feature.submit.SubmitNode;
 import net.minecraft.client.renderer.rendertype.RenderSetup;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.TextureTransform;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.LightCoordsUtil;
-import net.minecraft.util.Mth;
-import net.minecraft.world.phys.Vec3;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
-import org.joml.Vector3fc;
 
 public class NecromancerBallRenderer extends EntityRenderer<NecromancerBall, NecromancerBallRenderState> {
 	private final NecromancerBallModel model;
@@ -35,7 +26,7 @@ public class NecromancerBallRenderer extends EntityRenderer<NecromancerBall, Nec
 
 	public NecromancerBallRenderer(EntityRendererProvider.Context context) {
 		super(context);
-		this.model = new NecromancerBallModel(context.bakeLayer(smcm$ModelLayers.NECROMANCER_BALL));
+		this.model = new NecromancerBallModel(context.bakeLayer(SMCMModelLayers.NECROMANCER_BALL));
 
 	}
 

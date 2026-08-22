@@ -12,7 +12,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityDataRegistry
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITY_DATA_SERIALIZERS;
 *///?}
 
-public class smcm$EntityDataSerializers {
+public class SMCMEntityDataSerializers {
 
 
     public static final EntityDataSerializer<Holder<SunkenVariant>> SUNKEN_VARIANT = EntityDataSerializer.forValueType(SunkenVariant.STREAM_CODEC);

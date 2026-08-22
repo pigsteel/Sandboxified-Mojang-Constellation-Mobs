@@ -5,7 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
-public class smcm$BlockTags {
+public class SMCMBlockTags {
     public static final TagKey<Block> FROSTBITTEN_IMMUNE_TO;
 
     static {

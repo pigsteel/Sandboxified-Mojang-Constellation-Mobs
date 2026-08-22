@@ -5,7 +5,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.resources.Identifier;
 
-public class smcm$ModelLayers {
+public class SMCMModelLayers {
     public static final ModelLayerLocation RECLAIMED = register("reclaimed");
     public static final ModelLayerLocation RECLAIMED_BABY = register("reclaimed_baby");
     public static final ModelLayerLocation RECLAIMED_OUTER_LAYER = register("reclaimed", "outer");

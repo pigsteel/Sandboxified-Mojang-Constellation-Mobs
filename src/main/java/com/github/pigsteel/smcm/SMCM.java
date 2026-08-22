@@ -1,24 +1,24 @@
 package com.github.pigsteel.smcm;
 
-import com.github.pigsteel.smcm.client.model.geom.smcm$LayerDefinitions;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
-import com.github.pigsteel.smcm.core.smcm$DataAttachments;
-import com.github.pigsteel.smcm.core.smcm$DataComponents;
-import com.github.pigsteel.smcm.core.smcm$DefaultAttributes;
-import com.github.pigsteel.smcm.core.smcm$EntityDataSerializers;
-import com.github.pigsteel.smcm.client.renderer.entity.smcm$EntityRenderers;
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
-import com.github.pigsteel.smcm.core.smcm$Items;
-import com.github.pigsteel.smcm.core.smcm$LootTables;
-import com.github.pigsteel.smcm.core.smcm$MobEffects;
-import com.github.pigsteel.smcm.core.smcm$Packets;
-import com.github.pigsteel.smcm.core.smcm$ParticleTypes;
-import com.github.pigsteel.smcm.core.smcm$Registries;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.client.model.geom.SMCMLayerDefinitions;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
+import com.github.pigsteel.smcm.core.SMCMDataAttachments;
+import com.github.pigsteel.smcm.core.SMCMDataComponents;
+import com.github.pigsteel.smcm.core.SMCMDefaultAttributes;
+import com.github.pigsteel.smcm.core.SMCMEntityDataSerializers;
+import com.github.pigsteel.smcm.client.renderer.entity.SMCMEntityRenderers;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
+import com.github.pigsteel.smcm.core.SMCMItems;
+import com.github.pigsteel.smcm.core.SMCMLootTables;
+import com.github.pigsteel.smcm.core.SMCMMobEffects;
+import com.github.pigsteel.smcm.core.SMCMPackets;
+import com.github.pigsteel.smcm.core.SMCMParticleTypes;
+import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.mixson.advancements.AdvancementEvents;
 import com.github.pigsteel.smcm.platform.Platform;
-import com.github.pigsteel.smcm.world.entity.ai.memory.smcm$MemoryModuleTypes;
-import com.github.pigsteel.smcm.world.entity.ai.sensing.smcm$SensorTypes;
+import com.github.pigsteel.smcm.world.entity.ai.memory.SMCMMemoryModuleTypes;
+import com.github.pigsteel.smcm.world.entity.ai.sensing.SMCMSensorTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -40,30 +40,30 @@ public class SMCM {
 	private static final Platform PLATFORM = createPlatformInstance();
 
 	public static void onInitialize() {
-		smcm$Registries.load();
-		smcm$Packets.load();
-		smcm$MemoryModuleTypes.load();
-		smcm$SensorTypes.load();
-		smcm$EntityDataSerializers.load();
-		smcm$EntityTypes.load();
-		smcm$Items.load();
-		smcm$DefaultAttributes.load();
-		smcm$DataComponents.load();
-		smcm$LootTables.load();
-		smcm$DataAttachments.load();
-		smcm$SoundEvents.load();
-		smcm$MobEffects.load();
-		smcm$ParticleTypes.load();
+		SMCMCustomRegistries.load();
+		SMCMPackets.load();
+		SMCMMemoryModuleTypes.load();
+		SMCMSensorTypes.load();
+		SMCMEntityDataSerializers.load();
+		SMCMEntityTypes.load();
+		SMCMItems.load();
+		SMCMDefaultAttributes.load();
+		SMCMDataComponents.load();
+		SMCMLootTables.load();
+		SMCMDataAttachments.load();
+		SMCMSoundEvents.load();
+		SMCMMobEffects.load();
+		SMCMParticleTypes.load();
 
 		AdvancementEvents.load();
 	}
 
 	public static void onInitializeClient() {
-		smcm$ModelLayers.load();
-		smcm$LayerDefinitions.load();
-		smcm$EntityRenderers.load();
-		smcm$Packets.clientLoad();
-		smcm$ParticleTypes.clientLoad();
+		SMCMModelLayers.load();
+		SMCMLayerDefinitions.load();
+		SMCMEntityRenderers.load();
+		SMCMPackets.clientLoad();
+		SMCMParticleTypes.clientLoad();
 	}
 
 	public static Platform xplat() {

@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.projectile;
 
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,7 +14,7 @@ public class ReclaimedPuke extends Projectile {
     }
 
 	public ReclaimedPuke(double x, double y, double z, Level level) {
-		this(smcm$EntityTypes.RECLAIMED_PUKE.get(), level);
+		this(SMCMEntityTypes.RECLAIMED_PUKE.get(), level);
 		this.setPos(x, y, z);
 	}
 

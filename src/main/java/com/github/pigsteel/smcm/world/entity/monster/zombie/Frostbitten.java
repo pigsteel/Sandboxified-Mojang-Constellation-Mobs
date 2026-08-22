@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster.zombie;
 
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.world.entity.projectile.FrostbittenSnowball;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -11,7 +11,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -75,21 +74,21 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$SoundEvents.FROSTBITTEN_AMBIENT.get();
+        return SMCMSoundEvents.FROSTBITTEN_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$SoundEvents.FROSTBITTEN_HURT.get();
+        return SMCMSoundEvents.FROSTBITTEN_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$SoundEvents.FROSTBITTEN_DEATH.get();
+        return SMCMSoundEvents.FROSTBITTEN_DEATH.get();
     }
 
 	protected SoundEvent getStepSound() {
-		return smcm$SoundEvents.FROSTBITTEN_STEP.get();
+		return SMCMSoundEvents.FROSTBITTEN_STEP.get();
 	}
 
     @Override
@@ -152,7 +151,7 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
             this.snowballCooldownTime = (int)(SNOWBALL_COOLDOWN - 5.0F * difficulty);
         }
 
-        this.playSound(smcm$SoundEvents.FROSTBITTEN_SHOOT.get(), 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        this.playSound(SMCMSoundEvents.FROSTBITTEN_SHOOT.get(), 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
     }
 
     public void reassessWeaponGoal() {

@@ -4,26 +4,25 @@ package com.github.pigsteel.smcm.platform.fabric;
 
 import com.github.pigsteel.smcm.SMCM;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-import static com.github.pigsteel.smcm.core.smcm$Items.BRUISER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.ENCHANTER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.FROSTBITTEN_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.GEOMANCER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.ICEOLOGER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.LOST_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.MOUNTAINEER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.NECROMANCER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.PIGLIN_FARMER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.RECLAIMED_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.REDSTONE_GOLEM_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.SUNKEN_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.VILER_WITCH_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.WINDCALLER_SPAWN_EGG;
-import static com.github.pigsteel.smcm.core.smcm$Items.ZOMBIFIED_PIGLIN_BRUTE_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.BRUISER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.ENCHANTER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.FROSTBITTEN_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.GEOMANCER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.ICEOLOGER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.LOST_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.MOUNTAINEER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.NECROMANCER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.PIGLIN_FARMER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.RECLAIMED_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.REDSTONE_GOLEM_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.SUNKEN_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.VILER_WITCH_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.WINDCALLER_SPAWN_EGG;
+import static com.github.pigsteel.smcm.core.SMCMItems.ZOMBIFIED_PIGLIN_BRUTE_SPAWN_EGG;
 
 public class FabricItemGroups {
 

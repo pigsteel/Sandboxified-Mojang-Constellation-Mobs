@@ -1,13 +1,10 @@
 package com.github.pigsteel.smcm.world.entity.projectile;
 
-import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
-import com.github.pigsteel.smcm.core.smcm$MobEffects;
-import com.github.pigsteel.smcm.core.smcm$ParticleTypes;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
+import com.github.pigsteel.smcm.core.SMCMMobEffects;
+import com.github.pigsteel.smcm.core.SMCMParticleTypes;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EntityTypeTags;
@@ -36,7 +33,7 @@ public class NecromancerBall extends Projectile {
 	}
 
 	public <E extends Necromancer> NecromancerBall(E necromancer, Level level) {
-		this(smcm$EntityTypes.NECROMANCER_BALL.get(), level);
+		this(SMCMEntityTypes.NECROMANCER_BALL.get(), level);
 		this.setPos(necromancer.getX(), necromancer.getFiringYPosition(), necromancer.getZ());
 		this.setOwner(necromancer);
 	}
@@ -63,13 +60,13 @@ public class NecromancerBall extends Projectile {
 				DamageSource damageSource = this.damageSources().indirectMagic(entity, livingOwner);
 				wasHurt = entity.hurtServer(serverLevel, damageSource, 4.0F);
 				if (wasHurt) {
-					this.playSound(smcm$SoundEvents.NECROMANCER_BALL_HIT.get(), 1.0F, 1.0F);
+					this.playSound(SMCMSoundEvents.NECROMANCER_BALL_HIT.get(), 1.0F, 1.0F);
 					EnchantmentHelper.doPostAttackEffects(serverLevel, entity, damageSource);
 					if (entity instanceof LivingEntity livingEntity) {
-						if(livingEntity.hasEffect(smcm$MobEffects.CORRUPTION.get())) {
-							livingEntity.addEffect(new MobEffectInstance(smcm$MobEffects.CORRUPTION.get(), 60 * 20, livingEntity.getEffect(smcm$MobEffects.CORRUPTION.get()).getAmplifier() + 1));
+						if(livingEntity.hasEffect(SMCMMobEffects.CORRUPTION.get())) {
+							livingEntity.addEffect(new MobEffectInstance(SMCMMobEffects.CORRUPTION.get(), 60 * 20, livingEntity.getEffect(SMCMMobEffects.CORRUPTION.get()).getAmplifier() + 1));
 						} else {
-							livingEntity.addEffect(new MobEffectInstance(smcm$MobEffects.CORRUPTION.get(), 60 * 20, 0));
+							livingEntity.addEffect(new MobEffectInstance(SMCMMobEffects.CORRUPTION.get(), 60 * 20, 0));
 						}
 					}
 				}
@@ -129,7 +126,7 @@ public class NecromancerBall extends Projectile {
 			double xx = position.x - 0.2D + (random.nextDouble() * 0.4D);
 			double yx = position.y - 0.2D + (random.nextDouble() * 0.4D);
 			double zx = position.z - 0.2D + (random.nextDouble() * 0.4D);
-			this.level().addParticle(smcm$ParticleTypes.NECROMANCER_MAGIC.get(), xx, yx, zx, 0.0F, 0.0F, 0.0F);
+			this.level().addParticle(SMCMParticleTypes.NECROMANCER_MAGIC.get(), xx, yx, zx, 0.0F, 0.0F, 0.0F);
 		}
 	}
 

@@ -1,10 +1,10 @@
 package com.github.pigsteel.smcm.world.entity.monster.necromancer;
 
-import com.github.pigsteel.smcm.core.smcm$EntityDataSerializers;
-import com.github.pigsteel.smcm.core.smcm$ParticleTypes;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMEntityDataSerializers;
+import com.github.pigsteel.smcm.core.SMCMParticleTypes;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
-import com.github.pigsteel.smcm.world.entity.ai.sensing.smcm$SensorTypes;
+import com.github.pigsteel.smcm.world.entity.ai.sensing.SMCMSensorTypes;
 import com.mojang.serialization.Codec;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
@@ -13,7 +13,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -236,7 +235,7 @@ public class Necromancer extends Monster {
         double jitterZ = Math.sin(swirl) * jitterRadius;*/
 
         this.level().addParticle(
-				smcm$ParticleTypes.NECROMANCER_MAGIC.get(),
+				SMCMParticleTypes.NECROMANCER_MAGIC.get(),
                 this.getX() + orbPosition.x,
 				this.getY() + orbPosition.y,
 				this.getZ() + orbPosition.z,
@@ -311,30 +310,30 @@ public class Necromancer extends Monster {
     @Override
     protected SoundEvent getAmbientSound() {
         return this.random.nextFloat() < 0.05F
-                ? smcm$SoundEvents.NECROMANCER_LAUGH.get()
-                : smcm$SoundEvents.NECROMANCER_AMBIENT.get();
+                ? SMCMSoundEvents.NECROMANCER_LAUGH.get()
+                : SMCMSoundEvents.NECROMANCER_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$SoundEvents.NECROMANCER_HURT.get();
+        return SMCMSoundEvents.NECROMANCER_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$SoundEvents.NECROMANCER_DEATH.get();
+        return SMCMSoundEvents.NECROMANCER_DEATH.get();
     }
 
     protected SoundEvent getStepSound() {
-        return smcm$SoundEvents.NECROMANCER_STEP.get();
+        return SMCMSoundEvents.NECROMANCER_STEP.get();
     }
 
 	public SoundEvent getPrepareSummonSound() {
 		Component customName = this.getCustomName();
 		if(customName != null && customName.getString().equals("Sandy")) {
-			return smcm$SoundEvents.NECROMANCER_PREPARE_SUMMON_ALT.get();
+			return SMCMSoundEvents.NECROMANCER_PREPARE_SUMMON_ALT.get();
 		} else {
-			return smcm$SoundEvents.NECROMANCER_PREPARE_SUMMON.get();
+			return SMCMSoundEvents.NECROMANCER_PREPARE_SUMMON.get();
 		}
 	}
 
@@ -349,10 +348,10 @@ public class Necromancer extends Monster {
 
 	static {
 		BRAIN_PROVIDER = Brain.provider(
-				List.of(SensorType.NEAREST_LIVING_ENTITIES, SensorType.HURT_BY, SensorType.NEAREST_PLAYERS, smcm$SensorTypes.NECROMANCER_ATTACK_ENTITY_SENSOR.get()),
+				List.of(SensorType.NEAREST_LIVING_ENTITIES, SensorType.HURT_BY, SensorType.NEAREST_PLAYERS, SMCMSensorTypes.NECROMANCER_ATTACK_ENTITY_SENSOR.get()),
 				NecromancerAi::getActivities
 		);
-		DATA_SPELL = SynchedEntityData.defineId(Necromancer.class, smcm$EntityDataSerializers.NECROMANCER_SPELL);
+		DATA_SPELL = SynchedEntityData.defineId(Necromancer.class, SMCMEntityDataSerializers.NECROMANCER_SPELL);
 	}
 
 	public enum NecromancerSpell implements StringRepresentable {

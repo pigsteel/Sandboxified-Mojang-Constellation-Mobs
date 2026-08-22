@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.projectile;
 
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -25,11 +25,11 @@ public class FrostbittenSnowball extends ThrowableItemProjectile {
 	}
 
 	public FrostbittenSnowball(final Level level, final LivingEntity mob, final ItemStack itemStack) {
-		super(smcm$EntityTypes.FROSTBITTEN_SNOWBALL.get(), mob, level, itemStack);
+		super(SMCMEntityTypes.FROSTBITTEN_SNOWBALL.get(), mob, level, itemStack);
 	}
 
 	public FrostbittenSnowball(final Level level, final double x, final double y, final double z, final ItemStack itemStack) {
-		super(smcm$EntityTypes.FROSTBITTEN_SNOWBALL.get(), x, y, z, level, itemStack);
+		super(SMCMEntityTypes.FROSTBITTEN_SNOWBALL.get(), x, y, z, level, itemStack);
 	}
 
 	protected Item getDefaultItem() {

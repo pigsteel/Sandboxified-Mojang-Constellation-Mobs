@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.SENSOR_TYPES;
 *///?}
 
-public class smcm$SensorTypes {
+public class SMCMSensorTypes {
 	public static final Supplier<SensorType<NecromancerAttackEntitySensor>> NECROMANCER_ATTACK_ENTITY_SENSOR;
 
 	private static <U extends Sensor<?>> Supplier<SensorType<U>> register(String name, Supplier<U> factory) {

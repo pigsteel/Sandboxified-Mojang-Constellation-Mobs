@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.network;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 //? fabric {
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 //?}
@@ -41,10 +41,10 @@ public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements Cu
 
 		switch(payload.event()) {
 			case(1001):
-				level.playLocalSound(pos, smcm$SoundEvents.ZOMBIE_CONVERTED_TO_FROSTBITTEN.get(), SoundSource.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F, false);
+				level.playLocalSound(pos, SMCMSoundEvents.ZOMBIE_CONVERTED_TO_FROSTBITTEN.get(), SoundSource.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F, false);
 			break;
 			case(1002):
-				level.playLocalSound(pos, smcm$SoundEvents.NECROMANCER_SUMMON.get(), SoundSource.HOSTILE, 1.0F, 1.0F, false);
+				level.playLocalSound(pos, SMCMSoundEvents.NECROMANCER_SUMMON.get(), SoundSource.HOSTILE, 1.0F, 1.0F, false);
 				for(int i = 0; i < 20; ++i) {
 					double xx = (double)pos.getX() + (double)0.5F + (random.nextDouble() - (double)0.5F) * (double)2.0F;
 					double yx = (double)pos.getY() + (double)0.5F + (random.nextDouble() - (double)0.5F) * (double)2.0F;

@@ -1,9 +1,8 @@
 package com.github.pigsteel.smcm.world.entity.ai.behavior.necromancer;
 
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
 import com.github.pigsteel.smcm.network.SMCMLevelEventPacketPayload;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
-import com.github.pigsteel.smcm.world.entity.ai.memory.smcm$MemoryModuleTypes;
+import com.github.pigsteel.smcm.world.entity.ai.memory.SMCMMemoryModuleTypes;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
 import com.google.common.collect.ImmutableMap;
 //? fabric {
@@ -13,7 +12,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.Entity;
@@ -45,7 +43,7 @@ import static com.github.pigsteel.smcm.client.animation.definitions.NecromancerA
 
 public class Summoning<E extends Necromancer> extends Behavior<E> {
 	public Summoning() {
-		super(ImmutableMap.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get(), MemoryStatus.VALUE_ABSENT, MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED), DURATION);
+		super(ImmutableMap.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, SMCMMemoryModuleTypes.SUMMONING_COOLDOWN.get(), MemoryStatus.VALUE_ABSENT, MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED), DURATION);
 	}
 
 	private static final int MAX_SUMMON_POINTS = 12;
@@ -87,7 +85,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		resetValues();
 		body.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
 		body.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
-		body.getBrain().setMemory(smcm$MemoryModuleTypes.PENDING_SUMMON.get(), Optional.empty());
+		body.getBrain().setMemory(SMCMMemoryModuleTypes.PENDING_SUMMON.get(), Optional.empty());
 		body.getLookControl().setLookAt(body.getTarget(), 30.0F, 30.0F);
 	}
 
@@ -95,7 +93,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 	public void stop(final ServerLevel level, final E body, final long timestamp) {
 		resetValues();
 		body.setIsCastingSpell(Necromancer.NecromancerSpell.NONE);
-		body.getBrain().eraseMemory(smcm$MemoryModuleTypes.PENDING_SUMMON.get());
+		body.getBrain().eraseMemory(SMCMMemoryModuleTypes.PENDING_SUMMON.get());
 	}
 
 	@Override
@@ -413,11 +411,11 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 	}
 
 	public static void setCooldown(LivingEntity body, int cooldown) {
-		body.getBrain().setMemoryWithExpiry(smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get(), Unit.INSTANCE, (long)cooldown);
+		body.getBrain().setMemoryWithExpiry(SMCMMemoryModuleTypes.SUMMONING_COOLDOWN.get(), Unit.INSTANCE, (long)cooldown);
 	}
 
 	public static boolean hasCooldown(LivingEntity body) {
-		return body.getBrain().hasMemoryValue(smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get());
+		return body.getBrain().hasMemoryValue(SMCMMemoryModuleTypes.SUMMONING_COOLDOWN.get());
 	}
 
 	private enum SummonType {

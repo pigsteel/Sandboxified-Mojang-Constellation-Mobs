@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.world.entity.monster.skeleton;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$Registries;
+import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +23,7 @@ public class SunkenVariants {
     public static final ResourceKey<SunkenVariant> FROZEN = createKey(Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "frozen"));
 
     private static ResourceKey<SunkenVariant> createKey(Identifier id) {
-        return ResourceKey.create(smcm$Registries.SUNKEN_VARIANT, id);
+        return ResourceKey.create(SMCMCustomRegistries.SUNKEN_VARIANT, id);
     }
 
     public static void bootstrap(BootstrapContext<SunkenVariant> context) {

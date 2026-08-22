@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.windcaller.WindcallerModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.WindcallerRenderState;
 import com.github.pigsteel.smcm.world.entity.monster.illager.Windcaller;
@@ -13,7 +13,7 @@ public class WindcallerRenderer extends IllagerRenderer<Windcaller, WindcallerRe
     private static final Identifier WINDCALLER_LOCATION = SMCM.id("textures/entity/illager/windcaller.png");
 
     public WindcallerRenderer(EntityRendererProvider.Context context) {
-        super(context, new WindcallerModel<>(context.bakeLayer(smcm$ModelLayers.WINDCALLER)), 0.5F);
+        super(context, new WindcallerModel<>(context.bakeLayer(SMCMModelLayers.WINDCALLER)), 0.5F);
     }
 
     @Override

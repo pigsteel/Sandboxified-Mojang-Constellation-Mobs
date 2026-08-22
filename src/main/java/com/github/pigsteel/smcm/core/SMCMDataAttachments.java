@@ -27,7 +27,7 @@ import net.minecraft.resources.Identifier;
 import java.util.Optional;
 *///?}
 
-public class smcm$DataAttachments {
+public class SMCMDataAttachments {
 	// for reference: use these when we want to attach arbitrary data (the same way we would with an EntityDataAccessor) for an entity we do not own; like the zombie
 
     public static final DataAttachmentHandle<Boolean> DATA_FROSTBITTEN_CONVERSION_ID = register(
@@ -39,7 +39,7 @@ public class smcm$DataAttachments {
                     ).persistent(Codec.BOOL)
     );
 
-    private smcm$DataAttachments() {
+    private SMCMDataAttachments() {
     }
 
 	private static <A> DataAttachmentHandle<A> register(String id, Consumer<AgnosticBuilder<A>> consumer) {

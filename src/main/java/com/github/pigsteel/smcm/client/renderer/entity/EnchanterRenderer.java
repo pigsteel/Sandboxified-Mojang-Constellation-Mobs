@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.enchanter.EnchanterModel;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.EnchanterBookLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.EnchanterRenderState;
@@ -13,7 +13,7 @@ public class EnchanterRenderer extends ExtendableIllagerRenderer<Enchanter, Ench
     private static final Identifier ENCHANTER_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/illager/enchanter.png");
 
     public EnchanterRenderer(EntityRendererProvider.Context context) {
-        super(context, new EnchanterModel(context.bakeLayer(smcm$ModelLayers.ENCHANTER)), 0.5F);
+        super(context, new EnchanterModel(context.bakeLayer(SMCMModelLayers.ENCHANTER)), 0.5F);
 		this.addLayer(new EnchanterBookLayer(this, context.getModelSet()));
     }
 

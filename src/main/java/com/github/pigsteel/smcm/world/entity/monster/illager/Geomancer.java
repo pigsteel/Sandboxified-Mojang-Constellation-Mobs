@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster.illager;
 
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -57,16 +57,16 @@ public class Geomancer extends AbstractIllager {
 
     @Override
     public SoundEvent getDeathSound() {
-        return smcm$SoundEvents.GEOMANCER_DEATH.get();
+        return SMCMSoundEvents.GEOMANCER_DEATH.get();
     }
 
     @Override
     public SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$SoundEvents.GEOMANCER_HURT.get();
+        return SMCMSoundEvents.GEOMANCER_HURT.get();
     }
 
     @Override
     public SoundEvent getAmbientSound() {
-        return smcm$SoundEvents.GEOMANCER_AMBIENT.get();
+        return SMCMSoundEvents.GEOMANCER_AMBIENT.get();
     }
 }

@@ -17,7 +17,7 @@ import java.util.function.UnaryOperator;
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.DATA_COMPONENTS;
 *///?}
 
-public class smcm$DataComponents {
+public class SMCMDataComponents {
     public static final Supplier<DataComponentType<Reclaimed.HeadFlower>> RECLAIMED_HEAD_FLOWER = register(
             "reclaimed/head_flower",
             builder -> builder

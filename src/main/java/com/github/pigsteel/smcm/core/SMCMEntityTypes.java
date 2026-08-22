@@ -38,7 +38,7 @@ import java.util.function.Supplier;
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITIES;
 *///?}
 
-public class smcm$EntityTypes {
+public class SMCMEntityTypes {
 	public static final Supplier<EntityType<Bruiser>> BRUISER;
 	public static final Supplier<EntityType<Enchanter>> ENCHANTER;
 	public static final Supplier<EntityType<Frostbitten>> FROSTBITTEN;
@@ -87,7 +87,7 @@ public class smcm$EntityTypes {
 				.passengerAttachments(2.075F)
 				.ridingOffset(-0.7F)
 				//? >= 26.2 {
-				.immuneTo(smcm$BlockTags.FROSTBITTEN_IMMUNE_TO)
+				.immuneTo(SMCMBlockTags.FROSTBITTEN_IMMUNE_TO)
 				//?}
 				.clientTrackingRange(8)
 				.notInPeaceful()

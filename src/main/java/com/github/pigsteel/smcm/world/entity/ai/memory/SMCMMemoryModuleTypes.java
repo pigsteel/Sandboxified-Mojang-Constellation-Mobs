@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MEMORY_MODULE_TYPES;
 *///?}
 
-public class smcm$MemoryModuleTypes {
+public class SMCMMemoryModuleTypes {
 	public static final Supplier<MemoryModuleType<Unit>> SUMMONING_COOLDOWN;
 	public static final Supplier<MemoryModuleType<Unit>> SHOOTING_COOLDOWN;
 	public static final Supplier<MemoryModuleType<Unit>> SOUL_BLAST_COOLDOWN;

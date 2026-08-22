@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedPukeModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.ReclaimedPukeRenderState;
 import com.github.pigsteel.smcm.world.entity.projectile.ReclaimedPuke;
@@ -20,7 +20,7 @@ public class ReclaimedPukeRenderer extends EntityRenderer<ReclaimedPuke, Reclaim
 
     public ReclaimedPukeRenderer(EntityRendererProvider.Context context) {
         super(context);
-        this.model = new ReclaimedPukeModel(context.bakeLayer(smcm$ModelLayers.RECLAIMED_PUKE));
+        this.model = new ReclaimedPukeModel(context.bakeLayer(SMCMModelLayers.RECLAIMED_PUKE));
     }
 
     @Override

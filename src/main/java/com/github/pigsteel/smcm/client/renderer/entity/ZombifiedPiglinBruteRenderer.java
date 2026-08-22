@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.ZombifiedPiglinBrute;
 import net.minecraft.client.model.monster.piglin.AdultZombifiedPiglinModel;
 import net.minecraft.client.model.monster.piglin.ZombifiedPiglinModel;
@@ -18,11 +18,11 @@ public class ZombifiedPiglinBruteRenderer extends HumanoidMobRenderer<ZombifiedP
 
     public ZombifiedPiglinBruteRenderer(EntityRendererProvider.Context context) {
         // No baby variant
-        super(context, new AdultZombifiedPiglinModel(context.bakeLayer(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE)), 0.5F);
+        super(context, new AdultZombifiedPiglinModel(context.bakeLayer(SMCMModelLayers.ZOMBIFIED_PIGLIN_BRUTE)), 0.5F);
         this.addLayer(
                 new HumanoidArmorLayer<>(
                         this,
-                        ArmorModelSet.bake(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE_ARMOR, context.getModelSet(), AdultZombifiedPiglinModel::new), context.getEquipmentRenderer()
+                        ArmorModelSet.bake(SMCMModelLayers.ZOMBIFIED_PIGLIN_BRUTE_ARMOR, context.getModelSet(), AdultZombifiedPiglinModel::new), context.getEquipmentRenderer()
                 )
         );
     }

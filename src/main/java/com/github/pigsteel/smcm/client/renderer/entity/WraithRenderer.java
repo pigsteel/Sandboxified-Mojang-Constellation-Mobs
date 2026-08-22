@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.wraith.WraithModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.WraithRenderState;
 import com.github.pigsteel.smcm.world.entity.monster.Wraith;
@@ -13,7 +13,7 @@ public class WraithRenderer extends LivingEntityRenderer<Wraith, WraithRenderSta
 	private static final Identifier WRAITH_LOCATION = SMCM.id("textures/entity/wraith/wraith.png");
 
 	public WraithRenderer(EntityRendererProvider.Context context) {
-		super(context, new WraithModel(context.bakeLayer(smcm$ModelLayers.WRAITH)), 0.0F);
+		super(context, new WraithModel(context.bakeLayer(SMCMModelLayers.WRAITH)), 0.0F);
 	}
 
 	@Override

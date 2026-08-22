@@ -1,12 +1,11 @@
 package com.github.pigsteel.smcm.world.entity.monster.skeleton;
 
-import com.github.pigsteel.smcm.core.smcm$DataComponents;
-import com.github.pigsteel.smcm.core.smcm$EntityDataSerializers;
-import com.github.pigsteel.smcm.core.smcm$LootTables;
-import com.github.pigsteel.smcm.core.smcm$Registries;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMDataComponents;
+import com.github.pigsteel.smcm.core.SMCMEntityDataSerializers;
+import com.github.pigsteel.smcm.core.SMCMLootTables;
+import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.world.entity.ProjectileUtil;
-import com.github.pigsteel.smcm.world.entity.monster.zombie.Reclaimed;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentType;
@@ -41,7 +40,6 @@ import net.minecraft.world.entity.ai.goal.RestrictSunGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.golem.IronGolem;
-import net.minecraft.world.entity.animal.turtle.Turtle;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.monster.skeleton.AbstractSkeleton;
@@ -168,7 +166,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     @Override
     protected void readAdditionalSaveData(final ValueInput input) {
         super.readAdditionalSaveData(input);
-        VariantUtils.readVariant(input, smcm$Registries.SUNKEN_VARIANT).ifPresent(this::setVariant);
+        VariantUtils.readVariant(input, SMCMCustomRegistries.SUNKEN_VARIANT).ifPresent(this::setVariant);
         this.coralDeathTimer = input.getIntOr("CoralDeathTimer", 0);
         this.setIsCoralDead(input.getBooleanOr("CoralDead", false));
         this.setSheared(input.getBooleanOr("Sheared", false));
@@ -178,7 +176,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     public @Nullable SpawnGroupData finalizeSpawn(
             ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason spawnReason, @Nullable SpawnGroupData groupData
     ) {
-        VariantUtils.selectVariantToSpawn(SpawnContext.create(level, this.blockPosition()), smcm$Registries.SUNKEN_VARIANT).ifPresent(this::setVariant);
+        VariantUtils.selectVariantToSpawn(SpawnContext.create(level, this.blockPosition()), SMCMCustomRegistries.SUNKEN_VARIANT).ifPresent(this::setVariant);
         return super.finalizeSpawn(level, difficulty, spawnReason, groupData);
     }
 
@@ -214,11 +212,11 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
     @Override
     public void shear(ServerLevel level, SoundSource soundSource, ItemStack tool) {
-		level.playSound(null, this, smcm$SoundEvents.SUNKEN_SHEAR.get(), soundSource, 1.0F, 1.0F);
+		level.playSound(null, this, SMCMSoundEvents.SUNKEN_SHEAR.get(), soundSource, 1.0F, 1.0F);
 
 		this.dropFromShearingLootTable(
 				level,
-				smcm$LootTables.SHEAR_SUNKEN,
+				SMCMLootTables.SHEAR_SUNKEN,
 				tool,
 				(l, drop) -> this.spawnAtLocation(l, drop, this.getEyeHeight())
 		);
@@ -271,7 +269,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     }
 
     static {
-		DATA_VARIANT_ID = SynchedEntityData.defineId(Sunken.class, smcm$EntityDataSerializers.SUNKEN_VARIANT);
+		DATA_VARIANT_ID = SynchedEntityData.defineId(Sunken.class, SMCMEntityDataSerializers.SUNKEN_VARIANT);
         IS_CHARGING_CROSSBOW = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
         IS_SHEARED = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
         IS_CORAL_DEAD = SynchedEntityData.defineId(Sunken.class, EntityDataSerializers.BOOLEAN);
@@ -286,17 +284,17 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     }
 
     protected void applyImplicitComponents(final DataComponentGetter components) {
-        this.applyImplicitComponentIfPresent(components, smcm$DataComponents.SUNKEN_VARIANT.get());
-		this.applyImplicitComponentIfPresent(components, smcm$DataComponents.IS_CORAL_DEAD.get());
+        this.applyImplicitComponentIfPresent(components, SMCMDataComponents.SUNKEN_VARIANT.get());
+		this.applyImplicitComponentIfPresent(components, SMCMDataComponents.IS_CORAL_DEAD.get());
     }
 
 
 	@Override
 	public <T> @Nullable T get(final DataComponentType<? extends T> type) {
-		if (type == smcm$DataComponents.SUNKEN_VARIANT.get()) {
-			return (T) castComponentValue(smcm$DataComponents.SUNKEN_VARIANT.get(), this.getVariant());
-		} else if (type == smcm$DataComponents.IS_CORAL_DEAD.get()) {
-			return (T) castComponentValue(smcm$DataComponents.IS_CORAL_DEAD.get(), this.isCoralDead());
+		if (type == SMCMDataComponents.SUNKEN_VARIANT.get()) {
+			return (T) castComponentValue(SMCMDataComponents.SUNKEN_VARIANT.get(), this.getVariant());
+		} else if (type == SMCMDataComponents.IS_CORAL_DEAD.get()) {
+			return (T) castComponentValue(SMCMDataComponents.IS_CORAL_DEAD.get(), this.isCoralDead());
 		}
 
 		return super.get(type);
@@ -304,11 +302,11 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
 	@Override
 	protected <T> boolean applyImplicitComponent(final DataComponentType<T> type, final T value) {
-		if (type == smcm$DataComponents.SUNKEN_VARIANT.get()) {
-			this.setVariant(castComponentValue(smcm$DataComponents.SUNKEN_VARIANT.get(), value));
+		if (type == SMCMDataComponents.SUNKEN_VARIANT.get()) {
+			this.setVariant(castComponentValue(SMCMDataComponents.SUNKEN_VARIANT.get(), value));
 			return true;
-		} else if (type == smcm$DataComponents.IS_CORAL_DEAD.get()) {
-			this.setIsCoralDead(castComponentValue(smcm$DataComponents.IS_CORAL_DEAD.get(), value));
+		} else if (type == SMCMDataComponents.IS_CORAL_DEAD.get()) {
+			this.setIsCoralDead(castComponentValue(SMCMDataComponents.IS_CORAL_DEAD.get(), value));
 			return true;
 		} else {
 			return super.applyImplicitComponent(type, value);

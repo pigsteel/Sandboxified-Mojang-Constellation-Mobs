@@ -9,7 +9,7 @@ import org.apache.commons.lang3.NotImplementedException;
 /*import net.neoforged.neoforge.registries.RegistryBuilder;
 *///?}
 
-public class smcm$Registries {
+public class SMCMCustomRegistries {
     public static final ResourceKey<Registry<SunkenVariant>> SUNKEN_VARIANT =
             ResourceKey.createRegistryKey(
                     SMCM.id("sunken/variant")

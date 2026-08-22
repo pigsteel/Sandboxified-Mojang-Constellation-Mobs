@@ -1,26 +1,22 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerModel;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.NecromancerEyesLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.NecromancerRenderState;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
-import org.joml.Vector3f;
 
 public class NecromancerRenderer extends MobRenderer<Necromancer, NecromancerRenderState, NecromancerModel<NecromancerRenderState>> {
     private static final Identifier NECROMANCER_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/necromancer/necromancer.png");
 	private final NecromancerModel<NecromancerRenderState> model;
 
     public NecromancerRenderer(EntityRendererProvider.Context context) {
-        NecromancerModel<NecromancerRenderState> model = new NecromancerModel<>(context.bakeLayer(smcm$ModelLayers.NECROMANCER));
+        NecromancerModel<NecromancerRenderState> model = new NecromancerModel<>(context.bakeLayer(SMCMModelLayers.NECROMANCER));
 		super(context, model, 0.85f);
         this.addLayer(new NecromancerEyesLayer(this));
 		this.model = model;

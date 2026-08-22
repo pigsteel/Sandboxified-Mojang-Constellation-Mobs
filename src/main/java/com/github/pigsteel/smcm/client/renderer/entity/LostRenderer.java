@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.Lost;
 import net.minecraft.client.renderer.entity.AbstractSkeletonRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -12,7 +12,7 @@ public class LostRenderer extends AbstractSkeletonRenderer<Lost, SkeletonRenderS
     private static final Identifier LOST_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/skeleton/lost.png");
 
     public LostRenderer(EntityRendererProvider.Context context) {
-        super(context, smcm$ModelLayers.LOST, smcm$ModelLayers.LOST_ARMOR);
+        super(context, SMCMModelLayers.LOST, SMCMModelLayers.LOST_ARMOR);
     }
 
     @Override

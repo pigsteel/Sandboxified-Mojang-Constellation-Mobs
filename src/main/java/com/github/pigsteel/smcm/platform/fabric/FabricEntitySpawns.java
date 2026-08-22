@@ -18,9 +18,9 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-import static com.github.pigsteel.smcm.core.smcm$EntityTypes.FROSTBITTEN;
-import static com.github.pigsteel.smcm.core.smcm$EntityTypes.RECLAIMED;
-import static com.github.pigsteel.smcm.core.smcm$EntityTypes.VILER_WITCH;
+import static com.github.pigsteel.smcm.core.SMCMEntityTypes.FROSTBITTEN;
+import static com.github.pigsteel.smcm.core.SMCMEntityTypes.RECLAIMED;
+import static com.github.pigsteel.smcm.core.SMCMEntityTypes.VILER_WITCH;
 
 public class FabricEntitySpawns {
     public static void AddSpawns() {

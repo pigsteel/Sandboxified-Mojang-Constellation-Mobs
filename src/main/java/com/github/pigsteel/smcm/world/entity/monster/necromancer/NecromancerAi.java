@@ -3,7 +3,7 @@ package com.github.pigsteel.smcm.world.entity.monster.necromancer;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.ai.behavior.necromancer.ShootingMagic;
 import com.github.pigsteel.smcm.world.entity.ai.behavior.necromancer.Summoning;
-import com.github.pigsteel.smcm.world.entity.ai.memory.smcm$MemoryModuleTypes;
+import com.github.pigsteel.smcm.world.entity.ai.memory.SMCMMemoryModuleTypes;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -28,12 +28,10 @@ import net.minecraft.world.entity.ai.behavior.StopAttackingIfTargetInvalid;
 import net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import net.minecraft.world.entity.ai.memory.NearestVisibleLivingEntities;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
 import net.minecraft.world.entity.schedule.Activity;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class NecromancerAi {
@@ -141,9 +139,9 @@ public class NecromancerAi {
 					i.registered(MemoryModuleType.WALK_TARGET),
 					i.registered(MemoryModuleType.LOOK_TARGET),
 					i.present(MemoryModuleType.ATTACK_TARGET),
-					i.present(smcm$MemoryModuleTypes.SUMMONING_COOLDOWN.get()),
-					i.present(smcm$MemoryModuleTypes.SHOOTING_COOLDOWN.get()),
-					i.absent(smcm$MemoryModuleTypes.PENDING_SUMMON.get())
+					i.present(SMCMMemoryModuleTypes.SUMMONING_COOLDOWN.get()),
+					i.present(SMCMMemoryModuleTypes.SHOOTING_COOLDOWN.get()),
+					i.absent(SMCMMemoryModuleTypes.PENDING_SUMMON.get())
 			).apply(i, (
 					walkTarget,
 					lookTarget,

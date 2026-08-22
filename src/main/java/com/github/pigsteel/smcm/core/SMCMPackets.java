@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 //?}
 
-public class smcm$Packets {
+public class SMCMPackets {
 	static {
 		//? fabric {
 		PayloadTypeRegistry.clientboundPlay().register(SMCMLevelEventPacketPayload.TYPE, SMCMLevelEventPacketPayload.STREAM_CODEC);

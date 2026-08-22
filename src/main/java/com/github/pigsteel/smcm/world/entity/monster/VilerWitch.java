@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster;
 
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
@@ -37,7 +37,6 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrownLingeringPotion;
-import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrownSplashPotion;
 import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -84,15 +83,15 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return smcm$SoundEvents.VILER_WITCH_AMBIENT.get();
+		return SMCMSoundEvents.VILER_WITCH_AMBIENT.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return smcm$SoundEvents.VILER_WITCH_HURT.get();
+		return SMCMSoundEvents.VILER_WITCH_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return smcm$SoundEvents.VILER_WITCH_DEATH.get();
+		return SMCMSoundEvents.VILER_WITCH_DEATH.get();
 	}
 
 	public void setUsingItem(boolean using) {
@@ -152,7 +151,7 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 					this.usingTime = this.getMainHandItem().getUseDuration(this);
 					this.setUsingItem(true);
 					if (!this.isSilent()) {
-						this.level().playSound((Entity)null, this.getX(), this.getY(), this.getZ(), smcm$SoundEvents.VILER_WITCH_DRINK.get(), this.getSoundSource(), 1.0F, 0.8F + this.random.nextFloat() * 0.4F);
+						this.level().playSound((Entity)null, this.getX(), this.getY(), this.getZ(), SMCMSoundEvents.VILER_WITCH_DRINK.get(), this.getSoundSource(), 1.0F, 0.8F + this.random.nextFloat() * 0.4F);
 					}
 
 					AttributeInstance speed = this.getAttribute(Attributes.MOVEMENT_SPEED);
@@ -170,7 +169,7 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 	}
 
 	public SoundEvent getCelebrateSound() {
-		return smcm$SoundEvents.VILER_WITCH_CELEBRATE.get();
+		return SMCMSoundEvents.VILER_WITCH_CELEBRATE.get();
 	}
 
 	public void handleEntityEvent(byte id) {
@@ -239,7 +238,7 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 			}
 
 			if (!this.isSilent()) {
-				this.level().playSound((Entity)null, this.getX(), this.getY(), this.getZ(), smcm$SoundEvents.VILER_WITCH_THROW.get(), this.getSoundSource(), 1.0F, 0.8F + this.random.nextFloat() * 0.4F);
+				this.level().playSound((Entity)null, this.getX(), this.getY(), this.getZ(), SMCMSoundEvents.VILER_WITCH_THROW.get(), this.getSoundSource(), 1.0F, 0.8F + this.random.nextFloat() * 0.4F);
 			}
 		}
 

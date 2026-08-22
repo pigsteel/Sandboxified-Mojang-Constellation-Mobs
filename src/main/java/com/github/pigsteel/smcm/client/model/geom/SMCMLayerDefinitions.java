@@ -37,7 +37,7 @@ import java.util.function.Supplier;
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MODEL_LAYERS;
 *///?}
 
-public class smcm$LayerDefinitions {
+public class SMCMLayerDefinitions {
     private static final CubeDeformation OUTER_ARMOR_DEFORMATION = new CubeDeformation(1.0F);
     private static final CubeDeformation INNER_ARMOR_DEFORMATION = new CubeDeformation(0.5F);
     private static final CubeDeformation BABY_OUTER_ARMOR_DEFORMATION = new CubeDeformation(-0.1F, 0.5F, 0.3F);
@@ -56,44 +56,44 @@ public class smcm$LayerDefinitions {
                 .map(mesh -> LayerDefinition.create(mesh, 64, 32));
         MeshTransformer reclaimedScale = MeshTransformer.scaling(1.025F);
 
-        registerModelLayer(smcm$ModelLayers.RECLAIMED, () -> ReclaimedModel.createBodyLayer(CubeDeformation.NONE).apply(reclaimedScale));
-        registerModelLayer(smcm$ModelLayers.RECLAIMED_BABY, () -> BabyReclaimedModel.createBodyLayer(CubeDeformation.NONE));
-        registerArmorLayers(smcm$ModelLayers.RECLAIMED_ARMOR, humanoidArmor.map(layer -> layer.apply(reclaimedScale)));
-        registerArmorLayers(smcm$ModelLayers.RECLAIMED_BABY_ARMOR, humanoidBabyArmor);
-        registerModelLayer(smcm$ModelLayers.RECLAIMED_OUTER_LAYER, () -> ReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)).apply(reclaimedScale));
-        registerModelLayer(smcm$ModelLayers.RECLAIMED_BABY_OUTER_LAYER, () -> BabyReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registerModelLayer(smcm$ModelLayers.FROSTBITTEN, () -> FrostbittenModel.createBodyLayer(CubeDeformation.NONE));
-        registerModelLayer(smcm$ModelLayers.FROSTBITTEN_BABY, () -> BabyFrostbittenModel.createBodyLayer(CubeDeformation.NONE));
-        registerArmorLayers(smcm$ModelLayers.FROSTBITTEN_ARMOR, humanoidArmor);
-        registerArmorLayers(smcm$ModelLayers.FROSTBITTEN_BABY_ARMOR, humanoidBabyArmor);
-        registerModelLayer(smcm$ModelLayers.FROSTBITTEN_OUTER_LAYER, () -> FrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registerModelLayer(smcm$ModelLayers.FROSTBITTEN_BABY_OUTER_LAYER, () -> BabyFrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
-        registerModelLayer(smcm$ModelLayers.BRUISER, () -> IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(1.0625F)));
-        registerModelLayer(smcm$ModelLayers.ENCHANTER, () -> EnchanterModel.createBodyLayer().apply(villagerLikeScale));
-        registerModelLayer(smcm$ModelLayers.SUNKEN, AbstractSunkenModel::createBodyLayer);
-        registerModelLayer(smcm$ModelLayers.SUNKEN_FROZEN, AbstractSunkenModel::createBodyLayer);
-        registerModelLayer(smcm$ModelLayers.SUNKEN_CORAL, CoralSunkenModel::createBodyLayer);
-        registerArmorLayers(smcm$ModelLayers.SUNKEN_ARMOR, humanoidArmor);
-        registerModelLayer(smcm$ModelLayers.LOST, SkeletonModel::createBodyLayer);
-        registerArmorLayers(smcm$ModelLayers.LOST_ARMOR, humanoidArmor);
-        registerModelLayer(smcm$ModelLayers.NECROMANCER, () -> NecromancerModel.createBodyLayer().apply(MeshTransformer.scaling(1.2F)));
-        registerModelLayer(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE, AdultZombifiedPiglinModel::createBodyLayer);
-        registerArmorLayers(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE_ARMOR, piglinArmor);
-        registerModelLayer(smcm$ModelLayers.RECLAIMED_PUKE, ReclaimedPukeModel::createBodyLayer);
-        registerModelLayer(smcm$ModelLayers.VILER_WITCH, () -> VilerWitchModel.createBodyLayer().apply(villagerLikeScale));
-        registerModelLayer(smcm$ModelLayers.GEOMANCER, () -> IllagerModel.createBodyLayer().apply(villagerLikeScale));
-        registerModelLayer(smcm$ModelLayers.MOUNTAINEER, () -> IllagerModel.createBodyLayer().apply(villagerLikeScale));
-        registerModelLayer(smcm$ModelLayers.WINDCALLER, () -> WindcallerModel.createBodyLayer().apply(villagerLikeScale));
-        registerModelLayer(smcm$ModelLayers.ICEOLOGER, () -> IceologerModel.createBodyLayer().apply(villagerLikeScale));
-        registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM, RedstoneGolemModel::createBodyLayer);
-        registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM_GLOW, RedstoneGolemModel::createGlowLayer);
-        registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM_EYES, RedstoneGolemModel::createEyesLayer);
-		registerModelLayer(smcm$ModelLayers.REDSTONE_MONSTROSITY, RedstoneMonstrosityModel::createBodyLayer);
-        registerModelLayer(smcm$ModelLayers.PIGLIN_FARMER, AdultPiglinModel::createBodyLayer);
-        registerArmorLayers(smcm$ModelLayers.PIGLIN_FARMER_ARMOR, piglinArmor);
-		registerModelLayer(smcm$ModelLayers.WILDFIRE, WildfireModel::createBodyLayer);
-		registerModelLayer(smcm$ModelLayers.WRAITH, WraithModel::createBodyLayer);
-		registerModelLayer(smcm$ModelLayers.NECROMANCER_BALL, NecromancerBallModel::createBodyLayer);
+        registerModelLayer(SMCMModelLayers.RECLAIMED, () -> ReclaimedModel.createBodyLayer(CubeDeformation.NONE).apply(reclaimedScale));
+        registerModelLayer(SMCMModelLayers.RECLAIMED_BABY, () -> BabyReclaimedModel.createBodyLayer(CubeDeformation.NONE));
+        registerArmorLayers(SMCMModelLayers.RECLAIMED_ARMOR, humanoidArmor.map(layer -> layer.apply(reclaimedScale)));
+        registerArmorLayers(SMCMModelLayers.RECLAIMED_BABY_ARMOR, humanoidBabyArmor);
+        registerModelLayer(SMCMModelLayers.RECLAIMED_OUTER_LAYER, () -> ReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)).apply(reclaimedScale));
+        registerModelLayer(SMCMModelLayers.RECLAIMED_BABY_OUTER_LAYER, () -> BabyReclaimedModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registerModelLayer(SMCMModelLayers.FROSTBITTEN, () -> FrostbittenModel.createBodyLayer(CubeDeformation.NONE));
+        registerModelLayer(SMCMModelLayers.FROSTBITTEN_BABY, () -> BabyFrostbittenModel.createBodyLayer(CubeDeformation.NONE));
+        registerArmorLayers(SMCMModelLayers.FROSTBITTEN_ARMOR, humanoidArmor);
+        registerArmorLayers(SMCMModelLayers.FROSTBITTEN_BABY_ARMOR, humanoidBabyArmor);
+        registerModelLayer(SMCMModelLayers.FROSTBITTEN_OUTER_LAYER, () -> FrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registerModelLayer(SMCMModelLayers.FROSTBITTEN_BABY_OUTER_LAYER, () -> BabyFrostbittenModel.createBodyLayer(new CubeDeformation(0.25F)));
+        registerModelLayer(SMCMModelLayers.BRUISER, () -> IllagerModel.createBodyLayer().apply(MeshTransformer.scaling(1.0625F)));
+        registerModelLayer(SMCMModelLayers.ENCHANTER, () -> EnchanterModel.createBodyLayer().apply(villagerLikeScale));
+        registerModelLayer(SMCMModelLayers.SUNKEN, AbstractSunkenModel::createBodyLayer);
+        registerModelLayer(SMCMModelLayers.SUNKEN_FROZEN, AbstractSunkenModel::createBodyLayer);
+        registerModelLayer(SMCMModelLayers.SUNKEN_CORAL, CoralSunkenModel::createBodyLayer);
+        registerArmorLayers(SMCMModelLayers.SUNKEN_ARMOR, humanoidArmor);
+        registerModelLayer(SMCMModelLayers.LOST, SkeletonModel::createBodyLayer);
+        registerArmorLayers(SMCMModelLayers.LOST_ARMOR, humanoidArmor);
+        registerModelLayer(SMCMModelLayers.NECROMANCER, () -> NecromancerModel.createBodyLayer().apply(MeshTransformer.scaling(1.2F)));
+        registerModelLayer(SMCMModelLayers.ZOMBIFIED_PIGLIN_BRUTE, AdultZombifiedPiglinModel::createBodyLayer);
+        registerArmorLayers(SMCMModelLayers.ZOMBIFIED_PIGLIN_BRUTE_ARMOR, piglinArmor);
+        registerModelLayer(SMCMModelLayers.RECLAIMED_PUKE, ReclaimedPukeModel::createBodyLayer);
+        registerModelLayer(SMCMModelLayers.VILER_WITCH, () -> VilerWitchModel.createBodyLayer().apply(villagerLikeScale));
+        registerModelLayer(SMCMModelLayers.GEOMANCER, () -> IllagerModel.createBodyLayer().apply(villagerLikeScale));
+        registerModelLayer(SMCMModelLayers.MOUNTAINEER, () -> IllagerModel.createBodyLayer().apply(villagerLikeScale));
+        registerModelLayer(SMCMModelLayers.WINDCALLER, () -> WindcallerModel.createBodyLayer().apply(villagerLikeScale));
+        registerModelLayer(SMCMModelLayers.ICEOLOGER, () -> IceologerModel.createBodyLayer().apply(villagerLikeScale));
+        registerModelLayer(SMCMModelLayers.REDSTONE_GOLEM, RedstoneGolemModel::createBodyLayer);
+        registerModelLayer(SMCMModelLayers.REDSTONE_GOLEM_GLOW, RedstoneGolemModel::createGlowLayer);
+        registerModelLayer(SMCMModelLayers.REDSTONE_GOLEM_EYES, RedstoneGolemModel::createEyesLayer);
+		registerModelLayer(SMCMModelLayers.REDSTONE_MONSTROSITY, RedstoneMonstrosityModel::createBodyLayer);
+        registerModelLayer(SMCMModelLayers.PIGLIN_FARMER, AdultPiglinModel::createBodyLayer);
+        registerArmorLayers(SMCMModelLayers.PIGLIN_FARMER_ARMOR, piglinArmor);
+		registerModelLayer(SMCMModelLayers.WILDFIRE, WildfireModel::createBodyLayer);
+		registerModelLayer(SMCMModelLayers.WRAITH, WraithModel::createBodyLayer);
+		registerModelLayer(SMCMModelLayers.NECROMANCER_BALL, NecromancerBallModel::createBodyLayer);
     }
 
 	public static void registerModelLayer(ModelLayerLocation modelLayerLocation, Supplier<LayerDefinition> consumer) {

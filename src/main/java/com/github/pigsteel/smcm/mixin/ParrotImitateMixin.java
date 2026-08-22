@@ -1,8 +1,7 @@
 package com.github.pigsteel.smcm.mixin;
 
-import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.parrot.Parrot;
@@ -27,16 +26,16 @@ public abstract class ParrotImitateMixin {
 
     @Inject(method = "getImitatedSound", at = @At("HEAD"))
     private static void smcm$injectMimics(EntityType<?> id, CallbackInfoReturnable<SoundEvent> cir) {
-        if (!MOB_SOUND_MAP.containsKey(smcm$EntityTypes.FROSTBITTEN.get())) {
+        if (!MOB_SOUND_MAP.containsKey(SMCMEntityTypes.FROSTBITTEN.get())) {
             Map<EntityType<?>, SoundEvent> map = new HashMap<>(MOB_SOUND_MAP);
 
-            map.put(smcm$EntityTypes.FROSTBITTEN.get(), smcm$SoundEvents.PARROT_IMITATE_FROSTBITTEN.get());
-            map.put(smcm$EntityTypes.RECLAIMED.get(), smcm$SoundEvents.PARROT_IMITATE_RECLAIMED.get());
-            map.put(smcm$EntityTypes.ENCHANTER.get(), smcm$SoundEvents.PARROT_IMITATE_ENCHANTER.get());
-            map.put(smcm$EntityTypes.SUNKEN.get(), smcm$SoundEvents.PARROT_IMITATE_SUNKEN.get());
-            map.put(smcm$EntityTypes.LOST.get(), smcm$SoundEvents.PARROT_IMITATE_LOST.get());
-            map.put(smcm$EntityTypes.NECROMANCER.get(), smcm$SoundEvents.PARROT_IMITATE_NECROMANCER.get());
-			map.put(smcm$EntityTypes.VILER_WITCH.get(), smcm$SoundEvents.PARROT_IMITATE_VILER_WITCH.get());
+            map.put(SMCMEntityTypes.FROSTBITTEN.get(), SMCMSoundEvents.PARROT_IMITATE_FROSTBITTEN.get());
+            map.put(SMCMEntityTypes.RECLAIMED.get(), SMCMSoundEvents.PARROT_IMITATE_RECLAIMED.get());
+            map.put(SMCMEntityTypes.ENCHANTER.get(), SMCMSoundEvents.PARROT_IMITATE_ENCHANTER.get());
+            map.put(SMCMEntityTypes.SUNKEN.get(), SMCMSoundEvents.PARROT_IMITATE_SUNKEN.get());
+            map.put(SMCMEntityTypes.LOST.get(), SMCMSoundEvents.PARROT_IMITATE_LOST.get());
+            map.put(SMCMEntityTypes.NECROMANCER.get(), SMCMSoundEvents.PARROT_IMITATE_NECROMANCER.get());
+			map.put(SMCMEntityTypes.VILER_WITCH.get(), SMCMSoundEvents.PARROT_IMITATE_VILER_WITCH.get());
 
             MOB_SOUND_MAP = map;
         }

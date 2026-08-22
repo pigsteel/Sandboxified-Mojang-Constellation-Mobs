@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.mixin;
 
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.monster.VilerWitch;
 import net.minecraft.server.level.ServerLevel;
@@ -30,7 +30,7 @@ public abstract class WitchTurnsIntoVilerWitchMixin extends Raider {
         }
 
         if (level.getDifficulty() != Difficulty.PEACEFUL && witch.getType() == EntityTypesUtil.WITCH) {
-            VilerWitch vilerWitch = witch.convertTo(smcm$EntityTypes.VILER_WITCH.get(), ConversionParams.single(witch, false, false), w -> {
+            VilerWitch vilerWitch = witch.convertTo(SMCMEntityTypes.VILER_WITCH.get(), ConversionParams.single(witch, false, false), w -> {
                 w.finalizeSpawn(level, level.getCurrentDifficultyAt(w.blockPosition()), EntitySpawnReason.CONVERSION, null);
                 w.setPersistenceRequired();
             });

@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster.redstonegolem;
 
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -149,12 +149,12 @@ public class RedstoneGolem extends Raider {
 
     @Override
     public SoundEvent getAmbientSound() {
-        return smcm$SoundEvents.REDSTONE_GOLEM_AMBIENT.get();
+        return SMCMSoundEvents.REDSTONE_GOLEM_AMBIENT.get();
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return smcm$SoundEvents.REDSTONE_GOLEM_DEATH.get();
+        return SMCMSoundEvents.REDSTONE_GOLEM_DEATH.get();
     }
 
     @Override
@@ -168,11 +168,11 @@ public class RedstoneGolem extends Raider {
     }
 
     public SoundEvent getStepSound() {
-        return smcm$SoundEvents.REDSTONE_GOLEM_STEP_LIGHT.get();
+        return SMCMSoundEvents.REDSTONE_GOLEM_STEP_LIGHT.get();
     }
 
     @Override
     public SoundEvent getHurtSound(DamageSource source) {
-        return smcm$SoundEvents.REDSTONE_GOLEM_HURT.get();
+        return SMCMSoundEvents.REDSTONE_GOLEM_HURT.get();
     }
 }

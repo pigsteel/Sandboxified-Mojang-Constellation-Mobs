@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster.skeleton;
 
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.world.entity.ProjectileUtil;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
@@ -52,22 +52,22 @@ public class Lost extends AbstractSkeleton {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$SoundEvents.LOST_AMBIENT.get();
+        return SMCMSoundEvents.LOST_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$SoundEvents.LOST_HURT.get();
+        return SMCMSoundEvents.LOST_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$SoundEvents.LOST_DEATH.get();
+        return SMCMSoundEvents.LOST_DEATH.get();
     }
 
     @Override
     public SoundEvent getStepSound() {
-        return smcm$SoundEvents.LOST_STEP.get();
+        return SMCMSoundEvents.LOST_STEP.get();
     }
 
     @Override

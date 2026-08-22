@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.FrostbittenOuterLayer;
@@ -19,10 +19,10 @@ public class FrostbittenRenderer extends AbstractZombieRenderer<Frostbitten, Fro
     public FrostbittenRenderer(final EntityRendererProvider.Context context) {
         super(
                 context,
-                new FrostbittenModel(context.bakeLayer(smcm$ModelLayers.FROSTBITTEN)),
-                new BabyFrostbittenModel(context.bakeLayer(smcm$ModelLayers.FROSTBITTEN_BABY)),
-                ArmorModelSet.bake(smcm$ModelLayers.FROSTBITTEN_ARMOR, context.getModelSet(), FrostbittenModel::new),
-                ArmorModelSet.bake(smcm$ModelLayers.FROSTBITTEN_BABY_ARMOR, context.getModelSet(), BabyFrostbittenModel::new)
+                new FrostbittenModel(context.bakeLayer(SMCMModelLayers.FROSTBITTEN)),
+                new BabyFrostbittenModel(context.bakeLayer(SMCMModelLayers.FROSTBITTEN_BABY)),
+                ArmorModelSet.bake(SMCMModelLayers.FROSTBITTEN_ARMOR, context.getModelSet(), FrostbittenModel::new),
+                ArmorModelSet.bake(SMCMModelLayers.FROSTBITTEN_BABY_ARMOR, context.getModelSet(), BabyFrostbittenModel::new)
         );
         this.addLayer(new FrostbittenOuterLayer(this, context.getModelSet()));
     }

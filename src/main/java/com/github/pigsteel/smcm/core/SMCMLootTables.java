@@ -5,7 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-public class smcm$LootTables {
+public class SMCMLootTables {
     public static ResourceKey<LootTable> FROSTBITTEN = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/frostbitten"));
     public static ResourceKey<LootTable> RECLAIMED = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/reclaimed"));
     public static ResourceKey<LootTable> ENCHANTER = ResourceKey.create(Registries.LOOT_TABLE, SMCM.id("entities/enchanter"));

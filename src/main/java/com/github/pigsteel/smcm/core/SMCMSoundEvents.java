@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.SOUND_EVENTS;
 *///?}
 
-public class smcm$SoundEvents {
+public class SMCMSoundEvents {
     public static final Supplier<SoundEvent> FROSTBITTEN_AMBIENT = registerSoundEvent("entity.frostbitten.ambient");
     public static final Supplier<SoundEvent> FROSTBITTEN_HURT = registerSoundEvent("entity.frostbitten.hurt");
     public static final Supplier<SoundEvent> FROSTBITTEN_DEATH = registerSoundEvent("entity.frostbitten.death");

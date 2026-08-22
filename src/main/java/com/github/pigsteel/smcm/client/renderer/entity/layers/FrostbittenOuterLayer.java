@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity.layers;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
 import com.github.pigsteel.smcm.client.renderer.entity.FrostbittenRenderer;
@@ -23,8 +23,8 @@ public class FrostbittenOuterLayer extends RenderLayer<FrostbittenRenderState, F
 
     public FrostbittenOuterLayer(RenderLayerParent<FrostbittenRenderState, FrostbittenModel> renderer, final EntityModelSet modelSet) {
         super(renderer);
-        this.model = new FrostbittenModel(modelSet.bakeLayer(smcm$ModelLayers.FROSTBITTEN_OUTER_LAYER));
-        this.babyModel = new BabyFrostbittenModel(modelSet.bakeLayer(smcm$ModelLayers.FROSTBITTEN_BABY_OUTER_LAYER));
+        this.model = new FrostbittenModel(modelSet.bakeLayer(SMCMModelLayers.FROSTBITTEN_OUTER_LAYER));
+        this.babyModel = new BabyFrostbittenModel(modelSet.bakeLayer(SMCMModelLayers.FROSTBITTEN_BABY_OUTER_LAYER));
     }
 
     public void submit(final PoseStack poseStack, final SubmitNodeCollector submitNodeCollector, final int lightCoords, final FrostbittenRenderState state, final float yRot, final float xRot) {

@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.world.entity.monster.skeleton;
 
 import com.github.pigsteel.smcm.client.renderer.entity.SunkenRenderer;
-import com.github.pigsteel.smcm.core.smcm$Registries;
+import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.ClientAsset;
@@ -75,8 +75,8 @@ public record SunkenVariant(
     }
 
     static {
-        CODEC = RegistryFixedCodec.create(smcm$Registries.SUNKEN_VARIANT);
-        STREAM_CODEC = ByteBufCodecs.holderRegistry(smcm$Registries.SUNKEN_VARIANT);
+        CODEC = RegistryFixedCodec.create(SMCMCustomRegistries.SUNKEN_VARIANT);
+        STREAM_CODEC = ByteBufCodecs.holderRegistry(SMCMCustomRegistries.SUNKEN_VARIANT);
     }
 
     public enum ModelType implements StringRepresentable {

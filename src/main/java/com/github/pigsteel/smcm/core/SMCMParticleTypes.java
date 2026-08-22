@@ -10,7 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 
 import java.util.function.Supplier;
 
-public class smcm$ParticleTypes {
+public class SMCMParticleTypes {
 	public static final Supplier<SimpleParticleType> NECROMANCER_MAGIC = register("necromancer_magic", false);
 
 	private static Supplier<SimpleParticleType> register(final String name, final boolean overrideLimiter) {

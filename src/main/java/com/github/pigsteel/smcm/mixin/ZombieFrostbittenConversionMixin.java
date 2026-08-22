@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.mixin;
 
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import com.github.pigsteel.smcm.network.SMCMLevelEventPacketPayload;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.ZombieFrostbittenConversion;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.github.pigsteel.smcm.core.smcm$DataAttachments.DATA_FROSTBITTEN_CONVERSION_ID;
+import static com.github.pigsteel.smcm.core.SMCMDataAttachments.DATA_FROSTBITTEN_CONVERSION_ID;
 
 @Mixin(Zombie.class)
 public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbittenConversion {
@@ -85,7 +85,7 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     public void smcm$doFreezeConversion() {
         Zombie zombie = (Zombie) (Object) this;
 
-        zombie.convertTo(smcm$EntityTypes.FROSTBITTEN.get(), ConversionParams.single(zombie, true, true), (frostbitten) -> {
+        zombie.convertTo(SMCMEntityTypes.FROSTBITTEN.get(), ConversionParams.single(zombie, true, true), (frostbitten) -> {
             if (!zombie.isSilent()) {
 				SMCMLevelEventPacketPayload payload = new SMCMLevelEventPacketPayload(1001, zombie.blockPosition());
 

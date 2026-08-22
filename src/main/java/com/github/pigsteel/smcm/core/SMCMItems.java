@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 /*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ITEMS;
 *///?}
 
-public class smcm$Items {
+public class SMCMItems {
 	public static final Supplier<Item> BRUISER_SPAWN_EGG;
 
 	public static final Supplier<Item> FROSTBITTEN_SPAWN_EGG;
@@ -64,76 +64,76 @@ public class smcm$Items {
 	static {
 		BRUISER_SPAWN_EGG = register(
 				"bruiser_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.BRUISER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.BRUISER.get()))
 		);
 		FROSTBITTEN_SPAWN_EGG = register(
 				"frostbitten_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.FROSTBITTEN.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.FROSTBITTEN.get()))
 		);
 
 		RECLAIMED_SPAWN_EGG = register(
 				"reclaimed_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.RECLAIMED.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.RECLAIMED.get()))
 		);
 
 		ENCHANTER_SPAWN_EGG = register(
 				"enchanter_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.ENCHANTER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.ENCHANTER.get()))
 		);
 
 		SUNKEN_SPAWN_EGG = register(
 				"sunken_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.SUNKEN.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.SUNKEN.get()))
 		);
 
 		LOST_SPAWN_EGG = register(
 				"lost_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.LOST.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.LOST.get()))
 		);
 
 		NECROMANCER_SPAWN_EGG = register(
 				"necromancer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.NECROMANCER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.NECROMANCER.get()))
 		);
 
 		ZOMBIFIED_PIGLIN_BRUTE_SPAWN_EGG = register(
 				"zombified_piglin_brute_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.ZOMBIFIED_PIGLIN_BRUTE.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE.get()))
 		);
 
 		GEOMANCER_SPAWN_EGG = register(
 				"geomancer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.GEOMANCER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.GEOMANCER.get()))
 		);
 
 		ICEOLOGER_SPAWN_EGG = register(
 				"iceologer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.ICEOLOGER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.ICEOLOGER.get()))
 		);
 
 		VILER_WITCH_SPAWN_EGG = register(
 				"viler_witch_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.VILER_WITCH.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.VILER_WITCH.get()))
 		);
 
 		MOUNTAINEER_SPAWN_EGG = register(
 				"mountaineer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.MOUNTAINEER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.MOUNTAINEER.get()))
 		);
 
 		WINDCALLER_SPAWN_EGG = register(
 				"windcaller_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.WINDCALLER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.WINDCALLER.get()))
 		);
 
 		REDSTONE_GOLEM_SPAWN_EGG = register(
 				"redstone_golem_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.REDSTONE_GOLEM.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.REDSTONE_GOLEM.get()))
 		);
 
 		PIGLIN_FARMER_SPAWN_EGG = register(
 				"piglin_farmer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(smcm$EntityTypes.PIGLIN_FARMER.get()))
+				properties -> new SpawnEggItem(properties.spawnEgg(SMCMEntityTypes.PIGLIN_FARMER.get()))
 		);
 	}
 

@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.redstonegolem.RedstoneGolemModel;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.TintedEmissiveLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.RedstoneGolemRenderState;
@@ -18,9 +18,9 @@ public class RedstoneGolemRenderer extends MobRenderer<RedstoneGolem, RedstoneGo
     private static final Identifier EYES_LOCATION = SMCM.id("textures/entity/redstone_golem/redstone_golem_eyes.png");
 
     public RedstoneGolemRenderer(EntityRendererProvider.Context context) {
-        super(context, new RedstoneGolemModel(context.bakeLayer(smcm$ModelLayers.REDSTONE_GOLEM)), 1.5F);
-        RedstoneGolemModel redstoneGlowModel = new RedstoneGolemModel(context.bakeLayer(smcm$ModelLayers.REDSTONE_GOLEM_GLOW));
-        RedstoneGolemModel eyesModel = new RedstoneGolemModel(context.bakeLayer(smcm$ModelLayers.REDSTONE_GOLEM_EYES));
+        super(context, new RedstoneGolemModel(context.bakeLayer(SMCMModelLayers.REDSTONE_GOLEM)), 1.5F);
+        RedstoneGolemModel redstoneGlowModel = new RedstoneGolemModel(context.bakeLayer(SMCMModelLayers.REDSTONE_GOLEM_GLOW));
+        RedstoneGolemModel eyesModel = new RedstoneGolemModel(context.bakeLayer(SMCMModelLayers.REDSTONE_GOLEM_EYES));
         this.addLayer(
                 new LivingEntityEmissiveLayer<>(
                         this, renderState -> EYES_LOCATION, (golem, ageInTicks) -> 1.0F, eyesModel, RenderTypes::entityTranslucentEmissive, false

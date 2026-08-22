@@ -12,7 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import java.util.function.Supplier;
 
-public class smcm$MobEffects {
+public class SMCMMobEffects {
 	public static final Supplier<Holder<MobEffect>> CORRUPTION;
 
 	static {

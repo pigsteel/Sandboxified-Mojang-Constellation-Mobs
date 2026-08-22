@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 import com.github.pigsteel.smcm.client.model.monster.wildfire.WildfireModel;
 import com.github.pigsteel.smcm.world.entity.monster.Wildfire;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -13,7 +13,7 @@ public class WildfireRenderer extends MobRenderer<Wildfire, LivingEntityRenderSt
 	private static final Identifier WILDFIRE_LOCATION = SMCM.id("textures/entity/wildfire/wildfire.png");
 
 	public WildfireRenderer(EntityRendererProvider.Context context) {
-		super(context, new WildfireModel(context.bakeLayer(smcm$ModelLayers.WILDFIRE)), 0.0F);
+		super(context, new WildfireModel(context.bakeLayer(SMCMModelLayers.WILDFIRE)), 0.0F);
 	}
 
 	@Override

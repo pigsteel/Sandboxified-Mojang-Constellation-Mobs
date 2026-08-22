@@ -1,8 +1,8 @@
 package com.github.pigsteel.smcm.world.entity.monster.zombie;
 
-import com.github.pigsteel.smcm.core.smcm$DataComponents;
-import com.github.pigsteel.smcm.core.smcm$LootTables;
-import com.github.pigsteel.smcm.core.smcm$SoundEvents;
+import com.github.pigsteel.smcm.core.SMCMDataComponents;
+import com.github.pigsteel.smcm.core.SMCMLootTables;
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.world.entity.Bonemealable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.component.DataComponentGetter;
@@ -92,12 +92,12 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable, Ranged
 
     @Override
     public <T> @Nullable T get(final DataComponentType<? extends T> type) {
-        if (type == smcm$DataComponents.RECLAIMED_HEAD_FLOWER.get()) {
+        if (type == SMCMDataComponents.RECLAIMED_HEAD_FLOWER.get()) {
             HeadFlower flower = this.getHeadFlowerType();
 
             return flower == null
                     ? null
-                    : (T) castComponentValue(smcm$DataComponents.RECLAIMED_HEAD_FLOWER.get(), flower);
+                    : (T) castComponentValue(SMCMDataComponents.RECLAIMED_HEAD_FLOWER.get(), flower);
         }
 
         return super.get(type);
@@ -148,22 +148,22 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable, Ranged
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return smcm$SoundEvents.RECLAIMED_AMBIENT.get();
+        return SMCMSoundEvents.RECLAIMED_AMBIENT.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(final DamageSource source) {
-        return smcm$SoundEvents.RECLAIMED_HURT.get();
+        return SMCMSoundEvents.RECLAIMED_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return smcm$SoundEvents.RECLAIMED_DEATH.get();
+        return SMCMSoundEvents.RECLAIMED_DEATH.get();
     }
 
     @Override
     protected SoundEvent getStepSound() {
-        return smcm$SoundEvents.RECLAIMED_STEP.get();
+        return SMCMSoundEvents.RECLAIMED_STEP.get();
     }
 
     private static final BlockState[] HEAD_FLOWERS = new BlockState[] {
@@ -182,7 +182,7 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable, Ranged
 
     @Override
     public void bonemeal(ServerLevel level, SoundSource soundSource, ItemStack bonemealItem) {
-        level.playSound(null, this, smcm$SoundEvents.RECLAIMED_BONEMEAL.get(), soundSource, 1.0F, 1.0F);
+        level.playSound(null, this, SMCMSoundEvents.RECLAIMED_BONEMEAL.get(), soundSource, 1.0F, 1.0F);
         this.setHeadFlower(
                 HEAD_FLOWERS[this.random.nextInt(HEAD_FLOWERS.length)]
         );
@@ -196,11 +196,11 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable, Ranged
 
     @Override
     public void shear(ServerLevel level, SoundSource soundSource, ItemStack tool) {
-        level.playSound(null, this, smcm$SoundEvents.RECLAIMED_SHEAR.get(), soundSource, 1.0F, 1.0F);
+        level.playSound(null, this, SMCMSoundEvents.RECLAIMED_SHEAR.get(), soundSource, 1.0F, 1.0F);
         // check the flower and then take it off ()
         this.dropFromShearingLootTable(
                 level,
-                smcm$LootTables.SHEAR_RECLAIMED,
+                SMCMLootTables.SHEAR_RECLAIMED,
                 tool,
                 (l, drop) -> this.spawnAtLocation(l, drop, this.getEyeHeight())
         );
@@ -214,14 +214,14 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable, Ranged
 
     @Override
     protected void applyImplicitComponents(final DataComponentGetter components) {
-        this.applyImplicitComponentIfPresent(components, smcm$DataComponents.RECLAIMED_HEAD_FLOWER.get());
+        this.applyImplicitComponentIfPresent(components, SMCMDataComponents.RECLAIMED_HEAD_FLOWER.get());
         super.applyImplicitComponents(components);
     }
 
     @Override
     protected <T> boolean applyImplicitComponent(final DataComponentType<T> type, final T value) {
-        if (type == smcm$DataComponents.RECLAIMED_HEAD_FLOWER.get()) {
-            this.setHeadFlower(castComponentValue(smcm$DataComponents.RECLAIMED_HEAD_FLOWER.get(), value).defaultBlockState());
+        if (type == SMCMDataComponents.RECLAIMED_HEAD_FLOWER.get()) {
+            this.setHeadFlower(castComponentValue(SMCMDataComponents.RECLAIMED_HEAD_FLOWER.get(), value).defaultBlockState());
             return true;
         } else {
             return super.applyImplicitComponent(type, value);

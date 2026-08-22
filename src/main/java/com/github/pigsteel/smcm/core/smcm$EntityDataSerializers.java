@@ -26,7 +26,7 @@ public class smcm$EntityDataSerializers {
 		*///?}
     }
 
-    public static void register() {
+    public static void load() {
         registerSerializer(SUNKEN_VARIANT, "sunken/variant");
 		registerSerializer(NECROMANCER_SPELL, "necromancer_spell");
     }

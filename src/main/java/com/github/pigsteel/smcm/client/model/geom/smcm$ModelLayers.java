@@ -57,5 +57,5 @@ public class smcm$ModelLayers {
         return new ArmorModelSet<>(register(modelId, "helmet"), register(modelId, "chestplate"), register(modelId, "leggings"), register(modelId, "boots"));
     }
 
-	public static void init() {}
+	public static void load() {}
 }

@@ -7,9 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.function.Supplier;
 
 //? neoforge {
@@ -47,5 +45,5 @@ public class smcm$MemoryModuleTypes {
 		PENDING_SUMMON = register("necromancer_pending_summon");
 	}
 
-	public static void init() {}
+	public static void load() {}
 }

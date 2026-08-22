@@ -12,6 +12,7 @@ import com.github.pigsteel.smcm.core.smcm$Items;
 import com.github.pigsteel.smcm.core.smcm$LootTables;
 import com.github.pigsteel.smcm.core.smcm$MobEffects;
 import com.github.pigsteel.smcm.core.smcm$Packets;
+import com.github.pigsteel.smcm.core.smcm$ParticleTypes;
 import com.github.pigsteel.smcm.core.smcm$Registries;
 import com.github.pigsteel.smcm.core.smcm$SoundEvents;
 import com.github.pigsteel.smcm.mixson.advancements.AdvancementEvents;
@@ -40,27 +41,29 @@ public class SMCM {
 
 	public static void onInitialize() {
 		smcm$Registries.load();
-		smcm$Packets.init();
-		smcm$MemoryModuleTypes.init();
-		smcm$SensorTypes.init();
-		smcm$EntityDataSerializers.register();
-		smcm$EntityTypes.register();
-		smcm$Items.register();
-		smcm$DefaultAttributes.register();
-		smcm$DataComponents.init();
+		smcm$Packets.load();
+		smcm$MemoryModuleTypes.load();
+		smcm$SensorTypes.load();
+		smcm$EntityDataSerializers.load();
+		smcm$EntityTypes.load();
+		smcm$Items.load();
+		smcm$DefaultAttributes.load();
+		smcm$DataComponents.load();
 		smcm$LootTables.load();
 		smcm$DataAttachments.load();
-		smcm$SoundEvents.register();
-		smcm$MobEffects.init();
+		smcm$SoundEvents.load();
+		smcm$MobEffects.load();
+		smcm$ParticleTypes.load();
 
-		AdvancementEvents.init();
+		AdvancementEvents.load();
 	}
 
 	public static void onInitializeClient() {
-		smcm$ModelLayers.init();
-		smcm$LayerDefinitions.registerModelLayers();
-		smcm$EntityRenderers.register();
-		smcm$Packets.clinit();
+		smcm$ModelLayers.load();
+		smcm$LayerDefinitions.load();
+		smcm$EntityRenderers.load();
+		smcm$Packets.clientLoad();
+		smcm$ParticleTypes.clientLoad();
 	}
 
 	public static Platform xplat() {

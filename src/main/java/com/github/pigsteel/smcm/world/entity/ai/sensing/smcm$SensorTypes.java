@@ -28,5 +28,5 @@ public class smcm$SensorTypes {
 		NECROMANCER_ATTACK_ENTITY_SENSOR = register("necromancer_attack_entity_sensor", NecromancerAttackEntitySensor::new);
 	}
 
-	public static void init() {}
+	public static void load() {}
 }

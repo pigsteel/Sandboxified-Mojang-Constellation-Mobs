@@ -33,7 +33,7 @@ import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.DEFAU
 public final class smcm$DefaultAttributes {
     private smcm$DefaultAttributes() {}
 
-    public static void register() {
+    public static void load() {
         registerAttributes(smcm$EntityTypes.BRUISER, Bruiser::createAttributes);
         registerAttributes(smcm$EntityTypes.ENCHANTER, Enchanter::createAttributes);
         registerAttributes(smcm$EntityTypes.FROSTBITTEN, Frostbitten::createAttributes);

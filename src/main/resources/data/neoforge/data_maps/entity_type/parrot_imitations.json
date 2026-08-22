@@ -17,6 +17,9 @@
     },
     "smcm:sunken": {
       "sound": "smcm:entity.parrot.imitate.sunken"
+    },
+    "smcm:viler_witch": {
+      "sound": "smcm:entity.parrot.imitate.viler_witch"
     }
   }
 }

@@ -241,5 +241,5 @@ public class smcm$EntityTypes {
 		 *///?}
 	}
 
-	public static void register() {}
+	public static void load() {}
 }

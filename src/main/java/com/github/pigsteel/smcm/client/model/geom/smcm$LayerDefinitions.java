@@ -1,6 +1,5 @@
 package com.github.pigsteel.smcm.client.model.geom;
 
-import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.enchanter.EnchanterModel;
 import com.github.pigsteel.smcm.client.model.monster.iceologer.IceologerModel;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerBallModel;
@@ -20,7 +19,6 @@ import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedPukeModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -31,9 +29,7 @@ import net.minecraft.client.model.monster.piglin.AdultZombifiedPiglinModel;
 import net.minecraft.client.model.monster.piglin.PiglinModel;
 import net.minecraft.client.model.monster.skeleton.SkeletonModel;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
-import net.minecraft.client.renderer.entity.WitherSkullRenderer;
 
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 //? neoforge {
@@ -47,7 +43,7 @@ public class smcm$LayerDefinitions {
     private static final CubeDeformation BABY_OUTER_ARMOR_DEFORMATION = new CubeDeformation(-0.1F, 0.5F, 0.3F);
     private static final CubeDeformation BABY_INNER_ARMOR_DEFORMATION = new CubeDeformation(-0.1F, 0.3F, 0.3F);
 
-    public static void registerModelLayers() {
+    public static void load() {
         MeshTransformer villagerLikeScale = MeshTransformer.scaling(0.9375F);
         //1.0625F
         ArmorModelSet<LayerDefinition> humanoidArmor = HumanoidModel.createArmorMeshSet(INNER_ARMOR_DEFORMATION, OUTER_ARMOR_DEFORMATION)

@@ -13,9 +13,9 @@ public class smcm$Packets {
 		//?}
 	}
 
-	public static void init() {}
+	public static void load() {}
 
-	public static void clinit() {
+	public static void clientLoad() {
 		//? fabric {
 		ClientPlayNetworking.registerGlobalReceiver(SMCMLevelEventPacketPayload.TYPE, SMCMLevelEventPacketPayload::handle);
 		//?}

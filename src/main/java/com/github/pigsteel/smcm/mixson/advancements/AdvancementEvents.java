@@ -1,17 +1,14 @@
 package com.github.pigsteel.smcm.mixson.advancements;
 
-import com.github.pigsteel.smcm.SMCM;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.resources.Identifier;
 import net.ramixin.mixson.Mixson;
 import net.ramixin.mixson.enums.ErrorPolicy;
 import net.ramixin.mixson.enums.Lifetime;
 import net.ramixin.mixson.util.Index;
 
 public class AdvancementEvents {
-	public static void init() {
+	public static void load() {
 		Mixson.registerEvent(
 				0,
 				Lifetime.PERSISTENT,

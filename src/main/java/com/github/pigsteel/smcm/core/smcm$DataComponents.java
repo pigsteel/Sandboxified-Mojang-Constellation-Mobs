@@ -39,7 +39,7 @@ public class smcm$DataComponents {
 					.networkSynchronized(ByteBufCodecs.BOOL)
 	);
 
-    public static void init() {
+    public static void load() {
     }
 
     private static <T> Supplier<DataComponentType<T>> register(

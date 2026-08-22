@@ -123,5 +123,5 @@ public class smcm$SoundEvents {
 		//?}
     }
 
-    public static void register() {}
+    public static void load() {}
 }

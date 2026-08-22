@@ -137,5 +137,5 @@ public class smcm$Items {
 		);
 	}
 
-	public static void register() {}
+	public static void load() {}
 }

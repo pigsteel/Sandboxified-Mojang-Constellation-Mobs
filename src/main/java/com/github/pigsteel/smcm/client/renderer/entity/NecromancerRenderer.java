@@ -35,7 +35,7 @@ public class NecromancerRenderer extends MobRenderer<Necromancer, NecromancerRen
         super.extractRenderState(entity, state, partialTicks);
         extractCapeState(entity, state, partialTicks);
 
-		entity.orbPosition = state.staffBallPosition;
+		entity.setOrbPosition(state.staffBallPosition);
 		state.isLeftHanded = entity.isLeftHanded();
         state.summonAnimationState.copyFrom(entity.summonAnimationState);
         state.shootingAnimationState.copyFrom(entity.shootingAnimationState);

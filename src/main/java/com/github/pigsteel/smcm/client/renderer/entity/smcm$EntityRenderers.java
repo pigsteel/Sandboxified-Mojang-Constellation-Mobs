@@ -15,7 +15,7 @@ import net.minecraft.world.entity.EntityType;
 import java.util.function.Supplier;
 
 public class smcm$EntityRenderers {
-    public static void register() {}
+    public static void load() {}
 
 	static {
 		registerEntityRenderer(smcm$EntityTypes.BRUISER, BruiserRenderer::new);

@@ -66,9 +66,9 @@ public class ShootingMagic<E extends Necromancer> extends Behavior<E> {
 				double xd = target.getX() - body.getX();
 				double yd = target.getEyeY() - body.getFiringYPosition();
 				double zd = target.getZ() - body.getZ();
-/*
+
 				Projectile.spawnProjectileUsingShoot(new NecromancerBall(body, level), level, ItemStack.EMPTY, xd, yd, zd, 0.5F, 0.0F);
-*/
+
 				body.playSound(smcm$SoundEvents.NECROMANCER_SPELL.get(), 1.0F, 1.0F);
 				state = State.FIRED;
 			}

@@ -1,20 +1,20 @@
 ## Overview
-Sandboxified Mojang Constellation Mobs (yes, it's a mouthful) is a collection of Minecraft universe mobs (currently very small) designed to be flush with Mojang's design in a way that would make their addition to a vanilla playthrough look and feel relatively seamless. 
+Sandboxified Mojang Constellation Mobs (yes, it's a mouthful) is a collection of Minecraft universe mobs (currently very small) designed to be flush with Mojang's design in a way that would make their addition to a vanilla playthrough look and feel relatively seamless.
 
-More niche facets of the game have been duly considered, for example:
+Infrequently attended facets of the game have been satisfied, for example:
 - Parrots will mimic the sounds of SMCM mobs
 - Mobs, when appropriate, have been given Trial Chamber Spawner entries
 - Subtitles have been given consideration (within precedent) to properly characterize new mobs
-- Sounds that were missing from the original source games have been composed (like the Frostbitten's new frosty footstep sounds!)
+- Sounds that should be unique that were missing from the original source games have been composed (like the Frostbitten's new frosty footstep sounds!)
 - Mobs have been given environmental conversions from vanilla mobs where possible
-
-New monsters will join the ranks of the Illagers and Monsters that belong in Minecraft's artstyle and bring with them novel abilities and interactions!
+- Illagers and Illager-adjacent mobs have been given spawn weights in Raids
+- Vanilla Advancements include criterion for SMCM mobs
 
 <details>
 <summary>Mobs</summary>
 <p>Currently the only non-creative mobs are:</p>
-  
-## The **Reclaimed** (formerly [Jungle Zombie](https://minecraft.wiki/w/Dungeons:Jungle_Zombie)) 
+
+## The **Reclaimed** (formerly [Jungle Zombie](https://minecraft.wiki/w/Dungeons:Jungle_Zombie))
 
 A Zombie found in Jungle biomes covered in vines which inflicts poison when attacking.
 
@@ -53,3 +53,6 @@ Permission is granted! As long as you include this mod as modrinth metadata rath
 
 ## Suggestions, issues, contributions
 Something missing? You'd like to suggest something? Would you like to translate this mod into your language? Join my [discord server](https://discord.gg/mpgsR5Wj4M)!
+
+## Additional credits
+Thank you rotgruengelb, murderspagurder and contributors for the [template](https://github.com/rotgruengelb/stonecutter-mod-template/tree/main) on which this project is based. stonecutter-mod-template is under the [MIT License](https://raw.githubusercontent.com/rotgruengelb/stonecutter-mod-template/refs/heads/main/LICENSE).

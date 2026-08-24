@@ -1,5 +1,4 @@
-## Overview
-Sandboxified Mojang Constellation Mobs (yes, it's a mouthful) is a collection of Minecraft universe mobs (currently very small) designed to be flush with Mojang's design in a way that would make their addition to a vanilla playthrough look and feel relatively seamless.
+**Sandboxified Mojang Constellation Mobs** is a collection of Minecraft universe mobs designed to be flush with Mojang's design in a way that would make their addition to a vanilla playthrough look and feel seamless.
 
 Infrequently attended facets of the game have been satisfied, for example:
 - Parrots will mimic the sounds of SMCM mobs
@@ -38,9 +37,6 @@ Mojang's Constellation includes Minecraft Dungeons, Earth, and various concepts 
 ## Translation
 Thanks to the help of my wonderful friends and public contributors, this mod supports French, Italian, German, & Romanian.
 
-### Todo:
-Canadian French, Mexican Spanish, Spanish (Spain), Greek, Russian, Traditional Chinese, Simplified Chinese, Dutch
-
 ## Dependencies
 Requires [Mixson](https://modrinth.com/mod/mixson) - I use this to register my mobs dynamically with the vanilla advancements [Monster Hunter](https://minecraft.wiki/w/Advancement#Monster_Hunter) and [Monsters Hunted](https://minecraft.wiki/w/Advancement#Monsters_Hunted).
 
@@ -54,5 +50,27 @@ Permission is granted! As long as you include this mod as modrinth metadata rath
 ## Suggestions, issues, contributions
 Something missing? You'd like to suggest something? Would you like to translate this mod into your language? Join my [discord server](https://discord.gg/mpgsR5Wj4M)!
 
-## Additional credits
-Thank you rotgruengelb, murderspagurder and contributors for the [template](https://github.com/rotgruengelb/stonecutter-mod-template/tree/main) on which this project is based. stonecutter-mod-template is under the [MIT License](https://raw.githubusercontent.com/rotgruengelb/stonecutter-mod-template/refs/heads/main/LICENSE).
+## Credits
+
+### Template
+Big thanks to rotgruengelb, murderspagurder and contributors for the [template](https://github.com/rotgruengelb/stonecutter-mod-template/tree/main) on which this project is based. stonecutter-mod-template is under the [MIT License](https://raw.githubusercontent.com/rotgruengelb/stonecutter-mod-template/refs/heads/main/LICENSE).
+
+### Sound Design
+
+**memcpy** - Frostbitten sounds
+
+### Translation
+**en_gb, en_up**
+<p>ags816710</p>
+
+**it_it**
+<p>Maurizuc</p>
+
+**ro_ro**
+<p>JapanesBrich</p>
+
+**de_de**
+<p>Enderfarmer</p>
+
+**es_ar**
+<p>AlbeGian</p>

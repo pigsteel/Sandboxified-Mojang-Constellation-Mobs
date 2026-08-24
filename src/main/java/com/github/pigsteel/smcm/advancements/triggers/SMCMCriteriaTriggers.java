@@ -9,7 +9,7 @@ import net.minecraft.advancements.triggers.CriterionTrigger;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 
-public class smcm$CriteriaTriggers {
+public class SMCMCriteriaTriggers {
 
 
 

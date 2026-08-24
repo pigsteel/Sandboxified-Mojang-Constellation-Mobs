@@ -10,13 +10,14 @@
     "PathTypeMixin",
     "RaiderTypeMixin",
     "RaidMixin",
+    "SkeletonSunkenConversionMixin",
     "SnowballHitMixin",
     "WitchTurnsIntoVilerWitchMixin",
     "ZombieFrostbittenConversionMixin"
   ],
   "client": [
     "AgeableMobRendererIgnoreSunkenMixin",
-    "ZombieFrostbittenConversionRendererMixin",
+    "client.ZombieFrostbittenConversionRendererMixin",
     "client.LivingEntityRenderStateMixin"
   ],
   "server": [],

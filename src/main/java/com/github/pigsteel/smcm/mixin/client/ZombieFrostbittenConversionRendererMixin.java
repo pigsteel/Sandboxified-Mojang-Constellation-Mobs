@@ -1,4 +1,4 @@
-package com.github.pigsteel.smcm.mixin;
+package com.github.pigsteel.smcm.mixin.client;
 
 import com.github.pigsteel.smcm.world.entity.ZombieFrostbittenConversion;
 import net.minecraft.client.model.monster.zombie.ZombieModel;

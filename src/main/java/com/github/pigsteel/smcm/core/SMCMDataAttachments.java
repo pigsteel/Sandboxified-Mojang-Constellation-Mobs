@@ -17,6 +17,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.Entity;
 import org.jspecify.annotations.Nullable;
 
+import javax.xml.crypto.Data;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -38,6 +39,15 @@ public class SMCMDataAttachments {
                             ByteBufCodecs.BOOL
                     ).persistent(Codec.BOOL)
     );
+
+	public static final DataAttachmentHandle<Boolean> DATA_SUNKEN_CONVERSION_ID = register(
+			"data_sunken_conversion_id",
+			builder -> builder
+					.initializer(() -> false)
+					.syncWith(
+							ByteBufCodecs.BOOL
+					).persistent(Codec.BOOL)
+	);
 
     private SMCMDataAttachments() {
     }

@@ -176,13 +176,23 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     public @Nullable SpawnGroupData finalizeSpawn(
             ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason spawnReason, @Nullable SpawnGroupData groupData
     ) {
-        VariantUtils.selectVariantToSpawn(SpawnContext.create(level, this.blockPosition()), SMCMCustomRegistries.SUNKEN_VARIANT).ifPresent(this::setVariant);
+        this.selectVariant();
         return super.finalizeSpawn(level, difficulty, spawnReason, groupData);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return AbstractSkeleton.createAttributes().add(Attributes.FOLLOW_RANGE, (double)32.0F).add(Attributes.STEP_HEIGHT, (double)1.0F);
     }
+
+	public void selectVariant() {
+		VariantUtils.selectVariantToSpawn(
+				SpawnContext.create(
+						(ServerLevelAccessor) this.level(),
+						this.blockPosition()
+				),
+				SMCMCustomRegistries.SUNKEN_VARIANT
+		).ifPresent(this::setVariant);
+	}
 
     @Override
     protected void populateDefaultEquipmentSlots(final RandomSource random, final DifficultyInstance difficulty) {

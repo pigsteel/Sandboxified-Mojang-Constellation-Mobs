@@ -12,7 +12,10 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ConversionParams;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.zombie.Zombie;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,7 +37,7 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     @Unique
     private int smcm$freezingConversionTime;
 
-    @Unique
+	@Unique
     public boolean smcm$canFreezeConvert(Zombie zombie) {
         return zombie.getType() == EntityTypesUtil.ZOMBIE;
     }

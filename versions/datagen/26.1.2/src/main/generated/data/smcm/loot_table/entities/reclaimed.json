@@ -164,5 +164,5 @@
       "rolls": 1
     }
   ],
-  "random_sequence": "minecraft:entities/zombie"
+  "random_sequence": "smcm:entities/reclaimed"
 }

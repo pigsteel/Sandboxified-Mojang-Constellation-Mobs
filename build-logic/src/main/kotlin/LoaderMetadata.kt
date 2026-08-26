@@ -48,7 +48,8 @@ data class ForgeMod(
 	val authors: String,
 	val logoBlur: Boolean = false,
 	val credits: String,
-	val description: String
+	val description: String,
+	val enumExtensions: String
 )
 
 @Serializable

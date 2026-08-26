@@ -17,6 +17,7 @@ import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
 import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import com.github.pigsteel.smcm.mixson.advancements.AdvancementEvents;
 import com.github.pigsteel.smcm.platform.Platform;
+import com.github.pigsteel.smcm.util.EnumExtensions;
 import com.github.pigsteel.smcm.world.entity.ai.memory.SMCMMemoryModuleTypes;
 import com.github.pigsteel.smcm.world.entity.ai.sensing.SMCMSensorTypes;
 import net.minecraft.core.Registry;
@@ -26,10 +27,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
-import com.github.pigsteel.smcm.platform.fabric.FabricPlatform;
-//?} neoforge {
-/*import com.github.pigsteel.smcm.platform.neoforge.NeoforgePlatform;
- *///?}
+/*import com.github.pigsteel.smcm.platform.fabric.FabricPlatform;
+*///?} neoforge {
+import com.github.pigsteel.smcm.platform.neoforge.NeoforgePlatform;
+ //?}
 
 @SuppressWarnings("LoggingSimilarMessage")
 public class SMCM {
@@ -54,6 +55,7 @@ public class SMCM {
 		SMCMSoundEvents.load();
 		SMCMMobEffects.load();
 		SMCMParticleTypes.load();
+		EnumExtensions.load();
 
 		AdvancementEvents.load();
 	}
@@ -72,10 +74,10 @@ public class SMCM {
 
 	private static Platform createPlatformInstance() {
 		//? fabric {
-		return new FabricPlatform();
-		//?} neoforge {
-		/*return new NeoforgePlatform();
-		 *///?}
+		/*return new FabricPlatform();
+		*///?} neoforge {
+		return new NeoforgePlatform();
+		 //?}
 	}
 
 	public static Identifier id(String path) {

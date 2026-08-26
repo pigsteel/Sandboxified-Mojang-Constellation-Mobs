@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.datagen;
 
 //? fabric {
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+/*import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
@@ -17,4 +17,4 @@ public class SMCMLanguageProvider extends FabricLanguageProvider {
 
 	}
 }
-//?}
+*///?}

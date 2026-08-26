@@ -7,10 +7,10 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.EntityDataSerializer;
 
 //? fabric {
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityDataRegistry;
-//?} neoforge {
-/*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITY_DATA_SERIALIZERS;
-*///?}
+/*import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityDataRegistry;
+*///?} neoforge {
+import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITY_DATA_SERIALIZERS;
+//?}
 
 public class SMCMEntityDataSerializers {
 
@@ -20,10 +20,10 @@ public class SMCMEntityDataSerializers {
 
     public static void registerSerializer(EntityDataSerializer<?> serializer, String name) {
         //? fabric {
-		FabricEntityDataRegistry.register(SMCM.id(name), serializer);
-		//?} neoforge {
-		/*ENTITY_DATA_SERIALIZERS.register(name, () -> serializer);
-		*///?}
+		/*FabricEntityDataRegistry.register(SMCM.id(name), serializer);
+		*///?} neoforge {
+		ENTITY_DATA_SERIALIZERS.register(name, () -> serializer);
+		//?}
     }
 
     public static void load() {

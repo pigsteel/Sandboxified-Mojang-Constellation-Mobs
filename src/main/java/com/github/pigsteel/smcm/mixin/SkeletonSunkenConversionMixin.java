@@ -6,8 +6,6 @@ import com.github.pigsteel.smcm.network.SMCMLevelEventPacketPayload;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.SkeletonSunkenConversion;
 import com.google.common.annotations.VisibleForTesting;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ConversionParams;
@@ -22,6 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.github.pigsteel.smcm.core.SMCMDataAttachments.DATA_SUNKEN_CONVERSION_ID;
+
+//? fabric {
+/*import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+*///?} neoforge {
+import net.neoforged.neoforge.network.PacketDistributor;
+//?}
 
 @Mixin(Skeleton.class)
 public abstract class SkeletonSunkenConversionMixin implements SkeletonSunkenConversion {
@@ -90,11 +95,11 @@ public abstract class SkeletonSunkenConversionMixin implements SkeletonSunkenCon
 				SMCMLevelEventPacketPayload payload = new SMCMLevelEventPacketPayload(1003, skeleton.blockPosition());
 
 				//? fabric {
-				for (ServerPlayer player : PlayerLookup.level((ServerLevel) skeleton.level())) {
+				/*for (ServerPlayer player : PlayerLookup.level((ServerLevel) skeleton.level())) {
 					ServerPlayNetworking.send(player, payload);
 				}
-				//?} neoforge {
-
+				*///?} neoforge {
+				PacketDistributor.sendToPlayersTrackingChunk((ServerLevel) skeleton.level(), skeleton.chunkPosition(), payload);
 				//?}
 
 				sunken.selectVariant();

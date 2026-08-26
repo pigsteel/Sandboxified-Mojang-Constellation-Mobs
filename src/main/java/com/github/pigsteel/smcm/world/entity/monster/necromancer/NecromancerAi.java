@@ -68,9 +68,7 @@ public class NecromancerAi {
 										.map(entity -> (LivingEntity)entity)
 						),
 						createIdleMovementBehaviors(),
-						SetLookAndInteract.create(
-								EntityTypesUtil.PLAYER
-								, 4) // this is mainly just for creative mode
+						SetLookAndInteract.create(EntityTypesUtil.PLAYER, 4)
 				)
 		);
 	}

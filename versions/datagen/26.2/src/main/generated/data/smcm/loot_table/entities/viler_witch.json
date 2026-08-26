@@ -104,6 +104,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:water",
+              "conditions": []
+            },
+            {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
@@ -122,7 +127,7 @@
               "function": "minecraft:enchanted_count_increase"
             }
           ],
-          "name": "minecraft:glass_bottle"
+          "name": "minecraft:lingering_potion"
         },
         {
           "type": "minecraft:item",
@@ -172,31 +177,6 @@
           ],
           "name": "minecraft:stick",
           "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1,
-                "min": 0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1,
-                "min": 0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
-            }
-          ],
-          "name": "minecraft:dragon_breath",
-          "weight": 1
         }
       ],
       "rolls": {
@@ -236,5 +216,5 @@
       "rolls": 1
     }
   ],
-  "random_sequence": "minecraft:entities/witch"
+  "random_sequence": "smcm:entities/viler_witch"
 }

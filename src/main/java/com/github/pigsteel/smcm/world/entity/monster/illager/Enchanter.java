@@ -27,6 +27,7 @@ import net.minecraft.world.level.Level;
 public class Enchanter extends AbstractIllager { // Instead of spellcasting Illager, I'm going to make Enchanter be Abstract and implement my own functionality
     public Enchanter(EntityType<? extends Enchanter> type, Level level) {
         super(type, level);
+		this.xpReward = 36;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class Enchanter extends AbstractIllager { // Instead of spellcasting Illa
 
     @Override
     public SoundEvent getCelebrateSound() {
-        return null;
+        return SMCMSoundEvents.ENCHANTER_CELEBRATE.get();
     }
 
     @Override
@@ -72,9 +73,9 @@ public class Enchanter extends AbstractIllager { // Instead of spellcasting Illa
         this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 15.0F));
 
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this, Raider.class).setAlertOthers());
-		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
     }
 
     /*

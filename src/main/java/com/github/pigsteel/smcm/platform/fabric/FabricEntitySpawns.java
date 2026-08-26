@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.platform.fabric;
 
 //? fabric  {
 
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.util.EntityTypesUtil;
 import com.github.pigsteel.smcm.world.entity.monster.VilerWitch;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Frostbitten;
@@ -108,4 +108,4 @@ public class FabricEntitySpawns {
         );
     }
 }
-//?}
+*///?}

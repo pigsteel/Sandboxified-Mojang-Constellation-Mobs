@@ -33,9 +33,9 @@ import net.minecraft.client.renderer.entity.ArmorModelSet;
 import java.util.function.Supplier;
 
 //? neoforge {
-/*import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
+import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MODEL_LAYERS;
-*///?}
+//?}
 
 public class SMCMLayerDefinitions {
     private static final CubeDeformation OUTER_ARMOR_DEFORMATION = new CubeDeformation(1.0F);
@@ -98,10 +98,10 @@ public class SMCMLayerDefinitions {
 
 	public static void registerModelLayer(ModelLayerLocation modelLayerLocation, Supplier<LayerDefinition> consumer) {
 		//? fabric {
-		net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry.registerModelLayer(modelLayerLocation, consumer::get);
-		//?} neoforge {
-		/*MODEL_LAYERS.add(new NeoforgeVariables.ModelLayerDeferred(modelLayerLocation, consumer));
-		*///?}
+		/*net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry.registerModelLayer(modelLayerLocation, consumer::get);
+		*///?} neoforge {
+		MODEL_LAYERS.add(new NeoforgeVariables.ModelLayerDeferred(modelLayerLocation, consumer));
+		//?}
 	}
 
     public static void registerArmorLayers(final ArmorModelSet<ModelLayerLocation> location, ArmorModelSet<LayerDefinition> modelSet) {

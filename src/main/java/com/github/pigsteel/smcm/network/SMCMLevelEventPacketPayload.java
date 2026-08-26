@@ -2,19 +2,23 @@ package com.github.pigsteel.smcm.network;
 
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.SMCMSoundEvents;
-//? fabric {
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-//?}
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+
+//? fabric {
+/*import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+ *///?} neoforge {
+import net.neoforged.neoforge.network.handling.IPayloadContext;
+//?}
 
 public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements CustomPacketPayload {
 	public static final Identifier SMCM_EVENT_PAYLOAD_ID = SMCM.id("level_event");
@@ -29,13 +33,20 @@ public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements Cu
 	}
 
 	//? fabric {
-	public static void handle(SMCMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
+	/*public static void handle(SMCMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
 		ClientLevel level = context.client().level;
+	*///?} neoforge {
+	public static void handle(SMCMLevelEventPacketPayload payload, final IPayloadContext context) {
+		ClientLevel level = (ClientLevel)context.player().level();
+	//?}
 
 		if (level == null) {
 			return;
 		}
 
+		//? neoforge {
+		context.enqueueWork(() -> {
+		//?}
 		BlockPos pos = payload.pos();
 		RandomSource random = level.getRandom();
 
@@ -53,7 +64,17 @@ public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements Cu
 					level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, xx, yx, zx, (double)0.0F, (double)0.0F, (double)0.0F);
 				}
 			break;
+			case(1003):
+				level.playLocalSound(pos, SMCMSoundEvents.SKELETON_CONVERTED_TO_SUNKEN.get(), SoundSource.HOSTILE, 2.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F, false);
+			break;
 		}
+		//? neoforge {
+				})
+				.exceptionally(e -> {
+					// Handle exception
+					context.disconnect(Component.translatable("smcm.networking.failed", e.getMessage()));
+					return null;
+				});
+		//?}
 	}
-	//?}
 }

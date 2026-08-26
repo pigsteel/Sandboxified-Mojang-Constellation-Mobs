@@ -47,7 +47,7 @@ public class Geomancer extends AbstractIllager {
 
     @Override
     public SoundEvent getCelebrateSound() {
-        return null;
+        return SMCMSoundEvents.GEOMANCER_CELEBRATE.get();
     }
 
     @Override

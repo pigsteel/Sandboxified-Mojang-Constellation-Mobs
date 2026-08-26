@@ -6,8 +6,10 @@ import com.github.pigsteel.smcm.world.entity.ai.memory.SMCMMemoryModuleTypes;
 import com.github.pigsteel.smcm.world.entity.monster.necromancer.Necromancer;
 import com.google.common.collect.ImmutableMap;
 //? fabric {
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+/*import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+*///?} neoforge {
+import net.neoforged.neoforge.network.PacketDistributor;
 //?}
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -132,8 +134,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		--this.castTicks;
 
 		if (!hasCasted && this.castTicks <= 15) {
-			/*
-			this.performSummon(serverLevel, body);*/
+			this.performSummon(serverLevel, body);
 			this.hasCasted = true;
 		}
 	}
@@ -142,7 +143,7 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		this.casting = true;
 		this.castTicks = DURATION;
 
-		body.setIsCastingSpell(Necromancer.NecromancerSpell.NONE);
+		//body.setIsCastingSpell(Necromancer.NecromancerSpell.NONE);
 		body.setIsCastingSpell(Necromancer.NecromancerSpell.SUMMON);
 
 		if (!this.hasPlayedPrepareSound) {
@@ -351,12 +352,12 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		SMCMLevelEventPacketPayload payload = new SMCMLevelEventPacketPayload(1002, spawnPos);
 
 		//? fabric {
-		for (ServerPlayer player : PlayerLookup.level(level)) {
+		/*for (ServerPlayer player : PlayerLookup.level(level)) {
 			ServerPlayNetworking.send(player, payload);
 		}
-		//?} neoforge {
-		/*PacketDistributor.sendToAllPlayers(payload);
-		*///?}
+		*///?} neoforge {
+		PacketDistributor.sendToAllPlayers(payload);
+		//?}
 	}
 
 	private BlockPos findSpawnPos(ServerLevel level, BlockPos start, EntityType<?> entityType) {

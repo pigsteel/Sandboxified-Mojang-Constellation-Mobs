@@ -11,8 +11,8 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.level.Level;
 //? neoforge {
-/*import net.neoforged.neoforge.event.EventHooks;
-*///?}
+import net.neoforged.neoforge.event.EventHooks;
+//?}
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -37,8 +37,8 @@ public class AbstractPiglinMixin extends Monster {
 			this.convertTo(SMCMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE.get(), ConversionParams.single(this, true, true), (zombified) -> {
 				zombified.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 200, 0));
 				//? neoforge {
-				/*EventHooks.onLivingConvert(this, zombified);
-				*///?}
+				EventHooks.onLivingConvert(this, zombified);
+				//?}
 			});
 			ci.cancel();
 		}

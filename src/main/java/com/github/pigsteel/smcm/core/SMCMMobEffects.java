@@ -12,16 +12,21 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import java.util.function.Supplier;
 
+import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MOB_EFFECTS;
+
 public class SMCMMobEffects {
-	public static final Supplier<Holder<MobEffect>> CORRUPTION;
+	public static final Holder<MobEffect> CORRUPTION;
 
 	static {
 		CORRUPTION = register("corruption", new CustomMobEffect(MobEffectCategory.HARMFUL, 5309090).addAttributeModifier(Attributes.MAX_HEALTH, SMCM.id("effect.corruption"), (double)-2.0F, AttributeModifier.Operation.ADD_VALUE));
 	}
 
-	private static Supplier<Holder<MobEffect>> register(final String name, final MobEffect mobEffect) {
-		Holder<MobEffect> var10000 = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, SMCM.id(name), mobEffect);
-		return () -> var10000;
+	private static Holder<MobEffect> register(final String name, final MobEffect mobEffect) {
+		//? fabric {
+		/*return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, SMCM.id(name), mobEffect);
+		*///?} neoforge {
+		return MOB_EFFECTS.register(name, () -> mobEffect);
+		//?}
 	}
 
 	public static void load() {}

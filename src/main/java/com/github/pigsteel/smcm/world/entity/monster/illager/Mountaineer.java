@@ -1,7 +1,10 @@
 package com.github.pigsteel.smcm.world.entity.monster.illager;
 
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.illager.Vindicator;
@@ -34,4 +37,24 @@ public class Mountaineer extends Vindicator {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_PICKAXE));
         }
     }
+
+	@Override
+	public SoundEvent getCelebrateSound() {
+		return SMCMSoundEvents.MOUNTAINEER_CELEBRATE.get();
+	}
+
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return SMCMSoundEvents.MOUNTAINEER_AMBIENT.get();
+	}
+
+	@Override
+	protected SoundEvent getHurtSound(final DamageSource source) {
+		return SMCMSoundEvents.MOUNTAINEER_HURT.get();
+	}
+
+	@Override
+	protected SoundEvent getDeathSound() {
+		return SMCMSoundEvents.MOUNTAINEER_DEATH.get();
+	}
 }

@@ -1,13 +1,16 @@
 package com.github.pigsteel.smcm.platform.neoforge;
 
 //? neoforge {
-/*import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.SMCM;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,9 +36,12 @@ public class NeoforgeVariables {
 	public static final DeferredRegister<EntityDataSerializer<?>> ENTITY_DATA_SERIALIZERS = DeferredRegister.create(NeoForgeRegistries.ENTITY_DATA_SERIALIZERS, SMCM.MOD_ID);
 	public static final DeferredRegister<MemoryModuleType<?>> MEMORY_MODULE_TYPES = DeferredRegister.create(Registries.MEMORY_MODULE_TYPE, SMCM.MOD_ID);
 	public static final DeferredRegister<SensorType<?>> SENSOR_TYPES = DeferredRegister.create(Registries.SENSOR_TYPE, SMCM.MOD_ID);
+	public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, SMCM.MOD_ID);
+	public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, SMCM.MOD_ID);
 	public static ArrayList<ModelLayerDeferred> MODEL_LAYERS = new ArrayList<>();
 	public static ArrayList<DefaultAttributesDeferred<?>> DEFAULT_ATTRIBUTES = new ArrayList<>();
 	public static ArrayList<EntityRendererDeferred<?>> ENTITY_RENDERERS = new ArrayList<>();
+
 
 	public static void registerAll(IEventBus modBus) {
 		ATTACHMENT_TYPES.register(modBus);
@@ -46,6 +52,8 @@ public class NeoforgeVariables {
 		ENTITY_DATA_SERIALIZERS.register(modBus);
 		MEMORY_MODULE_TYPES.register(modBus);
 		SENSOR_TYPES.register(modBus);
+		PARTICLE_TYPES.register(modBus);
+		MOB_EFFECTS.register(modBus);
 	}
 
 	public record DefaultAttributesDeferred<T extends LivingEntity>(Supplier<EntityType<T>> type, Supplier<AttributeSupplier.Builder> supplier) {
@@ -64,4 +72,4 @@ public class NeoforgeVariables {
 		}
 	}
 }
-*///?}
+//?}

@@ -24,11 +24,11 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 
 import java.util.function.Supplier;
 //? fabric {
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-//?} neoforge {
-/*import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
+/*import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+*///?} neoforge {
+import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.DEFAULT_ATTRIBUTES;
-*///?}
+//?}
 
 public final class SMCMDefaultAttributes {
     private SMCMDefaultAttributes() {}
@@ -56,10 +56,10 @@ public final class SMCMDefaultAttributes {
 
     public static <T extends LivingEntity> void registerAttributes(Supplier<EntityType<T>> entityType, Supplier<AttributeSupplier.Builder> supplier) {
         //? fabric {
-        FabricDefaultAttributeRegistry.register(entityType.get(), supplier.get());
-        //?}
-        //? neoforge {
-		/*DEFAULT_ATTRIBUTES.add(new NeoforgeVariables.DefaultAttributesDeferred<>(entityType, supplier));
+        /*FabricDefaultAttributeRegistry.register(entityType.get(), supplier.get());
         *///?}
+        //? neoforge {
+		DEFAULT_ATTRIBUTES.add(new NeoforgeVariables.DefaultAttributesDeferred<>(entityType, supplier));
+        //?}
     }
 }

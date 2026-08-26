@@ -1,7 +1,11 @@
 package com.github.pigsteel.smcm.world.entity.monster.zombie;
 
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -33,4 +37,21 @@ public class ZombifiedPiglinBrute extends ZombifiedPiglin {
                 .add(Attributes.ATTACK_DAMAGE, 7.0F)
                 .add(Attributes.FOLLOW_RANGE, 12.0F);
     }
+
+	protected SoundEvent getAmbientSound() {
+		return (this.isAngry() ? SMCMSoundEvents.ZOMBIFIED_PIGLIN_BRUTE_ANGRY : SMCMSoundEvents.ZOMBIFIED_PIGLIN_BRUTE_AMBIENT).get();
+	}
+
+	protected SoundEvent getHurtSound(final DamageSource source) {
+		return SMCMSoundEvents.ZOMBIFIED_PIGLIN_BRUTE_HURT.get();
+	}
+
+	protected SoundEvent getDeathSound() {
+		return SMCMSoundEvents.ZOMBIFIED_PIGLIN_BRUTE_DEATH.get();
+	}
+
+	@Override
+	public void playAngerSound() {
+		this.playSound(SMCMSoundEvents.ZOMBIFIED_PIGLIN_BRUTE_ANGRY.get(), this.getSoundVolume() * 2.0F, this.getVoicePitch() * 1.8F);
+	}
 }

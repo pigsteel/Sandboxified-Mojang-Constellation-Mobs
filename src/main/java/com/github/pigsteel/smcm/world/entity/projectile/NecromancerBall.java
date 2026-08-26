@@ -63,10 +63,10 @@ public class NecromancerBall extends Projectile {
 					this.playSound(SMCMSoundEvents.NECROMANCER_BALL_HIT.get(), 1.0F, 1.0F);
 					EnchantmentHelper.doPostAttackEffects(serverLevel, entity, damageSource);
 					if (entity instanceof LivingEntity livingEntity) {
-						if(livingEntity.hasEffect(SMCMMobEffects.CORRUPTION.get())) {
-							livingEntity.addEffect(new MobEffectInstance(SMCMMobEffects.CORRUPTION.get(), 60 * 20, livingEntity.getEffect(SMCMMobEffects.CORRUPTION.get()).getAmplifier() + 1));
+						if(livingEntity.hasEffect(SMCMMobEffects.CORRUPTION)) {
+							livingEntity.addEffect(new MobEffectInstance(SMCMMobEffects.CORRUPTION, 60 * 20, livingEntity.getEffect(SMCMMobEffects.CORRUPTION).getAmplifier() + 1));
 						} else {
-							livingEntity.addEffect(new MobEffectInstance(SMCMMobEffects.CORRUPTION.get(), 60 * 20, 0));
+							livingEntity.addEffect(new MobEffectInstance(SMCMMobEffects.CORRUPTION, 60 * 20, 0));
 						}
 					}
 				}
@@ -85,8 +85,8 @@ public class NecromancerBall extends Projectile {
 			Vec3 newPosition;
 			boolean impacted = hitResult.getType() != HitResult.Type.MISS;
 			//? neoforge {
-			/*impacted = impacted && !net.neoforged.neoforge.event.EventHooks.onProjectileImpact(this, hitResult);
-			*///?}
+			impacted = impacted && !net.neoforged.neoforge.event.EventHooks.onProjectileImpact(this, hitResult);
+			//?}
 			if (impacted) {
 				newPosition = hitResult.getLocation();
 			} else {

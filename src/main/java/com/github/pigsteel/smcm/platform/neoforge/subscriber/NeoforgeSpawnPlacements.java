@@ -1,8 +1,8 @@
 package com.github.pigsteel.smcm.platform.neoforge.subscriber;
 
 //? neoforge {
-/*import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$EntityTypes;
+import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Frostbitten;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Reclaimed;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -18,7 +18,7 @@ public final class NeoforgeSpawnPlacements {
     @SubscribeEvent
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(
-                smcm$EntityTypes.FROSTBITTEN.get(),
+                SMCMEntityTypes.FROSTBITTEN.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Frostbitten::checkFrostbittenSpawnRules,
@@ -26,7 +26,7 @@ public final class NeoforgeSpawnPlacements {
         );
 
         event.register(
-                smcm$EntityTypes.RECLAIMED.get(),
+                SMCMEntityTypes.RECLAIMED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING,
                 Reclaimed::checkSurfaceMonstersSpawnRules,
@@ -34,4 +34,4 @@ public final class NeoforgeSpawnPlacements {
         );
     }
 }
-*///?}
+//?}

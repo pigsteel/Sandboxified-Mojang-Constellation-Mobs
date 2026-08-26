@@ -2,8 +2,8 @@ package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.client.model.geom.SMCMModelLayers;
 //? neoforge {
-/*import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
-*///?}
+import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
+//?}
 import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -46,9 +46,9 @@ public class SMCMEntityRenderers {
 
     public static <T extends Entity> void registerEntityRenderer(Supplier<? extends EntityType<? extends T>> type, EntityRendererProvider<T> provider) {
         //? fabric {
-		EntityRenderers.register(type.get(), provider);
-		//?} neoforge {
-		/*NeoforgeVariables.ENTITY_RENDERERS.add(new NeoforgeVariables.EntityRendererDeferred<>(type, provider));
-		*///?}
+		/*EntityRenderers.register(type.get(), provider);
+		*///?} neoforge {
+		NeoforgeVariables.ENTITY_RENDERERS.add(new NeoforgeVariables.EntityRendererDeferred<>(type, provider));
+		//?}
     }
 }

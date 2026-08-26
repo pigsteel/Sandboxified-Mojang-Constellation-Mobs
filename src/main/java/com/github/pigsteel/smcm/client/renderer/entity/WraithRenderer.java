@@ -28,5 +28,6 @@ public class WraithRenderer extends LivingEntityRenderer<Wraith, WraithRenderSta
 
 	public void extractRenderState(final Wraith entity, final WraithRenderState state, final float partialTicks) {
 		super.extractRenderState(entity, state, partialTicks);
+		//state.displayFireAnimation
 	}
 }

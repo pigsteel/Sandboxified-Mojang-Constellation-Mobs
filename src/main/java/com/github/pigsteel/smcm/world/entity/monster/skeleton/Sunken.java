@@ -203,21 +203,21 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
 
     @Override
     public SoundEvent getAmbientSound() {
-        return SoundEvents.BOGGED_AMBIENT;
+        return (this.isInWater() ? SMCMSoundEvents.SUNKEN_AMBIENT_WATER : SMCMSoundEvents.SUNKEN_AMBIENT).get();
     }
 
     @Override
     public SoundEvent getHurtSound(final DamageSource source) {
-        return SoundEvents.BOGGED_HURT;
+        return (this.isInWater() ? SMCMSoundEvents.SUNKEN_HURT_WATER : SMCMSoundEvents.SUNKEN_HURT).get();
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return SoundEvents.BOGGED_DEATH;
+		return (this.isInWater() ? SMCMSoundEvents.SUNKEN_DEATH_WATER : SMCMSoundEvents.SUNKEN_DEATH).get();
     }
 
     public SoundEvent getStepSound() {
-        return SoundEvents.BOGGED_STEP;
+		return (this.isInWater() ? SMCMSoundEvents.SUNKEN_STEP_WATER : SMCMSoundEvents.SUNKEN_STEP).get();
     }
 
     @Override

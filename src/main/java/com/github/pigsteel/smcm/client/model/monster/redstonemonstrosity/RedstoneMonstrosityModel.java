@@ -1,6 +1,7 @@
 package com.github.pigsteel.smcm.client.model.monster.redstonemonstrosity;
 
 import com.github.pigsteel.smcm.client.renderer.entity.state.RedstoneMonstrosityRenderState;
+import com.ibm.icu.text.MessagePattern;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -22,19 +23,26 @@ public class RedstoneMonstrosityModel extends EntityModel<RedstoneMonstrosityRen
                 "body", CubeListBuilder.create().texOffs(120, 36).addBox(-11.0F, -8.0F, -7.0F, 22.0F, 8.0F, 14.0F), PartPose.offset(0.0F, -20.0F, 0.0F)
         );
         PartDefinition upperBody = body.addOrReplaceChild(
-                "upper_body", CubeListBuilder.create().texOffs(0, 0).addBox(-20.0F, -32.0F, -20.0F, 40.0F, 32.0F, 20.0F), PartPose.offset(0.0F, -8.0F, 10.0F)
+                "upper_body", CubeListBuilder.create().texOffs(0, 0).addBox(-20.0F, -32.0F, -20.0F, 74.0F, 57.0F, 30.0F), PartPose.offset(0.0F, -8.0F, 10.0F)
         );
         upperBody.addOrReplaceChild(
                 "redstone_core", CubeListBuilder.create().texOffs(49, 90).addBox(-8.0F,-8.0F,0.0F, 16.0F, 16.0F, 16.0F), PartPose.offset(0.0F, -12.0F, -10.0F)
         );
 
         upperBody.addOrReplaceChild(
-                "head", CubeListBuilder.create().texOffs(120, 0).addBox(-8.0F, -8.0F, -12.0F, 16.0F, 16.0F, 12.0F), PartPose.offset(0.0F, -23.95F, -20.0F)
+                "head", CubeListBuilder.create().texOffs(0, 87).addBox(-8.0F, -8.0F, -12.0F, 28.0F, 31.0F, 21.0F), PartPose.offset(0.0F, -23.95F, -20.0F)
         );
 
         float fingerOutset = 17.0F;
 
-        PartDefinition rightArm = upperBody.addOrReplaceChild(
+		PartDefinition rightShoulder = upperBody.addOrReplaceChild(
+				"right_shoulder",
+				CubeListBuilder.create().texOffs(110, 90)
+						.addBox(1F,1F,1F,1F,1F,1F)
+						.addBox(1F,1F,1F,1F,1F,1F),
+				PartPose.ZERO
+		);
+        PartDefinition rightArm = rightShoulder.addOrReplaceChild(
                 "right_arm", CubeListBuilder.create().texOffs(0, 52).addBox(-7.0F, -4.0F, -6.0F, 14.0F, 24.0F, 12.0F), PartPose.offset(-27.0F, -26.0F, -10.0F)
         );
         PartDefinition rightForearm = rightArm.addOrReplaceChild(
@@ -50,7 +58,14 @@ public class RedstoneMonstrosityModel extends EntityModel<RedstoneMonstrosityRen
                 "right_thumb", CubeListBuilder.create().texOffs(81, 57).addBox(-1.5F, 3.0F, -2.5F, 3.0F, 8.0F, 5.0F), PartPose.offset(3.0F, fingerOutset, 0.0F)
         );
 
-        PartDefinition leftArm = upperBody.addOrReplaceChild(
+		PartDefinition leftShoulder = upperBody.addOrReplaceChild(
+				"left_shoulder",
+				CubeListBuilder.create().texOffs(0, 139)
+						.addBox(0.0F,0F,0.0F,36.0F,23.0F,26.0F)
+						.addBox(1F,1F,1F,1F,1F,1F),
+				PartPose.ZERO
+		);
+        PartDefinition leftArm = leftShoulder.addOrReplaceChild(
                 "left_arm", CubeListBuilder.create().texOffs(113, 90).addBox(-7.0F, -4.0F, -6.0F, 14.0F, 24.0F, 12.0F), PartPose.offset(27.0F, -26.0F, -10.0F)
         );
         PartDefinition leftForearm = leftArm.addOrReplaceChild(

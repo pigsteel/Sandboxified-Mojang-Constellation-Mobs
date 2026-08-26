@@ -19,7 +19,7 @@ import java.util.Map;
 @Mixin(Parrot.class)
 public abstract class ParrotImitateMixin {
 	//? fabric {
-    @Shadow
+    /*@Shadow
     @Final
     @Mutable
     private static Map<EntityType<?>, SoundEvent> MOB_SOUND_MAP;
@@ -40,5 +40,5 @@ public abstract class ParrotImitateMixin {
             MOB_SOUND_MAP = map;
         }
     }
-	//?}
+	*///?}
 }

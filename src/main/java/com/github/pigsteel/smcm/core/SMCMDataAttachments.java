@@ -2,14 +2,14 @@ package com.github.pigsteel.smcm.core;
 
 import com.github.pigsteel.smcm.SMCM;
 //? fabric {
-import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+/*import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
-//?} neoforge {
-/*import net.neoforged.neoforge.attachment.AttachmentType;
+*///?} neoforge {
+import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
-*///?}
+//?}
 import com.mojang.serialization.Codec;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -23,10 +23,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 //? neoforge {
-/*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ATTACHMENT_TYPES;
+import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ATTACHMENT_TYPES;
 import net.minecraft.resources.Identifier;
 import java.util.Optional;
-*///?}
+//?}
 
 public class SMCMDataAttachments {
 	// for reference: use these when we want to attach arbitrary data (the same way we would with an EntityDataAccessor) for an entity we do not own; like the zombie
@@ -58,61 +58,61 @@ public class SMCMDataAttachments {
 		consumer.accept(builder);
 
 		//? fabric {
-		AttachmentType<A> attachment = AttachmentRegistry.create(SMCM.id(id), builder::fabricImpl);
-		//?} neoforge {
-		/*Supplier<AttachmentType<A>> attachment = ATTACHMENT_TYPES.register(id, () -> builder.neoforgeImpl().build());
-		*///?}
+		/*AttachmentType<A> attachment = AttachmentRegistry.create(SMCM.id(id), builder::fabricImpl);
+		*///?} neoforge {
+		Supplier<AttachmentType<A>> attachment = ATTACHMENT_TYPES.register(id, () -> builder.neoforgeImpl().build());
+		//?}
 
 		return new DataAttachmentHandle<A>() {
 			@Override
 			public boolean hasAttached(Entity entity) {
 				//? fabric {
-				return entity.hasAttached(attachment);
-				//?} neoforge {
-				/*return entity.hasData(attachment);
-				*///?}
+				/*return entity.hasAttached(attachment);
+				*///?} neoforge {
+				return entity.hasData(attachment);
+				//?}
 			}
 
 			@Override
 			public A getAttached(Entity entity) {
 				//? fabric {
-				return entity.getAttached(attachment);
-				//?} neoforge {
-				/*return entity.getExistingData(attachment).get();
-				*///?}
+				/*return entity.getAttached(attachment);
+				*///?} neoforge {
+				return entity.getExistingData(attachment).get();
+				//?}
 			}
 
 			@Override
 			public A getAttachedOrElse(Entity entity, A defaultValue) {
 				//? fabric {
-				return entity.getAttachedOrElse(attachment, defaultValue);
-				//?} neoforge {
-				/*return entity.getExistingData(attachment).orElse(defaultValue);
-				*///?}
+				/*return entity.getAttachedOrElse(attachment, defaultValue);
+				*///?} neoforge {
+				return entity.getExistingData(attachment).orElse(defaultValue);
+				//?}
 			}
 
 			@Override
 			public void setAttached(Entity entity, A value) {
 				//? fabric {
-				entity.setAttached(attachment, value);
-				//?} neoforge {
-				/*entity.setData(attachment, value);
-				*///?}
+				/*entity.setAttached(attachment, value);
+				*///?} neoforge {
+				entity.setData(attachment, value);
+				//?}
 			}
 
 			@Override
 			public A getAttachedOrSet(Entity entity, A defaultValue) {
 				//? fabric {
-				return entity.getAttachedOrSet(attachment, defaultValue);
-				//?} neoforge {
-				/*Optional<A> optional = entity.getExistingData(attachment);
+				/*return entity.getAttachedOrSet(attachment, defaultValue);
+				*///?} neoforge {
+				Optional<A> optional = entity.getExistingData(attachment);
 				if (optional.isPresent()) {
 					return optional.get();
 				} else {
 					this.setAttached(entity, defaultValue);
 					return defaultValue;
 				}
-				*///?}
+				//?}
 			}
 		};
 	}
@@ -172,7 +172,7 @@ public class SMCMDataAttachments {
 		}
 
 		//? fabric {
-		public void fabricImpl(AttachmentRegistry.Builder<A> builder) {
+		/*public void fabricImpl(AttachmentRegistry.Builder<A> builder) {
 			if(this.defaultInitializer != null) {
 				builder.initializer(this.defaultInitializer);
 			}
@@ -189,10 +189,10 @@ public class SMCMDataAttachments {
 				builder.copyOnDeath();
 			}
 		}
-		//?}
+		*///?}
 
 		//? neoforge {
-		/*public AttachmentType.Builder<A> neoforgeImpl() {
+		public AttachmentType.Builder<A> neoforgeImpl() {
 			Objects.requireNonNull(defaultInitializer, "defaultInitializer cannot be null");
 
 			AttachmentType.Builder<A> builder = AttachmentType.builder(defaultInitializer);
@@ -211,6 +211,6 @@ public class SMCMDataAttachments {
 
 			return builder;
 		}
-		*///?}
+		//?}
 	}
 }

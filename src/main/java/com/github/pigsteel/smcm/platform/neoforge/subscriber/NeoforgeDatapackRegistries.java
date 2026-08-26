@@ -1,8 +1,8 @@
 package com.github.pigsteel.smcm.platform.neoforge.subscriber;
 
 //? neoforge {
-/*import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.core.smcm$Registries;
+import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.SunkenVariant;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -13,11 +13,11 @@ public class NeoforgeDatapackRegistries {
 	@SubscribeEvent
 	public static void registerDatapackRegistries(DataPackRegistryEvent.NewRegistry event) {
 		event.dataPackRegistry(
-				smcm$Registries.SUNKEN_VARIANT,
+				SMCMCustomRegistries.SUNKEN_VARIANT,
 				SunkenVariant.DIRECT_CODEC,
 				SunkenVariant.NETWORK_CODEC,
 				builder -> builder.maxId(256)
 		);
 	}
 }
-*///?}
+//?}

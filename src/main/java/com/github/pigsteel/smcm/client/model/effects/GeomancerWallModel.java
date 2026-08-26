@@ -5,7 +5,7 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 
 public class GeomancerWallModel extends EntityModel<GeomancerWallRenderState> {
-    protected GeomancerWallModel(ModelPart root) {
+    public GeomancerWallModel(ModelPart root) {
         super(root);
     }
 }

@@ -1,3 +1,5 @@
+loomx.loom_version= "1.17-SNAPSHOT"
+
 mod.id = "smcm"
 mod.name = "Sandboxified Mojang Constellation Mobs"
 mod.group = "com.github.pigsteel"
@@ -14,11 +16,11 @@ mod.sources_url = "https://github.com/pigsteel/Sandboxified-Mojang-Constellation
 mod.homepage_url = "https://modrinth.com/project/2ZoXLftN"
 mod.issues_url = "https://github.com/pigsteel/Sandboxified-Mojang-Constellation-Mobs/issues"
 mod.discord_url = "https://discord.gg/mpgsR5Wj4M"
-mod.environment = "both"
+mod.environment = "client_and_server"
 [[mod.pom.developers]]
 id = "pigsteel"
 name = "pigsteel"
-url = "https://github.com/pigsteel/"
+url = "https://github.com/pigsteel"
 
 [fabric]
 deps.fabric-loader = "0.19.3"

@@ -1,5 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster.illager;
 
+import com.github.pigsteel.smcm.core.SMCMSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.component.DataComponents;
@@ -56,22 +57,22 @@ public class Bruiser extends AbstractIllager {
 
     @Override
     public SoundEvent getCelebrateSound() {
-        return SoundEvents.RAVAGER_CELEBRATE;
+        return SMCMSoundEvents.BRUISER_CELEBRATE.get();
     }
 
     @Override
     public SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.RAVAGER_HURT;
+        return SMCMSoundEvents.BRUISER_HURT.get();
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return SoundEvents.RAVAGER_DEATH;
+        return SMCMSoundEvents.BRUISER_DEATH.get();
     }
 
     @Override
     public SoundEvent getAmbientSound() {
-        return SoundEvents.RAVAGER_AMBIENT;
+        return SMCMSoundEvents.BRUISER_AMBIENT.get();
     }
 
     @Override

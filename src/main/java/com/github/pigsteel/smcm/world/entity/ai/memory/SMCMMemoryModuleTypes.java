@@ -11,8 +11,8 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 //? neoforge {
-/*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MEMORY_MODULE_TYPES;
-*///?}
+import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MEMORY_MODULE_TYPES;
+//?}
 
 public class SMCMMemoryModuleTypes {
 	public static final Supplier<MemoryModuleType<Unit>> SUMMONING_COOLDOWN;
@@ -22,20 +22,20 @@ public class SMCMMemoryModuleTypes {
 
 	private static <U> Supplier<MemoryModuleType<U>> register(String name, Codec<U> codec) {
 		//? fabric {
-		var var10000 = Registry.register(BuiltInRegistries.MEMORY_MODULE_TYPE, SMCM.id(name), new MemoryModuleType<>(Optional.of(codec)));
+		/*var var10000 = Registry.register(BuiltInRegistries.MEMORY_MODULE_TYPE, SMCM.id(name), new MemoryModuleType<>(Optional.of(codec)));
 		return () -> var10000;
-		//?} neoforge {
-		/*return MEMORY_MODULE_TYPES.register(name, () -> new MemoryModuleType<>(Optional.of(codec)));
-		*///?}
+		*///?} neoforge {
+		return MEMORY_MODULE_TYPES.register(name, () -> new MemoryModuleType<>(Optional.of(codec)));
+		//?}
 	}
 
 	private static <U> Supplier<MemoryModuleType<U>> register(String name) {
 		//? fabric {
-		var var10000 = Registry.register(BuiltInRegistries.MEMORY_MODULE_TYPE, SMCM.id(name), new MemoryModuleType<U>(Optional.empty()));
+		/*var var10000 = Registry.register(BuiltInRegistries.MEMORY_MODULE_TYPE, SMCM.id(name), new MemoryModuleType<U>(Optional.empty()));
 		return () -> var10000;
-		//?} neoforge {
-		/*return MEMORY_MODULE_TYPES.register(name, () -> new MemoryModuleType<>(Optional.empty()));
-		*///?}
+		*///?} neoforge {
+		return MEMORY_MODULE_TYPES.register(name, () -> new MemoryModuleType<>(Optional.empty()));
+		//?}
 	}
 
 	static {

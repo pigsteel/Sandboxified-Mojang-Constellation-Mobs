@@ -35,35 +35,35 @@ import net.minecraft.world.entity.MobCategory;
 import java.util.function.Supplier;
 
 //? neoforge {
-/*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITIES;
-*///?}
+import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITIES;
+//?}
 
 public class SMCMEntityTypes {
 	public static final Supplier<EntityType<Bruiser>> BRUISER;
 	public static final Supplier<EntityType<Enchanter>> ENCHANTER;
 	public static final Supplier<EntityType<Frostbitten>> FROSTBITTEN;
+	public static final Supplier<EntityType<FrostbittenSnowball>> FROSTBITTEN_SNOWBALL;
+	public static final Supplier<EntityType<Geomancer>> GEOMANCER;
+	public static final Supplier<EntityType<GeomancerWall>> GEOMANCER_WALL;
+	public static final Supplier<EntityType<Iceologer>> ICEOLOGER;
+	public static final Supplier<EntityType<Lost>> LOST;
+	public static final Supplier<EntityType<Mountaineer>> MOUNTAINEER;
+	public static final Supplier<EntityType<Necromancer>> NECROMANCER;
+	public static final Supplier<EntityType<NecromancerBall>> NECROMANCER_BALL;
+	public static final Supplier<EntityType<PiglinFarmer>> PIGLIN_FARMER;
 	public static final Supplier<EntityType<Reclaimed>> RECLAIMED;
 	public static final Supplier<EntityType<ReclaimedPuke>> RECLAIMED_PUKE;
-	public static final Supplier<EntityType<Sunken>> SUNKEN;
-	public static final Supplier<EntityType<Lost>> LOST;
-	public static final Supplier<EntityType<Necromancer>> NECROMANCER;
-	public static final Supplier<EntityType<ZombifiedPiglinBrute>> ZOMBIFIED_PIGLIN_BRUTE;
-	public static final Supplier<EntityType<Geomancer>> GEOMANCER;
-	public static final Supplier<EntityType<Iceologer>> ICEOLOGER;
-	public static final Supplier<EntityType<Mountaineer>> MOUNTAINEER;
-	public static final Supplier<EntityType<Windcaller>> WINDCALLER;
-	public static final Supplier<EntityType<PiglinFarmer>> PIGLIN_FARMER;
-	public static final Supplier<EntityType<VilerWitch>> VILER_WITCH;
 	public static final Supplier<EntityType<RedstoneGolem>> REDSTONE_GOLEM;
 	public static final Supplier<EntityType<RedstoneMonstrosity>> REDSTONE_MONSTROSITY;
-	public static final Supplier<EntityType<FrostbittenSnowball>> FROSTBITTEN_SNOWBALL;
+	public static final Supplier<EntityType<Sunken>> SUNKEN;
+	public static final Supplier<EntityType<VilerWitch>> VILER_WITCH;
 	public static final Supplier<EntityType<Wildfire>> WILDFIRE;
+	public static final Supplier<EntityType<Windcaller>> WINDCALLER;
 	public static final Supplier<EntityType<Wraith>> WRAITH;
-	public static final Supplier<EntityType<GeomancerWall>> GEOMANCER_WALL;
-	public static final Supplier<EntityType<NecromancerBall>> NECROMANCER_BALL;
+	public static final Supplier<EntityType<ZombifiedPiglinBrute>> ZOMBIFIED_PIGLIN_BRUTE;
 
 	static {
-		BRUISER = registerEntity(
+		BRUISER = register(
 				"bruiser",
 				Builder.of(Bruiser::new, MobCategory.MONSTER)
 						.sized(0.6F, 1.95F)
@@ -73,7 +73,7 @@ public class SMCMEntityTypes {
 						.notInPeaceful()
 		);
 
-		ENCHANTER = registerEntity("enchanter", Builder.of(Enchanter::new, MobCategory.MONSTER)
+		ENCHANTER = register("enchanter", Builder.of(Enchanter::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.passengerAttachments(2.0F)
 				.ridingOffset(-0.6F)
@@ -81,7 +81,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		FROSTBITTEN = registerEntity("frostbitten", Builder.of(Frostbitten::new, MobCategory.MONSTER)
+		FROSTBITTEN = register("frostbitten", Builder.of(Frostbitten::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.eyeHeight(1.74F)
 				.passengerAttachments(2.075F)
@@ -93,7 +93,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		RECLAIMED = registerEntity("reclaimed", Builder.of(Reclaimed::new, MobCategory.MONSTER)
+		RECLAIMED = register("reclaimed", Builder.of(Reclaimed::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.eyeHeight(1.74F)
 				.passengerAttachments(2.075F)
@@ -102,14 +102,14 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		RECLAIMED_PUKE = registerEntity("reclaimed_puke", Builder.<ReclaimedPuke>of(ReclaimedPuke::new, MobCategory.MISC)
+		RECLAIMED_PUKE = register("reclaimed_puke", Builder.<ReclaimedPuke>of(ReclaimedPuke::new, MobCategory.MISC)
 				.sized(0.25F, 0.25F)
 				.clientTrackingRange(4)
 				.noLootTable()
 				.updateInterval(20)
 		);
 
-		SUNKEN = registerEntity("sunken", Builder.of(Sunken::new, MobCategory.MONSTER)
+		SUNKEN = register("sunken", Builder.of(Sunken::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.99F)
 				.eyeHeight(1.74F)
 				.ridingOffset(-0.7F)
@@ -117,7 +117,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		LOST = registerEntity("lost", Builder.of(Lost::new, MobCategory.MONSTER)
+		LOST = register("lost", Builder.of(Lost::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.eyeHeight(1.74F)
 				.ridingOffset(-0.7F)
@@ -125,7 +125,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		NECROMANCER = registerEntity("necromancer", Builder.of(Necromancer::new, MobCategory.MONSTER)
+		NECROMANCER = register("necromancer", Builder.of(Necromancer::new, MobCategory.MONSTER)
 				.sized(0.7F, 2.4F)
 				.eyeHeight(2.1F)
 				.ridingOffset(-0.875F)
@@ -133,7 +133,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		ZOMBIFIED_PIGLIN_BRUTE = registerEntity("zombified_piglin_brute", Builder.of(ZombifiedPiglinBrute::new, MobCategory.MONSTER)
+		ZOMBIFIED_PIGLIN_BRUTE = register("zombified_piglin_brute", Builder.of(ZombifiedPiglinBrute::new, MobCategory.MONSTER)
 				.fireImmune()
 				.sized(0.6F, 1.95F)
 				.eyeHeight(1.79F)
@@ -143,7 +143,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		GEOMANCER = registerEntity("geomancer", Builder.of(Geomancer::new, MobCategory.MONSTER)
+		GEOMANCER = register("geomancer", Builder.of(Geomancer::new, MobCategory.MONSTER)
 				.canSpawnFarFromPlayer()
 				.sized(0.6F, 1.95F)
 				.passengerAttachments(2.0F)
@@ -152,7 +152,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		ICEOLOGER = registerEntity("iceologer", Builder.of(Iceologer::new, MobCategory.MONSTER)
+		ICEOLOGER = register("iceologer", Builder.of(Iceologer::new, MobCategory.MONSTER)
 				.canSpawnFarFromPlayer()
 				.sized(0.6F, 1.95F)
 				.passengerAttachments(2.0F)
@@ -161,7 +161,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		MOUNTAINEER = registerEntity("mountaineer", Builder.of(Mountaineer::new, MobCategory.MONSTER)
+		MOUNTAINEER = register("mountaineer", Builder.of(Mountaineer::new, MobCategory.MONSTER)
 				.canSpawnFarFromPlayer()
 				.sized(0.6F, 1.95F)
 				.passengerAttachments(2.0F)
@@ -170,7 +170,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		WINDCALLER = registerEntity("windcaller", Builder.of(Windcaller::new, MobCategory.MONSTER)
+		WINDCALLER = register("windcaller", Builder.of(Windcaller::new, MobCategory.MONSTER)
 				.canSpawnFarFromPlayer()
 				.sized(0.6F, 1.95F)
 				.passengerAttachments(2.0F)
@@ -179,7 +179,7 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		PIGLIN_FARMER = registerEntity("piglin_farmer", Builder.of(PiglinFarmer::new, MobCategory.MONSTER)
+		PIGLIN_FARMER = register("piglin_farmer", Builder.of(PiglinFarmer::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.eyeHeight(1.79F)
 				.passengerAttachments(2.0125F)
@@ -187,7 +187,7 @@ public class SMCMEntityTypes {
 				.clientTrackingRange(8)
 		);
 
-		VILER_WITCH = registerEntity("viler_witch", Builder.of(VilerWitch::new, MobCategory.MONSTER)
+		VILER_WITCH = register("viler_witch", Builder.of(VilerWitch::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.eyeHeight(1.62F)
 				.passengerAttachments(2.2625F)
@@ -195,32 +195,32 @@ public class SMCMEntityTypes {
 				.notInPeaceful()
 		);
 
-		REDSTONE_GOLEM = registerEntity("redstone_golem", Builder.of(RedstoneGolem::new, MobCategory.MONSTER)
+		REDSTONE_GOLEM = register("redstone_golem", Builder.of(RedstoneGolem::new, MobCategory.MONSTER)
 				.sized(3.5F, 4.0F)
 				.eyeHeight(3.25F)
 		);
 
-		FROSTBITTEN_SNOWBALL = registerEntity("frostbitten_snowball", Builder.<FrostbittenSnowball>of(FrostbittenSnowball::new, MobCategory.MISC)
+		FROSTBITTEN_SNOWBALL = register("frostbitten_snowball", Builder.<FrostbittenSnowball>of(FrostbittenSnowball::new, MobCategory.MISC)
 				.noLootTable()
 				.sized(0.25F, 0.25F)
 				.clientTrackingRange(4)
 				.updateInterval(10)
 		);
 
-		WILDFIRE = registerEntity("wildfire", Builder.of(Wildfire::new, MobCategory.MONSTER)
+		WILDFIRE = register("wildfire", Builder.of(Wildfire::new, MobCategory.MONSTER)
 				.sized(2.0F, 2.0F)
 				.notInPeaceful()
 		);
 
-		WRAITH = registerEntity("wraith", Builder.of(Wraith::new, MobCategory.MONSTER)
+		WRAITH = register("wraith", Builder.of(Wraith::new, MobCategory.MONSTER)
 				.sized(0.6F, 1.95F)
 				.notInPeaceful()
 		);
 
-		GEOMANCER_WALL = registerEntity("geomancer_wall", Builder.of(GeomancerWall::new, MobCategory.MISC)
+		GEOMANCER_WALL = register("geomancer_wall", Builder.of(GeomancerWall::new, MobCategory.MISC)
 				.sized(0.5F, 0.0F));
 
-		NECROMANCER_BALL = registerEntity("necromancer_ball", Builder.<NecromancerBall>of(NecromancerBall::new, MobCategory.MISC)
+		NECROMANCER_BALL = register("necromancer_ball", Builder.<NecromancerBall>of(NecromancerBall::new, MobCategory.MISC)
 				.noLootTable()
 				.sized(0.375F, 0.375F)
 				.eyeHeight(0.0F)
@@ -228,17 +228,17 @@ public class SMCMEntityTypes {
 				.updateInterval(10)
 		);
 
-		REDSTONE_MONSTROSITY = registerEntity("redstone_monstrosity", Builder.of(RedstoneMonstrosity::new, MobCategory.MONSTER));
+		REDSTONE_MONSTROSITY = register("redstone_monstrosity", Builder.of(RedstoneMonstrosity::new, MobCategory.MONSTER));
 	}
 
-	public static <T extends Entity> Supplier<EntityType<T>> registerEntity(String id, Builder<T> builder) {
+	public static <T extends Entity> Supplier<EntityType<T>> register(String id, Builder<T> builder) {
 		ResourceKey<EntityType<?>> key = SMCM.key(Registries.ENTITY_TYPE, id);
 		//? fabric {
-		EntityType<T> entity = Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
+		/*EntityType<T> entity = Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
 		return () -> entity;
-		//?} neoforge {
-		/*return ENTITIES.register(id, () -> builder.build(key));
-		 *///?}
+		*///?} neoforge {
+		return ENTITIES.register(id, () -> builder.build(key));
+		 //?}
 	}
 
 	public static void load() {}

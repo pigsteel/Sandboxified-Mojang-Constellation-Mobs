@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.platform.fabric;
 
 //? fabric  {
 
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
@@ -28,7 +28,7 @@ public class FabricItemGroups {
 
     public static void init() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(output -> {
-            /*
+            /^
              * Release-visible eggs.
              *
              * Undead strict alphabetical placement:
@@ -39,12 +39,12 @@ public class FabricItemGroups {
              * Parched
              * Reclaimed
              * Skeleton
-             */
+             ^/
             output.insertAfter(Items.DROWNED_SPAWN_EGG, new ItemStack(FROSTBITTEN_SPAWN_EGG.get()));
             output.insertAfter(Items.PARCHED_SPAWN_EGG, new ItemStack(RECLAIMED_SPAWN_EGG.get()));
 
             if (SMCM.xplat().isDevelopmentEnvironment()) {
-                /*
+                /^
                  * Undead:
                  * Frostbitten
                  * Husk
@@ -56,12 +56,12 @@ public class FabricItemGroups {
                  * Stray
                  * Sunken
                  * Zombie
-                 */
+                 ^/
                 output.insertAfter(Items.HUSK_SPAWN_EGG, new ItemStack(LOST_SPAWN_EGG.get()));
                 output.insertAfter(LOST_SPAWN_EGG.get(), new ItemStack(NECROMANCER_SPAWN_EGG.get()));
                 output.insertAfter(Items.STRAY_SPAWN_EGG, new ItemStack(SUNKEN_SPAWN_EGG.get()));
 
-                /*
+                /^
                  * Monsters:
                  * Slime
                  * Viler Witch
@@ -70,10 +70,10 @@ public class FabricItemGroups {
                  *
                  * This is strict alphabetical placement. Even though Viler Witch is a witch type,
                  * "Viler Witch" alphabetically comes before "Warden" and "Witch".
-                 */
+                 ^/
                 output.insertAfter(Items.SLIME_SPAWN_EGG, new ItemStack(VILER_WITCH_SPAWN_EGG.get()));
 
-                /*
+                /^
                  * Illagers:
                  * Bruiser
                  * Enchanter
@@ -88,7 +88,7 @@ public class FabricItemGroups {
                  * Vex
                  * Vindicator
                  * Windcaller
-                 */
+                 ^/
 
                 output.insertBefore(Items.EVOKER_SPAWN_EGG, new ItemStack(BRUISER_SPAWN_EGG.get()));
                 output.insertAfter(BRUISER_SPAWN_EGG.get(), new ItemStack(ENCHANTER_SPAWN_EGG.get()));
@@ -100,7 +100,7 @@ public class FabricItemGroups {
                 output.insertAfter(Items.RAVAGER_SPAWN_EGG, new ItemStack(REDSTONE_GOLEM_SPAWN_EGG.get()));
                 output.insertAfter(Items.VINDICATOR_SPAWN_EGG, new ItemStack(WINDCALLER_SPAWN_EGG.get()));
 
-                /*
+                /^
                  * The Nether:
                  * Piglin
                  * Piglin Brute
@@ -109,11 +109,11 @@ public class FabricItemGroups {
                  * ...
                  * Zombified Piglin
                  * Zombified Piglin Brute
-                 */
+                 ^/
                 output.insertAfter(Items.PIGLIN_BRUTE_SPAWN_EGG, new ItemStack(PIGLIN_FARMER_SPAWN_EGG.get()));
                 output.insertAfter(Items.ZOMBIFIED_PIGLIN_SPAWN_EGG, new ItemStack(ZOMBIFIED_PIGLIN_BRUTE_SPAWN_EGG.get()));
             }
         });
     }
 }
-//?}
+*///?}

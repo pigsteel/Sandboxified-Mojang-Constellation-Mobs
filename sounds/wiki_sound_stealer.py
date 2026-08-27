@@ -26,10 +26,10 @@ import requests
 from bs4 import BeautifulSoup
 
 
-DEFAULT_PAGE_URL = "https://minecraft.wiki/w/Dungeons:Iceologer"
+DEFAULT_PAGE_URL = "https://minecraft.wiki/w/Dungeons:Wraith"
 API_URL = "https://minecraft.wiki/api.php"
 
-AUDIO_EXTENSIONS = ".ogg"
+AUDIO_EXTENSIONS = {".ogg"}
 
 HEADERS = {
 	"User-Agent": "SMCM sound downloader / personal modding script"
@@ -95,7 +95,9 @@ def extract_direct_audio_urls_from_html(page_html: str, base_url: str) -> set[st
 	for tag in soup.select("audio source[src], audio[src]"):
 		src = tag.get("src")
 		if src:
-			urls.add(urljoin(base_url, src))
+			url = urljoin(base_url, src)
+			if is_audio_url(url):
+				urls.add(url)
 
 	# Plain links to audio files.
 	for tag in soup.select("a[href]"):
@@ -103,11 +105,15 @@ def extract_direct_audio_urls_from_html(page_html: str, base_url: str) -> set[st
 		if not href:
 			continue
 
-		lower = href.lower()
-		if any(ext in lower for ext in AUDIO_EXTENSIONS):
-			urls.add(urljoin(base_url, href))
+		url = urljoin(base_url, href)
+		if is_audio_url(url):
+			urls.add(url)
 
 	return urls
+
+def is_audio_url(url: str) -> bool:
+	path = unquote(urlparse(url).path).lower()
+	return any(path.endswith(ext) for ext in AUDIO_EXTENSIONS)
 
 
 def extract_audio_file_titles_from_images(parse_images: Iterable[str]) -> set[str]:
@@ -115,7 +121,7 @@ def extract_audio_file_titles_from_images(parse_images: Iterable[str]) -> set[st
 
 	for image_name in parse_images:
 		lower = image_name.lower()
-		if lower.endswith(AUDIO_EXTENSIONS):
+		if any(lower.endswith(ext) for ext in AUDIO_EXTENSIONS):
 			if image_name.startswith("File:"):
 				titles.add(image_name)
 			else:
@@ -200,7 +206,7 @@ def search_file_namespace(session: requests.Session, term: str, limit: int) -> s
 			title = result.get("title", "")
 			lower = title.lower()
 
-			if title.startswith("File:") and lower.endswith(AUDIO_EXTENSIONS):
+			if title.startswith("File:") and any(lower.endswith(ext) for ext in AUDIO_EXTENSIONS):
 				found.add(title)
 
 		if found:
@@ -249,7 +255,7 @@ def resolve_file_urls(session: requests.Session, file_titles: Iterable[str]) -> 
 				continue
 
 			lower_url = url.lower()
-			if mime.startswith("audio/") or lower_url.endswith(AUDIO_EXTENSIONS):
+			if mime.startswith("audio/") or any(lower_url.endswith(ext) for ext in AUDIO_EXTENSIONS):
 				resolved[title] = url
 
 		time.sleep(0.25)

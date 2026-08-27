@@ -1,20 +1,11 @@
 package com.github.pigsteel.smcm.core;
 
 import com.github.pigsteel.smcm.SMCM;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
-
-//? neoforge {
-import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ITEMS;
-//?}
 
 public class SMCMItems {
 	public static final Supplier<Item> BRUISER_SPAWN_EGG;
@@ -48,17 +39,7 @@ public class SMCMItems {
 	public static final Supplier<Item> PIGLIN_FARMER_SPAWN_EGG;
 
 	private static <T extends Item> Supplier<T> register(String name, Function<Item.Properties, T> itemFactory) {
-		//? neoforge {
-		return ITEMS.registerItem(
-				name,
-				itemFactory
-		);
-		//?} fabric {
-		/*ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, SMCM.id(name));
-		Identifier id = key.identifier();
-		T registered = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(new Item.Properties().setId(key)));
-		return () -> registered;
-		*///?}
+		return SMCM.xplat().register(name, itemFactory);
 	}
 
 	static {

@@ -42,7 +42,6 @@ public class NeoforgeVariables {
 	public static ArrayList<DefaultAttributesDeferred<?>> DEFAULT_ATTRIBUTES = new ArrayList<>();
 	public static ArrayList<EntityRendererDeferred<?>> ENTITY_RENDERERS = new ArrayList<>();
 
-
 	public static void registerAll(IEventBus modBus) {
 		ATTACHMENT_TYPES.register(modBus);
 		ITEMS.register(modBus);

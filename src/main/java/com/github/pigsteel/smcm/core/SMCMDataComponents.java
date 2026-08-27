@@ -13,10 +13,6 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
-//? neoforge {
-import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.DATA_COMPONENTS;
-//?}
-
 public class SMCMDataComponents {
     public static final Supplier<DataComponentType<Reclaimed.HeadFlower>> RECLAIMED_HEAD_FLOWER = register(
             "reclaimed/head_flower",
@@ -46,14 +42,6 @@ public class SMCMDataComponents {
             final String id,
             final UnaryOperator<DataComponentType.Builder<T>> builder
     ) {
-		//? fabric {
-		/*DataComponentType<T> type = builder
-                .apply(DataComponentType.<T>builder())
-                .build();
-		DataComponentType<T> var10000 = Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, SMCM.id(id), type);
-        return () -> var10000;
-		*///?} neoforge {
-		return DATA_COMPONENTS.registerComponentType(id, builder);
-		//?}
+		return SMCM.xplat().register(id, builder);
     }
 }

@@ -23,20 +23,12 @@ import com.github.pigsteel.smcm.world.entity.projectile.FrostbittenSnowball;
 import com.github.pigsteel.smcm.world.entity.projectile.GeomancerWall;
 import com.github.pigsteel.smcm.world.entity.projectile.NecromancerBall;
 import com.github.pigsteel.smcm.world.entity.projectile.ReclaimedPuke;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityType.Builder;
 import net.minecraft.world.entity.MobCategory;
 
 import java.util.function.Supplier;
-
-//? neoforge {
-import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITIES;
-//?}
 
 public class SMCMEntityTypes {
 	public static final Supplier<EntityType<Bruiser>> BRUISER;
@@ -232,13 +224,7 @@ public class SMCMEntityTypes {
 	}
 
 	public static <T extends Entity> Supplier<EntityType<T>> register(String id, Builder<T> builder) {
-		ResourceKey<EntityType<?>> key = SMCM.key(Registries.ENTITY_TYPE, id);
-		//? fabric {
-		/*EntityType<T> entity = Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
-		return () -> entity;
-		*///?} neoforge {
-		return ENTITIES.register(id, () -> builder.build(key));
-		 //?}
+		return SMCM.xplat().register(id, builder);
 	}
 
 	public static void load() {}

@@ -8,10 +8,6 @@ import net.minecraft.sounds.SoundEvent;
 
 import java.util.function.Supplier;
 
-//? neoforge {
-import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.SOUND_EVENTS;
-//?}
-
 public class SMCMSoundEvents {
 	public static final Supplier<SoundEvent> BRUISER_AMBIENT = register("entity.bruiser.ambient");
 	public static final Supplier<SoundEvent> BRUISER_CELEBRATE = register("entity.bruiser.celebrate");
@@ -100,12 +96,6 @@ public class SMCMSoundEvents {
     public static void load() {}
 
     public static Supplier<SoundEvent> register(String name) {
-        Identifier id = Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name);
-		//? neoforge {
-        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
-		//?} fabric {
-		/*SoundEvent sound = Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
-		return () -> sound;
-		*///?}
+        return SMCM.xplat().registerSoundEvent(name);
     }
 }

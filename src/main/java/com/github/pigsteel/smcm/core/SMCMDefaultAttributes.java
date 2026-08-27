@@ -1,5 +1,6 @@
 package com.github.pigsteel.smcm.core;
 
+import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.world.entity.monster.VilerWitch;
 import com.github.pigsteel.smcm.world.entity.monster.Wildfire;
 import com.github.pigsteel.smcm.world.entity.monster.Wraith;
@@ -23,43 +24,32 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 
 import java.util.function.Supplier;
-//? fabric {
-/*import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-*///?} neoforge {
-import com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables;
-import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.DEFAULT_ATTRIBUTES;
-//?}
 
 public final class SMCMDefaultAttributes {
     private SMCMDefaultAttributes() {}
 
     public static void load() {
-        registerAttributes(SMCMEntityTypes.BRUISER, Bruiser::createAttributes);
-        registerAttributes(SMCMEntityTypes.ENCHANTER, Enchanter::createAttributes);
-        registerAttributes(SMCMEntityTypes.FROSTBITTEN, Frostbitten::createAttributes);
-        registerAttributes(SMCMEntityTypes.RECLAIMED, Reclaimed::createAttributes);
-        registerAttributes(SMCMEntityTypes.SUNKEN, Sunken::createAttributes);
-        registerAttributes(SMCMEntityTypes.LOST, Lost::createAttributes);
-        registerAttributes(SMCMEntityTypes.NECROMANCER, Necromancer::createAttributes);
-        registerAttributes(SMCMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE, ZombifiedPiglinBrute::createAttributes);
-        registerAttributes(SMCMEntityTypes.REDSTONE_GOLEM, RedstoneGolem::createAttributes);
-        registerAttributes(SMCMEntityTypes.ICEOLOGER, Iceologer::createMonsterAttributes);
-        registerAttributes(SMCMEntityTypes.WINDCALLER, Windcaller::createMonsterAttributes);
-        registerAttributes(SMCMEntityTypes.GEOMANCER, Geomancer::createMonsterAttributes);
-        registerAttributes(SMCMEntityTypes.PIGLIN_FARMER, PiglinFarmer::createMonsterAttributes);
-        registerAttributes(SMCMEntityTypes.VILER_WITCH, VilerWitch::createAttributes);
-        registerAttributes(SMCMEntityTypes.MOUNTAINEER, Mountaineer::createAttributes);
-		registerAttributes(SMCMEntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosity::createMonsterAttributes);
-		registerAttributes(SMCMEntityTypes.WILDFIRE, Wildfire::createMonsterAttributes);
-		registerAttributes(SMCMEntityTypes.WRAITH, Wraith::createMonsterAttributes);
+        register(SMCMEntityTypes.BRUISER, Bruiser::createAttributes);
+        register(SMCMEntityTypes.ENCHANTER, Enchanter::createAttributes);
+        register(SMCMEntityTypes.FROSTBITTEN, Frostbitten::createAttributes);
+        register(SMCMEntityTypes.RECLAIMED, Reclaimed::createAttributes);
+        register(SMCMEntityTypes.SUNKEN, Sunken::createAttributes);
+        register(SMCMEntityTypes.LOST, Lost::createAttributes);
+        register(SMCMEntityTypes.NECROMANCER, Necromancer::createAttributes);
+        register(SMCMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE, ZombifiedPiglinBrute::createAttributes);
+        register(SMCMEntityTypes.REDSTONE_GOLEM, RedstoneGolem::createAttributes);
+        register(SMCMEntityTypes.ICEOLOGER, Iceologer::createMonsterAttributes);
+        register(SMCMEntityTypes.WINDCALLER, Windcaller::createMonsterAttributes);
+        register(SMCMEntityTypes.GEOMANCER, Geomancer::createMonsterAttributes);
+        register(SMCMEntityTypes.PIGLIN_FARMER, PiglinFarmer::createMonsterAttributes);
+        register(SMCMEntityTypes.VILER_WITCH, VilerWitch::createAttributes);
+        register(SMCMEntityTypes.MOUNTAINEER, Mountaineer::createAttributes);
+		register(SMCMEntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosity::createMonsterAttributes);
+		register(SMCMEntityTypes.WILDFIRE, Wildfire::createMonsterAttributes);
+		register(SMCMEntityTypes.WRAITH, Wraith::createMonsterAttributes);
     }
 
-    public static <T extends LivingEntity> void registerAttributes(Supplier<EntityType<T>> entityType, Supplier<AttributeSupplier.Builder> supplier) {
-        //? fabric {
-        /*FabricDefaultAttributeRegistry.register(entityType.get(), supplier.get());
-        *///?}
-        //? neoforge {
-		DEFAULT_ATTRIBUTES.add(new NeoforgeVariables.DefaultAttributesDeferred<>(entityType, supplier));
-        //?}
+    public static <T extends LivingEntity> void register(Supplier<EntityType<T>> entityType, Supplier<AttributeSupplier.Builder> supplier) {
+		SMCM.xplat().register(entityType, supplier);
     }
 }

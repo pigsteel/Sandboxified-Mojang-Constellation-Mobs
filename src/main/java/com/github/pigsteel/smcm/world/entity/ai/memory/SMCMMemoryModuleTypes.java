@@ -20,22 +20,12 @@ public class SMCMMemoryModuleTypes {
 	public static final Supplier<MemoryModuleType<Unit>> SOUL_BLAST_COOLDOWN;
 	public static final Supplier<MemoryModuleType<Unit>> PENDING_SUMMON;
 
-	private static <U> Supplier<MemoryModuleType<U>> register(String name, Codec<U> codec) {
-		//? fabric {
-		/*var var10000 = Registry.register(BuiltInRegistries.MEMORY_MODULE_TYPE, SMCM.id(name), new MemoryModuleType<>(Optional.of(codec)));
-		return () -> var10000;
-		*///?} neoforge {
-		return MEMORY_MODULE_TYPES.register(name, () -> new MemoryModuleType<>(Optional.of(codec)));
-		//?}
+	private static <U> Supplier<MemoryModuleType<U>> register(String name, Optional<Codec<U>> codec) {
+		return SMCM.xplat().registerMemoryModuleType(name, codec);
 	}
 
 	private static <U> Supplier<MemoryModuleType<U>> register(String name) {
-		//? fabric {
-		/*var var10000 = Registry.register(BuiltInRegistries.MEMORY_MODULE_TYPE, SMCM.id(name), new MemoryModuleType<U>(Optional.empty()));
-		return () -> var10000;
-		*///?} neoforge {
-		return MEMORY_MODULE_TYPES.register(name, () -> new MemoryModuleType<>(Optional.empty()));
-		//?}
+		return register(name, Optional.empty());
 	}
 
 	static {

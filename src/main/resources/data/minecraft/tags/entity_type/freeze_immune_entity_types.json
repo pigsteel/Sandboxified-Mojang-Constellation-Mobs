@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "smcm:frostbitten",
-    "smcm:wraith"
+    "eum:frostbitten",
+    "eum:wraith"
   ]
 }

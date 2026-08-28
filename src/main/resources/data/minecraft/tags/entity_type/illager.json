@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "smcm:bruiser",
-    "smcm:enchanter",
-    "smcm:iceologer",
-    "smcm:mountaineer",
-    "smcm:windcaller"
+    "eum:bruiser",
+    "eum:enchanter",
+    "eum:iceologer",
+    "eum:mountaineer",
+    "eum:windcaller"
   ]
 }

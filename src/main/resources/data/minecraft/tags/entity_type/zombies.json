@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "smcm:reclaimed",
-    "smcm:frostbitten",
-    "smcm:zombified_piglin_brute"
+    "eum:reclaimed",
+    "eum:frostbitten",
+    "eum:zombified_piglin_brute"
   ]
 }

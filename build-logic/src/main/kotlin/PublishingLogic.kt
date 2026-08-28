@@ -81,7 +81,7 @@ fun Project.configureModPublishing(ctx: Context) {
 		modLoaders.add(ctx.loader.id)
 
 		displayName =
-			"SMCM ${ctx.basicVersion} for ${ctx.loader.id.replaceFirstChar(Char::titlecase)} ${ctx.currentMcVersion}"
+			"EU-Mobs ${ctx.basicVersion} for ${ctx.loader.id.replaceFirstChar(Char::titlecase)} ${ctx.currentMcVersion}"
 
 		if (githubEnabled) {
 			github {

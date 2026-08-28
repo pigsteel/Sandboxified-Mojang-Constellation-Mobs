@@ -1,0 +1,100 @@
+package com.github.pigsteel.eum.world.entity.monster.skeleton;
+
+import com.github.pigsteel.eum.EUM;
+import com.github.pigsteel.eum.core.EUMCustomRegistries;
+import net.minecraft.core.ClientAsset;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.variant.BiomeCheck;
+import net.minecraft.world.entity.variant.ModelAndTexture;
+import net.minecraft.world.entity.variant.SpawnPrioritySelectors;
+import net.minecraft.world.level.biome.Biome;
+
+public class SunkenVariants {
+    public static final ResourceKey<SunkenVariant> NORMAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "normal"));
+    public static final ResourceKey<SunkenVariant> WARM_FIRE_CORAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "fire_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_BUBBLE_CORAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "bubble_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_HORN_CORAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "horn_coral"));
+    public static final ResourceKey<SunkenVariant> FROZEN = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "frozen"));
+
+    private static ResourceKey<SunkenVariant> createKey(Identifier id) {
+        return ResourceKey.create(EUMCustomRegistries.SUNKEN_VARIANT, id);
+    }
+
+    public static void bootstrap(BootstrapContext<SunkenVariant> context) {
+        register(
+                context,
+                NORMAL,
+                SunkenVariant.ModelType.NORMAL,
+                "sunken",
+                null,
+                SpawnPrioritySelectors.fallback(0)
+        );
+
+        register(
+                context,
+                WARM_FIRE_CORAL,
+                SunkenVariant.ModelType.FIRE_CORAL,
+                "sunken_fire_coral",
+                "sunken_fire_coral_dead",
+                BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL
+        );
+
+        register(
+                context,
+                WARM_BUBBLE_CORAL,
+                SunkenVariant.ModelType.BUBBLE_CORAL,
+                "sunken_bubble_coral",
+                "sunken_bubble_coral_dead",
+                BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL
+        );
+
+        register(
+                context,
+                WARM_HORN_CORAL,
+                SunkenVariant.ModelType.HORN_CORAL,
+                "sunken_horn_coral",
+                "sunken_horn_coral_dead",
+                BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL
+        );
+
+        register(
+                context,
+                FROZEN,
+                SunkenVariant.ModelType.FROZEN,
+                "sunken_frozen",
+                null,
+                SpawnPrioritySelectors.EMPTY
+        );
+    }
+
+    private static void register( // stage 1
+            BootstrapContext<SunkenVariant> context,
+            ResourceKey<SunkenVariant> name,
+            SunkenVariant.ModelType modelType,
+            String textureName,
+            String deadCoralTextureName,
+            TagKey<Biome> spawnBiome
+    ) {
+        HolderSet<Biome> biomes = context.lookup(Registries.BIOME).getOrThrow(spawnBiome);
+        register(context, name, modelType, textureName, deadCoralTextureName, SpawnPrioritySelectors.single(new BiomeCheck(biomes), 1));
+    }
+
+    private static void register( // stage 2
+            BootstrapContext<SunkenVariant> context,
+            ResourceKey<SunkenVariant> name,
+            SunkenVariant.ModelType modelType,
+            String textureName,
+            String deadCoralTextureName,
+            SpawnPrioritySelectors selectors
+    ) {
+        Identifier textureId = Identifier.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/" + textureName);
+        Identifier deadCoralTextureId = Identifier.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/" + deadCoralTextureName);
+        context.register(name, new SunkenVariant(new ModelAndTexture<>(modelType, textureId), new ClientAsset.ResourceTexture(deadCoralTextureId), selectors));
+    }
+}

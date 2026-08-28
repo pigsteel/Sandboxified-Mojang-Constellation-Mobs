@@ -1,0 +1,729 @@
+{
+  "entity.bruiser.ambient": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.bruiser.ambient"
+  },
+  "entity.bruiser.celebrate": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.bruiser.celebrate"
+  },
+  "entity.bruiser.death": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.bruiser.death"
+  },
+  "entity.bruiser.hurt": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.bruiser.hurt"
+  },
+  "entity.wraith.ambient": {
+    "sounds": [
+      "eum:mob/wraith/ambient1",
+      "eum:mob/wraith/ambient2",
+      "eum:mob/wraith/ambient3",
+      "eum:mob/wraith/ambient4",
+      "eum:mob/wraith/ambient5",
+      "eum:mob/wraith/ambient6"
+    ],
+    "subtitle": "subtitles.eum.entity.wraith.ambient"
+  },
+  "entity.wraith.death": {
+    "sounds": [
+      "eum:mob/wraith/death1",
+      "eum:mob/wraith/death2"
+    ],
+    "subtitle": "subtitles.eum.entity.wraith.death"
+  },
+  "entity.wraith.hurt": {
+    "sounds": [
+      "eum:mob/wraith/hurt1",
+      "eum:mob/wraith/hurt2",
+      "eum:mob/wraith/hurt3"
+    ],
+    "subtitle": "subtitles.eum.entity.wraith.hurt"
+  },
+  "entity.enchanter.ambient": {
+    "sounds": [
+      "eum:mob/enchanter/ambient1",
+      "eum:mob/enchanter/ambient2",
+      "eum:mob/enchanter/ambient3"
+    ],
+    "subtitle": "subtitles.eum.entity.enchanter.ambient"
+  },
+  "entity.enchanter.celebrate": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.enchanter.celebrate"
+  },
+  "entity.enchanter.death": {
+    "sounds": [
+      "eum:mob/enchanter/death1",
+      "eum:mob/enchanter/death2",
+      "eum:mob/enchanter/death3"
+    ],
+    "subtitle": "subtitles.eum.entity.enchanter.death"
+  },
+  "entity.enchanter.hurt": {
+    "sounds": [
+      "eum:mob/enchanter/hurt1",
+      "eum:mob/enchanter/hurt2",
+      "eum:mob/enchanter/hurt3"
+    ],
+    "subtitle": "subtitles.eum.entity.enchanter.hurt"
+  },
+  "entity.frostbitten.ambient": {
+    "sounds": [
+      "eum:mob/frostbitten/ambient1",
+      "eum:mob/frostbitten/ambient2",
+      "eum:mob/frostbitten/ambient3"
+    ],
+    "subtitle": "subtitles.eum.entity.frostbitten.ambient"
+  },
+  "entity.frostbitten.death": {
+    "sounds": [
+      "eum:mob/frostbitten/death1",
+      "eum:mob/frostbitten/death2",
+      "eum:mob/frostbitten/death3",
+      "eum:mob/frostbitten/death4"
+    ],
+    "subtitle": "subtitles.eum.entity.frostbitten.death"
+  },
+  "entity.frostbitten.hurt": {
+    "sounds": [
+      "eum:mob/frostbitten/hurt1",
+      "eum:mob/frostbitten/hurt2",
+      "eum:mob/frostbitten/hurt3"
+    ],
+    "subtitle": "subtitles.eum.entity.frostbitten.hurt"
+  },
+  "entity.frostbitten.shoot": {
+    "sounds": [
+      "random/bow"
+    ],
+    "subtitle": "subtitles.entity.snowball.throw"
+  },
+  "entity.frostbitten.step": {
+    "sounds": [
+      "eum:mob/frostbitten/step1",
+      "eum:mob/frostbitten/step2",
+      "eum:mob/frostbitten/step3",
+      "eum:mob/frostbitten/step4",
+      "eum:mob/frostbitten/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.geomancer.ambient": {
+    "sounds": [
+      "eum:mob/geomancer/idle1",
+      "eum:mob/geomancer/idle2",
+      "eum:mob/geomancer/idle3",
+      "eum:mob/geomancer/idle4",
+      "eum:mob/geomancer/idle5",
+      "eum:mob/geomancer/idle6"
+    ],
+    "subtitle": "subtitles.eum.entity.geomancer.ambient"
+  },
+  "entity.geomancer.celebrate": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.geomancer.celebrate"
+  },
+  "entity.geomancer.death": {
+    "sounds": [
+      "eum:mob/geomancer/death1",
+      "eum:mob/geomancer/death2",
+      "eum:mob/geomancer/death3"
+    ],
+    "subtitle": "subtitles.eum.entity.geomancer.death"
+  },
+  "entity.geomancer.hurt": {
+    "sounds": [
+      "eum:mob/geomancer/hurt1",
+      "eum:mob/geomancer/hurt2",
+      "eum:mob/geomancer/hurt3",
+      "eum:mob/geomancer/hurt4"
+    ],
+    "subtitle": "subtitles.eum.entity.geomancer.hurt"
+  },
+  "entity.iceologer.ambient": {
+    "sounds": [
+      "eum:mob/iceologer/ambient1",
+      "eum:mob/iceologer/ambient2",
+      "eum:mob/iceologer/ambient3"
+    ],
+    "subtitle": "subtitles.eum.entity.iceologer.ambient"
+  },
+  "entity.iceologer.celebrate": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.iceologer.celebrate"
+  },
+  "entity.iceologer.death": {
+    "sounds": [
+      "eum:mob/iceologer/death1",
+      "eum:mob/iceologer/death2",
+      "eum:mob/iceologer/death3"
+    ],
+    "subtitle": "subtitles.eum.entity.iceologer.death"
+  },
+  "entity.iceologer.hurt": {
+    "sounds": [
+      "eum:mob/iceologer/hurt1",
+      "eum:mob/iceologer/hurt2",
+      "eum:mob/iceologer/hurt3"
+    ],
+    "subtitle": "subtitles.eum.entity.iceologer.hurt"
+  },
+  "entity.lost.ambient": {
+    "sounds": [
+      "eum:mob/lost/ambient1",
+      "eum:mob/lost/ambient2",
+      "eum:mob/lost/ambient3"
+    ],
+    "subtitle": "subtitles.eum.entity.lost.ambient"
+  },
+  "entity.lost.death": {
+    "sounds": [
+      "eum:mob/lost/death1",
+      "eum:mob/lost/death2",
+      "eum:mob/lost/death3",
+      "eum:mob/lost/death4",
+      "eum:mob/lost/death5",
+      "eum:mob/lost/death6",
+      "eum:mob/lost/death7"
+    ],
+    "subtitle": "subtitles.eum.entity.lost.death"
+  },
+  "entity.lost.hurt": {
+    "sounds": [
+      "eum:mob/lost/hurt1",
+      "eum:mob/lost/hurt2",
+      "eum:mob/lost/hurt3",
+      "eum:mob/lost/hurt4"
+    ],
+    "subtitle": "subtitles.eum.entity.lost.hurt"
+  },
+  "entity.lost.step": {
+    "sounds": [
+      "eum:mob/lost/step1",
+      "eum:mob/lost/step2",
+      "eum:mob/lost/step3",
+      "eum:mob/lost/step4"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.mountaineer.ambient": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.mountaineer.ambient"
+  },
+  "entity.mountaineer.celebrate": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.mountaineer.celebrate"
+  },
+  "entity.mountaineer.death": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.mountaineer.death"
+  },
+  "entity.mountaineer.hurt": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.mountaineer.hurt"
+  },
+  "entity.necromancer.ambient": {
+    "sounds": [
+      "eum:mob/necromancer/idle1",
+      "eum:mob/necromancer/idle2",
+      "eum:mob/necromancer/idle3"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.ambient"
+  },
+  "entity.necromancer.death": {
+    "sounds": [
+      "eum:mob/necromancer/death1",
+      "eum:mob/necromancer/death2"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.death"
+  },
+  "entity.necromancer.hurt": {
+    "sounds": [
+      "eum:mob/necromancer/hurt1",
+      "eum:mob/necromancer/hurt2",
+      "eum:mob/necromancer/hurt3",
+      "eum:mob/necromancer/hurt4"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.hurt"
+  },
+  "entity.necromancer.laugh": {
+    "sounds": [
+      "eum:mob/necromancer/laugh1",
+      "eum:mob/necromancer/laugh2"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.laugh"
+  },
+  "entity.necromancer.prepare_summon": {
+    "sounds": [
+      "eum:mob/necromancer/prepare_summon"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.prepare_summon"
+  },
+  "entity.necromancer.prepare_summon_alt": {
+    "sounds": [
+      "eum:mob/necromancer/prepare_summon_alt"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.prepare_summon"
+  },
+  "entity.necromancer.spell": {
+    "sounds": [
+      "eum:mob/necromancer/spell1",
+      "eum:mob/necromancer/spell2"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.cast_spell"
+  },
+  "entity.necromancer.step": {
+    "sounds": [
+      "eum:mob/necromancer/step1",
+      "eum:mob/necromancer/step2",
+      "eum:mob/necromancer/step3",
+      "eum:mob/necromancer/step4"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.necromancer.summon": {
+    "sounds": [
+      "eum:mob/necromancer/summon1",
+      "eum:mob/necromancer/summon2",
+      "eum:mob/necromancer/summon3"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer.summon"
+  },
+  "entity.necromancer_ball.hit": {
+    "sounds": [
+      "eum:mob/necromancer/evil_impact1",
+      "eum:mob/necromancer/evil_impact2",
+      "eum:mob/necromancer/evil_impact3",
+      "eum:mob/necromancer/evil_impact4"
+    ],
+    "subtitle": "subtitles.eum.entity.necromancer_ball.hit"
+  },
+  "entity.parrot.imitate.enchanter": {
+    "sounds": [
+      {
+        "name": "eum:entity.enchanter.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.enchanter"
+  },
+  "entity.parrot.imitate.frostbitten": {
+    "sounds": [
+      {
+        "name": "eum:entity.frostbitten.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.frostbitten"
+  },
+  "entity.parrot.imitate.geomancer": {
+    "sounds": [
+      {
+        "name": "eum:entity.geomancer.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.geomancer"
+  },
+  "entity.parrot.imitate.lost": {
+    "sounds": [
+      {
+        "name": "eum:entity.lost.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.lost"
+  },
+  "entity.parrot.imitate.necromancer": {
+    "sounds": [
+      {
+        "name": "eum:entity.necromancer.laugh",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.necromancer"
+  },
+  "entity.parrot.imitate.reclaimed": {
+    "sounds": [
+      {
+        "name": "eum:entity.reclaimed.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.reclaimed"
+  },
+  "entity.parrot.imitate.redstone_golem": {
+    "sounds": [
+      {
+        "name": "eum:entity.redstone_golem.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.redstone_golem"
+  },
+  "entity.parrot.imitate.sunken": {
+    "sounds": [
+      {
+        "name": "eum:entity.sunken.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.sunken"
+  },
+  "entity.parrot.imitate.viler_witch": {
+    "sounds": [
+      {
+        "name": "eum:entity.viler_witch.ambient",
+        "pitch": 1.5,
+        "type": "event",
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.parrot.imitate.viler_witch"
+  },
+  "entity.reclaimed.ambient": {
+    "sounds": [
+      "eum:mob/reclaimed/ambient1",
+      "eum:mob/reclaimed/ambient2",
+      "eum:mob/reclaimed/ambient3"
+    ],
+    "subtitle": "subtitles.eum.entity.reclaimed.ambient"
+  },
+  "entity.reclaimed.bone_meal": {
+    "sounds": [
+      "minecraft:item/bonemeal/bonemeal1",
+      "minecraft:item/bonemeal/bonemeal2",
+      "minecraft:item/bonemeal/bonemeal3",
+      "minecraft:item/bonemeal/bonemeal4",
+      "minecraft:item/bonemeal/bonemeal5"
+    ],
+    "subtitle": "subtitles.item.bone_meal.use"
+  },
+  "entity.reclaimed.death": {
+    "sounds": [
+      "eum:mob/reclaimed/death1",
+      "eum:mob/reclaimed/death2",
+      "eum:mob/reclaimed/death3"
+    ],
+    "subtitle": "subtitles.eum.entity.reclaimed.death"
+  },
+  "entity.reclaimed.hurt": {
+    "sounds": [
+      "eum:mob/reclaimed/hurt1",
+      "eum:mob/reclaimed/hurt2",
+      "eum:mob/reclaimed/hurt3",
+      "eum:mob/reclaimed/hurt4"
+    ],
+    "subtitle": "subtitles.eum.entity.reclaimed.hurt"
+  },
+  "entity.reclaimed.projectile_vomit": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.reclaimed.projectile_vomit"
+  },
+  "entity.reclaimed.shear": {
+    "sounds": [
+      "minecraft:mob/sheep/shear"
+    ],
+    "subtitle": "subtitles.item.shears.shear"
+  },
+  "entity.reclaimed.spit": {
+    "sounds": [
+      "minecraft:mob/llama/spit1",
+      "minecraft:mob/llama/spit2"
+    ],
+    "subtitle": "subtitles.eum.entity.reclaimed.spit"
+  },
+  "entity.reclaimed.step": {
+    "sounds": [
+      "eum:mob/reclaimed/step1",
+      "eum:mob/reclaimed/step2",
+      "eum:mob/reclaimed/step3",
+      "eum:mob/reclaimed/step4",
+      "eum:mob/reclaimed/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.redstone_golem.ambient": {
+    "sounds": [
+      "eum:mob/redstone_golem/idle1",
+      "eum:mob/redstone_golem/idle2",
+      "eum:mob/redstone_golem/idle3",
+      "eum:mob/redstone_golem/idle4",
+      "eum:mob/redstone_golem/idle5"
+    ],
+    "subtitle": "subtitles.eum.entity.redstone_golem.ambient"
+  },
+  "entity.redstone_golem.death": {
+    "sounds": [
+      "eum:mob/redstone_golem/death1",
+      "eum:mob/redstone_golem/death2",
+      "eum:mob/redstone_golem/death3"
+    ],
+    "subtitle": "subtitles.eum.entity.redstone_golem.death"
+  },
+  "entity.redstone_golem.hurt": {
+    "sounds": [
+      "eum:mob/redstone_golem/hurt1",
+      "eum:mob/redstone_golem/hurt2",
+      "eum:mob/redstone_golem/hurt3",
+      "eum:mob/redstone_golem/hurt4",
+      "eum:mob/redstone_golem/hurt5",
+      "eum:mob/redstone_golem/hurt6",
+      "eum:mob/redstone_golem/hurt7",
+      "eum:mob/redstone_golem/hurt8"
+    ],
+    "subtitle": "subtitles.eum.entity.redstone_golem.hurt"
+  },
+  "entity.redstone_golem.step_heavy": {
+    "sounds": [
+      "eum:mob/redstone_golem/step_heavy1",
+      "eum:mob/redstone_golem/step_heavy2",
+      "eum:mob/redstone_golem/step_heavy3",
+      "eum:mob/redstone_golem/step_heavy4",
+      "eum:mob/redstone_golem/step_heavy5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.redstone_golem.step_light": {
+    "sounds": [
+      "eum:mob/redstone_golem/step_light1",
+      "eum:mob/redstone_golem/step_light2",
+      "eum:mob/redstone_golem/step_light3",
+      "eum:mob/redstone_golem/step_light4",
+      "eum:mob/redstone_golem/step_light5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.skeleton.converted_to_sunken": {
+    "sounds": [
+      "entity/player/hurt/drown1",
+      "entity/player/hurt/drown2",
+      "entity/player/hurt/drown3",
+      "entity/player/hurt/drown4"
+    ],
+    "subtitle": "subtitles.eum.entity.skeleton.converted_to_sunken"
+  },
+  "entity.sunken.ambient": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.sunken.ambient"
+  },
+  "entity.sunken.ambient_water": {
+    "sounds": [
+      "eum:mob/sunken/ambient_water1",
+      "eum:mob/sunken/ambient_water2",
+      "eum:mob/sunken/ambient_water3"
+    ],
+    "subtitle": "subtitles.eum.entity.sunken.ambient"
+  },
+  "entity.sunken.death": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.sunken.death"
+  },
+  "entity.sunken.death_water": {
+    "sounds": [
+      "eum:mob/sunken/death_water1",
+      "eum:mob/sunken/death_water2",
+      "eum:mob/sunken/death_water3"
+    ],
+    "subtitle": "subtitles.eum.entity.sunken.death"
+  },
+  "entity.sunken.hurt": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.sunken.hurt"
+  },
+  "entity.sunken.hurt_water": {
+    "sounds": [
+      "eum:mob/sunken/hurt_water1",
+      "eum:mob/sunken/hurt_water2",
+      "eum:mob/sunken/hurt_water3",
+      "eum:mob/sunken/hurt_water4"
+    ],
+    "subtitle": "subtitles.eum.entity.sunken.hurt"
+  },
+  "entity.sunken.shear": {
+    "sounds": [
+      "minecraft:mob/sheep/shear"
+    ],
+    "subtitle": "subtitles.item.shears.shear"
+  },
+  "entity.sunken.step": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.sunken.step_water": {
+    "sounds": [
+      "eum:mob/sunken/step_water1",
+      "eum:mob/sunken/step_water2",
+      "eum:mob/sunken/step_water3",
+      "eum:mob/sunken/step_water4"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity.viler_witch.ambient": {
+    "sounds": [
+      "entity/witch/ambient1",
+      "entity/witch/ambient2",
+      "entity/witch/ambient3",
+      "entity/witch/ambient4",
+      "entity/witch/ambient5",
+      {
+        "name": "entity/witch/ambient5",
+        "pitch": 0.9
+      }
+    ],
+    "subtitle": "subtitles.eum.entity.viler_witch.ambient"
+  },
+  "entity.viler_witch.celebrate": {
+    "sounds": [
+      "entity/witch/ambient1",
+      "entity/witch/ambient4",
+      "entity/witch/celebrate"
+    ],
+    "subtitle": "subtitles.eum.entity.viler_witch.celebrate"
+  },
+  "entity.viler_witch.death": {
+    "sounds": [
+      "entity/witch/death1",
+      "entity/witch/death2",
+      "entity/witch/death3"
+    ],
+    "subtitle": "subtitles.eum.entity.viler_witch.death"
+  },
+  "entity.viler_witch.drink": {
+    "sounds": [
+      "entity/witch/drink1",
+      "entity/witch/drink2",
+      "entity/witch/drink3",
+      "entity/witch/drink4"
+    ],
+    "subtitle": "subtitles.eum.entity.viler_witch.drink"
+  },
+  "entity.viler_witch.hurt": {
+    "sounds": [
+      "entity/witch/hurt1",
+      "entity/witch/hurt2",
+      "entity/witch/hurt3"
+    ],
+    "subtitle": "subtitles.eum.entity.viler_witch.hurt"
+  },
+  "entity.viler_witch.throw": {
+    "sounds": [
+      "entity/witch/throw1",
+      "entity/witch/throw2",
+      "entity/witch/throw3"
+    ],
+    "subtitle": "subtitles.eum.entity.viler_witch.throw"
+  },
+  "entity.windcaller.ambient": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.windcaller.ambient"
+  },
+  "entity.windcaller.celebrate": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.windcaller.celebrate"
+  },
+  "entity.windcaller.death": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.windcaller.death"
+  },
+  "entity.windcaller.hurt": {
+    "sounds": [
+
+    ],
+    "subtitle": "subtitles.eum.entity.windcaller.hurt"
+  },
+  "entity.zombie.converted_to_frostbitten": {
+    "sounds": [
+      "eum:mob/frostbitten/convert1",
+      "eum:mob/frostbitten/convert2"
+    ],
+    "subtitle": "subtitles.eum.entity.zombie.converted_to_frostbitten"
+  },
+  "entity.zombified_piglin_brute.ambient": {
+    "sounds": [
+      "mob/zombified_piglin/zpig1",
+      "mob/zombified_piglin/zpig2",
+      "mob/zombified_piglin/zpig3",
+      "mob/zombified_piglin/zpig4"
+    ],
+    "subtitle": "subtitles.eum.entity.zombified_piglin_brute.ambient"
+  },
+  "entity.zombified_piglin_brute.angry": {
+    "sounds": [
+      "mob/zombified_piglin/zpigangry1",
+      "mob/zombified_piglin/zpigangry2",
+      "mob/zombified_piglin/zpigangry3",
+      "mob/zombified_piglin/zpigangry4"
+    ],
+    "subtitle": "subtitles.eum.entity.zombified_piglin_brute.angry"
+  },
+  "entity.zombified_piglin_brute.death": {
+    "sounds": [
+      "mob/zombified_piglin/zpigdeath"
+    ],
+    "subtitle": "subtitles.eum.entity.zombified_piglin_brute.death"
+  },
+  "entity.zombified_piglin_brute.hurt": {
+    "sounds": [
+      "mob/zombified_piglin/zpighurt1",
+      "mob/zombified_piglin/zpighurt2"
+    ],
+    "subtitle": "subtitles.eum.entity.zombified_piglin_brute.hurt"
+  }
+}

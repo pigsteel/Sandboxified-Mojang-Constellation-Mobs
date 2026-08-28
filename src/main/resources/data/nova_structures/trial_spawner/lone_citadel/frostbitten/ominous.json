@@ -27,7 +27,7 @@
 				"head": {"count":1, "id": "leather_helmet"},
 				"feet": {"count":1, "id": "leather_boots"}
 			},
-          "id": "smcm:frostbitten",
+          "id": "eum:frostbitten",
           "Tags": [
             "trial_ominous"
           ]

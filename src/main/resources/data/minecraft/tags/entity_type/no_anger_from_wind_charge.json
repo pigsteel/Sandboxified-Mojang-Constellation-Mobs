@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "smcm:reclaimed",
-    "smcm:frostbitten",
-    "smcm:sunken",
-    "smcm:lost"
+    "eum:reclaimed",
+    "eum:frostbitten",
+    "eum:sunken",
+    "eum:lost"
   ]
 }

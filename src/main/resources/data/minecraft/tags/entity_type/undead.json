@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "smcm:necromancer",
-    "smcm:wraith"
+    "eum:necromancer",
+    "eum:wraith"
   ]
 }

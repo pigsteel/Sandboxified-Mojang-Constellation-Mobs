@@ -1,25 +1,25 @@
 {
   "values": {
-    "smcm:frostbitten": {
-      "sound": "smcm:entity.parrot.imitate.frostbitten"
+    "eum:frostbitten": {
+      "sound": "eum:entity.parrot.imitate.frostbitten"
     },
-    "smcm:reclaimed": {
-      "sound": "smcm:entity.parrot.imitate.reclaimed"
+    "eum:reclaimed": {
+      "sound": "eum:entity.parrot.imitate.reclaimed"
     },
-    "smcm:enchanter": {
-      "sound": "smcm:entity.parrot.imitate.enchanter"
+    "eum:enchanter": {
+      "sound": "eum:entity.parrot.imitate.enchanter"
     },
-    "smcm:necromancer": {
-      "sound": "smcm:entity.parrot.imitate.necromancer"
+    "eum:necromancer": {
+      "sound": "eum:entity.parrot.imitate.necromancer"
     },
-    "smcm:lost": {
-      "sound": "smcm:entity.parrot.imitate.lost"
+    "eum:lost": {
+      "sound": "eum:entity.parrot.imitate.lost"
     },
-    "smcm:sunken": {
-      "sound": "smcm:entity.parrot.imitate.sunken"
+    "eum:sunken": {
+      "sound": "eum:entity.parrot.imitate.sunken"
     },
-    "smcm:viler_witch": {
-      "sound": "smcm:entity.parrot.imitate.viler_witch"
+    "eum:viler_witch": {
+      "sound": "eum:entity.parrot.imitate.viler_witch"
     }
   }
 }

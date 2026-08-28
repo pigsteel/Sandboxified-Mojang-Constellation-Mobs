@@ -1,13 +1,15 @@
-**Sandboxified Mojang Constellation Mobs** is a collection of Minecraft universe mobs designed to be flush with Mojang's design in a way that would make their addition to a vanilla playthrough look and feel seamless.
+[On Modrinth!](https://modrinth.com/mod/eumobs)
+
+**Extended Universe Mobs** is a collection of mobs from Mojang's other properties or concepts designed to be flush with Minecraft's design in a way that would make their addition to a vanilla playthrough look and feel seamless.
 
 Infrequently attended facets of the game have been satisfied, for example:
-- Parrots will mimic the sounds of SMCM mobs
+- Parrots will mimic the sounds of extended mobs
 - Mobs, when appropriate, have been given Trial Chamber Spawner entries
 - Subtitles have been given consideration (within precedent) to properly characterize new mobs
 - Sounds that should be unique that were missing from the original source games have been composed (like the Frostbitten's new frosty footstep sounds!)
 - Mobs have been given environmental conversions from vanilla mobs where possible
 - Illagers and Illager-adjacent mobs have been given spawn weights in Raids
-- Vanilla Advancements include criterion for SMCM mobs
+- Vanilla Advancements include criterion for extended mobs
 
 <details>
 <summary>Mobs</summary>
@@ -19,20 +21,20 @@ A Zombie found in Jungle biomes covered in vines which inflicts poison when atta
 
 ## The **Frostbitten** (formerly [Frozen Zombie](https://minecraft.wiki/w/Dungeons:Frozen_Zombie))
 
-A Zombie found in very cold biomes, that throws freezing snowballs to close in for an even icier attack!
+A Zombie found in very cold biomes, that throws freezing snowballs to close in for an even icier attack! Frostbitten can also be formed when regular Zombies freeze in powdered snow.
 
-![The icy Frostbitten and vine-covered Reclaimed stand back-to-back.](https://raw.githubusercontent.com/pigsteel/Sandboxified-Mojang-Constellation-Mobs/refs/heads/master/modrinth/zombies_thumbnail.png)
+![The icy Frostbitten and vine-covered Reclaimed stand back-to-back.](https://raw.githubusercontent.com/pigsteel/Extended-Universe-Mobs/refs/heads/master/modrinth/zombies_thumbnail.png)
 
 ## The [**Viler Witch**](https://minecraft.wiki/w/Earth:Viler_Witch)
 
-A more sinister Witch found in the Dark Forest that throws lingering potions and has complete magic resistance
+A more sinister Witch found in the Dark Forest that throws lingering potions and has complete magic resistance. Striking a Witch with lightning will create a Viler Witch.
 
-![A Viler Witch stands proud in a Dark Forest](https://raw.githubusercontent.com/pigsteel/Sandboxified-Mojang-Constellation-Mobs/refs/heads/master/modrinth/viler_witch_thumbnail.png)
+![A Viler Witch stands proud in a Dark Forest](https://raw.githubusercontent.com/pigsteel/Extended-Universe-Mobs/refs/heads/master/modrinth/viler_witch_thumbnail.png)
 
 </details>
 
 ## To be added
-Mojang's Constellation includes Minecraft Dungeons, Earth, and various concepts teased throughout the years through Mob Votes. Some planned Mobs, like the Bruiser (counterpart to Minecraft Dungeons' Royal Guard), are to be reimagined, renamed, and/or retextured to shed off the lore of their respective game and be welcomed into their new environment.
+Minecraft's Extended Universe includes Minecraft Dungeons, Earth, and various concepts teased throughout the years through Mob Votes. Some planned Mobs, like the Bruiser (counterpart to Minecraft Dungeons' Royal Guard), are to be reimagined, renamed, and/or retextured to shed off the lore of their respective game and be welcomed into their new environment.
 
 ## Translation
 Thanks to the help of my wonderful friends and public contributors, this mod supports French, Italian, German, & Romanian.

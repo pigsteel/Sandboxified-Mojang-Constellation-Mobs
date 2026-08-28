@@ -2,10 +2,10 @@
   "entries": [
     {
       "enum": "net/minecraft/world/entity/raid/Raid$RaiderType",
-      "name": "SMCM_VILER_WITCH",
+      "name": "EUM_VILER_WITCH",
       "constructor": "(Ljava/util/function/Supplier;[I)V",
       "parameters": {
-        "class": "com/github/pigsteel/smcm/util/EnumExtensions",
+        "class": "com/github/pigsteel/eum/util/EnumExtensions",
         "field": "VILER_WITCH_ENUM_PROXY"
       }
     }

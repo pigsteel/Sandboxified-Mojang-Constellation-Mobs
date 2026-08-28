@@ -1,0 +1,47 @@
+package com.github.pigsteel.eum.core;
+
+import com.github.pigsteel.eum.EUM;
+import com.github.pigsteel.eum.world.entity.monster.skeleton.SunkenVariant;
+import com.github.pigsteel.eum.world.entity.monster.zombie.Reclaimed;
+import com.mojang.serialization.Codec;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.network.codec.ByteBufCodecs;
+
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
+
+public class EUMDataComponents {
+	private EUMDataComponents() {}
+
+    public static final Supplier<DataComponentType<Reclaimed.HeadFlower>> RECLAIMED_HEAD_FLOWER = register(
+            "reclaimed/head_flower",
+            builder -> builder
+                    .persistent(Reclaimed.HeadFlower.CODEC)
+                    .networkSynchronized(Reclaimed.HeadFlower.STREAM_CODEC)
+    );
+
+    public static final Supplier<DataComponentType<Holder<SunkenVariant>>> SUNKEN_VARIANT = register(
+            "sunken/variant",
+            builder -> builder
+                    .persistent(SunkenVariant.CODEC)
+                    .networkSynchronized(SunkenVariant.STREAM_CODEC)
+    );
+
+	public static final Supplier<DataComponentType<Boolean>> IS_CORAL_DEAD = register(
+			"sunken/is_coral_dead",
+			builder -> builder
+					.persistent(Codec.BOOL)
+					.networkSynchronized(ByteBufCodecs.BOOL)
+	);
+
+    public static void load() {
+    }
+
+    private static <T> Supplier<DataComponentType<T>> register(
+            final String id,
+            final UnaryOperator<DataComponentType.Builder<T>> builder
+    ) {
+		return EUM.xplat().register(id, builder);
+    }
+}

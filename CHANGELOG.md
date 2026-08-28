@@ -1,8 +1,11 @@
----
 - Added Viler Witches to raids
 - Added Viler Witch spawn egg and missing loot tables
-- Added level events to Neoforge (proper sounds are still missing, so frostbitten will spawn making a very evil noise)
+- Added level events to Neoforge
 - Added conversion from Skeletons to Sunken
 - Coral sunken have proper shearing loot tables
-- Languages up-to-date in this version: en_us, en_gb, en_ca, en_nz, en_au, de_de, fr_fr, fr_ca, LOL_us, en_up
+- Languages up-to-date in this version: en_us, en_gb, en_ca, en_nz, en_au, de_de, fr_fr, fr_ca, it_it, LOL_us, en_up
 - Miscellaneous fixes
+- Added final sounds for Frostbitten (now done!!)
+- Fixed server-side crash
+- Renamed mod to Extended Universe Mobs (sorry for any confusion)
+- Changed versioning system

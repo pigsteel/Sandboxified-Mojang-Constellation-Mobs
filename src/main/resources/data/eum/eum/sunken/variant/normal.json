@@ -1,0 +1,9 @@
+{
+  "asset_id": "eum:entity/skeleton/sunken/sunken",
+  "dead_coral_asset_id": "eum:entity/skeleton/sunken/null",
+  "spawn_conditions": [
+    {
+      "priority": 0
+    }
+  ]
+}

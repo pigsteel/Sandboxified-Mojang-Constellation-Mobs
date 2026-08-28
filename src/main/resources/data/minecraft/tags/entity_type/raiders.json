@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
-    "smcm:bruiser",
-    "smcm:enchanter",
-    "smcm:iceologer",
-    "smcm:windcaller",
-    "smcm:mountaineer",
-    "smcm:redstone_golem",
-    "smcm:viler_witch"
+    "eum:bruiser",
+    "eum:enchanter",
+    "eum:iceologer",
+    "eum:windcaller",
+    "eum:mountaineer",
+    "eum:redstone_golem",
+    "eum:viler_witch"
   ]
 }

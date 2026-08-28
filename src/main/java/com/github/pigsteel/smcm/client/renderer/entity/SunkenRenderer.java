@@ -25,11 +25,6 @@ import java.util.Map;
 
 public class SunkenRenderer extends AbstractSkeletonRenderer<Sunken, SunkenRenderState> {
     private final Map<SunkenVariant.ModelType, AbstractSunkenModel> models;
-    public static final ClientAsset.ResourceTexture EMPTY_DEAD_CORAL_TEXTURE =
-            new ClientAsset.ResourceTexture(
-                    Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "entity/skeleton/sunken/empty")
-            );
-
 
     public SunkenRenderer(EntityRendererProvider.Context context) {
         super(

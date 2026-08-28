@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.world.entity.monster.skeleton;
 
-import com.github.pigsteel.smcm.client.renderer.entity.SunkenRenderer;
+import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -9,6 +9,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.variant.ModelAndTexture;
@@ -25,6 +26,11 @@ public record SunkenVariant(
         SpawnPrioritySelectors spawnConditions
 )
         implements PriorityProvider<SpawnContext, SpawnCondition> {
+	public static final ClientAsset.ResourceTexture EMPTY_DEAD_CORAL_TEXTURE =
+			new ClientAsset.ResourceTexture(
+					Identifier.fromNamespaceAndPath(SMCM.MOD_ID, "entity/skeleton/sunken/empty")
+			);
+
     public static final Codec<SunkenVariant> DIRECT_CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     ModelAndTexture.codec(ModelType.CODEC, ModelType.NORMAL)
@@ -33,7 +39,7 @@ public record SunkenVariant(
                     ClientAsset.ResourceTexture.CODEC
                             .optionalFieldOf(
                                     "dead_coral_asset_id",
-                                    SunkenRenderer.EMPTY_DEAD_CORAL_TEXTURE
+                                    null
                             )
                             .forGetter(SunkenVariant::deadCoralTexture),
 
@@ -51,7 +57,7 @@ public record SunkenVariant(
                     ClientAsset.ResourceTexture.CODEC
                             .optionalFieldOf(
                                     "dead_coral_asset_id",
-                                    SunkenRenderer.EMPTY_DEAD_CORAL_TEXTURE
+                                    null
                             )
                             .forGetter(SunkenVariant::deadCoralTexture)
             ).apply(instance, (modelAndTexture, deadCoralTexture) ->

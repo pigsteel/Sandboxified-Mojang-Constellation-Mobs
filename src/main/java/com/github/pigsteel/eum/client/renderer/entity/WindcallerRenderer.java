@@ -7,17 +7,17 @@ import com.github.pigsteel.eum.client.renderer.entity.state.WindcallerRenderStat
 import com.github.pigsteel.eum.world.entity.monster.illager.Windcaller;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.IllagerRenderer;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class WindcallerRenderer extends IllagerRenderer<Windcaller, WindcallerRenderState> {
-    private static final Identifier WINDCALLER_LOCATION = EUM.id("textures/entity/illager/windcaller.png");
+    private static final ResourceLocation WINDCALLER_LOCATION = EUM.id("textures/entity/illager/windcaller.png");
 
     public WindcallerRenderer(EntityRendererProvider.Context context) {
         super(context, new WindcallerModel<>(context.bakeLayer(EUMModelLayers.WINDCALLER)), 0.5F);
     }
 
     @Override
-    public Identifier getTextureLocation(WindcallerRenderState state) {
+    public ResourceLocation getTextureLocation(WindcallerRenderState state) {
         return WINDCALLER_LOCATION;
     }
 

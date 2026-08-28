@@ -1,15 +1,10 @@
 package com.github.pigsteel.eum.client.renderer.entity.state;
 
-
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
+//? >= 1.21.2 {
 import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.world.entity.AnimationState;
 import org.joml.Vector3f;
 
-//? fabric {
-/*//@OnlyIn(Dist.CLIENT)
-*///?}
 public class NecromancerRenderState extends HumanoidRenderState {
     public float capeLean;
     public float capeLean2;
@@ -21,3 +16,4 @@ public class NecromancerRenderState extends HumanoidRenderState {
     public AnimationState summonAnimationState = new AnimationState();
     public AnimationState shootingAnimationState = new AnimationState();
 }
+//?}

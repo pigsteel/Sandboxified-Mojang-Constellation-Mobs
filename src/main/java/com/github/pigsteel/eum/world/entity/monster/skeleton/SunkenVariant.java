@@ -9,7 +9,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.variant.ModelAndTexture;
@@ -28,7 +28,7 @@ public record SunkenVariant(
         implements PriorityProvider<SpawnContext, SpawnCondition> {
 	public static final ClientAsset.ResourceTexture EMPTY_DEAD_CORAL_TEXTURE =
 			new ClientAsset.ResourceTexture(
-					Identifier.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/empty")
+					ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/empty")
 			);
 
     public static final Codec<SunkenVariant> DIRECT_CODEC = RecordCodecBuilder.create(instance ->

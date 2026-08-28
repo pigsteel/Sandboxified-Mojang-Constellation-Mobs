@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.AbstractSkeletonRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
@@ -110,7 +110,7 @@ public class SunkenRenderer extends AbstractSkeletonRenderer<Sunken, SunkenRende
     }
 
     @Override
-    public Identifier getTextureLocation(final SunkenRenderState state) {
+    public ResourceLocation getTextureLocation(final SunkenRenderState state) {
         if(!state.isCoralDead) {
             return state.variant.modelAndTexture().asset().texturePath();
         } else {

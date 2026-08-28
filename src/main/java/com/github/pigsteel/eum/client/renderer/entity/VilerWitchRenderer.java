@@ -9,12 +9,12 @@ import com.github.pigsteel.eum.world.entity.monster.VilerWitch;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.state.HoldingEntityRenderState;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 public class VilerWitchRenderer extends MobRenderer<VilerWitch, VilerWitchRenderState, VilerWitchModel> {
-    private static final Identifier VILER_WITCH_LOCATION = EUM.id("textures/entity/witch/viler_witch.png");
+    private static final ResourceLocation VILER_WITCH_LOCATION = EUM.id("textures/entity/witch/viler_witch.png");
 
     public VilerWitchRenderer(EntityRendererProvider.Context context) {
         super(context, new VilerWitchModel(context.bakeLayer(EUMModelLayers.VILER_WITCH)), 0.5F);
@@ -28,7 +28,7 @@ public class VilerWitchRenderer extends MobRenderer<VilerWitch, VilerWitchRender
     }
 
     @Override
-    public Identifier getTextureLocation(VilerWitchRenderState state) {
+    public ResourceLocation getTextureLocation(VilerWitchRenderState state) {
         return VILER_WITCH_LOCATION;
     }
 

@@ -8,11 +8,11 @@ import com.github.pigsteel.eum.client.renderer.entity.state.NecromancerRenderSta
 import com.github.pigsteel.eum.world.entity.monster.necromancer.Necromancer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 public class NecromancerRenderer extends MobRenderer<Necromancer, NecromancerRenderState, NecromancerModel<NecromancerRenderState>> {
-    private static final Identifier NECROMANCER_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/necromancer/necromancer.png");
+    private static final ResourceLocation NECROMANCER_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/necromancer/necromancer.png");
 	private final NecromancerModel<NecromancerRenderState> model;
 
     public NecromancerRenderer(EntityRendererProvider.Context context) {
@@ -23,7 +23,7 @@ public class NecromancerRenderer extends MobRenderer<Necromancer, NecromancerRen
     }
 
     @Override
-    public Identifier getTextureLocation(NecromancerRenderState necromancerRenderState) {
+    public ResourceLocation getTextureLocation(NecromancerRenderState necromancerRenderState) {
         return NECROMANCER_LOCATION;
     }
 

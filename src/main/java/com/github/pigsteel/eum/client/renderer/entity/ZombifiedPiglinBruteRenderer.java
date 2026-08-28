@@ -10,11 +10,11 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.state.ZombifiedPiglinRenderState;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 // See vilerwitchrenderer, same problem
 public class ZombifiedPiglinBruteRenderer extends HumanoidMobRenderer<ZombifiedPiglinBrute, ZombifiedPiglinRenderState, ZombifiedPiglinModel> {
-    public static final Identifier ZOMBIFIED_PIGLIN_BRUTE_LOCATION = EUM.id("textures/entity/piglin/zombified_piglin_brute.png");
+    public static final ResourceLocation ZOMBIFIED_PIGLIN_BRUTE_LOCATION = EUM.id("textures/entity/piglin/zombified_piglin_brute.png");
 
     public ZombifiedPiglinBruteRenderer(EntityRendererProvider.Context context) {
         // No baby variant
@@ -28,7 +28,7 @@ public class ZombifiedPiglinBruteRenderer extends HumanoidMobRenderer<ZombifiedP
     }
 
     @Override
-    public Identifier getTextureLocation(ZombifiedPiglinRenderState state) {
+    public ResourceLocation getTextureLocation(ZombifiedPiglinRenderState state) {
         return ZOMBIFIED_PIGLIN_BRUTE_LOCATION;
     }
 

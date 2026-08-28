@@ -7,17 +7,17 @@ import com.github.pigsteel.eum.world.entity.monster.Wildfire;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class WildfireRenderer extends MobRenderer<Wildfire, LivingEntityRenderState, WildfireModel> {
-	private static final Identifier WILDFIRE_LOCATION = EUM.id("textures/entity/wildfire/wildfire.png");
+	private static final ResourceLocation WILDFIRE_LOCATION = EUM.id("textures/entity/wildfire/wildfire.png");
 
 	public WildfireRenderer(EntityRendererProvider.Context context) {
 		super(context, new WildfireModel(context.bakeLayer(EUMModelLayers.WILDFIRE)), 0.0F);
 	}
 
 	@Override
-	public Identifier getTextureLocation(LivingEntityRenderState state) {
+	public ResourceLocation getTextureLocation(LivingEntityRenderState state) {
 		return WILDFIRE_LOCATION;
 	}
 

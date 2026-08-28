@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.client.model.monster.zombie.BabyFrostbittenModel;
@@ -10,11 +11,11 @@ import com.github.pigsteel.eum.world.entity.monster.zombie.Frostbitten;
 import net.minecraft.client.renderer.entity.AbstractZombieRenderer;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class FrostbittenRenderer extends AbstractZombieRenderer<Frostbitten, FrostbittenRenderState, FrostbittenModel> {
-    private static final Identifier FROSTBITTEN_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/frostbitten.png");
-    private static final Identifier BABY_FROSTBITTEN_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/frostbitten_baby.png");
+    private static final ResourceLocation FROSTBITTEN_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/frostbitten.png");
+    private static final ResourceLocation BABY_FROSTBITTEN_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/frostbitten_baby.png");
 
     public FrostbittenRenderer(final EntityRendererProvider.Context context) {
         super(
@@ -40,7 +41,7 @@ public class FrostbittenRenderer extends AbstractZombieRenderer<Frostbitten, Fro
     }
 
     @Override
-    public Identifier getTextureLocation(final FrostbittenRenderState state) {
+    public ResourceLocation getTextureLocation(final FrostbittenRenderState state) {
         return state.isBaby ? BABY_FROSTBITTEN_LOCATION : FROSTBITTEN_LOCATION;
     }
 
@@ -49,3 +50,6 @@ public class FrostbittenRenderer extends AbstractZombieRenderer<Frostbitten, Fro
         return state.isShaking;
     }
 }
+//?} <= 1.21.1 {
+
+//?}

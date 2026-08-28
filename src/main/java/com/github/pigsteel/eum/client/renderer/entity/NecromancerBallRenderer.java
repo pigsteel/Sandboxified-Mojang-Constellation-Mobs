@@ -17,12 +17,12 @@ import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.TextureTransform;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.LightCoordsUtil;
 
 public class NecromancerBallRenderer extends EntityRenderer<NecromancerBall, NecromancerBallRenderState> {
 	private final NecromancerBallModel model;
-	private static final Identifier NECROMANCER_BALL_LOCATION = EUM.id("textures/entity/projectiles/necromancer_ball.png");
+	private static final ResourceLocation NECROMANCER_BALL_LOCATION = EUM.id("textures/entity/projectiles/necromancer_ball.png");
 
 	public NecromancerBallRenderer(EntityRendererProvider.Context context) {
 		super(context);
@@ -71,7 +71,7 @@ public class NecromancerBallRenderer extends EntityRenderer<NecromancerBall, Nec
 		state.yRot = entity.getYRot(partialTicks);
 	}
 
-	public static RenderType necromancerBallFire(final Identifier texture, final float uOffset, final float vOffset) {
+	public static RenderType necromancerBallFire(final ResourceLocation texture, final float uOffset, final float vOffset) {
 		return RenderType.create("necromancer_ball_fire", RenderSetup.builder(RenderPipelines.BREEZE_WIND).withTexture("Sampler0", texture).setTextureTransform(new TextureTransform.OffsetTextureTransform(uOffset, vOffset)).useLightmap().sortOnUpload().createRenderSetup());
 	}
 }

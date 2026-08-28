@@ -12,10 +12,10 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class ReclaimedPukeRenderer extends EntityRenderer<ReclaimedPuke, ReclaimedPukeRenderState> {
-    private static final Identifier RECLAIMED_PUKE_LOCATION = EUM.id("textures/entity/reclaimed/reclaimed_puke.png");
+    private static final ResourceLocation RECLAIMED_PUKE_LOCATION = EUM.id("textures/entity/reclaimed/reclaimed_puke.png");
     private final ReclaimedPukeModel model;
 
     public ReclaimedPukeRenderer(EntityRendererProvider.Context context) {

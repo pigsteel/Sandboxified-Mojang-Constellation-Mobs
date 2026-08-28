@@ -2,10 +2,10 @@ package com.github.pigsteel.eum.advancements.triggers;
 
 import com.github.pigsteel.eum.EUM;
 //? >= 26.2 {
-import net.minecraft.advancements.triggers.CriterionTrigger;
-//?} < 26.2 {
-/*import net.minecraft.advancements.CriterionTrigger;
-*///?}
+/*import net.minecraft.advancements.triggers.CriterionTrigger;
+*///?} < 26.2 {
+import net.minecraft.advancements.CriterionTrigger;
+//?}
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 

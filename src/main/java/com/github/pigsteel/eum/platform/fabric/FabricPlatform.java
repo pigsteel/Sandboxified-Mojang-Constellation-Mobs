@@ -3,9 +3,12 @@ package com.github.pigsteel.eum.platform.fabric;
 //? fabric {
 
 /*import com.github.pigsteel.eum.EUM;
+import com.github.pigsteel.eum.core.EUMDataAttachments;
 import com.github.pigsteel.eum.core.particles.CustomSimpleParticleType;
 import com.github.pigsteel.eum.platform.Platform;
 import com.mojang.serialization.Codec;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityDataRegistry;
@@ -21,7 +24,7 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataSerializer;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
@@ -35,6 +38,7 @@ import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.item.Item;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
@@ -90,7 +94,7 @@ public class FabricPlatform implements Platform {
 	@Override
 	public <T extends Item> Supplier<T> register(String name, Function<Item.Properties, T> itemFactory) {
 		ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, EUM.id(name));
-		Identifier id = key.identifier();
+		ResourceLocation id = key.location();
 		T registered = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(new Item.Properties().setId(key)));
 		return () -> registered;
 	}
@@ -108,7 +112,7 @@ public class FabricPlatform implements Platform {
 
 	@Override
 	public Supplier<SoundEvent> registerSoundEvent(String name) {
-		Identifier id = EUM.id(name);
+		ResourceLocation id = EUM.id(name);
 		SoundEvent sound = Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
 		return () -> sound;
 	}
@@ -136,14 +140,14 @@ public class FabricPlatform implements Platform {
 	}
 
 	@Override
-	public static <A> DataAttachmentHandle<A> register(String id, Consumer<AgnosticBuilder<A>> consumer) {
-		AgnosticBuilder<A> builder = builder();
+	public <A> EUMDataAttachments.DataAttachmentHandle<A> register(String id, Consumer<EUMDataAttachments.AgnosticBuilder<A>> consumer) {
+		EUMDataAttachments.AgnosticBuilder<A> builder = EUMDataAttachments.builder();
 
 		consumer.accept(builder);
 
-		AttachmentType<A> attachment = AttachmentRegistry.create(EUMobs.id(id), builder::fabricImpl);
+		AttachmentType<A> attachment = AttachmentRegistry.create(EUM.id(id), builder::fabricImpl);
 
-		return new DataAttachmentHandle<A>() {
+		return new EUMDataAttachments.DataAttachmentHandle<A>() {
 			@Override
 			public boolean hasAttached(Entity entity) {
 				return entity.hasAttached(attachment);
@@ -169,8 +173,8 @@ public class FabricPlatform implements Platform {
 			@Override
 			public A getAttachedOrSet(Entity entity, A defaultValue) {
 				return entity.getAttachedOrSet(attachment, defaultValue);
-			};
-		}
+			}
+		};
 	}
 }
 *///?}

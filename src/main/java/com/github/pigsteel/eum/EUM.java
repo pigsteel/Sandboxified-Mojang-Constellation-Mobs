@@ -21,7 +21,7 @@ import com.github.pigsteel.eum.util.EnumExtensions;
 import com.github.pigsteel.eum.world.entity.ai.memory.EUMMemoryModuleTypes;
 import com.github.pigsteel.eum.world.entity.ai.sensing.EUMSensorTypes;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,12 +80,12 @@ public class EUM {
 		 //?}
 	}
 
-	public static Identifier id(String path) {
-		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+	public static ResourceLocation id(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 
-	public static Identifier id(String namespace, String path) {
-		return Identifier.fromNamespaceAndPath(namespace, path);
+	public static ResourceLocation id(String namespace, String path) {
+		return ResourceLocation.fromNamespaceAndPath(namespace, path);
 	}
 
 	public static <T> ResourceKey<T> key(ResourceKey<Registry<T>> registry, String path) {

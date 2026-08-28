@@ -57,10 +57,10 @@ public class AdvancementEvents {
 	public static void makeKillCriteria(JsonObject criteria, JsonArray requirements, String id, boolean inner) {
 		JsonObject predicate = new JsonObject();
 		//? <26.2 {
-		/*predicate.addProperty("type", id);
-		*///?} >= 26.2 {
-		predicate.addProperty("minecraft:entity_type", id);
-		//?}
+		predicate.addProperty("type", id);
+		//?} >= 26.2 {
+		/*predicate.addProperty("minecraft:entity_type", id);
+		*///?}
 
 		// creating the inner condition item object
 		JsonObject conditionItem = new JsonObject();

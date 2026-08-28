@@ -10,12 +10,12 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.LivingEntityEmissiveLayer;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class RedstoneGolemRenderer extends MobRenderer<RedstoneGolem, RedstoneGolemRenderState, RedstoneGolemModel> {
-    private static final Identifier REDSTONE_GOLEM_LOCATION = EUM.id("textures/entity/redstone_golem/redstone_golem.png");
-    private static final Identifier GLOW_LOCATION = EUM.id("textures/entity/redstone_golem/redstone_golem_glow.png");
-    private static final Identifier EYES_LOCATION = EUM.id("textures/entity/redstone_golem/redstone_golem_eyes.png");
+    private static final ResourceLocation REDSTONE_GOLEM_LOCATION = EUM.id("textures/entity/redstone_golem/redstone_golem.png");
+    private static final ResourceLocation GLOW_LOCATION = EUM.id("textures/entity/redstone_golem/redstone_golem_glow.png");
+    private static final ResourceLocation EYES_LOCATION = EUM.id("textures/entity/redstone_golem/redstone_golem_eyes.png");
 
     public RedstoneGolemRenderer(EntityRendererProvider.Context context) {
         super(context, new RedstoneGolemModel(context.bakeLayer(EUMModelLayers.REDSTONE_GOLEM)), 1.5F);
@@ -41,7 +41,7 @@ public class RedstoneGolemRenderer extends MobRenderer<RedstoneGolem, RedstoneGo
     }
 
     @Override
-    public Identifier getTextureLocation(RedstoneGolemRenderState state) {
+    public ResourceLocation getTextureLocation(RedstoneGolemRenderState state) {
         return REDSTONE_GOLEM_LOCATION;
     }
 

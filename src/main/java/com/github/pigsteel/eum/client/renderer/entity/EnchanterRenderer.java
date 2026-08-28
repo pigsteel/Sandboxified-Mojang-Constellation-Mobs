@@ -7,10 +7,10 @@ import com.github.pigsteel.eum.client.renderer.entity.layers.EnchanterBookLayer;
 import com.github.pigsteel.eum.client.renderer.entity.state.EnchanterRenderState;
 import com.github.pigsteel.eum.world.entity.monster.illager.Enchanter;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class EnchanterRenderer extends ExtendableIllagerRenderer<Enchanter, EnchanterRenderState, EnchanterModel<EnchanterRenderState>> {
-    private static final Identifier ENCHANTER_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/illager/enchanter.png");
+    private static final ResourceLocation ENCHANTER_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/illager/enchanter.png");
 
     public EnchanterRenderer(EntityRendererProvider.Context context) {
         super(context, new EnchanterModel(context.bakeLayer(EUMModelLayers.ENCHANTER)), 0.5F);
@@ -18,7 +18,7 @@ public class EnchanterRenderer extends ExtendableIllagerRenderer<Enchanter, Ench
     }
 
     @Override
-    public Identifier getTextureLocation(EnchanterRenderState state) {
+    public ResourceLocation getTextureLocation(EnchanterRenderState state) {
         return ENCHANTER_LOCATION;
     }
 

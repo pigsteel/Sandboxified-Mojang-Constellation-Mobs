@@ -74,12 +74,12 @@ import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.monster.Giant;
 import net.minecraft.world.entity.monster.Guardian;
 //? <26.2 {
-/*import net.minecraft.world.entity.monster.MagmaCube;
+import net.minecraft.world.entity.monster.MagmaCube;
 import net.minecraft.world.entity.monster.Slime;
-*///?} >= 26.2 {
-import net.minecraft.world.entity.monster.cubemob.MagmaCube;
+//?} >= 26.2 {
+/*import net.minecraft.world.entity.monster.cubemob.MagmaCube;
 import net.minecraft.world.entity.monster.cubemob.Slime;
-//?}
+*///?}
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.monster.Ravager;
 import net.minecraft.world.entity.monster.Shulker;
@@ -147,8 +147,8 @@ import net.minecraft.world.entity.vehicle.minecart.MinecartSpawner;
 import net.minecraft.world.entity.vehicle.minecart.MinecartTNT;
 
 //? >=26.2 {
-import net.minecraft.world.entity.EntityTypes;
-//?}
+/*import net.minecraft.world.entity.EntityTypes;
+*///?}
 
 public class EntityTypesUtil {
 	private EntityTypesUtil() {
@@ -314,7 +314,7 @@ public class EntityTypesUtil {
 
 	static {
 		//? <26.2 {
-		/*ACACIA_BOAT = EntityType.ACACIA_BOAT;
+		ACACIA_BOAT = EntityType.ACACIA_BOAT;
 		ACACIA_CHEST_BOAT = EntityType.ACACIA_CHEST_BOAT;
 		ALLAY = EntityType.ALLAY;
 		AREA_EFFECT_CLOUD = EntityType.AREA_EFFECT_CLOUD;
@@ -472,8 +472,8 @@ public class EntityTypesUtil {
 		PLAYER = EntityType.PLAYER;
 		FISHING_BOBBER = EntityType.FISHING_BOBBER;
 
-		*///?} >=26.2 {
-		ACACIA_BOAT = EntityTypes.ACACIA_BOAT;
+		//?} >=26.2 {
+		/*ACACIA_BOAT = EntityTypes.ACACIA_BOAT;
 		ACACIA_CHEST_BOAT = EntityTypes.ACACIA_CHEST_BOAT;
 		ALLAY = EntityTypes.ALLAY;
 		AREA_EFFECT_CLOUD = EntityTypes.AREA_EFFECT_CLOUD;
@@ -630,6 +630,6 @@ public class EntityTypesUtil {
 		ZOMBIFIED_PIGLIN = EntityTypes.ZOMBIFIED_PIGLIN;
 		PLAYER = EntityTypes.PLAYER;
 		FISHING_BOBBER = EntityTypes.FISHING_BOBBER;
-		//?}
+		*///?}
 	}
 }

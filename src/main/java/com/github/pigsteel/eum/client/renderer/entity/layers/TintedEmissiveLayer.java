@@ -8,26 +8,26 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 import java.util.function.Function;
 
 public class TintedEmissiveLayer<S extends LivingEntityRenderState, M extends EntityModel<S>> extends RenderLayer<S, M> {
-    private final Function<S, Identifier> textureProvider;
+    private final Function<S, ResourceLocation> textureProvider;
     private final AlphaFunction<S> alphaFunction;
     private final ColorFunction<S> colorFunction;
     private final M model;
-    private final Function<Identifier, RenderType> bufferProvider;
+    private final Function<ResourceLocation, RenderType> bufferProvider;
     private final boolean alwaysVisible;
 
     public TintedEmissiveLayer(
             RenderLayerParent<S, M> renderer,
-            Function<S, Identifier> textureProvider,
+            Function<S, ResourceLocation> textureProvider,
             AlphaFunction<S> alphaFunction,
             ColorFunction<S> colorFunction,
             M model,
-            Function<Identifier, RenderType> bufferProvider,
+            Function<ResourceLocation, RenderType> bufferProvider,
             boolean alwaysVisible
     ) {
         super(renderer);

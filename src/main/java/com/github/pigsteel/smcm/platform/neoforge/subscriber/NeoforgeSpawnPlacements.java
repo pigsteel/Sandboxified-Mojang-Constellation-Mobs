@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.platform.neoforge.subscriber;
 
 //? neoforge {
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.SMCMEntityTypes;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Frostbitten;
 import com.github.pigsteel.smcm.world.entity.monster.zombie.Reclaimed;
@@ -34,4 +34,4 @@ public final class NeoforgeSpawnPlacements {
         );
     }
 }
-//?}
+*///?}

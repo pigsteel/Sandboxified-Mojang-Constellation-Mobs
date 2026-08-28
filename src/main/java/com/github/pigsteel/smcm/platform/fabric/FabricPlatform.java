@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.platform.fabric;
 
 //? fabric {
 
-/*import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.particles.CustomSimpleParticleType;
 import com.github.pigsteel.smcm.platform.Platform;
 import com.mojang.serialization.Codec;
@@ -135,4 +135,4 @@ public class FabricPlatform implements Platform {
 		EntityRenderers.register(type.get(), provider);
 	}
 }
-*///?}
+//?}

@@ -15,10 +15,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 
 //? fabric {
-/*import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
- *///?} neoforge {
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-//?}
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+ //?} neoforge {
+/*import net.neoforged.neoforge.network.handling.IPayloadContext;
+*///?}
 
 public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements CustomPacketPayload {
 	public static final Identifier SMCM_EVENT_PAYLOAD_ID = SMCM.id("level_event");
@@ -33,20 +33,20 @@ public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements Cu
 	}
 
 	//? fabric {
-	/*public static void handle(SMCMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
+	public static void handle(SMCMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
 		ClientLevel level = context.client().level;
-	*///?} neoforge {
-	public static void handle(SMCMLevelEventPacketPayload payload, final IPayloadContext context) {
+	//?} neoforge {
+	/*public static void handle(SMCMLevelEventPacketPayload payload, final IPayloadContext context) {
 		ClientLevel level = (ClientLevel)context.player().level();
-	//?}
+	*///?}
 
 		if (level == null) {
 			return;
 		}
 
 		//? neoforge {
-		context.enqueueWork(() -> {
-		//?}
+		/*context.enqueueWork(() -> {
+		*///?}
 		BlockPos pos = payload.pos();
 		RandomSource random = level.getRandom();
 
@@ -69,12 +69,12 @@ public record SMCMLevelEventPacketPayload(int event, BlockPos pos) implements Cu
 			break;
 		}
 		//? neoforge {
-				})
+				/*})
 				.exceptionally(e -> {
 					// Handle exception
 					context.disconnect(Component.translatable("smcm.networking.failed", e.getMessage()));
 					return null;
 				});
-		//?}
+		*///?}
 	}
 }

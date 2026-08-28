@@ -92,6 +92,9 @@ public class SMCMSoundEvents {
 	public static final Supplier<SoundEvent> ZOMBIFIED_PIGLIN_BRUTE_ANGRY = register("entity.zombified_piglin_brute.angry");
 	public static final Supplier<SoundEvent> ZOMBIFIED_PIGLIN_BRUTE_DEATH = register("entity.zombified_piglin_brute.death");
 	public static final Supplier<SoundEvent> ZOMBIFIED_PIGLIN_BRUTE_HURT = register("entity.zombified_piglin_brute.hurt");
+	public static final Supplier<SoundEvent> WRAITH_AMBIENT = register("entity.wraith.ambient");
+	public static final Supplier<SoundEvent> WRAITH_DEATH = register("entity.wraith.death");
+	public static final Supplier<SoundEvent> WRAITH_HURT = register("entity.wraith.hurt");
 
     public static void load() {}
 

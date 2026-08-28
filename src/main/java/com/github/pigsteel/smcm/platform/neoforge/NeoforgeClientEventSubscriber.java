@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.platform.neoforge;
 
 //? neoforge {
 
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.SMCMParticleTypes;
 import com.github.pigsteel.smcm.network.SMCMLevelEventPacketPayload;
 import net.minecraft.client.particle.FlameParticle;
@@ -17,7 +17,7 @@ import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlers
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.ENTITY_RENDERERS;
 import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MODEL_LAYERS;
 
-@EventBusSubscriber(modid = SMCM.MOD_ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SMCM.MOD_ID, value = EnvType.CLIENT)
 public class NeoforgeClientEventSubscriber {
 	@SubscribeEvent
 	public static void onClientSetup(final FMLClientSetupEvent event) {
@@ -56,4 +56,4 @@ public class NeoforgeClientEventSubscriber {
 		);
 	}
 }
-//?}
+*///?}

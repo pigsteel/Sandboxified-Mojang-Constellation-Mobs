@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "smcm:frostbitten"
+    "smcm:frostbitten",
+    "smcm:wraith"
   ]
 }

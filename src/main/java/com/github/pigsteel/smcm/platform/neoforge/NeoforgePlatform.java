@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.platform.neoforge;
 
 //? neoforge {
 
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.particles.CustomSimpleParticleType;
 import com.github.pigsteel.smcm.platform.Platform;
 
@@ -56,7 +56,7 @@ public class NeoforgePlatform implements Platform {
 
 	@Override
 	public boolean isDevelopmentEnvironment() {
-		return !FMLLoader/*? if > 1.21.7 {*/.getCurrent()/*?}*/.isProduction();
+		return !FMLLoader/^? if > 1.21.7 {^/.getCurrent()/^?}^/.isProduction();
 	}
 
 	@Override
@@ -120,4 +120,4 @@ public class NeoforgePlatform implements Platform {
 		NeoforgeVariables.ENTITY_RENDERERS.add(new NeoforgeVariables.EntityRendererDeferred<>(type, provider));
 	}
 }
-//?}
+*///?}

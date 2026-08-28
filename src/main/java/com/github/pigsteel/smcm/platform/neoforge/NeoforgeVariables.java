@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.platform.neoforge;
 
 //? neoforge {
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -71,4 +71,4 @@ public class NeoforgeVariables {
 		}
 	}
 }
-//?}
+*///?}

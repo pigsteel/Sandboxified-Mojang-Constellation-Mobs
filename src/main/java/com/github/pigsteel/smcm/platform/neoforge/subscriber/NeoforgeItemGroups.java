@@ -2,7 +2,7 @@ package com.github.pigsteel.smcm.platform.neoforge.subscriber;
 
 //? neoforge {
 
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
@@ -80,4 +80,4 @@ public final class NeoforgeItemGroups {
 		}
     }
 }
-//?}
+*///?}

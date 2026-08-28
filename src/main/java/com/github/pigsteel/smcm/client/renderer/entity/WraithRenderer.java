@@ -7,9 +7,10 @@ import com.github.pigsteel.smcm.client.renderer.entity.state.WraithRenderState;
 import com.github.pigsteel.smcm.world.entity.monster.Wraith;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.Identifier;
 
-public class WraithRenderer extends LivingEntityRenderer<Wraith, WraithRenderState, WraithModel> {
+public class WraithRenderer extends MobRenderer<Wraith, WraithRenderState, WraithModel> {
 	private static final Identifier WRAITH_LOCATION = SMCM.id("textures/entity/wraith/wraith.png");
 
 	public WraithRenderer(EntityRendererProvider.Context context) {

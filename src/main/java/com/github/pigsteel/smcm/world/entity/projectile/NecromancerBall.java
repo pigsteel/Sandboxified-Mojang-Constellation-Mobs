@@ -85,8 +85,8 @@ public class NecromancerBall extends Projectile {
 			Vec3 newPosition;
 			boolean impacted = hitResult.getType() != HitResult.Type.MISS;
 			//? neoforge {
-			impacted = impacted && !net.neoforged.neoforge.event.EventHooks.onProjectileImpact(this, hitResult);
-			//?}
+			/*impacted = impacted && !net.neoforged.neoforge.event.EventHooks.onProjectileImpact(this, hitResult);
+			*///?}
 			if (impacted) {
 				newPosition = hitResult.getLocation();
 			} else {

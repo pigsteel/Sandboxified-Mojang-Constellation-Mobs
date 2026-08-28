@@ -5,15 +5,15 @@ import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.level.pathfinder.PathType;
 
 //? neoforge {
-import net.neoforged.fml.common.asm.enumextension.EnumProxy;
-//?}
+/*import net.neoforged.fml.common.asm.enumextension.EnumProxy;
+*///?}
 
 public class EnumExtensions {
 	//? neoforge {
-	public static EnumProxy<Raid.RaiderType> VILER_WITCH_ENUM_PROXY = new EnumProxy<>(
+	/*public static EnumProxy<Raid.RaiderType> VILER_WITCH_ENUM_PROXY = new EnumProxy<>(
 			Raid.RaiderType.class, SMCMEntityTypes.VILER_WITCH, new int[]{0, 0, 0, 0, 0, 0, 1, 1}
 	);
-	//?}
+	*///?}
 
 
 	public static PathType CLIMBABLE;

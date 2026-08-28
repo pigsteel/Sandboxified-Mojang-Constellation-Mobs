@@ -48,8 +48,8 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 
 //? neoforge {
-import net.neoforged.neoforge.common.damagesource.DamageContainer;
-//?}
+/*import net.neoforged.neoforge.common.damagesource.DamageContainer;
+*///?}
 
 public class VilerWitch extends Raider implements RangedAttackMob {
 	private static final Identifier SPEED_MODIFIER_DRINKING_ID = Identifier.withDefaultNamespace("drinking");
@@ -103,7 +103,10 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, (double)32.0F).add(Attributes.MOVEMENT_SPEED, (double)0.25F);
+		return Monster.createMonsterAttributes()
+				.add(Attributes.MAX_HEALTH, (double)32.0F)
+				.add(Attributes.MOVEMENT_SPEED, (double)0.25F)
+				.add(Attributes.ARMOR, (double)4.0F);
 	}
 
 	public void aiStep() {
@@ -132,18 +135,22 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 				Holder<Potion> potion = null;
 				if (this.random.nextFloat() < 0.15F &&
 						//? neoforge {
-							this.getFluidInteraction().isEyeInFluidMatching(this, (entity, type, var2) -> entity.canDrownInFluidType(type))
-						//?} fabric {
-							/*this.isEyeInFluid(FluidTags.WATER)
-						*///?}
+							/*this.getFluidInteraction().isEyeInFluidMatching(this, (entity, type, var2) -> entity.canDrownInFluidType(type))
+						*///?} fabric {
+							this.isEyeInFluid(FluidTags.WATER)
+						//?}
 						&& !this.hasEffect(MobEffects.WATER_BREATHING)) {
 					potion = Potions.LONG_WATER_BREATHING;
 				} else if (this.random.nextFloat() < 0.15F && (this.isOnFire() || this.getLastDamageSource() != null && this.getLastDamageSource().is(DamageTypeTags.IS_FIRE)) && !this.hasEffect(MobEffects.FIRE_RESISTANCE)) {
 					potion = Potions.LONG_FIRE_RESISTANCE;
 				} else if (this.random.nextFloat() < 0.05F && this.getHealth() < this.getMaxHealth()) {
 					potion = Potions.STRONG_HEALING;
-				} else if (this.random.nextFloat() < 0.5F && this.getTarget() != null && !this.hasEffect(MobEffects.SPEED) && this.getTarget().distanceToSqr(this) > (double)121.0F) {
+				} else if (this.random.nextFloat() < 0.4F && this.getHealth() < 10.0F && !this.hasEffect(MobEffects.INVISIBILITY)) {
+					potion = Potions.INVISIBILITY;
+				} else if (this.random.nextFloat() < 0.5F && this.getTarget() != null && !this.hasEffect(MobEffects.SPEED)) {
 					potion = Potions.STRONG_SWIFTNESS;
+				} else if (this.random.nextFloat() < 0.2F && this.getTarget() != null && !this.hasEffect(MobEffects.JUMP_BOOST)) {
+					potion = Potions.LEAPING;
 				}
 
 				if (potion != null) {
@@ -186,22 +193,15 @@ public class VilerWitch extends Raider implements RangedAttackMob {
 	protected float getDamageAfterMagicAbsorb(DamageSource damageSource, float damage) {
 		damage = super.getDamageAfterMagicAbsorb(damageSource, damage);
 		//? neoforge {
-		if (damageSource.getEntity() == this) {
-			((DamageContainer)this.damageContainers.peek()).setReduction(DamageContainer.Reduction.INNATE_RESISTANCE, damage);
-			damage = 0.0F;
-		} else if (damageSource.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
-			((DamageContainer)this.damageContainers.peek()).setReduction(DamageContainer.Reduction.INNATE_RESISTANCE, damage * 0.85F);
+		/*if (damageSource.getEntity() == this || damageSource.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
+			this.damageContainers.peek().setReduction(DamageContainer.Reduction.INNATE_RESISTANCE, damage);
 			damage = 0.0F;
 		}
-		//?} fabric {
-		/*if (damageSource.getEntity() == this) {
+		*///?} fabric {
+		if (damageSource.getEntity() == this || damageSource.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
 			damage = 0.0F;
 		}
-
-		if (damageSource.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
-			damage *= 0.0F;
-		}
-		*///?}
+		//?}
 
 		return damage;
 	}

@@ -5,3 +5,4 @@
 - Added conversion from Skeletons to Sunken
 - Coral sunken have proper shearing loot tables
 - Languages up-to-date in this version: en_us, en_gb, en_ca, en_nz, en_au, de_de, fr_fr, fr_ca, LOL_us, en_up
+- Miscellaneous fixes

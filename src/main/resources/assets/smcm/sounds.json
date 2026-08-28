@@ -23,6 +23,32 @@
     ],
     "subtitle": "subtitles.smcm.entity.bruiser.hurt"
   },
+  "entity.wraith.ambient": {
+    "sounds": [
+      "smcm:mob/wraith/ambient1",
+      "smcm:mob/wraith/ambient2",
+      "smcm:mob/wraith/ambient3",
+      "smcm:mob/wraith/ambient4",
+      "smcm:mob/wraith/ambient5",
+      "smcm:mob/wraith/ambient6"
+    ],
+    "subtitle": "subtitles.smcm.entity.wraith.ambient"
+  },
+  "entity.wraith.death": {
+    "sounds": [
+      "smcm:mob/wraith/death1",
+      "smcm:mob/wraith/death2"
+    ],
+    "subtitle": "subtitles.smcm.entity.wraith.death"
+  },
+  "entity.wraith.hurt": {
+    "sounds": [
+      "smcm:mob/wraith/hurt1",
+      "smcm:mob/wraith/hurt2",
+      "smcm:mob/wraith/hurt3"
+    ],
+    "subtitle": "subtitles.smcm.entity.wraith.hurt"
+  },
   "entity.enchanter.ambient": {
     "sounds": [
       "smcm:mob/enchanter/ambient1",
@@ -664,8 +690,8 @@
   },
   "entity.zombie.converted_to_frostbitten": {
     "sounds": [
-      "entity/player/hurt/freeze_hurt1",
-      "entity/player/hurt/freeze_hurt2"
+      "smcm:mob/frostbitten/convert1",
+      "smcm:mob/frostbitten/convert2"
     ],
     "subtitle": "subtitles.smcm.entity.zombie.converted_to_frostbitten"
   },

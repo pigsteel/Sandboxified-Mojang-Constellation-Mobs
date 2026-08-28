@@ -46,7 +46,7 @@ public final class SMCMDefaultAttributes {
         register(SMCMEntityTypes.MOUNTAINEER, Mountaineer::createAttributes);
 		register(SMCMEntityTypes.REDSTONE_MONSTROSITY, RedstoneMonstrosity::createMonsterAttributes);
 		register(SMCMEntityTypes.WILDFIRE, Wildfire::createMonsterAttributes);
-		register(SMCMEntityTypes.WRAITH, Wraith::createMonsterAttributes);
+		register(SMCMEntityTypes.WRAITH, Wraith::createAttributes);
     }
 
     public static <T extends LivingEntity> void register(Supplier<EntityType<T>> entityType, Supplier<AttributeSupplier.Builder> supplier) {

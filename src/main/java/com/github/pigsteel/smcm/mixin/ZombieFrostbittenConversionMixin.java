@@ -23,11 +23,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static com.github.pigsteel.smcm.core.SMCMDataAttachments.DATA_FROSTBITTEN_CONVERSION_ID;
 
 //? fabric {
-/*import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-*///?} neoforge {
-import net.neoforged.neoforge.network.PacketDistributor;
-//?}
+//?} neoforge {
+/*import net.neoforged.neoforge.network.PacketDistributor;
+*///?}
 
 @Mixin(Zombie.class)
 public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbittenConversion {
@@ -96,12 +96,12 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
 				SMCMLevelEventPacketPayload payload = new SMCMLevelEventPacketPayload(1001, zombie.blockPosition());
 
 				//? fabric {
-				/*for (ServerPlayer player : PlayerLookup.level((ServerLevel) zombie.level())) {
+				for (ServerPlayer player : PlayerLookup.level((ServerLevel) zombie.level())) {
 					ServerPlayNetworking.send(player, payload);
 				}
-				*///?} neoforge {
-				PacketDistributor.sendToPlayersTrackingChunk((ServerLevel) zombie.level(), zombie.chunkPosition(), payload);
-				//?}
+				//?} neoforge {
+				/*PacketDistributor.sendToPlayersTrackingChunk((ServerLevel) zombie.level(), zombie.chunkPosition(), payload);
+				*///?}
             }
         });
     }

@@ -11,8 +11,8 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 //? neoforge {
-import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MEMORY_MODULE_TYPES;
-//?}
+/*import static com.github.pigsteel.smcm.platform.neoforge.NeoforgeVariables.MEMORY_MODULE_TYPES;
+*///?}
 
 public class SMCMMemoryModuleTypes {
 	public static final Supplier<MemoryModuleType<Unit>> SUMMONING_COOLDOWN;

@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.platform.neoforge.subscriber;
 
 //? neoforge {
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.core.SMCMCustomRegistries;
 import com.github.pigsteel.smcm.world.entity.monster.skeleton.SunkenVariant;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,4 +20,4 @@ public class NeoforgeDatapackRegistries {
 		);
 	}
 }
-//?}
+*///?}

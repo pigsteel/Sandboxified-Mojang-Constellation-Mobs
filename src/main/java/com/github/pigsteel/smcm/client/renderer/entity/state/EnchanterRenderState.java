@@ -1,14 +1,14 @@
 package com.github.pigsteel.smcm.client.renderer.entity.state;
 
 //? fabric {
-/*import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-*///?}
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+//?}
 import net.minecraft.client.renderer.entity.state.IllagerRenderState;
 
 //? fabric {
-/*//@OnlyIn(Dist.CLIENT)
-*///?}
+@Environment(EnvType.CLIENT)
+//?}
 public class EnchanterRenderState extends IllagerRenderState {
 	public boolean isBookInvisible;
     public boolean isHitting;

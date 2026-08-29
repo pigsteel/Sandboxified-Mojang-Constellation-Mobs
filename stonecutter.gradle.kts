@@ -15,18 +15,6 @@ plugins {
 
 stonecutter active file(".sc_active_version")
 
-tasks.register("runActiveClient") {
-	group = "stonecutter"
-	description = "Run client of the active Stonecutter version"
-	dependsOn(stonecutter.current!!.project + ":runClient")
-}
-
-tasks.register("runActiveServer") {
-	group = "stonecutter"
-	description = "Run server of the active Stonecutter version"
-	dependsOn(stonecutter.current!!.project + ":runServer")
-}
-
 stonecutter parameters {
 	constants.match(current.project.substringAfterLast('-'), "fabric", "neoforge", "forge")
 	swaps["mod_version"] = "\"${properties.get<String>("mod.version")}\";"

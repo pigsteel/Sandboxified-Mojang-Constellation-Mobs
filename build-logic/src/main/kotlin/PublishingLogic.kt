@@ -85,7 +85,7 @@ fun Project.configureModPublishing(ctx: Context) {
 		if (githubEnabled) {
 			github {
 				accessToken = env("GITHUB_TOKEN")
-				parent(rootProject.tasks.named(""))
+				parent(rootProject.tasks.named("publishGithub"))
 			}
 
 			// The root task creates the release and writes the result file that children read at

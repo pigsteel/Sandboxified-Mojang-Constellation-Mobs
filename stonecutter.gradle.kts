@@ -1,5 +1,3 @@
-@file:OptIn(dev.kikugie.stonecutter.StonecutterExperimentalAPI::class)
-
 plugins {
 	alias(libs.plugins.stonecutter)
 	alias(libs.plugins.mod.publish.plugin)
@@ -23,9 +21,4 @@ stonecutter parameters {
 	swaps["mod_group"] = "\"${properties.get<String>("mod.group")}\";"
 	swaps["minecraft"] = "\"${current.version}\";"
 	constants["release"] = properties.get<String>("mod.id") != "modtemplate"
-}
-
-for (version in stonecutter.versions.map { it.version }.distinct()) tasks.register("publish$version") {
-	group = "publishing"
-	dependsOn(stonecutter.tasks.named("publishMods") { metadata.version == version })
 }

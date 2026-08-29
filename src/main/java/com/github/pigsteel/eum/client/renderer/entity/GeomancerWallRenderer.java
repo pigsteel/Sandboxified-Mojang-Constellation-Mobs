@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.GeomancerWallRenderState;
 import com.github.pigsteel.eum.world.entity.projectile.GeomancerWall;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -15,3 +16,4 @@ public class GeomancerWallRenderer extends EntityRenderer<GeomancerWall, Geomanc
 		return new GeomancerWallRenderState();
 	}
 }
+//?}

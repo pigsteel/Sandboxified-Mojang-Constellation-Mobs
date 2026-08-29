@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.redstonegolem;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.animation.definitions.RedstoneGolemAnimation;
 import com.github.pigsteel.eum.client.renderer.entity.state.RedstoneGolemRenderState;
 import net.minecraft.client.animation.KeyframeAnimation;
@@ -151,3 +152,4 @@ public class RedstoneGolemModel extends EntityModel<RedstoneGolemRenderState> {
         this.rightArm.yRot = 0.0F;
     }
 }
+//?}

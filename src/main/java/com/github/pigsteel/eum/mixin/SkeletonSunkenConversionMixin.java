@@ -22,11 +22,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import static com.github.pigsteel.eum.core.EUMDataAttachments.DATA_SUNKEN_CONVERSION_ID;
 
 //? fabric {
-/*import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-*///?} neoforge {
-import net.neoforged.neoforge.network.PacketDistributor;
-//?}
+//?} neoforge {
+/*import net.neoforged.neoforge.network.PacketDistributor;
+*///?}
 
 @Mixin(Skeleton.class)
 public abstract class SkeletonSunkenConversionMixin implements SkeletonSunkenConversion {
@@ -95,12 +95,12 @@ public abstract class SkeletonSunkenConversionMixin implements SkeletonSunkenCon
 				EUMLevelEventPacketPayload payload = new EUMLevelEventPacketPayload(1003, skeleton.blockPosition());
 
 				//? fabric {
-				/*for (ServerPlayer player : PlayerLookup.level((ServerLevel) skeleton.level())) {
+				for (ServerPlayer player : PlayerLookup.level((ServerLevel) skeleton.level())) {
 					ServerPlayNetworking.send(player, payload);
 				}
-				*///?} neoforge {
-				PacketDistributor.sendToPlayersTrackingChunk((ServerLevel) skeleton.level(), skeleton.chunkPosition(), payload);
-				//?}
+				//?} neoforge {
+				/*PacketDistributor.sendToPlayersTrackingChunk((ServerLevel) skeleton.level(), skeleton.chunkPosition(), payload);
+				*///?}
 
 				sunken.selectVariant();
 			}

@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity.layers;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.client.model.monster.zombie.BabyReclaimedModel;
@@ -10,11 +11,11 @@ import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class ReclaimedOuterLayer extends RenderLayer<ReclaimedRenderState, ReclaimedModel> {
-    private static final ResourceLocation RECLAIMED_OUTER_LAYER_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed_outer_layer.png");
-    private static final ResourceLocation BABY_RECLAIMED_OUTER_LAYER_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed_outer_layer_baby.png");
+    private static final Identifier RECLAIMED_OUTER_LAYER_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed_outer_layer.png");
+    private static final Identifier BABY_RECLAIMED_OUTER_LAYER_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed_outer_layer_baby.png");
     private final ReclaimedModel model;
     private final ReclaimedModel babyModel;
 
@@ -26,7 +27,8 @@ public class ReclaimedOuterLayer extends RenderLayer<ReclaimedRenderState, Recla
 
     public void submit(final PoseStack poseStack, final SubmitNodeCollector submitNodeCollector, final int lightCoords, final ReclaimedRenderState state, final float yRot, final float xRot) {
         ReclaimedModel model = state.isBaby ? this.babyModel : this.model;
-        ResourceLocation layerLocation = state.isBaby ? BABY_RECLAIMED_OUTER_LAYER_LOCATION : RECLAIMED_OUTER_LAYER_LOCATION;
+        Identifier layerLocation = state.isBaby ? BABY_RECLAIMED_OUTER_LAYER_LOCATION : RECLAIMED_OUTER_LAYER_LOCATION;
         coloredCutoutModelCopyLayerRender(model, layerLocation, poseStack, submitNodeCollector, lightCoords, state, -1, 1);
     }
 }
+//?}

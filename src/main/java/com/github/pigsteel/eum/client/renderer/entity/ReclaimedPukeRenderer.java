@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.client.model.monster.zombie.ReclaimedPukeModel;
@@ -12,10 +13,10 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class ReclaimedPukeRenderer extends EntityRenderer<ReclaimedPuke, ReclaimedPukeRenderState> {
-    private static final ResourceLocation RECLAIMED_PUKE_LOCATION = EUM.id("textures/entity/reclaimed/reclaimed_puke.png");
+    private static final Identifier RECLAIMED_PUKE_LOCATION = EUM.id("textures/entity/reclaimed/reclaimed_puke.png");
     private final ReclaimedPukeModel model;
 
     public ReclaimedPukeRenderer(EntityRendererProvider.Context context) {
@@ -39,3 +40,4 @@ public class ReclaimedPukeRenderer extends EntityRenderer<ReclaimedPuke, Reclaim
         super.submit(state, poseStack, submitNodeCollector, camera);
     }
 }
+//?}

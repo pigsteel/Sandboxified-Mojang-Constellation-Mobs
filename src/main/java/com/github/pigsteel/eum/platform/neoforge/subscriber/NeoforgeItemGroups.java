@@ -2,7 +2,7 @@ package com.github.pigsteel.eum.platform.neoforge.subscriber;
 
 //? neoforge {
 
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
@@ -80,4 +80,4 @@ public final class NeoforgeItemGroups {
 		}
     }
 }
-//?}
+*///?}

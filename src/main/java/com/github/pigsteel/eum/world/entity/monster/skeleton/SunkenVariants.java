@@ -6,7 +6,7 @@ import net.minecraft.core.ClientAsset;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
@@ -16,13 +16,13 @@ import net.minecraft.world.entity.variant.SpawnPrioritySelectors;
 import net.minecraft.world.level.biome.Biome;
 
 public class SunkenVariants {
-    public static final ResourceKey<SunkenVariant> NORMAL = createKey(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "normal"));
-    public static final ResourceKey<SunkenVariant> WARM_FIRE_CORAL = createKey(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "fire_coral"));
-    public static final ResourceKey<SunkenVariant> WARM_BUBBLE_CORAL = createKey(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "bubble_coral"));
-    public static final ResourceKey<SunkenVariant> WARM_HORN_CORAL = createKey(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "horn_coral"));
-    public static final ResourceKey<SunkenVariant> FROZEN = createKey(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "frozen"));
+    public static final ResourceKey<SunkenVariant> NORMAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "normal"));
+    public static final ResourceKey<SunkenVariant> WARM_FIRE_CORAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "fire_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_BUBBLE_CORAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "bubble_coral"));
+    public static final ResourceKey<SunkenVariant> WARM_HORN_CORAL = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "horn_coral"));
+    public static final ResourceKey<SunkenVariant> FROZEN = createKey(Identifier.fromNamespaceAndPath(EUM.MOD_ID, "frozen"));
 
-    private static ResourceKey<SunkenVariant> createKey(ResourceLocation id) {
+    private static ResourceKey<SunkenVariant> createKey(Identifier id) {
         return ResourceKey.create(EUMCustomRegistries.SUNKEN_VARIANT, id);
     }
 
@@ -93,8 +93,8 @@ public class SunkenVariants {
             String deadCoralTextureName,
             SpawnPrioritySelectors selectors
     ) {
-        ResourceLocation textureId = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/" + textureName);
-        ResourceLocation deadCoralTextureId = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/" + deadCoralTextureName);
+        Identifier textureId = Identifier.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/" + textureName);
+        Identifier deadCoralTextureId = Identifier.fromNamespaceAndPath(EUM.MOD_ID, "entity/skeleton/sunken/" + deadCoralTextureName);
         context.register(name, new SunkenVariant(new ModelAndTexture<>(modelType, textureId), new ClientAsset.ResourceTexture(deadCoralTextureId), selectors));
     }
 }

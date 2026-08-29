@@ -2,7 +2,7 @@ package com.github.pigsteel.eum.platform.neoforge;
 
 //? neoforge {
 
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.core.EUMDataAttachments;
 import com.github.pigsteel.eum.core.particles.CustomSimpleParticleType;
 import com.github.pigsteel.eum.platform.Platform;
@@ -59,7 +59,7 @@ public class NeoforgePlatform implements Platform {
 
 	@Override
 	public boolean isDevelopmentEnvironment() {
-		return !FMLLoader/*? if > 1.21.7 {*//*.getCurrent()*//*?}*/.isProduction();
+		return !FMLLoader/^? if > 1.21.7 {^/.getCurrent()/^?}^/.isProduction();
 	}
 
 	@Override
@@ -165,4 +165,4 @@ public class NeoforgePlatform implements Platform {
 		};
 	}
 }
-//?}
+*///?}

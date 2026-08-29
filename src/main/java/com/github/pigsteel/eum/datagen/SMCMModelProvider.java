@@ -1,7 +1,7 @@
 package com.github.pigsteel.eum.datagen;
 
 //? fabric {
-/*import com.github.pigsteel.eum.core.EUMItems;
+import com.github.pigsteel.eum.core.EUMItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -36,4 +36,4 @@ public class SMCMModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(EUMItems.VILER_WITCH_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
     }
 }
-*///?}
+//?}

@@ -10,18 +10,18 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 
 //? fabric {
-/*import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
- *///?} neoforge {
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-//?}
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+ //?} neoforge {
+/*import net.neoforged.neoforge.network.handling.IPayloadContext;
+*///?}
 
 public record EUMLevelEventPacketPayload(int event, BlockPos pos) implements CustomPacketPayload {
-	public static final ResourceLocation SMCM_EVENT_PAYLOAD_ID = EUM.id("level_event");
+	public static final Identifier SMCM_EVENT_PAYLOAD_ID = EUM.id("level_event");
 
 	public static final CustomPacketPayload.Type<EUMLevelEventPacketPayload> TYPE = new CustomPacketPayload.Type<>(SMCM_EVENT_PAYLOAD_ID);
 
@@ -33,20 +33,20 @@ public record EUMLevelEventPacketPayload(int event, BlockPos pos) implements Cus
 	}
 
 	//? fabric {
-	/*public static void handle(EUMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
+	public static void handle(EUMLevelEventPacketPayload payload, ClientPlayNetworking.Context context) {
 		ClientLevel level = context.client().level;
-	*///?} neoforge {
-	public static void handle(EUMLevelEventPacketPayload payload, final IPayloadContext context) {
+	//?} neoforge {
+	/*public static void handle(EUMLevelEventPacketPayload payload, final IPayloadContext context) {
 		ClientLevel level = (ClientLevel)context.player().level();
-	//?}
+	*///?}
 
 		if (level == null) {
 			return;
 		}
 
 		//? neoforge {
-		context.enqueueWork(() -> {
-		//?}
+		/*context.enqueueWork(() -> {
+		*///?}
 		BlockPos pos = payload.pos();
 		RandomSource random = level.getRandom();
 
@@ -69,12 +69,12 @@ public record EUMLevelEventPacketPayload(int event, BlockPos pos) implements Cus
 			break;
 		}
 		//? neoforge {
-				})
+				/*})
 				.exceptionally(e -> {
 					// Handle exception
 					context.disconnect(Component.translatable("eum.networking.failed", e.getMessage()));
 					return null;
 				});
-		//?}
+		*///?}
 	}
 }

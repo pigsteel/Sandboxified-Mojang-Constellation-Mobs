@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.wildfire;
 
+//? >= 1.21.2 {
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -15,3 +16,4 @@ public class WildfireModel extends EntityModel<LivingEntityRenderState> {
 		return BlazeModel.createBodyLayer();
 	}
 }
+//?}

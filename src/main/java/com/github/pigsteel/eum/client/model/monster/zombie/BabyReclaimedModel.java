@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.zombie;
 
+//? >= 26.1 {
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -26,3 +27,4 @@ public class BabyReclaimedModel extends ReclaimedModel {
         return LayerDefinition.create(mesh, 64, 64); // remember to add little flower on baby reclaimed head
     }
 }
+//?}

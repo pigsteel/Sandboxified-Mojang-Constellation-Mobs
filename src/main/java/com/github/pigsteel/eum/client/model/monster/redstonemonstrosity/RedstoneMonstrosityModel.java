@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.redstonemonstrosity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.RedstoneMonstrosityRenderState;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -90,3 +91,4 @@ public class RedstoneMonstrosityModel extends EntityModel<RedstoneMonstrosityRen
         return LayerDefinition.create(mesh, 256, 512);
     }
 }
+//?}

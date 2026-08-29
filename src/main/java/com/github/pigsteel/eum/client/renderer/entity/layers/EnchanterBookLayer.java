@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity.layers;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.model.monster.enchanter.EnchanterModel;
 import com.github.pigsteel.eum.client.renderer.entity.EnchanterRenderer;
 import com.github.pigsteel.eum.client.renderer.entity.state.EnchanterRenderState;
@@ -12,11 +13,11 @@ import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 public class EnchanterBookLayer extends RenderLayer<EnchanterRenderState, EnchanterModel<EnchanterRenderState>> {
-	public static final ResourceLocation BOOK_TEXTURE = ResourceLocation.withDefaultNamespace("textures/entity/enchantment/enchanting_table_book.png");
+	public static final Identifier BOOK_TEXTURE = Identifier.withDefaultNamespace("textures/entity/enchantment/enchanting_table_book.png");
 	private final BookModel model;
 
 	public EnchanterBookLayer(EnchanterRenderer renderer, EntityModelSet modelSet) {
@@ -56,3 +57,4 @@ public class EnchanterBookLayer extends RenderLayer<EnchanterRenderState, Enchan
 		}
 	}
 }
+//?}

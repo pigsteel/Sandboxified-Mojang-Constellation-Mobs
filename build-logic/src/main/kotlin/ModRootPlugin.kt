@@ -33,7 +33,6 @@ class ModRootPlugin : Plugin<Project> {
 
 			stonecutter.tasks {
 				order("publishModrinth")
-				order("publishCurseforge")
 			}
 
 			tasks.register("runActiveClient") {

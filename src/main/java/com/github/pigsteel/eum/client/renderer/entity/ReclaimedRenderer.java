@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.client.model.monster.zombie.BabyReclaimedModel;
@@ -12,14 +13,14 @@ import net.minecraft.client.renderer.block.BlockModelResolver;
 import net.minecraft.client.renderer.entity.AbstractZombieRenderer;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
 
 import static net.minecraft.client.renderer.entity.AbstractMinecartRenderer.BLOCK_DISPLAY_CONTEXT;
 
 public class ReclaimedRenderer extends AbstractZombieRenderer<Reclaimed, ReclaimedRenderState, ReclaimedModel> {
-    private static final ResourceLocation RECLAIMED_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed.png");
-    private static final ResourceLocation BABY_RECLAIMED_LOCATION = ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed_baby.png");
+    private static final Identifier RECLAIMED_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed.png");
+    private static final Identifier BABY_RECLAIMED_LOCATION = Identifier.fromNamespaceAndPath(EUM.MOD_ID,"textures/entity/zombie/reclaimed_baby.png");
     private final BlockModelResolver blockModelResolver;
 
     public ReclaimedRenderer(EntityRendererProvider.Context context) {
@@ -41,7 +42,7 @@ public class ReclaimedRenderer extends AbstractZombieRenderer<Reclaimed, Reclaim
     }
 
     @Override
-    public ResourceLocation getTextureLocation(final ReclaimedRenderState state) {
+    public Identifier getTextureLocation(final ReclaimedRenderState state) {
         return state.isBaby ? BABY_RECLAIMED_LOCATION : RECLAIMED_LOCATION;
     }
 
@@ -55,3 +56,4 @@ public class ReclaimedRenderer extends AbstractZombieRenderer<Reclaimed, Reclaim
         }
     }
 }
+//?}

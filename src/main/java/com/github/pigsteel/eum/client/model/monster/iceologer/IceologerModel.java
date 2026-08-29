@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.iceologer;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.IceologerRenderState;
 import com.github.pigsteel.eum.util.ModelUtil;
 import net.minecraft.client.model.geom.ModelPart;
@@ -18,3 +19,4 @@ public class IceologerModel extends IllagerModel<IceologerRenderState> {
         return LayerDefinition.create(mesh, 128, 64);
     }
 }
+//?}

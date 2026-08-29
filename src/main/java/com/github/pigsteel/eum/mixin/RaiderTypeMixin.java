@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 //? fabric {
-/*@Mixin(Raid.RaiderType.class)
+@Mixin(Raid.RaiderType.class)
 public enum RaiderTypeMixin {
 	EUM_VILER_WITCH(EUMEntityTypes.VILER_WITCH.get(), new int[]{0, 0, 0, 0, 0, 0, 1, 1});
 
@@ -17,9 +17,9 @@ public enum RaiderTypeMixin {
 	RaiderTypeMixin(final EntityType<? extends Raider> entityType, final int[] spawnsPerWaveBeforeBonus) {
 	}
 }
-*///?} neoforge {
-@Mixin(EUM.class)
+//?} neoforge {
+/*@Mixin(EUM.class)
 public class RaiderTypeMixin { // dud
 
 }
-//?}
+*///?}

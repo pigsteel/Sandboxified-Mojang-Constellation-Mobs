@@ -6,16 +6,16 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 //? fabric {
-/*@Mixin(PathType.class)
+@Mixin(PathType.class)
 public enum PathTypeMixin {
 	EUM_CLIMBABLE(0.0F);
 
 	@Shadow
 	PathTypeMixin(float defaultCost) {}
 }
-*///?} neoforge {
-@Mixin(EUM.class)
+//?} neoforge {
+/*@Mixin(EUM.class)
 public class PathTypeMixin { // dud
 
 }
-//?}
+*///?}

@@ -1,7 +1,7 @@
 package com.github.pigsteel.eum.platform.neoforge.subscriber;
 
 //? neoforge {
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.core.EUMEntityTypes;
 import com.github.pigsteel.eum.world.entity.monster.zombie.Frostbitten;
 import com.github.pigsteel.eum.world.entity.monster.zombie.Reclaimed;
@@ -34,4 +34,4 @@ public final class NeoforgeSpawnPlacements {
         );
     }
 }
-//?}
+*///?}

@@ -7,8 +7,8 @@ import net.minecraft.core.particles.SimpleParticleType;
 import java.util.function.Supplier;
 
 //? fabric {
-/*import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
-*///?}
+import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
+//?}
 
 public class EUMParticleTypes {
 	public static final Supplier<SimpleParticleType> NECROMANCER_MAGIC = register("necromancer_magic", false);
@@ -21,7 +21,7 @@ public class EUMParticleTypes {
 
 	public static void clientLoad() {
 		//? fabric {
-		/*ParticleProviderRegistry.getInstance().register(NECROMANCER_MAGIC.get(), EndRodParticle.Provider::new);
-		*///?}
+		ParticleProviderRegistry.getInstance().register(NECROMANCER_MAGIC.get(), EndRodParticle.Provider::new);
+		//?}
 	}
 }

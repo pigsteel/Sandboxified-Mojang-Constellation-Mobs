@@ -16,8 +16,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 //? neoforge {
-import net.neoforged.neoforge.common.damagesource.DamageContainer;
-//?}
+/*import net.neoforged.neoforge.common.damagesource.DamageContainer;
+*///?}
 
 public class Wraith extends Monster {
     public Wraith(EntityType<? extends Wraith> type, Level level) {
@@ -38,15 +38,15 @@ public class Wraith extends Monster {
 	protected float getDamageAfterMagicAbsorb(DamageSource damageSource, float damage) {
 		damage = super.getDamageAfterMagicAbsorb(damageSource, damage);
 		//? neoforge {
-		if (damageSource.is(DamageTypeTags.IS_FIRE)) {
+		/*if (damageSource.is(DamageTypeTags.IS_FIRE)) {
 			this.damageContainers.peek().setNewDamage(damage + 3.0F);
 			damage += 3.0F;
 		}
-		//?} fabric {
-		/*if (damageSource.is(DamageTypeTags.IS_FIRE)) {
+		*///?} fabric {
+		if (damageSource.is(DamageTypeTags.IS_FIRE)) {
 			damage += 3.0F;
 		}
-		*///?}
+		//?}
 
 		return damage;
 	}

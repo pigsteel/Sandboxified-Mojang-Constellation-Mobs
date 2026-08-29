@@ -2,7 +2,7 @@ package com.github.pigsteel.eum.platform.fabric;
 
 //? fabric  {
 
-/*import com.github.pigsteel.eum.EUM;
+import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.util.EntityTypesUtil;
 import com.github.pigsteel.eum.world.entity.monster.VilerWitch;
 import com.github.pigsteel.eum.world.entity.monster.zombie.Frostbitten;
@@ -10,7 +10,7 @@ import com.github.pigsteel.eum.world.entity.monster.zombie.Reclaimed;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -25,7 +25,7 @@ import static com.github.pigsteel.eum.core.EUMEntityTypes.VILER_WITCH;
 public class FabricEntitySpawns {
     public static void AddSpawns() {
         // Reweighting zombies and frostbitten to function like Strays
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"adjust_winter_zombie_spawns"))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(EUM.MOD_ID,"adjust_winter_zombie_spawns"))
                 .add(ModificationPhase.REPLACEMENTS,
                         BiomeSelectors.includeByKey(Biomes.ICE_SPIKES, Biomes.SNOWY_PLAINS, Biomes.JAGGED_PEAKS, Biomes.FROZEN_PEAKS, Biomes.SNOWY_TAIGA),
                         context -> {
@@ -48,7 +48,7 @@ public class FabricEntitySpawns {
                 );
 
         // Ditto
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID,"adjust_jungle_zombie_spawns"))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(EUM.MOD_ID,"adjust_jungle_zombie_spawns"))
                 .add(ModificationPhase.REPLACEMENTS,
                         BiomeSelectors.includeByKey(Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.SPARSE_JUNGLE),
                         context -> {
@@ -108,4 +108,4 @@ public class FabricEntitySpawns {
         );
     }
 }
-*///?}
+//?}

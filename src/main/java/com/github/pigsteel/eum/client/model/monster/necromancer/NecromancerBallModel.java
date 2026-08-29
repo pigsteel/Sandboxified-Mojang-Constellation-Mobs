@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.necromancer;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.NecromancerBallRenderState;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -32,3 +33,4 @@ public class NecromancerBallModel extends EntityModel<NecromancerBallRenderState
 		super.setupAnim(state);
 	}
 }
+//?}

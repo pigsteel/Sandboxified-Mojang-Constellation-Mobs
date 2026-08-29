@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.windcaller;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.WindcallerRenderState;
 import com.github.pigsteel.eum.util.ModelUtil;
 import net.minecraft.client.model.geom.ModelPart;
@@ -112,3 +113,4 @@ public class WindcallerModel<S extends WindcallerRenderState> extends IllagerMod
 		return LayerDefinition.create(mesh, 128, 64);
 	}
 }
+//?}

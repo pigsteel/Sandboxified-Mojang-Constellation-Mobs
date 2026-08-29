@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.skeleton;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.SunkenRenderState;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -87,3 +88,4 @@ public class CoralSunkenModel extends AbstractSunkenModel {
         this.faceCoral.visible = !state.isSheared;
     }
 }
+//?}

@@ -2,7 +2,7 @@ package com.github.pigsteel.eum.platform.neoforge;
 
 //? neoforge {
 
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.network.EUMLevelEventPacketPayload;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -29,4 +29,4 @@ public class NeoforgeEntrypoint {
 		);
 	}
 }
-//?}
+*///?}

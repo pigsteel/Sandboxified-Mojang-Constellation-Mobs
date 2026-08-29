@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.world.entity.animal.golem.TuffGolem;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -15,3 +16,4 @@ public class TuffGolemRenderer extends EntityRenderer<TuffGolem, LivingEntityRen
 		return new LivingEntityRenderState();
 	}
 }
+//?}

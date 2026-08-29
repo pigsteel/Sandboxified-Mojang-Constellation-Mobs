@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.zombie;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.FrostbittenRenderState;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -60,3 +61,4 @@ public class FrostbittenModel extends ZombieModel<FrostbittenRenderState> {
         bobArms(rightArm, leftArm, state.ageInTicks);
     }
 }
+//?}

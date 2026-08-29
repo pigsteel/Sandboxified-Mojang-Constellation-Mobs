@@ -1,7 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
+//? >= 1.21.2 {
 import net.minecraft.client.model.monster.illager.IllagerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -11,7 +10,6 @@ import net.minecraft.client.renderer.entity.state.IllagerRenderState;
 import net.minecraft.world.entity.monster.illager.AbstractIllager;
 import net.minecraft.world.item.CrossbowItem;
 
-//@OnlyIn(Dist.CLIENT)
 public abstract class ExtendableIllagerRenderer<T extends AbstractIllager, S extends IllagerRenderState, M extends IllagerModel<S>> extends MobRenderer<T, S, M> {
 	protected ExtendableIllagerRenderer(final EntityRendererProvider.Context context, final M model, final float shadow) {
 		super(context, model, shadow);
@@ -30,3 +28,4 @@ public abstract class ExtendableIllagerRenderer<T extends AbstractIllager, S ext
 		state.isAggressive = entity.isAggressive();
 	}
 }
+//?}

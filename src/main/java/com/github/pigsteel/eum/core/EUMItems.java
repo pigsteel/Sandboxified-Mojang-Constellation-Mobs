@@ -1,6 +1,9 @@
 package com.github.pigsteel.eum.core;
 
 import com.github.pigsteel.eum.EUM;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 
@@ -44,79 +47,87 @@ public class EUMItems {
 		return EUM.xplat().register(name, itemFactory);
 	}
 
+	private static <T extends Mob> SpawnEggItem registerSpawnEgg(Supplier<EntityType<T>> entity, Item.Properties properties) {
+		//? >= 1.21.11 {
+		return new SpawnEggItem(properties.spawnEgg(entity.get()));
+		//?} < 1.21.11 {
+		/*return new SpawnEggItem(entity.get(), 0, 0, properties);
+		*///?}
+	}
+
 	static {
 		BRUISER_SPAWN_EGG = register(
 				"bruiser_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.BRUISER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.BRUISER, properties)
 		);
 		FROSTBITTEN_SPAWN_EGG = register(
 				"frostbitten_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.FROSTBITTEN.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.FROSTBITTEN, properties)
 		);
 
 		RECLAIMED_SPAWN_EGG = register(
 				"reclaimed_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.RECLAIMED.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.RECLAIMED, properties)
 		);
 
 		ENCHANTER_SPAWN_EGG = register(
 				"enchanter_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.ENCHANTER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.ENCHANTER, properties)
 		);
 
 		SUNKEN_SPAWN_EGG = register(
 				"sunken_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.SUNKEN.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.SUNKEN, properties)
 		);
 
 		LOST_SPAWN_EGG = register(
 				"lost_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.LOST.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.LOST, properties)
 		);
 
 		NECROMANCER_SPAWN_EGG = register(
 				"necromancer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.NECROMANCER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.NECROMANCER, properties)
 		);
 
 		ZOMBIFIED_PIGLIN_BRUTE_SPAWN_EGG = register(
 				"zombified_piglin_brute_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.ZOMBIFIED_PIGLIN_BRUTE, properties)
 		);
 
 		GEOMANCER_SPAWN_EGG = register(
 				"geomancer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.GEOMANCER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.GEOMANCER, properties)
 		);
 
 		ICEOLOGER_SPAWN_EGG = register(
 				"iceologer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.ICEOLOGER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.ICEOLOGER, properties)
 		);
 
 		VILER_WITCH_SPAWN_EGG = register(
 				"viler_witch_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.VILER_WITCH.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.VILER_WITCH, properties)
 		);
 
 		MOUNTAINEER_SPAWN_EGG = register(
 				"mountaineer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.MOUNTAINEER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.MOUNTAINEER, properties)
 		);
 
 		WINDCALLER_SPAWN_EGG = register(
 				"windcaller_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.WINDCALLER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.WINDCALLER, properties)
 		);
 
 		REDSTONE_GOLEM_SPAWN_EGG = register(
 				"redstone_golem_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.REDSTONE_GOLEM.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.REDSTONE_GOLEM, properties)
 		);
 
 		PIGLIN_FARMER_SPAWN_EGG = register(
 				"piglin_farmer_spawn_egg",
-				properties -> new SpawnEggItem(properties.spawnEgg(EUMEntityTypes.PIGLIN_FARMER.get()))
+				properties -> registerSpawnEgg(EUMEntityTypes.PIGLIN_FARMER, properties)
 		);
 	}
 

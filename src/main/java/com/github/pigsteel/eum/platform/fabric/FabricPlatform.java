@@ -2,7 +2,7 @@ package com.github.pigsteel.eum.platform.fabric;
 
 //? fabric {
 
-/*import com.github.pigsteel.eum.EUM;
+import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.core.EUMDataAttachments;
 import com.github.pigsteel.eum.core.particles.CustomSimpleParticleType;
 import com.github.pigsteel.eum.platform.Platform;
@@ -24,7 +24,7 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataSerializer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
@@ -94,7 +94,7 @@ public class FabricPlatform implements Platform {
 	@Override
 	public <T extends Item> Supplier<T> register(String name, Function<Item.Properties, T> itemFactory) {
 		ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, EUM.id(name));
-		ResourceLocation id = key.location();
+		Identifier id = key.identifier();
 		T registered = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(new Item.Properties().setId(key)));
 		return () -> registered;
 	}
@@ -112,7 +112,7 @@ public class FabricPlatform implements Platform {
 
 	@Override
 	public Supplier<SoundEvent> registerSoundEvent(String name) {
-		ResourceLocation id = EUM.id(name);
+		Identifier id = EUM.id(name);
 		SoundEvent sound = Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
 		return () -> sound;
 	}
@@ -177,7 +177,7 @@ public class FabricPlatform implements Platform {
 		};
 	}
 }
-*///?}
+//?}
 
 
 

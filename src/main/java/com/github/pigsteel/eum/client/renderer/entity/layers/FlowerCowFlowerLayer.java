@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity.layers;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.FlowerCowRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.animal.cow.CowModel;
@@ -17,3 +18,4 @@ public class FlowerCowFlowerLayer extends RenderLayer<FlowerCowRenderState, CowM
 
     }
 }
+//?}

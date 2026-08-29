@@ -5,7 +5,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 //? > 26.1 {
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 //?}
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class EUMModelLayers {
 	public static final ModelLayerLocation BRUISER = register("bruiser");
@@ -53,7 +53,7 @@ public class EUMModelLayers {
 	}
 
 	private static ModelLayerLocation register(String name, String layer) {
-		return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(EUM.MOD_ID, name), layer);
+		return new ModelLayerLocation(Identifier.fromNamespaceAndPath(EUM.MOD_ID, name), layer);
 	}
 
 	private static ArmorModelSet<ModelLayerLocation> registerArmorSet(final String modelId) {

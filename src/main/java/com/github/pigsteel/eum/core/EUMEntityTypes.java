@@ -81,8 +81,8 @@ public class EUMEntityTypes {
 				.passengerAttachments(2.075F)
 				.ridingOffset(-0.7F)
 				//? >= 26.2 {
-				/*.immuneTo(EUMBlockTags.FROSTBITTEN_IMMUNE_TO)
-				*///?}
+				.immuneTo(EUMBlockTags.FROSTBITTEN_IMMUNE_TO)
+				//?}
 				.clientTrackingRange(8)
 				.notInPeaceful()
 		);

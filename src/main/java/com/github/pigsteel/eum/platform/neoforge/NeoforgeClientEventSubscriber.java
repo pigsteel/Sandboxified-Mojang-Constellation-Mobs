@@ -2,7 +2,7 @@ package com.github.pigsteel.eum.platform.neoforge;
 
 //? neoforge {
 
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.core.EUMParticleTypes;
 import com.github.pigsteel.eum.network.EUMLevelEventPacketPayload;
 import net.minecraft.client.particle.FlameParticle;
@@ -17,7 +17,7 @@ import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlers
 import static com.github.pigsteel.eum.platform.neoforge.NeoforgeVariables.ENTITY_RENDERERS;
 import static com.github.pigsteel.eum.platform.neoforge.NeoforgeVariables.MODEL_LAYERS;
 
-@EventBusSubscriber(modid = EUM.MOD_ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = EUM.MOD_ID, value = EnvType.CLIENT)
 public class NeoforgeClientEventSubscriber {
 	@SubscribeEvent
 	public static void onClientSetup(final FMLClientSetupEvent event) {
@@ -56,4 +56,4 @@ public class NeoforgeClientEventSubscriber {
 		);
 	}
 }
-//?}
+*///?}

@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.zombie;
 
+//? >= 26.1 {
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -14,3 +15,4 @@ public class BabyFrostbittenModel extends FrostbittenModel  {
         return BabyZombieModel.createBodyLayer(g);
     }
 }
+//?}

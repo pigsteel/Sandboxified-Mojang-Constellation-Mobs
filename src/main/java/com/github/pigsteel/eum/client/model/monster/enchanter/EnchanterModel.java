@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.enchanter;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.EnchanterRenderState;
 import com.github.pigsteel.eum.util.ModelUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -63,3 +64,4 @@ public class EnchanterModel<S extends EnchanterRenderState> extends IllagerModel
 		this.book.translateAndRotate(poseStack);
 	}
 }
+//?}

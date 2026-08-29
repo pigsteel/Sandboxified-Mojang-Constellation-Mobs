@@ -1,7 +1,7 @@
 package com.github.pigsteel.eum.platform.neoforge.subscriber;
 
 //? neoforge {
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -15,4 +15,4 @@ public class NeoforgeDefaultAttributes {
 		DEFAULT_ATTRIBUTES.forEach(deferred -> deferred.register(event));
 	}
 }
-//?}
+*///?}

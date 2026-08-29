@@ -2,14 +2,14 @@ package com.github.pigsteel.eum.core;
 
 import com.github.pigsteel.eum.EUM;
 //? fabric {
-/*import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
-*///?} neoforge {
-import net.neoforged.neoforge.attachment.AttachmentType;
+//?} neoforge {
+/*import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
-//?}
+*///?}
 import com.mojang.serialization.Codec;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -104,7 +104,7 @@ public class EUMDataAttachments {
 		}
 
 		//? fabric {
-		/*public void fabricImpl(AttachmentRegistry.Builder<A> builder) {
+		public void fabricImpl(AttachmentRegistry.Builder<A> builder) {
 			if(this.defaultInitializer != null) {
 				builder.initializer(this.defaultInitializer);
 			}
@@ -121,10 +121,10 @@ public class EUMDataAttachments {
 				builder.copyOnDeath();
 			}
 		}
-		*///?}
+		//?}
 
 		//? neoforge {
-		public AttachmentType.Builder<A> neoforgeImpl() {
+		/*public AttachmentType.Builder<A> neoforgeImpl() {
 			Objects.requireNonNull(defaultInitializer, "defaultInitializer cannot be null");
 
 			AttachmentType.Builder<A> builder = AttachmentType.builder(defaultInitializer);
@@ -143,6 +143,6 @@ public class EUMDataAttachments {
 
 			return builder;
 		}
-		//?}
+		*///?}
 	}
 }

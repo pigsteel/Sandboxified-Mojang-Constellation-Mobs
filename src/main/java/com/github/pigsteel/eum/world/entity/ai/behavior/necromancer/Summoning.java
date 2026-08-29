@@ -6,11 +6,11 @@ import com.github.pigsteel.eum.world.entity.ai.memory.EUMMemoryModuleTypes;
 import com.github.pigsteel.eum.world.entity.monster.necromancer.Necromancer;
 import com.google.common.collect.ImmutableMap;
 //? fabric {
-/*import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-*///?} neoforge {
-import net.neoforged.neoforge.network.PacketDistributor;
-//?}
+//?} neoforge {
+/*import net.neoforged.neoforge.network.PacketDistributor;
+*///?}
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -352,12 +352,12 @@ public class Summoning<E extends Necromancer> extends Behavior<E> {
 		EUMLevelEventPacketPayload payload = new EUMLevelEventPacketPayload(1002, spawnPos);
 
 		//? fabric {
-		/*for (ServerPlayer player : PlayerLookup.level(level)) {
+		for (ServerPlayer player : PlayerLookup.level(level)) {
 			ServerPlayNetworking.send(player, payload);
 		}
-		*///?} neoforge {
-		PacketDistributor.sendToAllPlayers(payload);
-		//?}
+		//?} neoforge {
+		/*PacketDistributor.sendToAllPlayers(payload);
+		*///?}
 	}
 
 	private BlockPos findSpawnPos(ServerLevel level, BlockPos start, EntityType<?> entityType) {

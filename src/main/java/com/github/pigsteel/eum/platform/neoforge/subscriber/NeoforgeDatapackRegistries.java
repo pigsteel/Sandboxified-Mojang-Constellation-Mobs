@@ -1,7 +1,7 @@
 package com.github.pigsteel.eum.platform.neoforge.subscriber;
 
 //? neoforge {
-import com.github.pigsteel.eum.EUM;
+/*import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.core.EUMCustomRegistries;
 import com.github.pigsteel.eum.world.entity.monster.skeleton.SunkenVariant;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,4 +20,4 @@ public class NeoforgeDatapackRegistries {
 		);
 	}
 }
-//?}
+*///?}

@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.necromancer;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.animation.definitions.NecromancerAnimation;
 import com.github.pigsteel.eum.client.renderer.entity.state.NecromancerRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -336,3 +337,4 @@ public class NecromancerModel<S extends NecromancerRenderState> extends EntityMo
         return LayerDefinition.create(mesh, 64, 128);
     }
 }
+//?}

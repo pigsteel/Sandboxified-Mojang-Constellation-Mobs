@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.world.entity.monster.zombie.ZombifiedPiglinBrute;
@@ -10,11 +11,11 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.state.ZombifiedPiglinRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // See vilerwitchrenderer, same problem
 public class ZombifiedPiglinBruteRenderer extends HumanoidMobRenderer<ZombifiedPiglinBrute, ZombifiedPiglinRenderState, ZombifiedPiglinModel> {
-    public static final ResourceLocation ZOMBIFIED_PIGLIN_BRUTE_LOCATION = EUM.id("textures/entity/piglin/zombified_piglin_brute.png");
+    public static final Identifier ZOMBIFIED_PIGLIN_BRUTE_LOCATION = EUM.id("textures/entity/piglin/zombified_piglin_brute.png");
 
     public ZombifiedPiglinBruteRenderer(EntityRendererProvider.Context context) {
         // No baby variant
@@ -28,7 +29,7 @@ public class ZombifiedPiglinBruteRenderer extends HumanoidMobRenderer<ZombifiedP
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ZombifiedPiglinRenderState state) {
+    public Identifier getTextureLocation(ZombifiedPiglinRenderState state) {
         return ZOMBIFIED_PIGLIN_BRUTE_LOCATION;
     }
 
@@ -37,3 +38,4 @@ public class ZombifiedPiglinBruteRenderer extends HumanoidMobRenderer<ZombifiedP
         return new ZombifiedPiglinRenderState();
     }
 }
+//?}

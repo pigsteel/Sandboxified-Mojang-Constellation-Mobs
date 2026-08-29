@@ -3,10 +3,10 @@ package com.github.pigsteel.eum.mixin;
 import com.github.pigsteel.eum.world.entity.ZombieFrostbittenConversion;
 import net.minecraft.world.entity.Entity;
 //? > 26.1 {
-/*import net.minecraft.world.entity.monster.zombie.Zombie;
-*///?} < 26.1 {
-import net.minecraft.world.entity.monster.Zombie;
-//?}
+import net.minecraft.world.entity.monster.zombie.Zombie;
+//?} < 26.1 {
+/*import net.minecraft.world.entity.monster.Zombie;
+*///?}
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.witch;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.VilerWitchRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
@@ -132,3 +133,4 @@ public class VilerWitchModel extends EntityModel<VilerWitchRenderState> implemen
         this.arms.translateAndRotate(outputPoseStack);
     }
 }
+//?}

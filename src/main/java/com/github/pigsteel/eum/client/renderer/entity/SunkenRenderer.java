@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.client.model.monster.skeleton.AbstractSunkenModel;
 import com.github.pigsteel.eum.client.model.monster.skeleton.CoralSunkenModel;
@@ -13,7 +14,7 @@ import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.AbstractSkeletonRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
@@ -110,7 +111,7 @@ public class SunkenRenderer extends AbstractSkeletonRenderer<Sunken, SunkenRende
     }
 
     @Override
-    public ResourceLocation getTextureLocation(final SunkenRenderState state) {
+    public Identifier getTextureLocation(final SunkenRenderState state) {
         if(!state.isCoralDead) {
             return state.variant.modelAndTexture().asset().texturePath();
         } else {
@@ -118,3 +119,4 @@ public class SunkenRenderer extends AbstractSkeletonRenderer<Sunken, SunkenRende
         }
     }
 }
+//?}

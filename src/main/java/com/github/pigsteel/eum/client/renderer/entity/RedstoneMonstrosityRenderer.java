@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.renderer.entity;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.EUM;
 import com.github.pigsteel.eum.client.model.geom.EUMModelLayers;
 import com.github.pigsteel.eum.client.model.monster.redstonemonstrosity.RedstoneMonstrosityModel;
@@ -7,17 +8,17 @@ import com.github.pigsteel.eum.client.renderer.entity.state.RedstoneMonstrosityR
 import com.github.pigsteel.eum.world.entity.monster.redstonemonstrosity.RedstoneMonstrosity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class RedstoneMonstrosityRenderer extends MobRenderer<RedstoneMonstrosity, RedstoneMonstrosityRenderState, RedstoneMonstrosityModel> {
-	private static final ResourceLocation REDSTONE_MONSTROSITY_LOCATION = EUM.id("textures/entity/redstone_monstrosity/redstone_monstrosity.png");
+	private static final Identifier REDSTONE_MONSTROSITY_LOCATION = EUM.id("textures/entity/redstone_monstrosity/redstone_monstrosity.png");
 
 	public RedstoneMonstrosityRenderer(EntityRendererProvider.Context context) {
 		super(context, new RedstoneMonstrosityModel(context.bakeLayer(EUMModelLayers.REDSTONE_MONSTROSITY)), 5.0F);
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(RedstoneMonstrosityRenderState state) {
+	public Identifier getTextureLocation(RedstoneMonstrosityRenderState state) {
 		return REDSTONE_MONSTROSITY_LOCATION;
 	}
 
@@ -26,3 +27,4 @@ public class RedstoneMonstrosityRenderer extends MobRenderer<RedstoneMonstrosity
 		return new RedstoneMonstrosityRenderState();
 	}
 }
+//?}

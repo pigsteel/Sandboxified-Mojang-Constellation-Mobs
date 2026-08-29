@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.zombie;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.ReclaimedRenderState;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -29,3 +30,4 @@ public class ReclaimedModel extends ZombieModel<ReclaimedRenderState> {
         return LayerDefinition.create(mesh, 64, 64);
     }
 }
+//?}

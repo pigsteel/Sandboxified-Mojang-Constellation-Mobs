@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.wraith;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.WraithRenderState;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
@@ -56,3 +57,4 @@ public class WraithModel extends EntityModel<WraithRenderState> implements Heade
 		return this.head;
 	}
 }
+//?}

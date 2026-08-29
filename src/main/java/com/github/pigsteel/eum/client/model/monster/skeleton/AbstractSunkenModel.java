@@ -1,5 +1,6 @@
 package com.github.pigsteel.eum.client.model.monster.skeleton;
 
+//? >= 1.21.2 {
 import com.github.pigsteel.eum.client.renderer.entity.state.SunkenRenderState;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -78,3 +79,4 @@ public class AbstractSunkenModel extends SkeletonModel<SunkenRenderState> {
         return LayerDefinition.create(mesh, 64, 32);
     }
 }
+//?}

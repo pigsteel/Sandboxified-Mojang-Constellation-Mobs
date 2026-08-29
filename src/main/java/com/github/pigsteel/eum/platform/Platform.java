@@ -19,15 +19,12 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.attachment.AttachmentType;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
-
-import static com.github.pigsteel.eum.platform.neoforge.NeoforgeVariables.ATTACHMENT_TYPES;
 
 public interface Platform {
 	boolean isModLoaded(String modId);
